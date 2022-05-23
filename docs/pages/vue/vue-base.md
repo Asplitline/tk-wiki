@@ -1,6 +1,6 @@
 ---
-title: vue2文档笔记
-sidebar: hidden
+title: Vue 基础
+order: 1
 ---
 
 # Vue 实例

@@ -1,5 +1,6 @@
 ---
 title : Vuex
+order : 4
 ---
 
 

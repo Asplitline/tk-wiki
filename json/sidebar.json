@@ -1,0 +1,48 @@
+{
+	"/pages/docs/": [
+		{
+			"text": "docs",
+			"collapsable": true,
+			"children": []
+		}
+	],
+	"/pages/package/": [
+		{
+			"text": "package",
+			"collapsable": true,
+			"children": []
+		}
+	],
+	"/pages/vue/": [
+		{
+			"text": "vue",
+			"collapsable": true,
+			"children": [
+				{
+					"link": "/pages/vue/index",
+					"text": "目录"
+				},
+				{
+					"link": "/pages/vue/vue-base",
+					"text": "Vue 基础"
+				},
+				{
+					"link": "/pages/vue/vue-api",
+					"text": "Vue api"
+				},
+				{
+					"link": "/pages/vue/vue-router",
+					"text": "Vue Router"
+				},
+				{
+					"link": "/pages/vue/vuex",
+					"text": "Vuex"
+				},
+				{
+					"link": "/pages/vue/style-guide",
+					"text": "风格指南"
+				}
+			]
+		}
+	]
+}

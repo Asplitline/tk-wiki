@@ -1,5 +1,6 @@
 ---
 title : Vue Router
+order : 3
 ---
 
 # Vue Router

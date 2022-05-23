@@ -26,26 +26,26 @@ export function handlePages(pages) {
   pages.forEach((item) => {
     const children = getFileList(item)
     console.log(item)
-    const result = children.map((i, index) => {
+    const result = []
+    children.forEach((i, index) => {
       const filePath = joinPath([item, i])
       const { data } = parseRemarkVar(filePath)
       // const path = i.match(/([^\s]*).md$/, '$1')[1]
-      const path = i.replace(/\.md$/i, '')
+      const path = `${pages_root}/${item}/` + i.replace(/\.md$/i, '')
       const isReadme = path.toLowerCase() === 'readme'
-      return {
-        path: isReadme ? '' : path,
-        title: data.title || 'no title'
+      result[data.order] = {
+        link: isReadme ? '' : path,
+        text: data.title || 'no title'
         // id: `${item}_${index + 1}`
       }
     })
     endPages[`${pages_root}/${item}/`] = [
       {
-        title: item,
-        children: [...result],
-        collapsable: false
+        text: item,
+        collapsable: true,
+        children: [...result]
       }
     ]
   })
-  console.log(JSON.stringify(endPages))
   return endPages
 }

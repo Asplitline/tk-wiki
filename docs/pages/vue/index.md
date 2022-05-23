@@ -1,17 +1,19 @@
 ---
 title: 目录
+order: 0
+sidebar: false
 ---
-
-# Vue
 
 ## Vue2
 
-[Vue 基础](./01-vue-base.md)
+[Vue 基础](./vue-base.md)
 
-[Vue API](./02-vue-api.md)
+[Vue API](./vue-api.md)
 
-[Vuex](./03-vuex.md)
+[Vuex](./vuex.md)
 
-[VueRouter](./03-vue-router.md)
+[VueRouter](./vue-router.md)
 
-[风格指南](./04-style-guide.md)
+[风格指南](./style-guide.md)
+
+## Vue3
