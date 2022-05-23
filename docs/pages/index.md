@@ -1,7 +1,9 @@
 ---
-sidebarDepth: 2
+sidebar: false
 ---
 
-# pages
+# 主页
 
-123123
+[Vue](./../pages/vue/index.md)
+
+[Package](./../pages/package/index.md)

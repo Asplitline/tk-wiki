@@ -2,15 +2,7 @@ import { pages_root } from '../lib/static'
 const nav = [
   {
     text: '首页',
-    link: '/guide/'
-  },
-  {
-    text: 'Vue',
-    link: '/vue/'
-  },
-  {
-    text: '技术',
-    items: [{ text: 'vue2文档', link: '/vue/vue2' }]
+    link: '/'
   },
   {
     text: 'github',
@@ -31,10 +23,8 @@ const endNav = nav.map((i) => {
     }
   })
   const hasItems = i.items?.length > 0
-  const baseRes = {
-    ...i,
-    link: i.external ? i.link : addPrefix(i.link)
-  }
+  const isLink = i.link?.length > 0
+  const baseRes = isLink ? { ...i, link: i.external ? i.link : addPrefix(i.link) } : { ...i }
   return hasItems ? { ...baseRes, items } : { ...baseRes }
 })
 
