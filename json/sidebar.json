@@ -3,6 +3,18 @@
 		{
 			"text": "docs",
 			"collapsable": true,
+			"children": [
+				{
+					"link": "/pages/docs/index",
+					"text": "-/-"
+				}
+			]
+		}
+	],
+	"/pages/js/": [
+		{
+			"text": "js",
+			"collapsable": true,
 			"children": []
 		}
 	],
@@ -10,7 +22,24 @@
 		{
 			"text": "package",
 			"collapsable": true,
-			"children": []
+			"children": [
+				{
+					"link": "/pages/package/index",
+					"text": "大杂烩"
+				},
+				{
+					"link": "/pages/package/npm-yarn",
+					"text": "npm & yarn"
+				},
+				{
+					"link": "/pages/package/git-github",
+					"text": "Git"
+				},
+				{
+					"link": "/pages/package/keyboard",
+					"text": "Keyboard"
+				}
+			]
 		}
 	],
 	"/pages/vue/": [

@@ -1,21 +1,7 @@
 [
 	{
 		"text": "首页",
-		"link": "/pages/guide/"
-	},
-	{
-		"text": "Vue",
-		"link": "/pages/vue/"
-	},
-	{
-		"text": "技术",
-		"items": [
-			{
-				"text": "vue2文档",
-				"link": "/pages/vue/vue2"
-			}
-		],
-		"link": "/pagesundefined"
+		"link": "/pages/"
 	},
 	{
 		"text": "github",
