@@ -147,7 +147,7 @@ tree /f /a >文件名.txt
 |             Ctrl+ B/I/U              | **加粗**（\****）*斜体\*（**）<u>下划线</u>（<u></u>） |
 |           Shift + Alt + 5            |                   ~~删除线~~（~~~~）                   |
 | Shift + Ctrl+ \` 或 行内代码块（``） |                         `123`                          |
-|               Ctrl+ K                |                [超链接](Typora)（[]()）                |
+|               Ctrl+ K                |                [超链接](#Typora)（[]()）                |
 |               Ctrl+ T                |                          表格                          |
 |           Ctrl+ Shift + I            |                         ![]()                          |
 |               Ctrl+ /                |                         源代码                         |

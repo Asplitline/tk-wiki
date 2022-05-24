@@ -11,13 +11,6 @@
 			]
 		}
 	],
-	"/pages/js/": [
-		{
-			"text": "js",
-			"collapsable": true,
-			"children": []
-		}
-	],
 	"/pages/package/": [
 		{
 			"text": "package",
@@ -28,11 +21,11 @@
 					"text": "大杂烩"
 				},
 				{
-					"link": "/pages/package/npm&yarn",
+					"link": "/pages/package/npm_yarn",
 					"text": "npm & yarn"
 				},
 				{
-					"link": "/pages/package/git&github",
+					"link": "/pages/package/git_github",
 					"text": "Git"
 				},
 				{
