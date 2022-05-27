@@ -36,7 +36,7 @@
 - [ ] jQuery.md
 - [ ] NodeJs.md
 - [ ] regexp.md
-- [ ] Typescript.md
+- [x] Typescript.md
 
 # 02_Ext
 
