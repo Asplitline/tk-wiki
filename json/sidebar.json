@@ -5,8 +5,9 @@
 			"collapsable": true,
 			"children": [
 				{
+					"text": "-/-",
 					"link": "/pages/docs/index",
-					"text": "-/-"
+					"order": 0
 				}
 			]
 		}
@@ -15,7 +16,18 @@
 		{
 			"text": "js",
 			"collapsable": true,
-			"children": []
+			"children": [
+				{
+					"text": "JavaScript相关",
+					"link": "/pages/js/index",
+					"order": 0
+				},
+				{
+					"text": "typescript",
+					"link": "/pages/js/typescript",
+					"order": 1
+				}
+			]
 		}
 	],
 	"/pages/package/": [
@@ -24,20 +36,24 @@
 			"collapsable": true,
 			"children": [
 				{
-					"link": "/pages/package/index",
-					"text": "大杂烩"
-				},
-				{
-					"link": "/pages/package/npm-yarn",
-					"text": "npm & yarn"
-				},
-				{
+					"text": "Git",
 					"link": "/pages/package/git-github",
-					"text": "Git"
+					"order": 2
 				},
 				{
+					"text": "大杂烩",
+					"link": "/pages/package/index",
+					"order": 0
+				},
+				{
+					"text": "Keyboard",
 					"link": "/pages/package/keyboard",
-					"text": "Keyboard"
+					"order": 3
+				},
+				{
+					"text": "npm & yarn",
+					"link": "/pages/package/npm-yarn",
+					"order": 1
 				}
 			]
 		}
@@ -48,28 +64,34 @@
 			"collapsable": true,
 			"children": [
 				{
+					"text": "目录",
 					"link": "/pages/vue/index",
-					"text": "目录"
+					"order": 0
 				},
 				{
-					"link": "/pages/vue/vue-base",
-					"text": "Vue 基础"
-				},
-				{
-					"link": "/pages/vue/vue-api",
-					"text": "Vue api"
-				},
-				{
-					"link": "/pages/vue/vue-router",
-					"text": "Vue Router"
-				},
-				{
-					"link": "/pages/vue/vuex",
-					"text": "Vuex"
-				},
-				{
+					"text": "风格指南",
 					"link": "/pages/vue/style-guide",
-					"text": "风格指南"
+					"order": 5
+				},
+				{
+					"text": "Vue api",
+					"link": "/pages/vue/vue-api",
+					"order": 2
+				},
+				{
+					"text": "Vue 基础",
+					"link": "/pages/vue/vue-base",
+					"order": 1
+				},
+				{
+					"text": "Vue Router",
+					"link": "/pages/vue/vue-router",
+					"order": 3
+				},
+				{
+					"text": "Vuex",
+					"link": "/pages/vue/vuex",
+					"order": 4
 				}
 			]
 		}

@@ -21,30 +21,37 @@ export function parseRemarkVar(filePath) {
   return parseData
 }
 
+const sortPages = (data) => {
+  return data.sort((a, b) => a - b)
+}
+
 export function handlePages(pages) {
   const endPages = {}
   pages.forEach((item) => {
     const children = getFileList(item)
-    const result = []
-    children.forEach((i, index) => {
+    // const result = []
+    const result = children.map((i, index) => {
       const filePath = joinPath([item, i])
-      console.log(filePath)
+      // console.log(filePath)
       const {
         data: { order = 0, title = '-/-' }
       } = parseRemarkVar(filePath)
       // const path = i.match(/([^\s]*).md$/, '$1')[1]
       const path = `${pages_root}/${item}/` + i.replace(/\.md$/i, '')
       const isReadme = path.toLowerCase() === 'readme'
-      result[order] = {
+      return {
+        text: title,
         link: isReadme ? '' : path,
-        text: title
+        order
       }
     })
+    const sortResult = sortPages(result)
+    // console.log(sortResult)
     endPages[`${pages_root}/${item}/`] = [
       {
         text: item,
         collapsable: true,
-        children: [...result]
+        children: [...sortResult]
       }
     ]
   })

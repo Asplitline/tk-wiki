@@ -7,3 +7,5 @@ sidebar: false
 [Vue](./../pages/vue/index.md)
 
 [Package](./../pages/package/index.md)
+
+[JavaScript](../pages/js/index.md)
