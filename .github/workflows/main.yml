@@ -17,14 +17,37 @@ jobs:
       matrix:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      # 下载源码
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # - name: Build
+      #   uses: actions/setup-node@master
+      # - run: yarn install
+      # - run: yarn build
+
+      # - uses: actions/checkout@v3
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     # cache: 'npm'
+      # - run: yarn install
+      # - run: yarn build
+      # - name: Run
+      #   uses: actions/setup-node@master
+      #   run: pm2 start yarn --name tk-docs -- serve
+
+      - name: Deploy
+        uses: appleboy/ssh-action@master
         with:
-          node-version: ${{ matrix.node-version }}
-          # cache: 'npm'
-      - run: yarn install
-      - run: yarn build
-      - run: pm2 start yarn --name tk-docs -- serve
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /data/tk-notes
+            yarn install
+            yarn build
+            pm2 start yarn --name tk-docs -- serve
