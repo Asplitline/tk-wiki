@@ -16,27 +16,12 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      # 下载源码
+      # download source
       - name: Checkout
         uses: actions/checkout@master
 
-      # - name: Build
-      #   uses: actions/setup-node@master
-      # - run: yarn install
-      # - run: yarn build
-
-      # - uses: actions/checkout@v3
-      # - name: Use Node.js ${{ matrix.node-version }}
-      # uses: actions/setup-node@v3
-      # with:
-      #     node-version: ${{ matrix.node-version }}
-      #     # cache: 'npm'
-      #   - run: yarn install
-      # - run: yarn build
-      # Build project
-
+      # Install & Build
       - name: Build
         uses: actions/setup-node@master
       - run: |
@@ -51,10 +36,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          # 拷贝 .next、public文件夹和package.json文件到服务器指定目录
           source: './docs/.vitepress/dist/*'
           target: '/data/tk-notes'
-          strip_components: 3
+          strip_components: 3 # 去掉 3 层路径, /data/tk-notes/docs/.vitepress/dist/* => /data/tk-notes/*
+
 
       # - name: Deploy
       #   uses: appleboy/ssh-action@master
