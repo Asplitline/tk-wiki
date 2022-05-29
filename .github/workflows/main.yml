@@ -27,4 +27,4 @@ jobs:
           # cache: 'npm'
       - run: yarn install
       - run: yarn build
-      - run: yarn serve
+      - run: pm2 start yarn --name tk-docs -- serve
