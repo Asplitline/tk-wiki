@@ -1,11 +1,13 @@
 ---
-sidebar: false
+sidebar: true
 ---
 
-# 主页
+# 首页
 
-[Vue](./../pages/vue/index.md)
+[Vue](/pages/vue/index.md)
 
 [Package](./../pages/package/index.md)
 
 [JavaScript](../pages/js/index.md)
+
+<TButton />

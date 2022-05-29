@@ -11,7 +11,7 @@ const nav = [
   }
 ]
 
-const addPrefix = (link) => {
+const addPrefix = (link: string) => {
   return pages_root + link
 }
 

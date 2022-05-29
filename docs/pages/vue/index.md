@@ -1,19 +1,13 @@
 ---
-title: 目录
-order: 0
-sidebar: false
+sidebar: true
 ---
 
-## Vue2
+# 文档清单
 
-[Vue 基础](./vue-base.md)
+[Vue](/pages/vue/index.md)
 
-[Vue API](./vue-api.md)
+[Package](./../pages/package/index.md)
 
-[Vuex](./vuex.md)
+[JavaScript](../pages/js/index.md)
 
-[VueRouter](./vue-router.md)
-
-[风格指南](./style-guide.md)
-
-## Vue3
+<TButton />
