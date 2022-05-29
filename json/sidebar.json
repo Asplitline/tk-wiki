@@ -41,6 +41,11 @@
 					"order": 2
 				},
 				{
+					"text": "Git",
+					"link": "/pages/package/git_github",
+					"order": 2
+				},
+				{
 					"text": "大杂烩",
 					"link": "/pages/package/index",
 					"order": 0
@@ -53,6 +58,11 @@
 				{
 					"text": "npm & yarn",
 					"link": "/pages/package/npm-yarn",
+					"order": 1
+				},
+				{
+					"text": "npm & yarn",
+					"link": "/pages/package/npm_yarn",
 					"order": 1
 				}
 			]
