@@ -39,7 +39,7 @@ jobs:
 
       - name: Build
         uses: actions/setup-node@master
-        run: |
+      - run: |
           yarn install
           yarn build
 
