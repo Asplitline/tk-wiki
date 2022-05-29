@@ -52,8 +52,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           # 拷贝 .next、public文件夹和package.json文件到服务器指定目录
-          source: '/docs/.vitepress/dist/*'
-          target: '/data/tk-notes/'
+          source: './docs/.vitepress/dist/*'
+          target: '/data/tk-notes'
+          strip_components: 3
 
       # - name: Deploy
       #   uses: appleboy/ssh-action@master
