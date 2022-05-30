@@ -1,5 +1,5 @@
 ---
-sidebar: false
+sidebar: true
 order: 0
 title: 大杂烩
 ---

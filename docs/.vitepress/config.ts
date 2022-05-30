@@ -15,14 +15,24 @@ export default defineConfig({
   base: '',
   themeConfig: {
     nav: nav,
-    sidebar: i.default
+    // sidebar: {}
+    sidebar: sidebar
+    // sidebar: i.default
   }
 })
 // export default config
+try {
+  generateJson(true)
+} catch (error) {
+  console.log('error :', error)
+}
 
-// generateJson()
-
-function generateJson() {
-  fs.writeFileSync('./json/sidebar.json', JSON.stringify(sidebar, null, '\t'))
-  fs.writeFileSync('./json/nav.json', JSON.stringify(nav, null, '\t'))
+function generateJson(test = false) {
+  if (!test) {
+    fs.writeFileSync('./json/sidebar.json', JSON.stringify(sidebar, null, '\t'))
+    fs.writeFileSync('./json/nav.json', JSON.stringify(nav, null, '\t'))
+  } else {
+    console.log('test :', test)
+    fs.writeFileSync('./json/sidebar-test.json', JSON.stringify(sidebar, null, '\t'))
+  }
 }

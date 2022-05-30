@@ -1,0 +1,121 @@
+{
+	"/pages/docs": [
+		{
+			"text": "docs",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "-/-",
+					"link": "/pages/docs/index",
+					"order": 0
+				}
+			]
+		}
+	],
+	"/pages/js": [
+		{
+			"text": "js",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "JavaScript相关",
+					"link": "/pages/js/index",
+					"order": 0
+				},
+				{
+					"text": "typescript",
+					"link": "/pages/js/typescript",
+					"order": 1
+				}
+			]
+		}
+	],
+	"/pages/package": [
+		{
+			"text": "package",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "Git",
+					"link": "/pages/package/git-github",
+					"order": 2
+				},
+				{
+					"text": "大杂烩",
+					"link": "/pages/package/index",
+					"order": 0
+				},
+				{
+					"text": "Keyboard",
+					"link": "/pages/package/keyboard",
+					"order": 3
+				},
+				{
+					"text": "npm & yarn",
+					"link": "/pages/package/npm-yarn",
+					"order": 1
+				}
+			]
+		}
+	],
+	"/pages/vue": [
+		{
+			"text": "vue",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "清单",
+					"link": "/pages/vue/index",
+					"order": 0
+				}
+			]
+		},
+		{
+			"text": "vue2",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "Vue2",
+					"link": "/pages/vue/vue2/index",
+					"order": 1
+				},
+				{
+					"text": "风格指南",
+					"link": "/pages/vue/vue2/style-guide",
+					"order": 5
+				},
+				{
+					"text": "Vue api",
+					"link": "/pages/vue/vue2/vue-api",
+					"order": 2
+				},
+				{
+					"text": "Vue 基础",
+					"link": "/pages/vue/vue2/vue-base",
+					"order": 1
+				},
+				{
+					"text": "Vue Router",
+					"link": "/pages/vue/vue2/vue-router",
+					"order": 3
+				},
+				{
+					"text": "Vuex",
+					"link": "/pages/vue/vue2/vuex",
+					"order": 4
+				}
+			]
+		},
+		{
+			"text": "vue3",
+			"collapsable": true,
+			"children": [
+				{
+					"text": "Vue3",
+					"link": "/pages/vue/vue3/index",
+					"order": 2
+				}
+			]
+		}
+	]
+}

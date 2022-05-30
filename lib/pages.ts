@@ -3,38 +3,41 @@ import matter from 'gray-matter'
 import path from 'path'
 import { pages_root } from './static'
 
-const joinPath = (arr: string[]) => path.resolve(__dirname, '../docs/pages', ...arr)
+const joinPath = (arr: string[], prefix = '.') => {
+  return path.resolve(__dirname, `../docs${pages_root}`, [prefix, ...arr].join('/'))
+}
 
+const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [pages_root, ...arr].join('/'))
 const isDir = (path: string) => path.indexOf('.') === -1
-export function getDirList(...item: string[]) {
+
+export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
+  if (dir.length === 0) {
+    return result
+  }
+  const currentObj = dir.shift()
+  result.push(currentObj)
+  const fullPath = joinPath([currentObj.path!])
+  if (isDir(fullPath)) {
+    const dirList = getDirList([currentObj.path!])
+    if (dirList.length) {
+      const newDirObj = dir2Obj(dirList, currentObj.path, currentObj.current)
+      result.push(...newDirObj)
+    }
+  }
+  return getDeepDir(dir, result)
+}
+export function getFileList(path: string) {
+  const dirList = fs.readdirSync(path)
+  return dirList.filter((i) => !isDir(i))
+}
+export function getDirList(item: string[] = []) {
   const dirList = fs.readdirSync(joinPath(item))
   return dirList.filter((i) => isDir(i))
 }
 
-export function getDeepDir(dir: string[] = [], result: string[] = []) {
-  if (dir.length === 0) {
-    return result
-  }
-  const currentDir = dir.shift()
-  const fullPath = joinPath([currentDir!])
-  if (isDir(fullPath)) {
-    const dirList = getDirList(fullPath)
-    if (dirList.length) {
-      const newDirList = dirList.map((i) => `${currentDir}/${i}`)
-      dir.push(...newDirList)
-    }
-  }
-  getDeepDir(dir, [...result, currentDir!])
-}
-export function getFileList(...item: string[]) {
-  // console.log('item :', item)
+export function getPathList(path: string) {
   // console.log('joinPath(item) :', joinPath(item))
-  const dirList = fs.readdirSync(joinPath(item))
-  return dirList.filter((i) => !isDir(i))
-}
-
-export function getPathList(...item: string[]) {
-  return fs.readdirSync(joinPath(item))
+  return fs.readdirSync(path)
 }
 
 export function parseRemarkVar(filePath: string) {
@@ -48,12 +51,13 @@ const sortPages = (data: any[]) => {
 }
 
 function getMarkdownInfo(dir: string, file: string) {
-  const filePath = joinPath([dir, file])
+  const filePath = joinPath([dir, file], '..')
   const {
     data: { order = 0, title = '-/-' }
   } = parseRemarkVar(filePath)
   const fileName = file.replace(/\.md$/i, '')
-  const path = `${pages_root}/${dir}/${fileName}`
+  // const path = `${pages_root}/${dir}/${fileName}`
+  const path = joinLink([dir, fileName])
   const isReadme = path.toLowerCase() === 'index'
   return {
     text: title,
@@ -62,47 +66,48 @@ function getMarkdownInfo(dir: string, file: string) {
   }
 }
 
-export function handlePages(pages: [], filePrefix) {
-  const endPages = {}
-  pages.forEach((dir) => {
-    const pathList = getPathList(dir)
-    // console.log('dir :', dir)
-    // const fileList = getFileList(dir)
-    // const dirList = getDirList(dir)
-    const result = pathList.map((path) => {
-      if (isDir(path)) {
-        const res = getMarkdownInfo(`${dir}/${path}`, 'index.md')
-        // console.log('res :', res)
-        // const childrenPathList = getFileList(dir, path)
-        // const children = childrenPathList.map((childPath) => {
-        //   return getMarkdownInfo(dir + '/' + path, childPath)
-        // })
-        return {
-          ...res
-        }
-      } else {
-        return getMarkdownInfo(dir, path)
+export function handlePages(dir: string, filePrefix: string = pages_root) {
+  const pathList = getFileList(joinPath([dir], '..'))
+  const result = pathList.map((path) => {
+    if (isDir(path)) {
+      const res = getMarkdownInfo(`${dir}/${path}`, 'index.md')
+      return {
+        ...res
       }
-    })
-
-    const sortResult = sortPages(result)
-    // console.log('sortResult :', sortResult)
-    endPages[`${filePrefix}/${dir}/`] = [
-      {
-        text: dir,
-        collapsable: true,
-        children: sortResult
-      }
-    ]
+    } else {
+      return getMarkdownInfo(dir, path)
+    }
   })
-  console.log('endPages :', endPages)
-  return endPages
+
+  const sortResult = sortPages(result)
+  return {
+    text: dir.split('/').pop(),
+    collapsable: true,
+    children: sortResult
+  }
+}
+
+function dir2Obj(dir: string[], parent = pages_root, current = '') {
+  return dir.map((i) => ({ path: i, parent: parent, current: current ? [current, i].join('/') : [parent, i].join('/') }))
 }
 
 export function initSideBar() {
-  const dirList = getDirList()
-  const dir = getDeepDir(dirList)
-  console.log('dir :', dir)
-  // const sidebar = handlePages(dirList, pages_root)
-  // console.log('sidebar :', sidebar)
+  try {
+    const dirList = getDirList()
+    let dir = getDeepDir(dir2Obj(dirList))
+    const endPages = {}
+    dir.forEach((i) => {
+      const item = handlePages(i.current)
+      if (i.parent === pages_root) {
+        endPages[i.current] = [item]
+      } else {
+        const parent = dir.find((j) => j.path === i.parent)
+        endPages[parent.current].push(item)
+      }
+    })
+    return endPages
+  } catch (error) {
+    console.log('error :', error)
+    return {}
+  }
 }

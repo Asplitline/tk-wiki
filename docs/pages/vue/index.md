@@ -1,13 +1,12 @@
 ---
+title: 清单
 sidebar: true
 ---
 
 # 文档清单
 
-[Vue](/pages/vue/index.md)
+[Vue2](./vue2/index.md)
 
-[Package](./../pages/package/index.md)
-
-[JavaScript](../pages/js/index.md)
+[Vue3](./vue3/index.md)
 
 <TButton />

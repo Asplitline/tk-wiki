@@ -1,6 +1,6 @@
 ---
-title: Vue
-order: 0
+title: Vue3
+order: 2
 ---
 
 # Vue3

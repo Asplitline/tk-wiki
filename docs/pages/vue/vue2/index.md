@@ -1,7 +1,6 @@
 ---
-title: 目录
-order: 0
-sidebar: true
+title: Vue2
+order: 1
 ---
 
 ## Vue2
@@ -15,5 +14,3 @@ sidebar: true
 [VueRouter](./vue-router.md)
 
 [风格指南](./style-guide.md)
-
-## Vue3

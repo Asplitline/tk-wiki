@@ -1,6 +1,6 @@
 ---
-title : 风格指南
-order : 5
+title: 风格指南
+order: 5
 ---
 
 # 风格指南
@@ -11,7 +11,7 @@ order : 5
 
 **避免**跟现有的以及未来的 HTML **元素相冲突**
 
-`todo` -  `todo-item or todoItem`
+`todo` - `todo-item or todoItem`
 
 ### 组件数据
 
@@ -21,7 +21,7 @@ order : 5
 
 > 只有*根实例*直接使用数据对象（根实例唯一）
 
-### prop定义
+### prop 定义
 
 **prop**定义应该**尽量详解**，**指定其类型**
 
@@ -32,11 +32,11 @@ order : 5
 
 用`key`配合`v-for`，便于*维护内部组件及其子树*的状态
 
-*Vue* 会使用一种*最大限度减少动态元素*并且尽可能的*尝试就地修改/复用相同类型元素*的算法
+_Vue_ 会使用一种*最大限度减少动态元素*并且尽可能的*尝试就地修改/复用相同类型元素*的算法
 
-*使用key*后，会*基于key变化重新排列元素* [exp](https://blog.csdn.net/weixin_41736818/article/details/107372595)
+*使用 key*后，会*基于 key 变化重新排列元素* [exp](https://blog.csdn.net/weixin_41736818/article/details/107372595)
 
-> [对象固化](https://zhhlwd.gitee.io/posts/js%E5%9B%BA%E5%8C%96%E5%AF%B9%E8%B1%A1.html)：在三个层级上固化一个对象。从宽到严它们依次是：*防止扩展、密封、冻结*。
+> [对象固化](https://zhhlwd.gitee.io/posts/js%E5%9B%BA%E5%8C%96%E5%AF%B9%E8%B1%A1.html)：在三个层级上固化一个对象。从宽到严它们依次是：_防止扩展、密封、冻结_。
 
 ### 避免 v-if 和 v-for
 
@@ -55,7 +55,7 @@ order : 5
 
 顶级 `App`组件、布局组件：样式*可以是全局*
 
-其它组件：*应该有作用域*
+其它组件：_应该有作用域_
 
 三种方式
 
@@ -70,11 +70,12 @@ order : 5
 <style module></style>
 <!-- 使用 BEM 约定 -->
 <style>
-.c-Button--close {}
+  .c-Button--close {
+  }
 </style>
 ```
 
-### 私有property名
+### 私有 property 名
 
 *使用模块作用域保持*不允许外部访问的*函数的私有性*
 
@@ -82,7 +83,7 @@ order : 5
 
 `$`：特殊实例属性
 
- `$_`：用户自定义属性，附带命名空间减少冲突
+`$_`：用户自定义属性，附带命名空间减少冲突
 
 > `$_myGreatMixin_update`
 
@@ -91,4 +92,3 @@ order : 5
 ## C - 推荐
 
 ## D - 谨慎使用
-
