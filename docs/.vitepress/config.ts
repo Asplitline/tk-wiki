@@ -28,11 +28,11 @@ try {
 }
 
 function generateJson(test = false) {
+  console.log('is Test :', test)
   if (!test) {
     fs.writeFileSync('./json/sidebar.json', JSON.stringify(sidebar, null, '\t'))
     fs.writeFileSync('./json/nav.json', JSON.stringify(nav, null, '\t'))
   } else {
-    console.log('test :', test)
     fs.writeFileSync('./json/sidebar-test.json', JSON.stringify(sidebar, null, '\t'))
   }
 }
