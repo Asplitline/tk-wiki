@@ -5,6 +5,8 @@ order: 1
 
 <!-- # TypeScript -->
 
+# TypeScript
+
 ## 介绍
 
 TypeScript 是 JavaScript 的超集，因为它扩展了 JavaScript

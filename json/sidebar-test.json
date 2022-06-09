@@ -18,7 +18,7 @@
 			"collapsable": true,
 			"children": [
 				{
-					"text": "JavaScript相关",
+					"text": "javascript",
 					"link": "/pages/js/index",
 					"order": 0
 				},
@@ -37,8 +37,13 @@
 			"children": [
 				{
 					"text": "Git",
-					"link": "/pages/package/git-github",
+					"link": "/pages/package/git",
 					"order": 2
+				},
+				{
+					"text": "Github",
+					"link": "/pages/package/github",
+					"order": 3
 				},
 				{
 					"text": "大杂烩",
@@ -48,7 +53,7 @@
 				{
 					"text": "Keyboard",
 					"link": "/pages/package/keyboard",
-					"order": 3
+					"order": 4
 				},
 				{
 					"text": "npm & yarn",

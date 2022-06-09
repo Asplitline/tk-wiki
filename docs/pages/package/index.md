@@ -10,4 +10,6 @@ title: 大杂烩
 
 [keyboard](./keyboard.md)
 
-[git&github](./git-github.md)
+[git](./git.md)
+
+[github](./github.md)

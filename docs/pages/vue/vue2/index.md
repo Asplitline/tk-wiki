@@ -3,7 +3,7 @@ title: Vue2
 order: 1
 ---
 
-## Vue2
+# Vue2
 
 [Vue 基础](./vue-base.md)
 

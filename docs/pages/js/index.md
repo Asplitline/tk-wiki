@@ -1,9 +1,9 @@
 ---
-sidebar: false
+sidebar: true
 order: 0
-title: JavaScript相关
+title: javascript
 ---
 
-# JavaScript 相关
+# JavaScript
 
 [typescript](./typescript.md)
