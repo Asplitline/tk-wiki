@@ -555,7 +555,99 @@ git gc
 git archive -v --format=zip v0.1 > v0.1.zip
 ```
 
-## 配置
+### worktree - 工作树
+
+```bash
+# 工作树详情
+git worktree list
+git worktree list --porcelain # 更完整
+
+# 创建工作树
+git worktree add ../工作树目录 分支(commits ID)
+
+# 移除工作树
+git worktree remove <worktreePath>
+git worktree remote -f <worktreePath> # 强制清理
+
+# Prune working tree information in $GIT_DIR/worktrees.
+git prune 
+```
+
+### cherry-pick - 筛选
+
+作用：将指定提交作用于其他分支
+
+#### 基本用法
+
+```bash
+# commitHash作用于当前分支
+git cherry-pick <commitHash>
+# 参数也可以是分支名
+git cherry-pick <branchName>
+```
+
+例子
+
+```bash
+
+    a - b - c - d   Master
+         \
+           e - f - g Feature
+```
+
+```bash
+# 切换到 master 分支
+git checkout master
+
+# Cherry pick 操作
+git cherry-pick f
+```
+
+```js
+
+    a - b - c - d - f   Master
+         \
+           e - f - g Feature
+```
+
+#### 转移多个提交
+
+```bash
+# 转移 HashA HashB
+git cherry-pick <HashA> <HashB>
+# 转移 A 到 B （不包含A）
+git cherry-pick A..B
+# 转移 A 到 B
+git cherry-pick A^..B
+```
+
+场景：节点为合并节点，cherry-pick 会失败
+
+原因：不知道采用哪个分支变动
+
+```bash
+git cherry-pick -m 1 <commitHash>
+```
+
+> 1：接收合并的分支
+>
+> 2：变动来源的分支
+
+#### 代码冲突
+
+代码冲突，cherry-pick会暂停。
+
+方式一： --continue
+
+1. 用户解决冲突
+
+2. 添加暂存区
+
+3. `git cherry-pick --continue`
+
+方式二：--abort：放弃合并，还原
+
+方式三：--quit：放弃合并
 
 ### vscode 配置 gitbash
 
