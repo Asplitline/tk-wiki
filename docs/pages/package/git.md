@@ -157,7 +157,7 @@ git commit --amend --only # 只改提交信息
 git commit --amend --only -m 'xx'
 ```
 
-## push - 推送本地仓库
+## push - 推送
 
 `git push` ： 将本地变更上传
 
@@ -314,7 +314,7 @@ git remote update origin --prune
 git remote update origin -p
 ```
 
-## fetch - 拉取远端分支
+## fetch - 拉取
 
 `git fetch`
 
@@ -367,7 +367,7 @@ rebase：将分支**出发点**从 旧 master 移动到 新 master。
 git rebase branch_name
 ```
 
-## pull - 拉取远端分支
+## pull - 拉取
 
 `fetch` 和 `merge`的合并写法，`fetch`更新远程状态，`merge`更新状态和本地合并。
 
@@ -402,6 +402,11 @@ git checkout -p other_branch
 ```shell
 # 从本地库 HEAD 检出 demo.html 覆盖 当前工作区
 git checkout HEAD demo.html
+# 还原多个文件
+git checkout 90...ceb E:\\**\\src\\assets\\*.png # 支持通配符
+# 将某个版本文件夹还原
+git checkout 90...ceb E:\\**\\src\\views\\exception
+git checkout 90...ceb src/views/auth-demo  # 相对路径
 ```
 
 > `HEAD`（也可以是提交 ID、分支名、Tag 名）。省略 HEAD，从暂存区检出。
@@ -432,11 +437,11 @@ git revert HEAD --no-edit
 git revert -n HEAD
 ```
 
-## tag - 标签和版本管理
+## tag - 标签
 
 标签是版本库快照。通过标签，无需使用 `commit_id` 来获取固定版本代码
 
-基本操作
+### 基本操作
 
 | 命令                                   | 作用              |
 | -------------------------------------- | ----------------- |
@@ -479,7 +484,7 @@ git rm -r <fileName>
 git rm --cached <fileName>
 ```
 
-### restore -
+### restore
 
 ```shell
 # 移出缓存区 - 适用于（未commit）
@@ -540,7 +545,7 @@ git submodule update demo
 git gc
 ```
 
-### git archive - 打包
+### archive - 打包
 
 将加了 tag 的某个版本打包提取
 
