@@ -7,11 +7,18 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
     "gray-matter": "^4.0.3",
+    "husky": "^8.0.1",
     "vitepress": "^1.0.0-alpha.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
   }
 }

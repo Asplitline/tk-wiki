@@ -5,7 +5,6 @@ export default {
   ...DefaultTheme,
   enhanceApp({ app, router, siteData }) {
     app.component('TButton', Button)
-    console.log('router :', router)
     // console.log('router :', router)
     // console.log('app, router, siteData :', app, router, siteData)
     // register global components
