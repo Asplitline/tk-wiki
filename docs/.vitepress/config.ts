@@ -1,8 +1,6 @@
 import { nav, sidebar } from '../../themeConfig'
 import { defineConfig } from 'vitepress'
 
-import * as i from '../../json/sidebar.json'
-// console.log('i :', i)
 import fs from 'fs'
 export default defineConfig({
   title: 'Tk Docs',
@@ -15,14 +13,14 @@ export default defineConfig({
   base: '',
   themeConfig: {
     nav: nav,
-    // sidebar: {}
-    sidebar: sidebar
+    sidebar: {
+      ...sidebar
+    }
     // sidebar: i.default
   }
 })
-// export default config
 try {
-  generateJson(true)
+  generateJson()
 } catch (error) {
   console.log('error :', error)
 }

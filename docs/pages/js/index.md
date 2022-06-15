@@ -1,7 +1,7 @@
 ---
 sidebar: true
 order: 0
-title: javascript
+title: JavaScript
 ---
 
 # JavaScript

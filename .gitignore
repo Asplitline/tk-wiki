@@ -13,3 +13,5 @@ basement_dist
 .temp
 
 *.history
+
+*.log

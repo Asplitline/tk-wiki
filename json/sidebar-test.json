@@ -18,6 +18,11 @@
 			"collapsable": true,
 			"children": [
 				{
+					"text": "-/-",
+					"link": "/pages/js/ES6-1",
+					"order": 0
+				},
+				{
 					"text": "javascript",
 					"link": "/pages/js/index",
 					"order": 0

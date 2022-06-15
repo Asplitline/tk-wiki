@@ -5,9 +5,19 @@ const nav = [
     link: '/'
   },
   {
-    text: 'github',
-    link: 'https://github.com/Asplitline',
-    external: true
+    text: '包管理',
+    link: '/package/npm-yarn',
+    activeMatch: '/package/'
+  },
+  {
+    text: 'Vue相关',
+    link: '/vue/vue2/vue-base',
+    activeMatch: '/vue/'
+  },
+  {
+    text: 'JavaScript',
+    link: '/js/es6-1',
+    activeMatch: '/javascript/'
   }
 ]
 
