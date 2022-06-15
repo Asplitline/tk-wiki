@@ -10,5 +10,3 @@ sidebar: true
 [Package](./../pages/package/index.md)
 
 [JavaScript](../pages/js/index.md)
-
-[asd](../../)
