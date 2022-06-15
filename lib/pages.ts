@@ -8,38 +8,39 @@ const joinPath = (arr: string[], prefix = '.') => {
 }
 
 const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [pages_root, ...arr].join('/'))
+
+/**
+ * 是否为文件夹
+ * @param path
+ * @returns
+ */
 const isDir = (path: string) => path.indexOf('.') === -1
 
-export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
-  if (dir.length === 0) {
-    return result
-  }
-  const currentObj = dir.shift()
-  result.push(currentObj)
-  const fullPath = joinPath([currentObj.path!])
-  if (isDir(fullPath)) {
-    const dirList = getDirList([currentObj.path!])
-    if (dirList.length) {
-      const newDirObj = dir2Obj(dirList, currentObj.path, currentObj.current)
-      result.push(...newDirObj)
-    }
-  }
-  return getDeepDir(dir, result)
-}
+/**
+ * 获取路径下文件
+ * @param path
+ * @returns
+ */
 export function getFileList(path: string) {
   const dirList = fs.readdirSync(path)
   return dirList.filter((i) => !isDir(i))
 }
+
+/**
+ * 获取路径下文件夹
+ * @param item
+ * @returns
+ */
 export function getDirList(item: string[] = []) {
   const dirList = fs.readdirSync(joinPath(item))
   return dirList.filter((i) => isDir(i))
 }
 
-export function getPathList(path: string) {
-  // console.log('joinPath(item) :', joinPath(item))
-  return fs.readdirSync(path)
-}
-
+/**
+ * 解析markdown 头部信息
+ * @param filePath
+ * @returns
+ */
 export function parseRemarkVar(filePath: string) {
   const fileStr = fs.readFileSync(filePath, 'utf8')
   const parseData = matter(fileStr)
@@ -47,9 +48,15 @@ export function parseRemarkVar(filePath: string) {
 }
 
 const sortPages = (data: any[]) => {
-  return data.sort((a, b) => a - b)
+  return data.sort((a, b) => a.order - b.order)
 }
 
+/**
+ * 读取 markdown 头部信息
+ * @param dir
+ * @param file
+ * @returns
+ */
 function getMarkdownInfo(dir: string, file: string) {
   const filePath = joinPath([dir, file], '..')
   const {
@@ -66,29 +73,64 @@ function getMarkdownInfo(dir: string, file: string) {
   }
 }
 
+/**
+ * 根据头部信息拼装数据
+ * @param dir
+ * @param filePrefix
+ * @returns
+ */
 export function handlePages(dir: string, filePrefix: string = pages_root) {
   const pathList = getFileList(joinPath([dir], '..'))
+  let groupName = 'unTitle'
   const result = pathList.map((path) => {
-    if (isDir(path)) {
-      const res = getMarkdownInfo(`${dir}/${path}`, 'index.md')
-      return {
-        ...res
-      }
+    const info = getMarkdownInfo(dir, path)
+    if (path.indexOf('index.md') !== -1) {
+      groupName = info.text
+      return null
     } else {
-      return getMarkdownInfo(dir, path)
+      return info
     }
+    // }
   })
-
-  const sortResult = sortPages(result)
+  const sortResult = sortPages(result.filter((i) => i))
   return {
-    text: dir.split('/').pop(),
-    collapsable: true,
-    children: sortResult
+    text: groupName,
+    collapsible: true,
+    items: sortResult
   }
 }
 
+/**
+ * @param dir
+ * @param parent
+ * @param current
+ * @returns
+ */
 function dir2Obj(dir: string[], parent = pages_root, current = '') {
   return dir.map((i) => ({ path: i, parent: parent, current: current ? [current, i].join('/') : [parent, i].join('/') }))
+}
+
+/**
+ * 深度遍历获取文件夹
+ * @param dir
+ * @param result
+ * @returns
+ */
+export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
+  if (dir.length === 0) {
+    return result
+  }
+  const currentObj = dir.shift()
+  result.push(currentObj)
+  const fullPath = joinPath([currentObj.path!])
+  if (isDir(fullPath)) {
+    const dirList = getDirList([currentObj.path!])
+    if (dirList.length) {
+      const newDirObj = dir2Obj(dirList, currentObj.path, currentObj.current)
+      result.push(...newDirObj)
+    }
+  }
+  return getDeepDir(dir, result)
 }
 
 export function initSideBar() {
@@ -98,16 +140,17 @@ export function initSideBar() {
     const endPages = {}
     dir.forEach((i) => {
       const item = handlePages(i.current)
+
+      // 过滤没有子项的数据
       if (i.parent === pages_root) {
-        endPages[i.current] = [item]
+        endPages[i.current] = item.items.length ? [item] : []
       } else {
         const parent = dir.find((j) => j.path === i.parent)
-        endPages[parent.current].push(item)
+        item.items.length && endPages[parent.current].push(item)
       }
     })
     return endPages
   } catch (error) {
-    console.log('error :', error)
     return {}
   }
 }

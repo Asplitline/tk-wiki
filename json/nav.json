@@ -4,8 +4,18 @@
 		"link": "/pages/"
 	},
 	{
-		"text": "github",
-		"link": "https://github.com/Asplitline",
-		"external": true
+		"text": "包管理",
+		"link": "/pages/package/npm-yarn",
+		"activeMatch": "/package/"
+	},
+	{
+		"text": "Vue相关",
+		"link": "/pages/vue/vue2/vue-base",
+		"activeMatch": "/vue/"
+	},
+	{
+		"text": "JavaScript",
+		"link": "/pages/js/es6-1",
+		"activeMatch": "/javascript/"
 	}
 ]

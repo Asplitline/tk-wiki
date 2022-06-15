@@ -1,6 +1,7 @@
 ---
 title: Git
 order: 2
+sidebarDepth: 2
 ---
 
 # Git
@@ -337,7 +338,7 @@ git remote update origin -p
 
 > 压缩一个：将 多个 commit 整合，然后通过 commit 手动提交一次
 
-```SHELL
+```shell
 git merge --squash
 git merge --no-ff
 git merge --no-edit
@@ -444,14 +445,14 @@ git revert -n HEAD
 ### 基本操作
 
 | 命令                                   | 作用              |
-| -------------------------------------- | ----------------- |
+| -------------------------------------- | ----------------- | ---------------------------- |
 | `git tag`                              | 查看所有标签      |
 | `git tag <tagname>`                    | 创建标签          |
 | `git tag -a <tagname> -m <comment>`    | 为标签 增加说明   |
 | `git show <tagname>`                   | 查看标签内容      |
 | `git tag -d <tagname>`                 | 删除标签          |
 | `git push origin :refs/tags/<tagname>` | 删除远程标签      |
-| `git tag -l | xargs git tag -d` | 删除本地所有标签（==慎用==） |
+| `git tag -l                            | xargs git tag -d` | 删除本地所有标签（==慎用==） |
 
 ### 推送和拉取
 
@@ -570,7 +571,7 @@ git worktree remove <worktreePath>
 git worktree remote -f <worktreePath> # 强制清理
 
 # Prune working tree information in $GIT_DIR/worktrees.
-git prune 
+git prune
 ```
 
 ### cherry-pick - 筛选
@@ -635,7 +636,7 @@ git cherry-pick -m 1 <commitHash>
 
 #### 代码冲突
 
-代码冲突，cherry-pick会暂停。
+代码冲突，cherry-pick 会暂停。
 
 方式一： --continue
 

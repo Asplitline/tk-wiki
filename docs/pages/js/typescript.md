@@ -1,6 +1,6 @@
 ---
-title: typescript
-order: 1
+title: Typescript
+order: 4
 ---
 
 <!-- # TypeScript -->
