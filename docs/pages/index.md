@@ -3,7 +3,7 @@ title: 首页
 sidebar: true
 ---
 
-# 首页
+# 当前模块
 
 [Vue](/pages/vue/index.md)
 

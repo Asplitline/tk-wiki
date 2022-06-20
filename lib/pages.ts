@@ -140,7 +140,6 @@ export function initSideBar() {
     const endPages = {}
     dir.forEach((i) => {
       const item = handlePages(i.current)
-
       // 过滤没有子项的数据
       if (i.parent === pages_root) {
         endPages[i.current] = item.items.length ? [item] : []

@@ -11,6 +11,11 @@
 					"order": 1
 				},
 				{
+					"text": "ES-第二部分",
+					"link": "/pages/js/es6-2",
+					"order": 2
+				},
+				{
 					"text": "Typescript",
 					"link": "/pages/js/typescript",
 					"order": 4
