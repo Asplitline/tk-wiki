@@ -444,14 +444,14 @@ git revert -n HEAD
 
 ### 基本操作
 
-| 命令                                   | 作用              |
+| 命令                                   | 作用              |                              |
 | -------------------------------------- | ----------------- | ---------------------------- |
-| `git tag`                              | 查看所有标签      |
-| `git tag <tagname>`                    | 创建标签          |
-| `git tag -a <tagname> -m <comment>`    | 为标签 增加说明   |
-| `git show <tagname>`                   | 查看标签内容      |
-| `git tag -d <tagname>`                 | 删除标签          |
-| `git push origin :refs/tags/<tagname>` | 删除远程标签      |
+| `git tag`                              | 查看所有标签      |                              |
+| `git tag <tagname>`                    | 创建标签          |                              |
+| `git tag -a <tagname> -m <comment>`    | 为标签 增加说明   |                              |
+| `git show <tagname>`                   | 查看标签内容      |                              |
+| `git tag -d <tagname>`                 | 删除标签          |                              |
+| `git push origin :refs/tags/<tagname>` | 删除远程标签      |                              |
 | `git tag -l                            | xargs git tag -d` | 删除本地所有标签（==慎用==） |
 
 ### 推送和拉取
