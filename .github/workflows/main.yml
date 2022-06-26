@@ -29,24 +29,25 @@ jobs:
           yarn build
 
       # copy dist
-      # - name: Upload
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.PORT }}
-      #     source: './docs/.vitepress/dist/*'
-      #     target: '/data/tk-notes'
-      #     strip_components: 3 # 去掉 3 层路径, /data/tk-notes/docs/.vitepress/dist/* => /data/tk-notes/*
-
-      - name: copy file via ssh key
+      - name: Upload
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.TOKEN }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: './docs/.vitepress/dist/*'
           target: '/data/tk-notes'
-          strip_components: 3
+          strip_components: 3 # 去掉 3 层路径, /data/tk-notes/docs/.vitepress/dist/* => /data/tk-notes/*
+
+
+      # - name: copy file via ssh key
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     port: ${{ secrets.PORT }}
+      #     username: ${{ secrets.USERNAME }}
+      #     key: ${{ secrets.TOKEN }}
+      #     source: './docs/.vitepress/dist/*'
+      #     target: '/data/tk-notes'
+      #     strip_components: 3
