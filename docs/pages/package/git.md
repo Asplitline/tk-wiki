@@ -682,7 +682,80 @@ where git
 
 ## 实战
 
-### 暂存的内容变成未暂存，把未暂存的内容暂存起来
+### Git回退
+
+1. 撤销提交
+
+revert：新增一次提交，抵消上次提交
+
+```bash
+# 抵消上一次提交
+git revert HEAD
+# 抵消多次提交
+git revert [倒数第一个提交] [倒数第二个提交]
+```
+
+2. 丢弃提交
+
+reset：丢弃某个提交之后的所有提交
+
+```bash
+# 内容回到暂存区
+git reset [last good SHA]
+
+# 内容直接丢弃
+git reset --hard [last good SHA]
+```
+
+> 可以通过 git flog 找回，但存在时效
+
+3. 替换提交
+
+产生新的提交对象，替换上次提交对象
+
+```js
+git commit --amend -m "Fixes bug #42"
+```
+
+4. 撤销工作区文件修改
+
+先找暂存区，文件有暂存版本，恢复该版本。@QUES => 暂存区没有，恢复到上次提交版本。（**不可逆**）
+
+```bash
+git checkout -- [filename]
+```
+
+5. 暂存区撤销文件
+
+误将文件添加到暂存区，使用 rm 撤销
+
+```bash
+git rm --cached [filename]
+
+git restore --staged [filename]
+```
+
+6. 撤销分支变化
+
+做了几次提交，但放错分支
+
+解决：切到新分支，将旧分支回退
+
+```bash
+# 新建一个 feature 分支，指向当前最新的提交
+# 注意，这时依然停留在当前分支
+git branch feature
+
+# 切换到这几次提交之前的状态
+git reset --hard [当前分支此前的最后一次提交]
+
+# 切换到 feature 分支
+git checkout feature
+```
+
+### 暂存区和未暂存区互换
+
+暂存的内容变成未暂存，把未暂存的内容暂存起来
 
 ```bash
 git commit -m "WIP"
@@ -731,9 +804,9 @@ git mv Hello.js hello.js
 
 `remote rejected`：! [远程服务器拒绝] main -> main (TF402455: 不允许推送(push)这个分支; 你必须使用 pull request 来更新这个分支.)
 
-**原因**：因为策略配置要求 `pull requests` 来提交更新，远程服务器**拒绝**直接推送(`push`)提交到`main`,
+原因：因为策略配置要求 `pull requests` 来提交更新，远程服务器**拒绝**直接推送(`push`)提交到`main`,
 
-**解决**
+解决
 
 ```shell
 git checkout -b xx # 新建分支
