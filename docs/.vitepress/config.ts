@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 
 import fs from 'fs'
 export default defineConfig({
-  title: 'Tk Docs',
-  description: 'my notes',
+  title: 'Tk Wiki',
+  description: 'tk Wiki',
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],

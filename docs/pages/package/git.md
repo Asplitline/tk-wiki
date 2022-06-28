@@ -30,10 +30,13 @@ history | grep <keyword>
 ```
 
 ```shell
-# 提交暂存区文件
+# 提交暂存区文件（当前目录极其子孙）
 git add .
+# 添加到暂存区(整个项目文件,不管当前路径)
+git add --all # -A
 # 提交修改文件
 git add -u
+
 ```
 
 ## status - 状态

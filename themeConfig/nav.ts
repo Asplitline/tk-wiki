@@ -1,22 +1,22 @@
 import { pages_root } from '../lib/static'
 const nav = [
+  // {
+  //   text: '首页',
+  //   link: '/'
+  // },
   {
-    text: '首页',
-    link: '/'
-  },
-  {
-    text: '包管理',
+    text: 'Packages',
     link: '/package/npm-yarn',
     activeMatch: '/package/'
   },
   {
-    text: 'Vue相关',
+    text: 'Vue',
     link: '/vue/vue2/vue-base',
     activeMatch: '/vue/'
   },
   {
     text: 'JavaScript',
-    link: '/js/es6-1',
+    link: '/js/',
     activeMatch: '/javascript/'
   }
 ]

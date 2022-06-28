@@ -5,8 +5,8 @@ title: VitePress
 titleTemplate: Vite & Vue Powered Static Site Generator
 
 hero:
-  name: Tk Notes
-  text: 个人笔记
+  name: Tk Wiki
+  text: Tk 知识库
   tagline: JavaScript , TypeScript , Vue , React , Npm , Yarn , Git
   actions:
     - theme: brand

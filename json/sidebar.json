@@ -2,23 +2,89 @@
 	"/pages/docs": [],
 	"/pages/js": [
 		{
-			"text": "JavaScript",
+			"text": "ES6",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "ES-第一部分",
-					"link": "/pages/js/es6-1",
+					"text": "babel",
+					"link": "/pages/js/es6/1.babel",
 					"order": 1
 				},
 				{
-					"text": "ES-第二部分",
-					"link": "/pages/js/es6-2",
+					"text": "let const",
+					"link": "/pages/js/es6/2.let_const",
 					"order": 2
 				},
 				{
-					"text": "Typescript",
-					"link": "/pages/js/typescript",
+					"text": "变量结构赋值",
+					"link": "/pages/js/es6/3.destructuring",
+					"order": 3
+				},
+				{
+					"text": "字符串扩展和新增方法",
+					"link": "/pages/js/es6/4.string",
 					"order": 4
+				},
+				{
+					"text": "正则扩展",
+					"link": "/pages/js/es6/5.regex",
+					"order": 5
+				},
+				{
+					"text": "数值扩展",
+					"link": "/pages/js/es6/6.number",
+					"order": 6
+				},
+				{
+					"text": "函数扩展",
+					"link": "/pages/js/es6/7.function",
+					"order": 7
+				},
+				{
+					"text": "数组扩展",
+					"link": "/pages/js/es6/8.array",
+					"order": 8
+				},
+				{
+					"text": "对象扩展",
+					"link": "/pages/js/es6/9.object",
+					"order": 9
+				},
+				{
+					"text": "运算符扩展",
+					"link": "/pages/js/es6/10.operator",
+					"order": 10
+				},
+				{
+					"text": "Symbol",
+					"link": "/pages/js/es6/11.symbol",
+					"order": 11
+				},
+				{
+					"text": "Set和Map",
+					"link": "/pages/js/es6/12.set_map",
+					"order": 12
+				},
+				{
+					"text": "Proxy",
+					"link": "/pages/js/es6/13.proxy",
+					"order": 13
+				},
+				{
+					"text": "Reflect",
+					"link": "/pages/js/es6/14.reflect",
+					"order": 14
+				}
+			]
+		},
+		{
+			"text": "TypeScript",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Typescript",
+					"link": "/pages/js/ts/typescript",
+					"order": 1
 				}
 			]
 		}
