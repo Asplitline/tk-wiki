@@ -852,3 +852,24 @@ id_rsa  id_rsa.pub
 ```
 
 2. 将 pub 里的字符串配置到 ssh 中
+
+### You are not currently on a branch
+
+原因：HEAD 指向和 当前分支记录不符合
+
+```bash
+HEAD detached from refs/heads/test
+
+# refs/heads/test => ca1f3a1
+```
+
+```bash
+git branch
+* (HEAD detached from refs/heads/test)
+
+git branch temp ca1f3a1
+git checkout master
+git merge temp
+git branch -d temp
+```
+
