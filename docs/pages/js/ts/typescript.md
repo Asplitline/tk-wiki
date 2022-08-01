@@ -1980,6 +1980,20 @@ async function changePage(state: State, newPage: string) {
 }
 ```
 
+# 实战
+
+## number值赋空
+
+场景：下拉选项中 value 为 string 或 number。如果是string，赋值 `''`。如果是number，赋值为0，会影响初始值显示，赋值为null，后面无法赋值number，因为已被解析为 null 类型。
+
+解决：赋值为可选类型
+
+```js
+interface option {
+  optionId?: number
+}
+```
+
 # 相关链接
 
 ## 官方
