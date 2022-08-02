@@ -873,3 +873,44 @@ git merge temp
 git branch -d temp
 ```
 
+### 多个commits 合并
+
+```bash
+git rebase -i [hashA] [hashB]
+```
+
+注：左开右闭，不包含hashA
+
+```bash
+pick a2cca36 feat: a
+pick 52e9751 feat: b
+pick 623fc96 feat: c
+pick 42817be feat: d
+```
+
+```bash
+Commands:
+p, pick
+use commit
+r, reword
+use commit,but edit the commit messagee,edit = use commit, but stop for amending
+s, squash
+use commit,but meld into previous commit
+f, fixup
+like "squash", but discard this commit's log messagex,exec = run command (the rest of the line) using shell
+d, drop
+remove commit
+```
+
+通过 squash 将 bcd 提交合并到 a
+
+```bash
+pick a2cca36 feat: a
+s 52e9751 feat: b
+s 623fc96 feat: c
+s 42817be feat: d
+```
+
+## 参考链接
+
+[多个commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
