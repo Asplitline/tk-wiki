@@ -956,4 +956,7 @@ s 42817be feat: d
 ## 参考链接
 
 [多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
+
 [自定义 bash 别名](https://www.hejian.club/posts/ohMyZsh-alias)
+
+[.bash_profile和.bashrc的区别](https://www.cnblogs.com/520yang/articles/8384321.html)
