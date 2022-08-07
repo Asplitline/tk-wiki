@@ -74,6 +74,11 @@
 					"text": "Reflect",
 					"link": "/pages/js/es6/14.reflect",
 					"order": 14
+				},
+				{
+					"text": "Promise",
+					"link": "/pages/js/es6/15.promise",
+					"order": 15
 				}
 			]
 		},
