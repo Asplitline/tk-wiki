@@ -79,6 +79,26 @@
 					"text": "Promise",
 					"link": "/pages/js/es6/15.promise",
 					"order": 15
+				},
+				{
+					"text": "Iterator 和 for...of 循环",
+					"link": "/pages/js/es6/16.iterator_forof",
+					"order": 16
+				},
+				{
+					"text": "Generator 函数",
+					"link": "/pages/js/es6/17.generator",
+					"order": 17
+				},
+				{
+					"text": "Generator 异步应用",
+					"link": "/pages/js/es6/18.generator_async",
+					"order": 18
+				},
+				{
+					"text": "async 函数",
+					"link": "/pages/js/es6/19.async",
+					"order": 19
 				}
 			]
 		},
