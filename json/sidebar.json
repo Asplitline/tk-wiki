@@ -99,6 +99,11 @@
 					"text": "async 函数",
 					"link": "/pages/js/es6/19.async",
 					"order": 19
+				},
+				{
+					"text": "Class 基本语法",
+					"link": "/pages/js/es6/20.class_base",
+					"order": 20
 				}
 			]
 		},
