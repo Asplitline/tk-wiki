@@ -109,6 +109,11 @@
 					"text": "Class 继承",
 					"link": "/pages/js/es6/21.class_extends",
 					"order": 21
+				},
+				{
+					"text": "module 语法",
+					"link": "/pages/js/es6/22.module",
+					"order": 22
 				}
 			]
 		},
