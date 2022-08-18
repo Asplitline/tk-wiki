@@ -957,6 +957,28 @@ s 623fc96 feat: c
 s 42817be feat: d
 ```
 
+### 清除工作区文件
+
+情况一：未 add 或 commit
+
+```bash
+git checkout .
+```
+
+情况二：checkout 无法清除新建文件或文件夹
+
+```bash
+git clean
+```
+
+情况三：清除暂存区 (已经add)
+
+```bash
+git reset .
+```
+
+
+
 ## 参考链接
 
 [多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
