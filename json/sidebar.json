@@ -114,6 +114,11 @@
 					"text": "module 语法",
 					"link": "/pages/js/es6/22.module",
 					"order": 22
+				},
+				{
+					"text": "Module 的加载实现",
+					"link": "/pages/js/es6/23.module_loader",
+					"order": 23
 				}
 			]
 		},
