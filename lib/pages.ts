@@ -14,7 +14,7 @@ const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [p
  * @param path
  * @returns
  */
-const isDir = (path: string) => path.indexOf('.') === -1
+const isDir = (path: string) => path.indexOf('.md') === -1
 
 /**
  * 获取路径下文件
