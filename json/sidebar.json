@@ -127,9 +127,94 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Typescript",
-					"link": "/pages/js/ts/typescript",
+					"text": "介绍",
+					"link": "/pages/js/ts/1.intro",
 					"order": 1
+				},
+				{
+					"text": "类型",
+					"link": "/pages/js/ts/2.type",
+					"order": 2
+				},
+				{
+					"text": "函数",
+					"link": "/pages/js/ts/3.function",
+					"order": 3
+				},
+				{
+					"text": "元组",
+					"link": "/pages/js/ts/4.tuple",
+					"order": 4
+				},
+				{
+					"text": "字面量类型",
+					"link": "/pages/js/ts/5.const",
+					"order": 5
+				},
+				{
+					"text": "类型断言",
+					"link": "/pages/js/ts/6.type_assert",
+					"order": 6
+				},
+				{
+					"text": "类型推断",
+					"link": "/pages/js/ts/7.type_inference",
+					"order": 7
+				},
+				{
+					"text": "类型拓宽",
+					"link": "/pages/js/ts/8.type_widen",
+					"order": 8
+				},
+				{
+					"text": "类型缩小",
+					"link": "/pages/js/ts/9.type_narrow",
+					"order": 9
+				},
+				{
+					"text": "自定义类型",
+					"link": "/pages/js/ts/10.custom_type",
+					"order": 10
+				},
+				{
+					"text": "接口",
+					"link": "/pages/js/ts/11.interface",
+					"order": 11
+				},
+				{
+					"text": "泛型",
+					"link": "/pages/js/ts/12.generics",
+					"order": 12
+				},
+				{
+					"text": "索引类型",
+					"link": "/pages/js/ts/13.index_type",
+					"order": 13
+				},
+				{
+					"text": "映射类型",
+					"link": "/pages/js/ts/14.map_type",
+					"order": 14
+				},
+				{
+					"text": "内置工具类型",
+					"link": "/pages/js/ts/15.build-in_tools_type",
+					"order": 15
+				},
+				{
+					"text": "风格指南",
+					"link": "/pages/js/ts/16.style_guide",
+					"order": 16
+				},
+				{
+					"text": "实战",
+					"link": "/pages/js/ts/17.practical",
+					"order": 17
+				},
+				{
+					"text": "相关链接",
+					"link": "/pages/js/ts/18.reference",
+					"order": 18
 				}
 			]
 		}
