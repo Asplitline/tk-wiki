@@ -714,6 +714,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 # tk
 alias my="git config user.name Asplitline && git config user.email *@qq.com"
+alias cmy="git config user.name tink && git config user.email tink@tink.com"
 alias clsmy="git config --unset user.name && git config --unset user.email"
 
 ```
