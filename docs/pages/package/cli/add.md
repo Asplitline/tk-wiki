@@ -126,3 +126,96 @@ nvm list
 ### 相关链接
 
 nvm 下载地址：https://github.com/coreybutler/nvm-windows/releases
+
+## npx
+
+### 基本使用
+
+解决问题：调用项目内部安装模块
+
+```bash
+ npm install -D mocha
+```
+
+一般来说，调用 Mocha ，通过 package.json 中 scripts 字段调用。但想通过命令行调用，写法如下
+
+```bash
+# 根目录下执行
+node-modules/.bin/mocha --version
+```
+
+npx 调用
+
+```bash
+npx mocha --version
+```
+
+原理：npx会到`node_modules/.bin`路径和环境变量`$PATH`里面，检查命令是否存在
+
+如果模块全局安装，也能通过npx运行
+
+```bash
+npx create-react-app my-react-app
+```
+
+### --no-install 和- -ignore-existing
+
+`--no-install`参数：强制使用本地模块，不下载远程模块。本地不存在，报错。
+
+```bash
+npx --no-install http-server
+```
+
+`--ignore-existing`参数：忽略本地的同名模块，强制安装使用远程模块
+
+```bash
+ npx --ignore-existing create-react-app my-react-app
+```
+
+### 运行指定node版本
+
+指定某个版本的 Node 运行脚本。
+
+```bash
+ npx node@0.12.8 -v
+```
+
+原理：从 npm 下载这个版本的 node，使用后再删掉
+
+-p 参数：指定 npx 所要安装的模块
+
+```bash
+$ npx -p node@0.12.8 node -v 
+v0.12.8
+```
+
+作用：先安装，再执行。可以用于多个模块安装执行
+
+```bash
+npx -p lolcatjs -p cowsay [command]
+```
+
+-c 参数：
+
+作用1：将所有命令都用 npx 解释
+
+默认情况下：npx 安装多个模块时，只有第一个模块会使用npx安装。
+
+```bash
+npx -p lolcatjs -p cowsay 'cowsay hello | lolcatjs'
+# 报错
+```
+
+```bash
+npx -p lolcatjs -p cowsay -c 'cowsay hello | lolcatjs'
+```
+
+作用2：带入环境变量
+
+```bash
+npx -c 'echo "$npm_package_name"'
+```
+
+### 相关链接
+
+npx使用教程：http://www.ruanyifeng.com/blog/2019/02/npx.html
