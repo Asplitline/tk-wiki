@@ -6,14 +6,14 @@ const nav = [
   // },
   {
     text: 'Packages',
-    link: '/package/npm-yarn',
+    link: '/package/cli/npm',
     activeMatch: '/package/'
   },
   {
     text: 'Vue',
     link: '/vue/vue2/vue-base',
     activeMatch: '/vue/'
-  },
+  }, 
   {
     text: 'JavaScript',
     link: '/js/',

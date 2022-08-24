@@ -224,30 +224,59 @@
 			]
 		}
 	],
-	"/pages/package": [
+	"/pages/my": [
 		{
-			"text": "Package",
+			"text": "unTitle",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "npm & yarn",
-					"link": "/pages/package/npm-yarn",
+					"text": "Keyboard",
+					"link": "/pages/my/keyboard",
+					"order": 1
+				}
+			]
+		}
+	],
+	"/pages/package": [
+		{
+			"text": "包管理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "npm",
+					"link": "/pages/package/cli/npm",
 					"order": 1
 				},
 				{
+					"text": "yarn",
+					"link": "/pages/package/cli/yarn",
+					"order": 2
+				},
+				{
+					"text": "实战",
+					"link": "/pages/package/cli/practice",
+					"order": 4
+				},
+				{
+					"text": "其他",
+					"link": "/pages/package/cli/add",
+					"order": 5
+				}
+			]
+		},
+		{
+			"text": "Git & Github",
+			"collapsible": true,
+			"items": [
+				{
 					"text": "Git",
-					"link": "/pages/package/git",
+					"link": "/pages/package/git-github/git",
 					"order": 2
 				},
 				{
 					"text": "Github",
-					"link": "/pages/package/github",
+					"link": "/pages/package/git-github/github",
 					"order": 3
-				},
-				{
-					"text": "Keyboard",
-					"link": "/pages/package/keyboard",
-					"order": 4
 				}
 			]
 		}

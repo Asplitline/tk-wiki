@@ -6,10 +6,10 @@ title: Package
 
 # 大杂烩
 
-[npm & yarn](./npm-yarn.md)
+<!-- [npm & yarn](./npm-yarn.md)
 
 [keyboard](./keyboard.md)
 
 [git](./git.md)
 
-[github](./github.md)
+[github](./github.md) -->

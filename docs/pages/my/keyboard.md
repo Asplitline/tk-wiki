@@ -1,6 +1,6 @@
 ---
 title: Keyboard
-order: 4
+order: 1
 ---
 
 # 快捷键

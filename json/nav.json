@@ -1,7 +1,7 @@
 [
 	{
 		"text": "Packages",
-		"link": "/pages/package/npm-yarn",
+		"link": "/pages/package/cli/npm",
 		"activeMatch": "/package/"
 	},
 	{

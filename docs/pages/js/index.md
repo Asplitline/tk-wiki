@@ -8,17 +8,19 @@ title: 前言
 
 [typescript](./ts/typescript.md) -->
 
-# JavaScript
+## 相关文档
+
+### JavaScript
 
 [现代 JavaScript](https://zh.javascript.info/)
 
 [MDN JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 
-# ES6
+### ES6
 
 [网道 ES6](https://wangdoc.com/es6/)
 
-# TypeScript
+### TypeScript
 
 [TypeScript 入门教程](https://ts.xcatliu.com/)
 
