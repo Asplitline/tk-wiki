@@ -727,6 +727,8 @@ source ~/.bash_profile
 
 > 在~/.bash_profile文件中定义完别名，使用 source 命令刷新当前 shell 环境
 
+参考 [[1]](#相关链接)
+
 ## 实战
 
 ### Git 回退
@@ -980,7 +982,9 @@ git reset .
 
 
 
-## 参考链接
+## 相关链接
+
+[[1] Zsh alias](https://www.hejian.club/posts/ohMyZsh-alias)
 
 [多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
 
