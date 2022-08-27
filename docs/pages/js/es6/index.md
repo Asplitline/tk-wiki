@@ -1,4 +1,4 @@
 ---
 title: ES6
-order: 2
+order: 0
 ---

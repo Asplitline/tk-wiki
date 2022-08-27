@@ -12,7 +12,7 @@
 				},
 				{
 					"text": "let const",
-					"link": "/pages/js/es6/2.let_const",
+					"link": "/pages/js/es6/2.let-const",
 					"order": 2
 				},
 				{
@@ -62,7 +62,7 @@
 				},
 				{
 					"text": "Set和Map",
-					"link": "/pages/js/es6/12.set_map",
+					"link": "/pages/js/es6/12.set-map",
 					"order": 12
 				},
 				{
@@ -82,7 +82,7 @@
 				},
 				{
 					"text": "Iterator 和 for...of 循环",
-					"link": "/pages/js/es6/16.iterator_forof",
+					"link": "/pages/js/es6/16.iterator-forof",
 					"order": 16
 				},
 				{
@@ -92,7 +92,7 @@
 				},
 				{
 					"text": "Generator 异步应用",
-					"link": "/pages/js/es6/18.generator_async",
+					"link": "/pages/js/es6/18.generator-async",
 					"order": 18
 				},
 				{
@@ -102,28 +102,33 @@
 				},
 				{
 					"text": "Class 基本语法",
-					"link": "/pages/js/es6/20.class_base",
+					"link": "/pages/js/es6/20.class-base",
 					"order": 20
 				},
 				{
 					"text": "Class 继承",
-					"link": "/pages/js/es6/21.class_extends",
+					"link": "/pages/js/es6/21.class-extends",
 					"order": 21
 				},
 				{
-					"text": "module 语法",
+					"text": "Module 语法",
 					"link": "/pages/js/es6/22.module",
 					"order": 22
 				},
 				{
 					"text": "Module 的加载实现",
-					"link": "/pages/js/es6/23.module_loader",
+					"link": "/pages/js/es6/23.module-loader",
 					"order": 23
 				},
 				{
 					"text": "编程风格",
 					"link": "/pages/js/es6/24.style",
 					"order": 24
+				},
+				{
+					"text": "异步遍历器",
+					"link": "/pages/js/es6/25.async-iterator",
+					"order": 25
 				}
 			]
 		},
