@@ -129,6 +129,11 @@
 					"text": "异步遍历器",
 					"link": "/pages/js/es6/25.async-iterator",
 					"order": 25
+				},
+				{
+					"text": "ArrayBuffer",
+					"link": "/pages/js/es6/26.arraybuffer",
+					"order": 26
 				}
 			]
 		},
