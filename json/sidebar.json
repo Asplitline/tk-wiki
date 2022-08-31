@@ -139,6 +139,11 @@
 					"text": "装饰器",
 					"link": "/pages/js/es6/27.decorator",
 					"order": 27
+				},
+				{
+					"text": "最新提案",
+					"link": "/pages/js/es6/28.proposals",
+					"order": 28
 				}
 			]
 		},
