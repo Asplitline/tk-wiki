@@ -5,8 +5,8 @@ sidebar: true
 
 # 首页
 
-[Vue](/pages/vue/index.md)
+[Vue2](/pages/vue2/guide/instance.md)
 
-[Package](./../pages/package/index.md)
+[Npm](/pages/package/cli/npm.md)
 
-[JavaScript](../pages/js/index.md)
+[ES6](/pages/js/es6/1.babel.md)

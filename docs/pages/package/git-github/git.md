@@ -1,7 +1,6 @@
 ---
 title: Git
 order: 2
-sidebarDepth: 2
 ---
 
 # Git
@@ -668,9 +667,9 @@ where git
 
 .bash_profile：登录时执行一次，可以手动执行
 
-.bashrc：登录或打开新shell时执行
+.bashrc：登录或打开新 shell 时执行
 
-修改 `~/.bashrc` 或 `~/.bash_profile`文件都可，建议使用 `.bashrc`，新开shell时无需再手动读取配置文件
+修改 `~/.bashrc` 或 `~/.bash_profile`文件都可，建议使用 `.bashrc`，新开 shell 时无需再手动读取配置文件
 
 ```shell
 # base config
@@ -725,7 +724,7 @@ alias clsmy="git config --unset user.name && git config --unset user.email"
 source ~/.bash_profile
 ```
 
-> 在~/.bash_profile文件中定义完别名，使用 source 命令刷新当前 shell 环境
+> 在~/.bash_profile 文件中定义完别名，使用 source 命令刷新当前 shell 环境
 
 参考 [[1]](#相关链接)
 
@@ -974,13 +973,11 @@ git checkout .
 git clean
 ```
 
-情况三：清除暂存区 (已经add)
+情况三：清除暂存区 (已经 add)
 
 ```bash
 git reset .
 ```
-
-
 
 ## 相关链接
 
@@ -990,4 +987,4 @@ git reset .
 
 [自定义 bash 别名](https://www.hejian.club/posts/ohMyZsh-alias)
 
-[.bash_profile和.bashrc的区别](https://www.cnblogs.com/520yang/articles/8384321.html)
+[.bash_profile 和.bashrc 的区别](https://www.cnblogs.com/520yang/articles/8384321.html)

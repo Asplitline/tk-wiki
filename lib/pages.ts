@@ -150,6 +150,7 @@ export function initSideBar() {
     })
     return endPages
   } catch (error) {
+    console.log('error: ', error)
     return {}
   }
 }
