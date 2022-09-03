@@ -1,6 +1,7 @@
-import { nav, sidebar } from '../../themeConfig'
+import { nav, sidebar, pages } from '../../themeConfig'
 import { defineConfig } from 'vitepress'
 import fs from 'fs'
+import path from 'path'
 export default defineConfig({
   title: 'Tk Wiki',
   description: 'tk Wiki',
@@ -27,10 +28,11 @@ try {
 function generateJson(test = false) {
   console.log('is Test :', test)
   if (!test) {
-    fs.writeFileSync('./json/sidebar.json', JSON.stringify(sidebar, null, '\t'))
-    fs.writeFileSync('./json/nav.json', JSON.stringify(nav, null, '\t'))
+    fs.writeFileSync(path.resolve(__dirname, '../public/sidebar.json'), JSON.stringify(sidebar, null, '\t'))
+    fs.writeFileSync(path.resolve(__dirname, '../public/nav.json'), JSON.stringify(nav, null, '\t'))
+    fs.writeFileSync(path.resolve(__dirname, '../public/pageInfo.json'), JSON.stringify(pages, null, '\t'))
   } else {
     console.log('sidebar: ', sidebar)
-    fs.writeFileSync('./json/sidebar-test.json', JSON.stringify(sidebar, null, '\t'))
+    fs.writeFileSync(path.resolve(__dirname, '../public/sidebar-test.json'), JSON.stringify(sidebar, null, '\t'))
   }
 }

@@ -1,12 +1,15 @@
 ---
-sidebar: true
+sidebar: false
+aside: false
 order: 0
+layout: page
 title: 前言
 ---
 
 <!-- [ES6](./es6/index.md)
 
 [typescript](./ts/typescript.md) -->
+<base-index :title="$frontmatter.title "/>
 
 ## 相关文档
 

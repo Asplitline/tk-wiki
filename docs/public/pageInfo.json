@@ -1,0 +1,54 @@
+{
+	"/pages/docs": {
+		"text": "文档",
+		"link": "/pages/docs/index"
+	},
+	"/pages/es6": {
+		"text": "ES6",
+		"link": "/pages/es6/index",
+		"order": 1,
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/js": {
+		"text": "前言",
+		"link": "/pages/js/index",
+		"sidebar": false,
+		"aside": false,
+		"order": 0,
+		"layout": "page"
+	},
+	"/pages/my": {
+		"text": "个人向",
+		"link": "/pages/my/index",
+		"order": 5
+	},
+	"/pages/package": {
+		"text": "包管理",
+		"link": "/pages/package/index",
+		"sidebar": false,
+		"order": 4,
+		"layout": "page"
+	},
+	"/pages/ts": {
+		"text": "TypeScript",
+		"link": "/pages/ts/index",
+		"order": 2,
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/vue2": {
+		"text": "Vue2",
+		"link": "/pages/vue2/index",
+		"sidebar": false,
+		"order": 3,
+		"layout": "page"
+	},
+	"/pages/vue3": {
+		"text": "清单",
+		"link": "/pages/vue3/index",
+		"sidebar": true
+	}
+}

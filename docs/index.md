@@ -6,14 +6,14 @@ titleTemplate: Vite & Vue Powered Static Site Generator
 
 hero:
   name: Tk Wiki
-  text: Tk 知识库
+  # text: Tk 知识库
   tagline: JavaScript , TypeScript , Vue , React , Npm , Yarn , Git
   actions:
     - theme: brand
-      text: Get Started
+      text: 开始
       link: /pages/
     - theme: alt
-      text: View on GitHub
+      text: GitHub
       link: https://github.com/Asplitline
 
 features:

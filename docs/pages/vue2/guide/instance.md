@@ -3,8 +3,6 @@ title: Vue 基础
 order: 1
 ---
 
-
-
 # Vue 基础
 
 ## 数据与方法
@@ -39,21 +37,21 @@ data.a // => 2
 
 ## 实例生命周期钩子
 
-<img src="https://cn.vuejs.org/images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
+<img src="https://v2.cn.vuejs.org/images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
 
-| 周期函数      | 执行时机                           | 补充                                                         |
-| ------------- | ---------------------------------- | ------------------------------------------------------------ |
-| beforeCreate  | 实例初始化之前                     | 数据侦听和事件/侦听器的配置之前                              |
-| created       | 实例被创建之后                     | 实例已完成对选项的处理（数据侦听、计算属性、方法、事件/侦听器的回调函数） |
-| beforeMounted | 挂载开始之前                       | `render` 函数首次被调用                                      |
-| mounted       | 实例被挂载后                       | `el` 被新创建的 `vm.$el` 替换                                |
-| beforeUpdate  | 数据改变后，DOM 更新前             | 适合在现有 DOM 将要被更新之前访问                            |
-| updated       | 虚拟 DOM 重新渲染和更新完毕之后    | 执行依赖于 DOM 的操作                                        |
-| activated     | 被 keep-alive 缓存的组件**激活**时 |                                                              |
-| deactivated   | 被 keep-alive 缓存的组件**失活**时 |                                                              |
-| beforeDestroy | 实例销毁前                         |                                                              |
+| 周期函数      | 执行时机                           | 补充                                                                                      |
+| ------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| beforeCreate  | 实例初始化之前                     | 数据侦听和事件/侦听器的配置之前                                                           |
+| created       | 实例被创建之后                     | 实例已完成对选项的处理（数据侦听、计算属性、方法、事件/侦听器的回调函数）                 |
+| beforeMounted | 挂载开始之前                       | `render` 函数首次被调用                                                                   |
+| mounted       | 实例被挂载后                       | `el` 被新创建的 `vm.$el` 替换                                                             |
+| beforeUpdate  | 数据改变后，DOM 更新前             | 适合在现有 DOM 将要被更新之前访问                                                         |
+| updated       | 虚拟 DOM 重新渲染和更新完毕之后    | 执行依赖于 DOM 的操作                                                                     |
+| activated     | 被 keep-alive 缓存的组件**激活**时 |                                                                                           |
+| deactivated   | 被 keep-alive 缓存的组件**失活**时 |                                                                                           |
+| beforeDestroy | 实例销毁前                         |                                                                                           |
 | destroyed     | 实例销毁后调用                     | 调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。 |
-| errorCaptured | 捕获一个来自后代组件的错误时被调用 |                                                              |
+| errorCaptured | 捕获一个来自后代组件的错误时被调用 |                                                                                           |
 
 ### created
 

@@ -1,0 +1,47 @@
+[
+	{
+		"text": "Vue",
+		"items": [
+			{
+				"text": "Vue2",
+				"link": "/pages/vue2/",
+				"activeMath": "/vue2/"
+			},
+			{
+				"text": "Vue3",
+				"link": "/pages/vue3/",
+				"activeMatch": "/vue3/"
+			}
+		]
+	},
+	{
+		"text": "JavaScript",
+		"items": [
+			{
+				"text": "ES6",
+				"link": "/pages/es6/",
+				"activeMath": "/es6/"
+			},
+			{
+				"text": "TypeScript",
+				"link": "/pages/ts/",
+				"activeMatch": "/ts/"
+			}
+		]
+	},
+	{
+		"text": "包管理",
+		"items": [
+			{
+				"text": "Cli",
+				"link": "/pages/package/cli/npm",
+				"activeMath": "/package/cli/"
+			},
+			{
+				"text": "Git & Github",
+				"link": "/pages/package/git-github/git",
+				"activeMatch": "/package/git-github/"
+			}
+		]
+	}
+]

@@ -1,10 +1,10 @@
-// .vitepress/theme/index.js
+import './styles/index.css'
 import DefaultTheme from 'vitepress/theme'
-import Button from '../components/Button.vue'
+import BaseIndex from '../components/BaseIndex.vue'
 export default {
   ...DefaultTheme,
   enhanceApp({ app, router, siteData }) {
-    app.component('TButton', Button)
+    app.component('base-index', BaseIndex)
     // console.log('router :', router)
     // console.log('app, router, siteData :', app, router, siteData)
     // register global components

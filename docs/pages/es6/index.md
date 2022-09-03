@@ -1,7 +1,8 @@
 ---
-title: Vue2
+title: ES6
+order: 1
 sidebar: false
-order: 3
+aside: false
 layout: page
 ---
 

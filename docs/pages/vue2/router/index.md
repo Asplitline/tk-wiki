@@ -1,4 +1,4 @@
 ---
-title: ES6
+title: 路由
 order: 0
 ---

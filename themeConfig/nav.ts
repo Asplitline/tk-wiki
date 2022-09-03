@@ -1,24 +1,24 @@
 import { pages_root } from '../lib/static'
 const nav = [
   {
-    text: 'Packages',
-    items: [
-      { text: 'Package', link: '/package/cli/npm', activeMath: '/package/cli' },
-      { text: 'Git & Github', link: '/package/git-github/git', activeMatch: '/package/git-github/' }
-    ]
-  },
-  {
     text: 'Vue',
     items: [
-      { text: 'vue2', link: '/vue2/guide/instance', activeMath: '/vue2/' },
-      { text: 'vue3', link: '/vue3/guide/index', activeMatch: '/vue3/' }
+      { text: 'Vue2', link: '/vue2/', activeMath: '/vue2/' },
+      { text: 'Vue3', link: '/vue3/', activeMatch: '/vue3/' }
     ]
   },
   {
     text: 'JavaScript',
     items: [
-      { text: 'ES6', link: '/js/es6/1.babel', activeMath: '/js/es6/' },
-      { text: 'TypeScript', link: '/js/ts/1.intro', activeMatch: '/js/ts/' }
+      { text: 'ES6', link: '/es6/', activeMath: '/es6/' },
+      { text: 'TypeScript', link: '/ts/', activeMatch: '/ts/' }
+    ]
+  },
+  {
+    text: '包管理',
+    items: [
+      { text: 'Cli', link: '/package/cli/npm', activeMath: '/package/cli/' },
+      { text: 'Git & Github', link: '/package/git-github/git', activeMatch: '/package/git-github/' }
     ]
   }
 ]

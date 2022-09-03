@@ -57,19 +57,26 @@ const sortPages = (data: any[]) => {
  * @param file
  * @returns
  */
-function getMarkdownInfo(dir: string, file: string) {
+function getMarkdownInfo(dir: string, file: string, isAll = false) {
   const filePath = joinPath([dir, file], '..')
-  const {
-    data: { order = 0, title = '-/-' }
-  } = parseRemarkVar(filePath)
+  const { data } = parseRemarkVar(filePath)
   const fileName = file.replace(/\.md$/i, '')
-  // const path = `${pages_root}/${dir}/${fileName}`
   const path = joinLink([dir, fileName])
   const isReadme = path.toLowerCase() === 'index'
-  return {
-    text: title,
-    link: isReadme ? '' : path,
-    order
+  if (!isAll) {
+    const { order = 0, title = '-/-' } = data
+    return {
+      text: title,
+      link: isReadme ? '' : path,
+      order
+    }
+  } else {
+    const { title, ..._data } = data
+    return {
+      text: title,
+      link: isReadme ? '' : path,
+      ..._data
+    }
   }
 }
 
@@ -84,6 +91,7 @@ export function handlePages(dir: string, filePrefix: string = pages_root) {
   let groupName = 'unTitle'
   const result = pathList.map((path) => {
     const info = getMarkdownInfo(dir, path)
+
     if (path.indexOf('index.md') !== -1) {
       groupName = info.text
       return null
@@ -150,7 +158,17 @@ export function initSideBar() {
     })
     return endPages
   } catch (error) {
-    console.log('error: ', error)
     return {}
   }
+}
+
+export function initPageInfo() {
+  const dirList = getDirList()
+  const resObj = {}
+  dirList.forEach((i) => {
+    const path = `${pages_root}/${i}`
+    const res = getMarkdownInfo(path, 'index.md', true)
+    resObj[path] = res
+  })
+  return resObj
 }

@@ -1,15 +1,8 @@
 ---
-sidebar: true
-order: 0
-title: Package
+sidebar: false
+order: 4
+title: 包管理
+layout: page
 ---
 
-# 大杂烩
-
-<!-- [npm & yarn](./npm-yarn.md)
-
-[keyboard](./keyboard.md)
-
-[git](./git.md)
-
-[github](./github.md) -->
+<base-index :title="$frontmatter.title "/>

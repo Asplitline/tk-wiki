@@ -1,12 +1,7 @@
 ---
-title: 首页
+title: 文档索引
 sidebar: true
+layout: page
 ---
 
-# 首页
-
-[Vue2](/pages/vue2/guide/instance.md)
-
-[Npm](/pages/package/cli/npm.md)
-
-[ES6](/pages/js/es6/1.babel.md)
+<base-index :title="$frontmatter.title "/>

@@ -1,7 +1,8 @@
 ---
-title: Vue2
+title: TypeScript
+order: 2
 sidebar: false
-order: 3
+aside: false
 layout: page
 ---
 
