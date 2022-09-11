@@ -3,15 +3,15 @@ const nav = [
   {
     text: 'Vue',
     items: [
-      { text: 'Vue2', link: '/vue2/', activeMath: '/vue2/' },
-      { text: 'Vue3', link: '/vue3/', activeMatch: '/vue3/' }
+      { text: 'Vue2', link: '/vue2/index', activeMath: '/vue2/' },
+      { text: 'Vue3', link: '/vue3/index', activeMatch: '/vue3/' }
     ]
   },
   {
     text: 'JavaScript',
     items: [
-      { text: 'ES6', link: '/es6/', activeMath: '/es6/' },
-      { text: 'TypeScript', link: '/ts/', activeMatch: '/ts/' }
+      { text: 'ES6', link: '/es6/index', activeMath: '/es6/' },
+      { text: 'TypeScript', link: '/ts/index', activeMatch: '/ts/' }
     ]
   },
   {

@@ -325,6 +325,11 @@
 					"order": 3
 				},
 				{
+					"text": "相关链接",
+					"link": "/pages/vue2/guide/reference",
+					"order": 4
+				},
+				{
 					"text": "可复用性 & 组合",
 					"link": "/pages/vue2/guide/reusability-composition",
 					"order": 4

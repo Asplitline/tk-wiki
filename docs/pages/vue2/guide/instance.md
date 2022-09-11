@@ -5,7 +5,9 @@ order: 1
 
 # Vue 基础
 
-## 数据与方法
+## Vue 实例
+
+### 数据与方法
 
 Vue 实例创建时，将 `data` 对象中的所有的 property 加入到 Vue 的**响应式系统**。
 
@@ -27,17 +29,24 @@ vm.a = 2
 data.a // => 2
 ```
 
-**只有当实例被创建时就已经存在于 `data` 中的 property 才是响应式的**
+注意：**只有当实例被创建时就已经存在于 `data` 中的 property 才是响应式的**
 
-`Object.freeze()`：**阻止修改现有 property**，禁用响应式。
+`Object.freeze()`：冻结一个对象，**阻止修改现有 property**，禁用响应式。
+
+补充：冻结对象后
+
+1. 不能新增属性
+2. 不能删除属性
+3. 不能修改属性值和修改属性可枚举性、可配置性、可写性
+4. 不能修改原型
 
 **实例 property 与方法**：前缀 `$`，以便与用户定义的 property 区分开来
 
 > 选择根元素，可用`$0.__vue__` 浏览器获取 vue
 
-## 实例生命周期钩子
+### 生命周期钩子
 
-<img src="https://v2.cn.vuejs.org/images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
+<img src="https://v2.cn.vuejs.org/images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 67%;" />
 
 | 周期函数      | 执行时机                           | 补充                                                                                      |
 | ------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -53,14 +62,13 @@ data.a // => 2
 | destroyed     | 实例销毁后调用                     | 调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。 |
 | errorCaptured | 捕获一个来自后代组件的错误时被调用 |                                                                                           |
 
-### created
+#### created
 
-- `$el` property 目前尚不可用
+`$el` property 目前尚不可用
 
-### mounted
+#### mounted
 
-- 服务器渲染期间不被调用
-- **不会**保证所有的**子组件**也都被挂载完成。在 `mounted` 内部使用 `vm.$nextTick`，可等到整个视图渲染完成。
+**不会**保证所有的**子组件**也都被挂载完成。在 `mounted` 内部使用 `vm.$nextTick`，可等到整个视图渲染完成。
 
 ```js
 mounted: function () {
@@ -70,31 +78,37 @@ mounted: function () {
 }
 ```
 
-### beforeUpdate
+注意：服务器渲染期间不被调用
 
-==？在服务器端渲染期间不被调用，因为只有初次渲染会在服务器端进行==
+#### beforeUpdate
 
-### updated
+在服务器端渲染期间不被调用，因为只有初次渲染（created）会在服务器端进行
 
-- 服务器渲染期间不被调用
+#### updated
 
-- `updated` **不会**保证所有的子组件也都被重新渲染完毕。解决方法： `vm.$nextTick`
+`updated` **不会**保证所有的子组件也都被重新渲染完毕。
+
+解决方法：`vm.$nextTick`
 
 生命周期钩子的 `this` 上下文指向调用它的 Vue 实例
 
-### activated，deactivated，beforeDestroy，destroyed
+注意：服务器渲染期间不被调用
+
+#### activated，deactivated，beforeDestroy，destroyed
 
 服务器渲染期间不调用
 
-### errorCaptured
+#### errorCaptured
 
 `(err: Error, vm: Component, info: string) => ?boolean`
 
-三个参数
+参数说明：
 
-- err：错误对象
-- vm：发生错误的组件实例
-- info：错误来源信息的字符串
+err：错误对象
+
+vm：发生错误的组件实例
+
+info：错误来源信息的字符串
 
 > 返回 `false` 以阻止该错误继续向上传播
 
@@ -104,17 +118,35 @@ mounted: function () {
 
 ### 插值
 
+文本：使用双大括号语法 （ Mustache语法 ）
+
 ```html
 <span>Message: {{ msg }}</span>
+```
+
+一次性插值
+
+```html
 <span v-once>这个将不会改变: {{ msg }}</span>
+```
+
+双大括号插值会将文本解释为普通文本，无法输出html
+
+v-html：解析html
+
+```html
 <span v-html="rawHtml"></span>
 ```
 
-## 指令
+### 指令
 
 指令 (Directives) 是带有 `v-` 前缀的特殊 attribute。
 
-### 参数
+指令预期值是 JavaScript 表达式（v-for是例外）
+
+作用：表达式值改变，响应式作用于 DOM
+
+#### 参数
 
 一些指令能够接收一个“参数”，在指令名称之后**以冒号表示**
 
@@ -122,20 +154,23 @@ mounted: function () {
 <a v-bind:href="url">...</a>
 ```
 
-### 动态参数
+#### 动态参数
 
-可以用**方括号**括起来的 JavaScript 表达式作为一个指令的参数
+>  2.6.0+
+
+用**方括号**括起来的 JavaScript 表达式作为一个指令的参数
 
 ```html
 <a v-on:[eventName]="doSomething"> ... </a>
 ```
 
-#### 对值的约束
+##### 对值的约束
 
-- 动态参数预期会求出一个**字符串**，异常情况下值为 `null`。
-- `null` ：**可以显性地用于移除绑定**。
+动态参数预期会求出一个**字符串**，异常情况下值为 `null`。
 
-#### 表达式约束
+可以通过显示设置 null 来移除动态属性
+
+##### 对表达式约束
 
 某些字符，如**空格和引号**，放在 HTML attribute 名里是**无效的**
 
@@ -148,21 +183,63 @@ mounted: function () {
 
 **大小写不敏感**，浏览器会把 attribute 名全部强制转为小写
 
-### 修饰符
+#### 修饰符
 
-以半角句号 `.` 指明的特殊后缀
+以半角句号 `.` 指明的特殊后缀，指出指令以特殊方式绑定
 
 ```html
 <form v-on:submit.prevent="onSubmit">...</form>
 ```
 
+### 缩写
+
+v-bind 缩写
+
+```html
+<!-- 完整语法 -->
+<a v-bind:href="url">...</a>
+
+<!-- 缩写 -->
+<a :href="url">...</a>
+
+<!-- 动态参数的缩写 (2.6.0+) -->
+<a :[key]="url"> ... </a>
+```
+
+v-on 缩写
+
+```html
+<!-- 完整语法 -->
+<a v-on:click="doSomething">...</a>
+
+<!-- 缩写 -->
+<a @click="doSomething">...</a>
+
+<!-- 动态参数的缩写 (2.6.0+) -->
+<a @[event]="doSomething"> ... </a>
+```
+
+
+
 ## 计算属性和侦听器
 
 ### 计算属性
 
-**计算属性是基于它们的响应式依赖进行缓存的**。只在相关响应式依赖发生改变时它们才会重新求值。
+**计算属性是基于它们的响应式依赖进行缓存的**。
 
-> `Date.now()` 失效，因为不是响应式依赖
+只在相关响应式依赖发生改变时它们才会重新求值。
+
+例子：下面计算属性不再更新
+
+```js
+computed: {
+  now: function () {
+    return Date.now()
+  }
+}
+```
+
+分析：Date.now() 不是响应式依赖
 
 计算属性默认只有 **getter**，不过在需要时你也可以提供一个 **setter**
 
@@ -193,6 +270,14 @@ var vm = new Vue({
 })
 ```
 
+### 计算属性 vs 方法 vs 侦听器
+
+计算属性：带缓存，根据缓存响应式更新
+
+方法：没有缓存，每次调用都会重新执行
+
+侦听器：随数据变化而更新。可以进行异步处理，并且再得到最终结果前设置中间状态（计算属性无法做到）
+
 ## Class 与 Style 绑定
 
 ### 绑定 HTML Class
@@ -208,6 +293,8 @@ var vm = new Vue({
 <!-- classObject:{isActive: true} -->
 <div v-bind:class="classObject"></div>
 ```
+
+active 这个类是否存在，取决于 isActive 的 Truthy [[1] Truthy](#相关链接) 
 
 #### 数组语法
 
@@ -229,13 +316,27 @@ var vm = new Vue({
 >
 > 除 `false、0、""、null、undefined`以外都是**真值**
 
+#### 用在组件上
+
 在**自定义组件**上使用，会自动绑定到**组件根元素**上（合并的形式）
+
+```js
+Vue.component('my-component', {
+  template: '<p class="foo bar">Hi</p>'
+})
+```
+
+```html
+<my-component class="baz boo"></my-component>
+```
+
+```html
+<p class="foo bar baz boo">Hi</p>
+```
 
 ### 绑定内联样式
 
 `v-bind:style`
-
-> 会自动添加[DOC-浏览器前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)
 
 #### 对象语法
 
@@ -257,6 +358,8 @@ var vm = new Vue({
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
 
+注意：Vue.js 自动侦测并添加[[2] 浏览器前缀](#相关链接)
+
 #### 多重值 2.3+
 
 `style` 绑定中的 property 提供一个包含多个值的数组，常用于提供多个带前缀的值
@@ -267,13 +370,19 @@ var vm = new Vue({
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
+
+
 ## 条件渲染
 
 ### v-if
 
-条件性渲染**一块**内容。指令表达式返回`truthy`
+v-if：指令表达式返回`truthy`时条件性渲染一块内容。
 
-将`template` 当作不可见包裹元素进行**条件渲染**分组
+```js
+<h1 v-if="awesome">Vue is awesome!</h1>
+```
+
+切换多个元素，通常将`template` 当作不可见包裹元素进行**条件渲染**分组
 
 ```html
 <template v-if="">
@@ -283,13 +392,37 @@ var vm = new Vue({
 </template>
 ```
 
-vue 尽可能高效渲染元素，会尽量复用元素
+默认情况下：vue 尽可能高效渲染元素，会尽量复用元素
 
-> `key`：**元素独立**，不复用
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address">
+</template>
+```
+
+问题：不会清除input里面的的内容。因为 Vue 尽可能复用， input 不会被替换，只替换 placeholder。
+
+解决：添加 `key` attribute，使元素独立，不复用
+
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" key="email-input">
+</template>
+```
 
 ### v-show
 
-元素始终被渲染在 DOM 中，只是单纯切换`display`
+v-show：同 v-if 为条件渲染，但元素始终被渲染在 DOM 中，只是单纯切换`display`
 
 > 不支持**template**和**v-else**
 
@@ -297,14 +430,20 @@ vue 尽可能高效渲染元素，会尽量复用元素
 
 `v-if`
 
-- **事件和子组件适当的销毁重建**
-- **惰性**，条件为真，才会渲染
-- 更高的**切换开销**
+- 事件和子组件适当的销毁重建
+- 惰性，条件为真，才会渲染
+- 更高的切换开销
 
 `v-show`
 
-- 不管条件，**总会渲染**
-- 更高的**初始渲染开销**
+- 不管条件，总会渲染
+- 更高的初始渲染开销
+
+### v-if 和 v-for
+
+不推荐同时使用 v-if 和 v-for
+
+当 `v-if` 与 `v-for` 一起使用时，`v-for` 具有比 `v-if` 更高的优先级。即会先循环完成后，在进行条件判断。
 
 ## 列表渲染
 
@@ -799,3 +938,9 @@ Vue.component('blog-post', { props: ['title'], template: '
 - `字符串` (`template: '...'`)
 - `单文件`组件 (`.vue`)
 - `<script type="text/x-template">`
+
+## 相关链接
+
+[[1] Truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)
+
+[[2] 浏览器前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)
