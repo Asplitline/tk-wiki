@@ -451,15 +451,23 @@ v-show：同 v-if 为条件渲染，但元素始终被渲染在 DOM 中，只是
 
 `(item , index | name ) in items`
 
-- 第一参数
-  - `item` - 被迭代元素别名
-- 第二参数
-  - `index` - 当前项索引（数组）
-  - `name` - 键名（对象）
-- 第三参数（对象）
-  - `index` - 当前项索引
+`(item, name | index , index) in items`
 
-对象可有三个参数
+参数说明：
+
+第一参数
+
+`item` ： 被迭代元素别名
+
+第二参数
+
+`index`： 当前项索引（数组）
+
+name：键名（对象）
+
+第三参数
+
+`index` - 当前项索引（对象）
 
 ```html
 <div v-for="(value, name, index) in object"></div>
@@ -467,15 +475,19 @@ v-show：同 v-if 为条件渲染，但元素始终被渲染在 DOM 中，只是
 
 `of` 可以替换 `in`
 
-> 遍历顺序 按 `Object.keys()`
+遍历顺序：按 `Object.keys()`
+
+
 
 ### 维护状态
 
-`v-for`**默认渲染**时，数据项**顺序改变**，**不会移动 DOM 匹配数据项**，就地更新元素，确保每个索引都正确显示，只**适用于不依赖子组件状态或临时 DOM 状态**的列表渲染输出
+v-for 默认渲染策略：数据项**顺序改变**，**不会移动 DOM 匹配数据项**，就地更新元素。通常通过 key 来确保每个索引都正确显示
 
-总结：==数据改变，就地更新，DOM 不变==。
+默认渲染策略是高效的，但只适用于不依赖组件状态或临时DOM状态的列表渲染输出。
 
-为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 `key` attribute
+总结：数据改变，就地更新，DOM 不变，通过 key 重用重排元素。
+
+
 
 ### 数组更新检测
 
@@ -493,15 +505,23 @@ Vue 封装的响应式数组方法
 
 #### 替换数组
 
-均返回新数组
+不会变更数组，总是均返回新数组
 
 - `filter()`
 - `concat()`
 - `slice()` - (start,end)
 
-==? 如何实现这种高效==
+```js
+example1.items = example1.items.filter(function (item) {
+  return item.message.match(/Foo/)
+})
+```
 
-> Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的**启发式方法**，所以用一个含有**相同元素的数组**去替换**原来的数组**是非常高效的操作。
+你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表
+
+Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的**启发式方法**，所以用一个含有**相同元素的数组**去替换**原来的数组**是非常高效的操作
+
+
 
 #### 注意事项
 
@@ -509,7 +529,26 @@ Vue **不能检测**数组和对象的变化
 
 ### 显示过滤/排序后结果
 
-**计算属性**不适用 - **传参**。使用**method**代替
+显示数组经过过滤或排序后的版本，而不实际变更或重置原始数据。通常通过 computed 实现。
+
+```html
+<li v-for="n in evenNumbers">{{ n }}</li>
+```
+
+```js
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+computed: {
+  evenNumbers: function () {
+    return this.numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+
+计算属性局限：无法传参
 
 ```html
 <ul v-for="set in sets">
@@ -517,11 +556,47 @@ Vue **不能检测**数组和对象的变化
 </ul>
 ```
 
+```js
+data: {
+  sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+
+解决：使用 methods 代替
+
+### v-for 使用范围值
+
+可以接受整数
+
+```html
+<div>
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+```
+
+### `<template>` 上使用 v-for
+
+```html
+<ul>
+  <template v-for="item in items">
+    <li>{{ item.msg }}</li>
+    <li class="divider" role="presentation"></li>
+  </template>
+</ul>
+```
+
 ### v-if vs v-for
 
 当 `v-if` 与 `v-for` 一起使用时，`v-for` 具有比 `v-if` 更高的优先级。意味着 `v-if` 将分别重复运行于每个 `v-for` 循环中
 
-解决方案：template 包裹
+解决：template 包裹
 
 ```html
 <template v-if="todos.length">
@@ -529,15 +604,36 @@ Vue **不能检测**数组和对象的变化
 </template>
 ```
 
-props：组件上通过 props 传递数据
+### 组件上使用 v-for
 
-is：使用 DOM 模板时，在 `<ul>` 元素内只有 `<li>` 元素会被看作有效内容，通过`is`设置
+基本语法同普通元素，但是 2.2+ 版本后，组件上使用 v-for 需带上 key
+
+```html
+<my-component v-for="item in items" :key="item.id"></my-component>
+```
+
+任何数据都不会被自动传递到组件里，因为组件有独立作用域。
+
+原因：减少代码耦合，手动通过 props 注入，这样能明确数据来源。
+
+```html
+<my-component
+  v-for="(item, index) in items"
+  v-bind:item="item"
+  v-bind:index="index"
+  v-bind:key="item.id"
+></my-component>
+```
+
+使用 DOM 模板时，在 `<ul>` 元素内只有 `<li>` 元素会被看作有效内容
+
+解决：通过`is`设置组件，可以避开浏览器解析错误
 
 ```html
 <ul>
   <my-component></my-component>
 </ul>
------
+<!-- is attr -->
 <ul>
   <li is="my-component"></li>
 </ul>
@@ -545,7 +641,7 @@ is：使用 DOM 模板时，在 `<ul>` 元素内只有 `<li>` 元素会被看作
 
 ## 事件处理
 
-### 事件方法
+### 事件处理方法
 
 `v-on` 指令监听 DOM 事件，在触发时运行 JavaScript 代码
 
@@ -560,7 +656,6 @@ var vm = new Vue({
   ...
   methods: {
     greet: function (event) {
-      // this -> vue实例
       ...
     }
   }
@@ -568,21 +663,25 @@ var vm = new Vue({
 vm.greet() // 通过实例调用
 ```
 
-`$event`：事件对象
+### 内联事件处理方法
 
 ```html
 <button v-on:click="greet(1,$event)">Greet</button>
 ```
 
+`$event`：事件对象
+
 ### 事件修饰符
+
+通过事件修饰符，代替在时间处理程序中调用  `event.preventDefault()` 或 `event.stopPropagation()`等等
 
 - `.stop`
 - `.prevent`
 
 - `.capture` - 捕获模式，从外部到内部触发事件。
-- `.self` - 在 `event.target` 是当前元素自身时触发处理函数
-- `.once`^2.1.4+^ - 事件触发一次，可在组件使用
-- `.passive`^2.3.0+^ - 直接触发默认行为，优化移动端的，如 `onScroll`
+- `.self` - 在 `event.target` 是当前元素自身时，触发处理函数
+- `.once` 2.1.4+ - 事件只触发一次 (可用在组件上面，而其他修饰符只能对原生DOM事件起作用)
+- `.passive` 2.3.0+  - 直接触发默认行为，优化移动端的，如 `onScroll`
 
 ```html
 <!-- 阻止单击事件继续传播 - stopPropagation -->
@@ -604,28 +703,44 @@ vm.greet() // 通过实例调用
 <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
 <!-- 即事件不是从内部元素触发的 -->
 <div v-on:click.self="doThat">...</div>
+
+<!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 -->
+<!-- 而不会等待 `onScroll` 完成  -->
+<!-- 这其中包含 `event.preventDefault()` 的情况 -->
+<div v-on:scroll.passive="onScroll">...</div>
 ```
 
-注意：
+注意：[[3] 顺序会影响结果](#相关链接)
 
-- [顺序会影响结果](https://blog.csdn.net/catascdd/article/details/108264406)
+- 阻止所有点击 `v-on:click.prevent.self`
+- 阻止自身点击 `v-on:click.self.prevent`
 
-  - 阻止所有点击 `v-on:click.prevent.self`
-  - 阻止自身点击 `v-on:click.self.prevent`
-
-- 不要让 `passive` 和 `prevent` 一起使用，`prevent`会被忽略，因为`passive`不阻止默认行为
+不要让 `passive` 和 `prevent` 一起使用，`prevent`会被忽略，因为`passive`不阻止默认行为
 
 ### 按键修饰符
 
-~~`keyCode`~~废弃
+监听键盘事件时添加按键修饰符
 
-`keyup` 现在
+```html
+<!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+<input v-on:keyup.enter="submit">
+```
+
+直接将 [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) 暴露的任意有效按键名转换为 kebab-case 来作为修饰符
+
+```html
+<input v-on:keyup.page-down="onPageDown">
+```
+
+按键码
 
 处理函数只会在 `$event.key` 等于 `13` 时被调用
 
 ```html
 <input v-on:keyup.13="submit" />
 ```
+
+> ~~`keyCode`~~废弃
 
 - `.enter`
 - `.tab`
@@ -652,14 +767,24 @@ Vue.config.keyCodes = {
 
 ### 系统修饰键
 
+仅在按下相应按键时才触发鼠标或键盘事件的监听器
+
 - `.ctrl`
 - `.alt`
 - `.shift`
 - `.meta` - windows | command
-- `.exact`^2.5.0+^ - 控制由精确的系统**修饰符组合**触发的事件，严格按照修饰符执行。
+- `.exact` 2.5.0+ - 控制由精确的系统**修饰符组合**触发的事件，严格按照修饰符执行。
   - `v-on:click.ctrl` - Ctrl 组合其他键也能触发
   - `v-on:click.ctrl.exact` - 仅有 Ctrl 被按下才能触发
   - `v-on:click.exact` - 单纯的点击
+
+```html
+<!-- Alt + C -->
+<input v-on:keyup.alt.67="clear">
+
+<!-- Ctrl + Click -->
+<div v-on:click.ctrl="doSomething">Do something</div>
+```
 
 > 系统修饰符和 `keyup` 事件一起用时，事件触发时修饰键必须处于按下状态。
 >
@@ -690,19 +815,28 @@ Vue.config.keyCodes = {
 
 ### QA - HTML 中监听事件
 
-- 轻松**定位**JavaScript 中对应方法
-- **JavaScript 无需绑定事件**，与 DOM 解耦，纯粹的逻辑
-- 事件随 ViewModel 销毁**自动销毁**
+1. 轻松**定位**JavaScript 中对应方法
+2. **JavaScript 无需绑定事件**，与 DOM 解耦，纯粹的逻辑
+3. 事件随 ViewModel 销毁**自动销毁**
 
 ## 表单绑定
 
 ### 基础用法
 
-> `v-model` 忽略表单的 `value`、`checked`、`selected` attribute 的初始值，总是将 Vue 实例数据作为数据来源，应该在**data 中初始化**
+`v-model` 会忽略表单的 `value`、`checked`、`selected` attribute 的初始值，总是将 Vue 实例数据作为数据来源，应该在**data 中初始化**
 
-- `text textarea` ： `value + input`
-- `checkbox radio` ： `checked + change`
-- `select` ： `value + change`
+v-model 本质是语法糖
+
+- text / textarea ： `value + @input`
+- checkbox / radio ： `checked + @change`
+- select ： `value + @change`
+
+#### 文本
+
+```html
+<input v-model="message" placeholder="edit me">
+<p>Message is: {{ message }}</p>
+```
 
 #### 多行文本
 
@@ -710,7 +844,7 @@ Vue.config.keyCodes = {
 <textarea v-model="message" placeholder="add multiple lines"></textarea>
 ```
 
-> 在文本区域插值 (`<textarea>{{text}}</textarea>`) 并不会生效
+注：在文本区域插值 (`<textarea>{{text}}</textarea>`) 并不会生效
 
 #### 复选框
 
@@ -723,26 +857,60 @@ Vue.config.keyCodes = {
 <label for="mike">Mike</label>
 ```
 
-`v-model` 未能匹配任何选项，`<select>` 元素将被渲染为“未选中”状态。
-
-在 iOS 中，这会使用户无法选择第一个选项。因为这样不会触发 change 事件。
+#### 单选按钮
 
 ```html
-<!-- 提供控制禁用选项 -->
+<div id="example-4">
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+</div>
+```
+
+#### 选择框
+
+```html
+<div id="example-5">
+  <select v-model="selected">
+    <option disabled value="">请选择</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+</div>
+```
+
+v-model 初始未匹配任何对象，通过 disabled + value 禁用
+
+```html
 <option disabled value="">请选择</option>
 ```
 
 ### 值绑定
 
-#### 单选
+
+
+v-model 绑定值通常为 静态字符串
 
 ```html
-<input type="radio" v-model="pick" v-bind:value="a" />
+<!-- 当选中时，`picked` 为字符串 "a" -->
+<input type="radio" v-model="picked" value="a">
+
+<!-- `toggle` 为 true 或 false -->
+<input type="checkbox" v-model="toggle">
+
+<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+<select v-model="selected">
+  <option value="abc">ABC</option>
+</select>
 ```
 
-```js
-vm.pick === vm.a // 选中
-```
+通过 v-bind 把值绑定到动态 property 上，并且 property 值可以不是字符串
 
 #### 复选
 
@@ -755,7 +923,20 @@ vm.toggle === 'yes' // 选中
 vm.toggle === 'no' // 没有选中
 ```
 
-#### 选择框
+#### 单选按钮
+
+```html
+<input type="radio" v-model="pick" v-bind:value="a">
+```
+
+```js
+// 当选中时
+vm.pick === vm.a
+```
+
+#### 选择框的选项
+
+选择框选项支持对象字面量
 
 ```html
 <select v-model="selected">
@@ -771,19 +952,19 @@ vm.selected.number // => 123
 
 ### 修饰符
 
-`.lazy` - v-model 默认为`input`事件，使用后转为 `change`事件
+`.lazy` - v-model 默认为`input`事件，使用后转为`change`事件
 
 ```html
 <!-- 在“change”时而非“input”时更新 -->
 <input v-model.lazy="msg" />
 ```
 
-`.number` - 输入值转为**数值**类型。
+`.number` - 输入值转为**数值**类型
 
 规则：
 
 1. `type="number"` 时，HTML 值也总会返回字符串。
-2. 值无法被`parseFloat()` 解析，则会返回原始的值。
+2. 值无法被 `parseFloat()` 解析，则会返回原始的值。
 
 ```html
 <input v-model.number="age" type="number" />
@@ -794,8 +975,6 @@ vm.selected.number // => 123
 ```html
 <input v-model.trim="msg" />
 ```
-
-[自定义事件](#自定义事件)
 
 ## 组件基础
 
@@ -944,3 +1123,5 @@ Vue.component('blog-post', { props: ['title'], template: '
 [[1] Truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)
 
 [[2] 浏览器前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)
+
+[[3] 顺序会影响结果](https://blog.csdn.net/catascdd/article/details/108264406)
