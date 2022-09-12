@@ -978,18 +978,24 @@ vm.selected.number // => 123
 
 ## 组件基础
 
+### 组件的复用
+
 组件是**可复用的 vue 实例**。
 
-- **data 选项必须为函数**。 已便每个实例维护一个**独立拷贝**。否则，实例间将共享数据。
+需遵守以下规则
 
-- **每个组件必须只有一个根元素**
+1. **data 选项必须为函数**。用以保证每个实例维护一个**独立拷贝**。否则，实例间将共享数据。
+2. 每个组件必须**只有一个根元素**
 
 ### prop 传值
 
-```vue
-Vue.component('blog-post', { props: ['title'], template: '
-<h3>{{ title }}</h3>
-' })
+父组件通过 prop 可以向子组件传值
+
+```js
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
 ```
 
 传递值比较多时，以对象形式
@@ -1009,11 +1015,17 @@ Vue.component('blog-post', { props: ['title'], template: '
 <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
 ```
 
+### 单个根元素
+
+每个组件必须只有一个根元素
+
 ### 监听子组件事件
 
 组件中`$emit` 触发
 
-#### 不传值
+#### 使用事件抛出一个值
+
+不传值
 
 ```html
 <blog-post ... v-on:enlarge-text="postFontSize += 0.1"></blog-post>
@@ -1021,9 +1033,7 @@ Vue.component('blog-post', { props: ['title'], template: '
 <button v-on:click="$emit('enlarge-text')">Enlarge text</button>
 ```
 
-#### 传值
-
-通过`$event`获取值
+传值：通过`$event`获取值
 
 ```html
 <blog-post ... v-on:enlarge-text="postFontSize += $event"></blog-post>
@@ -1031,12 +1041,14 @@ Vue.component('blog-post', { props: ['title'], template: '
 <button v-on:click="$emit('enlarge-text', 0.1)">Enlarge text</button>
 ```
 
-#### v-model
+#### 组件上使用 v-model
 
-`v-model` 等价写法(语法糖)
+自定义事件也可以用于创建支持 `v-model` 的自定义输入组件
 
 ```html
-<input v-model="searchText" /> <input :value="searchText" @input="searchText=$event.target.value" />
+<input v-model="searchText" />
+<!-- 等价写法 -->
+<input :value="searchText" @input="searchText=$event.target.value" />
 ```
 
 组件中使用 v-model
@@ -1074,25 +1086,15 @@ Vue.component('blog-post', { props: ['title'], template: '
 <component v-bind:is="currentTab.component" class="tab"></component>
 ```
 
-```js
-;[
-  {
-    name: 'Home',
-    component: {
-      template: '<div>Home component</div>'
-    }
-  }
-]
-```
+is 属性用于 常规HTML元素，这些元素将视为组件
 
-==@DIF-难点==：未能复现
+这个*attribute*以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute 都会*作为 DOM attribute 被绑定*。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 _`.prop` 修饰器_。
 
-这个*attribute*[^1]可以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute 都会*作为 DOM attribute 被绑定*[^2]。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 _`.prop` 修饰器_。
+HTML属性 和 DOM属性区别
 
-总结：**HTML 属性** (attribute)和 **DOM 属性**(property)，是相互关联的。多数情况`attribute`值仅用作初始 DOM 节点对象使用，而`property`更多用于页面交互
+**HTML 属性** (attribute)和 **DOM 属性**(property)，是相互关联的。
 
-[^1]: is 属性
-[^2]: html 元素属性
+多数情况`attribute`值仅用作初始 DOM 节点对象使用，而`property`更多用于页面交互
 
 ### 解析-DOM-模板注意事项
 
@@ -1104,7 +1106,9 @@ Vue.component('blog-post', { props: ['title'], template: '
 </table>
 ```
 
-自定义组件 `<blog-post-row>` 会被作为无效的内容提升到外部，并导致最终渲染结果出错。通过`is`解决
+自定义组件 `<blog-post-row>` 会被作为无效的内容提升到外部，并导致最终渲染结果出错。
+
+解决：使用常规元素，但通过 is 指定组件
 
 ```html
 <table>
