@@ -9,18 +9,20 @@ order: 2
 
 ## 组件注册
 
+有两种命名规范，kebab-case（短横线） 和 PascalCase（大驼峰）
+
 ```js
 // kebab-case - 引用时必须使用 kebab-case
 Vue.component('my-component-name',{ /* ... */ })
-// PascalCase - 引用时两者都行
+// PascalCase - 引用时 kebab-case 和 PascalCase 都可以
 Vue.component('MyComponentName', { /* ... */ }
 ```
 
-> 命名规则：建议字母小写，含连字符。避免和当前以及未来的 HTML 元素相冲突
+命名规则：遵循 [[1] W3C 规范](#相关链接)的自定义组件名（字母全小写且包含一个连字符）,避免和当前以及未来的 HTML 元素相冲突
 
 ### 全局注册
 
-注册后可以在任何新创建的 Vue 根实例 (`new Vue`) 的模板
+全局注册：注册后可以在任何新创建的 Vue 根实例 (`new Vue`) 的模板中使用
 
 ```js
 Vue.component('my-component-name', {
@@ -30,7 +32,7 @@ Vue.component('my-component-name', {
 
 ### 局部注册
 
-局部注册的组件在其子组件中不可用，需手动引入才能使用
+局部注册：组件需手动引入才能使用
 
 ```js
 var ComponentA = {
@@ -44,9 +46,9 @@ var ComponentB = {
 }
 ```
 
-## 模块系统
+### 模块系统
 
-### 模块系统- 局部注册
+#### 模块系统中局部注册
 
 ```js
 import BaseButton from './BaseButton.vue'
@@ -62,7 +64,7 @@ export default {
 }
 ```
 
-### 模块系统 - 自动化全局注册
+#### 自动化全局注册
 
 ```js
 import Vue from 'vue'
@@ -114,22 +116,30 @@ requireComponent.keys().forEach((fileName) => {
 
 html 大小写不敏感，字符串模板不存在限制。
 
-> 驼峰法和短横线会自动转换。
+驼峰法（camelCase ）和短横线（kebab-case）会自动转换
 
 ```js
 Vue.component('blog-post', {
+  // 在 JavaScript 中是 camelCase 的
   props: ['postTitle'],
   template: '<h3>{{ postTitle }}</h3>'
 })
 ```
 
 ```html
+<!-- 在 HTML 中是 kebab-case -->
 <blog-post post-title="hello!"></blog-post>
 ```
 
 ### prop 类型
 
-以**对象**形式列出 prop
+字符串数组形式列出 prop
+
+```js
+props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
+```
+
+对象形式列出 prop，可以指定类型
 
 ```js
 props: {
@@ -139,23 +149,77 @@ props: {
 }
 ```
 
-### 静态/动态 Prop
+### 传递静态或动态 Prop
 
-#### 静态 prop
+#### 传入字符串
 
 ```html
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-#### 动态 prop
-
 用 `v-bind`传入动态 prop
 
 ```html
+<!-- 动态赋予一个变量的值 -->
 <blog-post v-bind:title="post.title"></blog-post>
+
+<!-- 动态赋予一个复杂表达式的值 -->
+<blog-post
+  v-bind:title="post.title + ' by ' + post.author.name"
+></blog-post>
 ```
 
-传入所有 property，使用**不带参数**的`v-bind`
+#### 传入数字
+
+```html
+<!-- 即便 `42` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
+<!-- 这是一个 JavaScript 表达式而不是一个字符串。-->
+<blog-post v-bind:likes="42"></blog-post>
+
+<!-- 用一个变量进行动态赋值。-->
+<blog-post v-bind:likes="post.likes"></blog-post>
+```
+
+#### 传入一个布尔值
+
+```html
+<!-- 包含该 prop 没有值的情况在内，都意味着 `true`。-->
+<blog-post is-published></blog-post>
+
+<blog-post v-bind:is-published="false"></blog-post>
+
+<!-- 用一个变量进行动态赋值。-->
+<blog-post v-bind:is-published="post.isPublished"></blog-post>
+```
+
+#### 传入一个数组
+
+```html
+
+<blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
+
+<!-- 用一个变量进行动态赋值。-->
+<blog-post v-bind:comment-ids="post.commentIds"></blog-post>
+
+```
+
+#### 传入一个对象
+
+```html
+<blog-post
+  v-bind:author="{
+    name: 'Veronica',
+    company: 'Veridian Dynamics'
+  }"
+></blog-post>
+
+<!-- 用一个变量进行动态赋值。-->
+<blog-post v-bind:author="post.author"></blog-post>
+```
+
+#### 传入对象所有 property
+
+使用**不带参数**的`v-bind`
 
 ```html
 <blog-post v-bind="post"></blog-post>
@@ -174,9 +238,9 @@ post: {
 
 ### 单项数据流
 
-**父 prop 会更新子组件**，**反之不行**。防止子组件意外变更父级。
+父级 prop 的更新会向下流动到子组件中，但是反过来则不行。防止子组件意外改变父组件，导致数据流难以处理
 
-场景：**子组件不应该在组件中改变 prop**，应该由父组件刷新。
+问题：子组件不应该在组件中改变 prop，应该由父组件刷新。
 
 解决：用以下方式代替。
 
@@ -202,9 +266,11 @@ computed: {
 }
 ```
 
-> **对象和数组**是通过引用传入的，子组件中改变变更这个对象或数组本身**将会影响到父组件**的状态
+> **对象和数组**是通过引用传入的，子组件中改变这个对象或数组本身**将会影响到父组件**的状态
 
 ### prop 验证
+
+定义 prop 验证方式
 
 ```js
 Vue.component('my-component', {
@@ -242,7 +308,7 @@ Vue.component('my-component', {
 })
 ```
 
-prop 会在一**个组件实例创建之前进行验证**，所以实例的 property (如 `data`、`computed` 等) 在 `default` 或 `validator` 函数中是不可用的
+**prop 会在组件实例创建之前进行验证**，所以实例 property (如 `data`、`computed` 等) 在 `default` 或 `validator` 函数中是不可用的
 
 #### 类型检验
 
@@ -250,9 +316,26 @@ prop 会在一**个组件实例创建之前进行验证**，所以实例的 prop
 
 `String`、`Number`、`Boolean`、`Array`、`Object`、`Date`、`Function`、`Symbol`、自定义构造函数
 
+自定义构造函数
+
+```js
+function Person (firstName, lastName) {
+  this.firstName = firstName
+  this.lastName = lastName
+}
+```
+
+```js
+Vue.component('blog-post', {
+  props: {
+    author: Person
+  }
+})
+```
+
 ### 非 prop 的 Attribute
 
-传了 prop，但没有接收？
+非 prop 的 attribute：向组件传入 prop 属性，但是组件未进行接受
 
 #### 组件上`Attribute`自动添加到根元素
 
@@ -330,11 +413,13 @@ Vue.component('base-input', {
 
 ### 自定义 v-model
 
+> 2.2.0+
+
 `v-model = @input + value` - 默认
 
-#### model 选项 ^2.2.0+^
+#### model 选项
 
-手动设置`value`和`event`
+手动设置`prop`和`event`下
 
 ```js
 Vue.component('base-checkbox', {
@@ -360,6 +445,8 @@ Vue.component('base-checkbox', {
 <!-- lovingVue传入checked，并且change事件触发更新-->
 ```
 
+> 仍然需要在 props 里面声明
+
 ### 原生事件绑定到组件
 
 #### native 修饰符
@@ -368,27 +455,19 @@ Vue.component('base-checkbox', {
 
 解决：通过 native 修饰符
 
-**native.vue**
-
-```vue
-<template>
-  <div class="native-custom">
-    <input type="text" @keydown="onKeydown" />
-  </div>
-</template>
-
-export default { name: 'nativeCustom', methods: { onKeydown () { this.$emit('onKeydown') } } }
+```html
+<base-input v-on:focus.native="onFocus"></base-input>
 ```
 
-**custom.vue**
-
 ```html
-<template>
-  <div class="native">
-    <!-- 加上.native之后原生事件才得以监听成功 -->
-    <NativeCustom @onKeydown="onKeydown" @click.native="onClick" />
-  </div>
-</template>
+<label>
+  {{ label }}
+  <input
+    v-bind="$attrs"
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)"
+  >
+</label>
 ```
 
 **`.native` 失效场景**
@@ -445,11 +524,11 @@ Vue.component('base-input', {
 })
 ```
 
-### .sync 修饰符 ^2.3.0+^
+### .sync 修饰符
+
+> 2.3.0+
 
 推荐以 `update:myPropName`方式变更父组件，实现对`prop`的双向绑定。
-
-`.sync`和`v-bind`不能使用表达式，`v-bind:title.sync="doc.title + '!'"`不合法
 
 ```html
 <text-document v-bind:title="doc.title" v-on:update:title="doc.title = $event"></text-document>
@@ -463,9 +542,7 @@ Vue.component('base-input', {
 this.$emit('update:title', newTitle)
 ```
 
-设置多个 prop，直接配合`v-bind`和`sync`
-
-这样会把 `doc` 对象中的每一个 property (如 `title`) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 `v-on` 监听器
+设置多个 prop，直接配合`v-bind`和`sync`。这样会把 `doc` 对象中的每一个 property (如 `title`) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 `v-on` 监听器
 
 ```html
 <text-document v-bind.sync="doc"></text-document>
@@ -480,6 +557,13 @@ methods: {
 		this.$emit('update:' + key, this[key] + 1)
 	}
 }
+```
+
+`.sync`和`v-bind`不能使用表达式
+
+```html
+<!-- 不合法 -->
+<div v-bind:title.sync="doc.title + '!'"></div>	
 ```
 
 ## 插槽
@@ -948,3 +1032,9 @@ Vue.component('hello-world', {
 组件包含了**大量静态内容**
 
 在根元素上添加 `v-once` attribute 以确保这些内容**只计算一次然后缓存起来**
+
+
+
+## 相关链接
+
+[[1] W3C 规范](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
