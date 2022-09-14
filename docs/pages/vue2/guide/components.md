@@ -572,9 +572,8 @@ methods: {
 
 组件内没有插槽`<slot>`，**标签之间的元素会忽略**
 
-`navigation-link.vue`
-
 ```html
+<!-- navigation-link.vue -->
 <a v-bind:href="url" class="nav-link">
   <slot></slot>
 </a>
@@ -584,9 +583,7 @@ methods: {
 
 插槽不能访问`<navigation-link>`作用域
 
-插槽内容是传递给`<navigation-link>` ，而不是在 `<navigation-link>` 组件内部定义的。
-
-插槽是传递父组件内容到子组件，作用域还在父组件。所以插槽中不能访问子组件数据。
+原因：插槽是传递父组件内容到子组件，但作用域还在父组件。所以插槽中不能访问子组件数据。
 
 ```html
 <navigation-link url="/profile">
@@ -595,19 +592,22 @@ methods: {
 </navigation-link>
 ```
 
-> **父模板**所有内容都是在父级作用域中编译，**子模板**所有内容都是在子作用域中编译
+**父模板**所有内容都是在父级作用域中编译，**子模板**所有内容都是在子作用域中编译
 
 ### 后备（默认）内容
 
-`<slot>content</slot>` 默认显示 content（后备内容），提供内容，只会取代后备内容
+默认显示后备内容 (content)，提供内容，只会取代后备内容
+
+```html
+<slot>content</slot>
+```
 
 ### 具名插槽
 
-`<slot>` ： `name` attribute，定义额外插槽
-
-父级组件
+`<slot>` ： name attribute，定义额外插槽。不带 name，name 默认为 default，即默认插槽
 
 ```html
+<!-- base-layout.vue --->
 <div class="container">
   <header>
     <slot name="header"></slot>
@@ -622,11 +622,7 @@ methods: {
 </div>
 ```
 
-> 不带 name，name 默认为 default
-
-子级组件
-
-通过`template` + `v-slot:name`向 模板中填充内容 ^2.6.0+^
+通过`template` + `v-slot:name`向 模板中填充内容 2.6.0+
 
 ```html
 <base-layout>
@@ -643,7 +639,9 @@ methods: {
 </base-layout>
 ```
 
-旧版写法：3.0 废弃
+注意： `v-slot` 只能添加在 `<template>` 上
+
+旧版写法：vue 3.0废弃
 
 ```html
 <base-layout>
@@ -664,7 +662,7 @@ methods: {
 
 ```html
 <current-user>
-  <template v-slot:default="slotProps"> {{ slotProps.user.firstName }} </template>
+  <template v-slot:default="slotProps"> {{ slotProps.user.firstName }}       </template>
 </current-user>
 ```
 
@@ -676,7 +674,7 @@ methods: {
 </span>
 ```
 
-**父级组件只有默认插槽**，`v-slot`可以**放到组件**上，_正常情况 `v-slot` 都是放在 `template` 上_
+**父级组件只有默认插槽**，`v-slot`可以**放到组件**上，正常情况 `v-slot` 都是放在 `template` 上
 
 ```html
 <!-- default 可以省略-->
@@ -710,13 +708,40 @@ methods: {
 <current-user v-slot="{ user = { firstName: 'Guest' } }" />
 ```
 
-### 动态插槽名 ^2.6.0+^
+旧版写法：vue 3.0废弃
+
+```html
+<slot-example>
+  <!-- slot 为 default，可以省略 -->
+  <template slot="default" slot-scope="slotProps">
+    {{ slotProps.msg }}
+  </template>
+</slot-example>
+```
+
+### 动态插槽名
+
+> 2.6.0+
 
 `v-slot:[dynamicSlotName]`
 
-缩写：`v-slot:header` 可以被重写为 `#header`
+```html
+<base-layout>
+  <template v-slot:[dynamicSlotName]>
+    ...
+  </template>
+</base-layout>
+```
 
-**注意**：无效写法`#="{user}"`，有效写法`#default="{user}"`
+### 具名插槽缩写
+
+缩写:`v-slot:header` 可以被重写为 `#header`
+
+**注意**：
+
+无效写法：`#="{user}"`， 缩写需要明确插槽名称
+
+有效写法：`#default="{user}"`
 
 ## 动态组件 & 异步组件
 
@@ -1038,3 +1063,5 @@ Vue.component('hello-world', {
 ## 相关链接
 
 [[1] W3C 规范](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
+
+作用域插槽用法：[Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller)、[Vue Promised](https://github.com/posva/vue-promised) 和 [Portal Vue](https://github.com/LinusBorg/portal-vue)
