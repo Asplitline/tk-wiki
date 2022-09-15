@@ -745,7 +745,7 @@ methods: {
 
 ## 动态组件 & 异步组件
 
-通过`is` attribute 切换动态组件，每次切换时都会**新建组件实例**
+通过 `is` attribute 切换动态组件，每次切换时都会**新建组件实例**
 
 ```html
 <component v-bind:is="currentTabComponent"></component>
@@ -753,7 +753,9 @@ methods: {
 
 ### keep-alive
 
-通过`keep-alive`包裹，缓存不活动组件（缓存组件），避免重新渲染。自身不会渲染 DOM，是*抽象组件*
+通过`keep-alive`包裹，缓存不活动组件（缓存组件），避免重新渲染。
+
+`keep-alive` 自身不会渲染 DOM，是抽象组件
 
 ```html
 <keep-alive>
@@ -773,38 +775,63 @@ methods: {
 
 #### props
 
-`include ` ^2.1.0+^ ： 名称匹配的组件被缓存
+`include` 和 `exclude` prop 允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示
 
-- `string | RegExp | Array`
-- 匹配规则
-  - 匹配组件**自身** `name`
-  - name 不可用，**匹配局部注册名称**（父组件 `components` 选项的键值）
-  - 匿名组件不能匹配
+`include ` 2.1.0+ ： 名称匹配的组件被缓存
+
+`exclude ` 2.1.0+ ： 名称匹配的组件都**不会**被缓存
+
+参数说明
+
+`string | RegExp | Array`
+
+匹配规则
+
+1. 匹配组件自身 `name`
+2. name 不可用，匹配局部注册名称（父组件 `components` 选项的键值）
+
+注意：匿名组件不能匹配
 
 ```html
+<!-- 逗号分隔字符串 -->
 <keep-alive include="a,b">
-  <keep-alive :include="/a|b/"> <keep-alive :include="['a', 'b']"></keep-alive></keep-alive
-></keep-alive>
+  <component :is="view"></component>
+</keep-alive>
+
+<!-- 正则表达式 (使用 `v-bind`) -->
+<keep-alive :include="/a|b/">
+  <component :is="view"></component>
+</keep-alive>
+
+<!-- 数组 (使用 `v-bind`) -->
+<keep-alive :include="['a', 'b']">
+  <component :is="view"></component>
+</keep-alive>
 ```
 
-`exclude ` ^2.1.0+^ ： 名称匹配的组件都**不会**被缓存
+`max` 2.5.0+：最多可缓存组件实例数量。
 
-- `string | RegExp | Array`
-- 匿名组件不能匹配
+参数说明
 
-`max` ^2.5.0+^：最多可缓存组件实例数量
+`number`：数量上限。数量达到上限，清除**最久**没有访问的实例
 
-- `number`
-- 数量达到，清除**最久**没有访问的实例
+```html
+<keep-alive :max="10">
+  <component :is="view"></component>
+</keep-alive>
+```
 
 > `<keep-alive>` 不会在函数式组件中正常工作，因为它们没有缓存实例。
 
 ### 异步组件
 
-**工厂函数的方式定义你的组件**，会**异步解析**你的组件定义。
+Vue 允许工厂函数方式定义组件，这个工厂函数会异步解析你定义的组件
 
-- 组件渲染时触发
-- 渲染结果缓存，方便重新渲染
+特点：
+
+1. 组件渲染时触发
+
+2. 缓存渲染结果
 
 #### 全局组件
 
@@ -839,7 +866,9 @@ new Vue({
 })
 ```
 
-#### 处理加载状态 ^2.3.0+^
+#### 处理加载状态 
+
+> 2.3.0+
 
 ```js
 const AsyncComponent = () => ({
