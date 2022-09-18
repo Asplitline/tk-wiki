@@ -3,8 +3,6 @@ title: 深入了解组件
 order: 2
 ---
 
-
-
 # 深入了解组件
 
 ## 组件注册
@@ -164,9 +162,7 @@ props: {
 <blog-post v-bind:title="post.title"></blog-post>
 
 <!-- 动态赋予一个复杂表达式的值 -->
-<blog-post
-  v-bind:title="post.title + ' by ' + post.author.name"
-></blog-post>
+<blog-post v-bind:title="post.title + ' by ' + post.author.name"></blog-post>
 ```
 
 #### 传入数字
@@ -195,12 +191,10 @@ props: {
 #### 传入一个数组
 
 ```html
-
 <blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
 
 <!-- 用一个变量进行动态赋值。-->
 <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
-
 ```
 
 #### 传入一个对象
@@ -319,7 +313,7 @@ Vue.component('my-component', {
 自定义构造函数
 
 ```js
-function Person (firstName, lastName) {
+function Person(firstName, lastName) {
   this.firstName = firstName
   this.lastName = lastName
 }
@@ -462,11 +456,7 @@ Vue.component('base-checkbox', {
 ```html
 <label>
   {{ label }}
-  <input
-    v-bind="$attrs"
-    v-bind:value="value"
-    v-on:input="$emit('input', $event.target.value)"
-  >
+  <input v-bind="$attrs" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" />
 </label>
 ```
 
@@ -563,7 +553,7 @@ methods: {
 
 ```html
 <!-- 不合法 -->
-<div v-bind:title.sync="doc.title + '!'"></div>	
+<div v-bind:title.sync="doc.title + '!'"></div>
 ```
 
 ## 插槽
@@ -641,7 +631,7 @@ methods: {
 
 注意： `v-slot` 只能添加在 `<template>` 上
 
-旧版写法：vue 3.0废弃
+旧版写法：vue 3.0 废弃
 
 ```html
 <base-layout>
@@ -662,7 +652,7 @@ methods: {
 
 ```html
 <current-user>
-  <template v-slot:default="slotProps"> {{ slotProps.user.firstName }}       </template>
+  <template v-slot:default="slotProps"> {{ slotProps.user.firstName }} </template>
 </current-user>
 ```
 
@@ -708,14 +698,12 @@ methods: {
 <current-user v-slot="{ user = { firstName: 'Guest' } }" />
 ```
 
-旧版写法：vue 3.0废弃
+旧版写法：vue 3.0 废弃
 
 ```html
 <slot-example>
   <!-- slot 为 default，可以省略 -->
-  <template slot="default" slot-scope="slotProps">
-    {{ slotProps.msg }}
-  </template>
+  <template slot="default" slot-scope="slotProps"> {{ slotProps.msg }} </template>
 </slot-example>
 ```
 
@@ -727,9 +715,7 @@ methods: {
 
 ```html
 <base-layout>
-  <template v-slot:[dynamicSlotName]>
-    ...
-  </template>
+  <template v-slot:[dynamicSlotName]> ... </template>
 </base-layout>
 ```
 
@@ -866,7 +852,7 @@ new Vue({
 })
 ```
 
-#### 处理加载状态 
+#### 处理加载状态
 
 > 2.3.0+
 
@@ -890,11 +876,11 @@ const AsyncComponent = () => ({
 
 ### 访问元素&组件
 
-**访问根实例**：根实例可以通过 `$root` property 进行访问
+根实例：通过 `$root` property 进行访问
 
-**访问父级组件实例**：`$parent` property 可以用来从一个子组件访问父组件的实例
+父级组件实例：`$parent` property 可以用来从一个子组件访问父组件的实例
 
-**访问子组件或子元素**：除了 prop 和事件，还可以通过 `ref` 这个 attribute 为子组件赋予一个 ID 引用
+访问子组件或子元素：除了 prop 和事件，还可以通过 `ref` 这个 attribute 为子组件赋予一个 ID 引用
 
 ```html
 <base-input ref="usernameInput"></base-input>
@@ -906,22 +892,22 @@ this.$refs.usernameInput
 
 当 `ref` 和 `v-for` 一起使用的时候，你得到的 ref 将会是一个包含了对应数据源的这些子组件的数组。
 
-> `$ref` 组件**渲染完成之后生效**，并且**不是响应式**，避免在模板或计算属性中使用
+> `$ref` 只在组件渲染完成之后生效，并且**不是响应式**，避免在模板或计算属性中使用
 
 ref 补充
 
 1. 普通元素中：$refs 获取的是 dom 元素
 2. 组件中：$refs 获取的是组件实例，通过 \$el 获取组件元素
 
-```vue
-<div ref="testRef">testRef</div>
-<example-ref-cmp ref="refCmp"></example-ref-cmp>
-```
-
 exampleRefCmp.vue
 
 ```html
 <div class="child-cmp">childCmp</div>
+```
+
+```html
+<div ref="testRef">testRef</div>
+<example-ref-cmp ref="refCmp"></example-ref-cmp>
 ```
 
 ```js
@@ -936,8 +922,6 @@ console.log(this.$refs.divDemo)
 ### 依赖注入
 
 `provide` 选项允许我们指定我们想要**提供**给后代组件的数据/方法
-
-> refs:[provide/inject](https://cn.vuejs.org/v2/api/#provide-inject)
 
 ```js
 provide: function () {
@@ -955,22 +939,27 @@ inject: ['getMap']
 
 依赖注入：可理解为**大范围有效的 prop**
 
-- 祖先不需要知道哪些后代组件使用
-- 后代组件也不需要直到 property 来自哪里
+1. 祖先不需要知道哪些后代组件使用
+
+2. 后代组件也不需要直到 property 来自哪里
 
 缺陷
 
-- **耦合度高**，重构困难
-- property**非响应式**
+1. **耦合度高**，重构困难
+
+2. property**非响应式**，单项数据流（同prop）
 
 ### 程序化的事件侦听器
 
-#### 正常写法
+`$on(eventName, eventHandler)` ：侦听一个事件
 
-缺陷：
+`$once(eventName, eventHandler)` ：一次性侦听一个事件
 
-- 需要在组件实例中**保存变量**
-- 清理代码独立于创建代码
+`$off(eventName, eventHandler)` ：停止侦听一个事件
+
+#### 三方库模式
+
+在一个组件实例上手动侦听事件
 
 ```js
 // 一次性将这个日期选择器附加到一个输入框上
@@ -989,7 +978,13 @@ beforeDestroy: function () {
 }
 ```
 
-#### 程序化侦听
+缺陷：
+
+1. 需要在组件实例中**保存变量**
+
+2. 清理代码独立于创建代码
+
+#### 程序化侦听器
 
 `hook:beforeDestroy` 等效于 `beforeDestroy`
 
@@ -1025,11 +1020,13 @@ template: '<div><stack-overflow></stack-overflow></div>'
 
 #### 组件间循环引用
 
-场景：两个组件称为 A 和 B， A 依赖 B，但是 B 又依赖 A。形成一个循环，不知道如何不经过一个组件完全解析出另一个组件。
+场景：两个组件称为 A 和 B， A 依赖 B，但是 B 又依赖 A，形成一个循环。
+
+问题：不知道如何不经过一个组件完全解析出另一个组件。
 
 > 使用 Vue.component 不会出现这个问题
 
-解决方案：需要给模块系统一个点，“A *反正*是需要 B 的，但是我们不需要先解析 B。”
+解决方案：需要给模块系统一个点，“A 反正是需要 B 的，但是我们不需要先解析 B。”
 
 **两种方案**
 
@@ -1055,6 +1052,15 @@ components: {
 
 `inline-template` 这个特殊的 attribute 出现在一个子组件上时，这个组件将会使用其**里面的内容作为模板**，而不是将其作为被分发的内容。
 
+```html
+<my-component inline-template>
+  <div>
+    <p>These are compiled as the component's own template.</p>
+    <p>Not parent's transclusion content.</p>
+  </div>
+</my-component>
+```
+
 缺陷：作用域更难理解，建议使用`<template>`
 
 #### X-Template
@@ -1079,15 +1085,13 @@ Vue.component('hello-world', {
 
 强制更新：通过 `$forceUpdate`强制渲染 Vue 实例。
 
-仅影响**实例本身**和**插入插槽内容的子组件**，并非所有子组件
+更新范围：仅影响**实例本身**和**插入插槽内容的子组件**，并非所有子组件
 
 #### v-once
 
 组件包含了**大量静态内容**
 
 在根元素上添加 `v-once` attribute 以确保这些内容**只计算一次然后缓存起来**
-
-
 
 ## 相关链接
 
