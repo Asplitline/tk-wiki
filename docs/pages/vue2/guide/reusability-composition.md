@@ -7,6 +7,8 @@ order: 4
 
 ## 混入
 
+混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。
+
 ```js
 // 定义一个混入对象
 var myMixin = {
@@ -25,22 +27,24 @@ var Component = Vue.extend({
   mixins: [myMixin]
 })
 
-var component = new Component() // => "hello from mixin!"
+var component = new Component()
 ```
 
 ### 选项合并
 
 **数据对象**：在内部进行递归合并，**同名以组件数据优先**
 
-**钩子函数**：将合并为数组，**都被调用**，**混入钩子函数 先于 组件钩子函数**。
+**钩子函数**：将合并为数组，都会被调用。**混入钩子函数 先于 组件钩子函数** 调用
 
-**值为对象的选项**：（`methods`、`components` 、`directives`）合并为同一个对象。**对象键名冲突，优先取组件数据。**
+**值为对象的选项**：（`methods`、`components` 、`directives`）合并为同一个对象。**对象键名冲突，优先取组件数据。*
 
-> `Vue.extend()`使用同样策略合并
+注意：`Vue.extend()`使用同样策略合并
 
 ### 全局混入
 
-一旦使用全局混入，它将影响**每一个**之后创建的 Vue 实例，可以用来为**自定义选项注入处理逻辑**
+混入可以进行全局注册，一旦使用全局混入，会影响**每一个**之后创建的 Vue 实例。
+
+可以用自定义选项注入来处理逻辑
 
 ```js
 // 为自定义的选项 'myOption' 注入一个处理器。
@@ -59,13 +63,13 @@ new Vue({
 // => "hello!"
 ```
 
-> 慎用混入，会影响 单独创建的 Vue 实例
+> 慎用全局混入，也会影响单独创建的 Vue 实例
 
 ### 自定义选项合并策略
 
-自定义选项默认策略，**简单地覆盖已有值**。
+自定义选项默认策略：简单地覆盖已有值。
 
-使用 `optionMergeStrategies` 自定义合并逻辑
+向 `Vue.config.optionMergeStrategies` 添加一个函数自定义合并策略
 
 ```js
 Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
@@ -73,13 +77,39 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 }
 ```
 
+对于多数值为对象的选项，可以使用与 `methods` 相同的合并策略
+
+```js
+var strategies = Vue.config.optionMergeStrategies
+strategies.myOption = strategies.methods
+```
+
+Vuex 1.x 混入策略
+
+```js
+const merge = Vue.config.optionMergeStrategies.computed
+Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
+  if (!toVal) return fromVal
+  if (!fromVal) return toVal
+  return {
+    getters: merge(toVal.getters, fromVal.getters),
+    state: merge(toVal.state, fromVal.state),
+    actions: merge(toVal.actions, fromVal.actions)
+  }
+}
+```
+
+
+
 ## 自定义指令
 
-自定义指令：对普通 DOM 进行底层操作
+代码复用和抽象的主要形式是组件。
+
+但对普通 DOM 进行底层操作，使用自定义指令
 
 ### 指令
 
-**全局指令**
+全局指令：`Vue.directive`
 
 ```js
 // 注册一个全局自定义指令 `v-focus`
@@ -92,12 +122,11 @@ Vue.directive('focus', {
 })
 ```
 
-**局部指令**：接受一个 `directives` 的选项
+局部指令：接受一个 `directives` 的选项
 
 ```js
 directives: {
   focus: {
-    // 指令的定义
     inserted: function (el) {
       el.focus()
     }
@@ -105,7 +134,7 @@ directives: {
 }
 ```
 
-**使用**
+使用
 
 ```html
 <input v-focus />
@@ -113,26 +142,32 @@ directives: {
 
 ### 钩子函数
 
-| 函数名称         | 调用时机                            | 说明                             |
-| ---------------- | ----------------------------------- | -------------------------------- |
-| bind             | 指令**第一次绑定到元素时**（一次）  | 初始化设置                       |
-| inserted         | 被绑定元素**插入父节点时**          | 只保证父节点存在，不保证已被插入 |
-| update           | 所有组件 **VNode 更新时**           | 可能发生在子 VNode 更新之前      |
-| componentUpdated | 组件 VNode 及子 VNode**全部更新后** |                                  |
-| unbind           | 指令**与元素解绑时**（一次性）      |                                  |
+| 函数名称         | 调用时机                            | 说明                                                         |
+| ---------------- | ----------------------------------- | ------------------------------------------------------------ |
+| bind             | 指令**第一次绑定到元素时**（）      | 初始化设置                                                   |
+| inserted         | 被绑定元素**插入父节点时**          | 只保证父节点存在，不保证已被插入                             |
+| update           | 所有组件 **VNode 更新时**           | 但可能发生在子 VNode 更新之前。指令的值可能发生了改变，也可能没有。 |
+| componentUpdated | 组件 VNode 及子 VNode**全部更新后** |                                                              |
+| unbind           | 指令**与元素解绑时**（只调用一次）  |                                                              |
 
 ### 钩子函数参数
 
-- `el`：指令所绑定的元素，可以用来*直接操作 DOM*。
-- `binding`：一个对象，包含以下 property：
-  - `name`：指令名，不包括 `v-` 前缀。
-  - `value`：指令的绑定值。
-  - `oldValue`：指令绑定的前一个值，仅在 `update` 和 `componentUpdated` 钩子中可用。无论值是否改变都可用。
-  - `expression`：字符串形式的指令表达式。
-  - `arg`：传给指令的参数，可选。
-  - `modifiers`：一个包含修饰符的对象。
-- `vnode`：Vue 编译生成的虚拟节点。移步 [VNode API](https://cn.vuejs.org/v2/api/#VNode-接口) 来了解更多详情。
-- `oldVnode`：上一个虚拟节点，仅在 `update` 和 `componentUpdated` 钩子中可用。
+`(el, binding, vnode, oldVnode)` 参数说明
+
+`el`：指令所绑定的元素，可以用来直接操作 DOM。
+
+`binding`：一个对象，包含以下 property：
+
+- `name`：指令名，不包括 `v-` 前缀。
+- `value`：指令的绑定值。
+- `oldValue`：指令绑定的前一个值，仅在 `update` 和 `componentUpdated` 钩子中可用。无论值是否改变都可用。
+- `expression`：字符串形式的指令表达式。
+- `arg`：传给指令的参数，可选。
+- `modifiers`：一个包含修饰符的对象。
+
+`vnode`：Vue 编译生成的虚拟节点。移步 [VNode API](https://cn.vuejs.org/v2/api/#VNode-接口) 来了解更多详情。
+
+`oldVnode`：上一个虚拟节点，仅在 `update` 和 `componentUpdated` 钩子中可用。
 
 ```html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
@@ -152,15 +187,17 @@ new Vue({
 })
 ```
 
-> 除了 `el` 之外，其它参数*都应该是只读的*，切勿进行修改。
->
+注意：除了 `el` 之外，其它参数都应该是只读的，切勿进行修改。
+
 > 需要在钩子之间共享数据，建议通过元素的 [`dataset`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/dataset) 来进行。
 
 **动态参数指令**：指令的参数可以是动态的。
 
 `v-mydirective:[argument]="value"` 中，`argument` 参数可以根据组件实例数据进行更新
 
-**函数简写**：在`bind`和`update`触发相同行为，不关心其他钩子
+### 函数简写
+
+在`bind`和`update`触发相同行为，而不关心其他钩子函数
 
 ```js
 Vue.directive('color-swatch', function (el, binding) {
@@ -168,7 +205,9 @@ Vue.directive('color-swatch', function (el, binding) {
 })
 ```
 
-**对象字面量**：指令需要多个值，传入 Js 对象字面量
+### 对象字面量
+
+指令需要多个值，传入 Js 对象字面量
 
 ```js
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
