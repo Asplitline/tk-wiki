@@ -215,13 +215,13 @@ Vue.directive('color-swatch', function (el, binding) {
 
 ## 渲染函数 & JSX
 
-### 动态标题
+渲染函数，比模板更接近编译器
 
-```html
-<anchored-heading :level="1">Hello world!</anchored-heading>
-```
+### 基础
 
-#### template 方式
+例子：通过 level 动态生成标题的组件
+
+template方式
 
 ```html
 <script type="text/x-template" id="anchored-heading-template">
@@ -235,7 +235,19 @@ Vue.directive('color-swatch', function (el, binding) {
 </script>
 ```
 
-#### render 函数方式
+```js
+Vue.component('anchored-heading', {
+  template: '#anchored-heading-template',
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
+```
+
+render 函数方式
 
 ```js
 export default {
@@ -251,9 +263,15 @@ export default {
 }
 ```
 
+使用
+
+```html
+<anchored-heading :level="1">Hello world!</anchored-heading>
+```
+
 ### 节点、树以及虚拟 DOM
 
-每个元素都是一个节点。每段文字也是一个节点。甚至注释也都是节点。一个节点就是页面的一个部分。
+以下面这段 HTML 为例
 
 ```html
 <div>
@@ -263,7 +281,13 @@ export default {
 </div>
 ```
 
-<img src="https://cn.vuejs.org/images/dom-tree.png" style="zoom: 50%;" />
+其 HTML 对应 DOM 节点树如下
+
+<img src="https://v2.cn.vuejs.org/images/dom-tree.png" alt="DOM 树可视化" style="zoom:50%;" />
+
+
+
+每个元素都是一个节点。每段文字也是一个节点。甚至注释也都是节点。
 
 #### 虚拟 DOM
 
@@ -273,9 +297,9 @@ Vue 通过建立一个**虚拟 DOM** 来追踪自己要如何改变真实 DOM。
 return createElement('h1', this.blogTitle)
 ```
 
-`createElement`：返回节点描述（createNodeDescription），又叫**虚拟节点**
+`createElement`：返回节点描述（createNodeDescription），又叫**虚拟节点**。其中包含页面上需要渲染什么样的节点，包括及其子节点的描述信息。
 
-节点描述：包含页面上需要渲染什么样的节点，包括及其子节点的描述信息。
+“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼
 
 ### createElement 参数
 
@@ -309,6 +333,8 @@ createElement(
 ```
 
 #### 深入数据对象
+
+允许你绑定普通的 HTML attribute，也允许绑定如 `innerHTML` 这样的 DOM property 
 
 ```js
 {
@@ -434,11 +460,28 @@ return createElement('div', [
 ])
 ```
 
-#### Javascript 替代功能
+### Javascript 替代功能
 
-v-if 和 v-for：通过 if / else 和 map 重写
+#### v-if 和 v-for
 
-##### v-model
+通过 if / else 和 map 重写
+
+```js
+props: ['items'],
+render: function (createElement) {
+  if (this.items.length) {
+    return createElement('ul', this.items.map(function (item) {
+      return createElement('li', item.name)
+    }))
+  } else {
+    return createElement('p', 'No items found.')
+  }
+}
+```
+
+#### v-model
+
+手动实现 v-model 逻辑
 
 value，input + $emit
 
@@ -460,7 +503,9 @@ export default {
 }
 ```
 
-##### 事件 & 按键修饰符
+#### 事件 & 按键修饰符
+
+对于 `.passive`、`.capture` 和 `.once` 这些事件修饰符，Vue 提供了相应的前缀可以用于 `on`
 
 | 修饰符                             | 前缀 |
 | :--------------------------------- | :--- |
@@ -468,6 +513,16 @@ export default {
 | `.capture`                         | `!`  |
 | `.once`                            | `~`  |
 | `.capture.once` 或 `.once.capture` | `~!` |
+
+```js
+on: {
+  '!click': this.doThisInCapturingMode,
+  '~keyup': this.doThisOnce,
+  '~!mouseover': this.doThisOnceInCapturingMode
+}
+```
+
+对于其它的修饰符，可以在事件处理函数中使用事件方法
 
 | 修饰符                                      | 处理函数中的等价操作                                         |
 | :------------------------------------------ | :----------------------------------------------------------- |
@@ -494,9 +549,9 @@ on: {
 }
 ```
 
-##### 插槽
+#### 插槽
 
-`this.$slots` ：静态插槽内容 - 一个 VNode 数组
+`this.$slots` ：静态插槽内容，值为一个 VNode 数组
 
 ```js
 render: function (createElement) {
@@ -505,7 +560,22 @@ render: function (createElement) {
 }
 ```
 
-`this.$scopedSlots`：作用域插槽 - 返回若干 VNode 的函数
+`this.$scopedSlots`：作用域插槽，返回若干 VNode 的函数
+
+```js
+// children
+props: ['message'],
+render: function (createElement) {
+  // `<div><slot :text="message"></slot></div>`
+  return createElement('div', [
+    this.$scopedSlots.default({
+      text: this.message
+    })
+  ])
+}
+```
+
+向子组件中传递作用域插槽
 
 ```js
 render: function (createElement) {
@@ -524,22 +594,9 @@ render: function (createElement) {
 // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
 ```
 
-```js
-// children
-props: ['message'],
-render: function (createElement) {
-  // `<div><slot :text="message"></slot></div>`
-  return createElement('div', [
-    this.$scopedSlots.default({
-      text: this.message
-    })
-  ])
-}
-```
+### JSX
 
-#### JSX
-
-[Babel 插件](https://github.com/vuejs/jsx)，在 Vue 中使用 JSX 语法
+[[1] Vue Babel 插件](#相关链接)，在 Vue 中使用 JSX 语法
 
 ```js
 import AnchoredHeading from './AnchoredHeading.vue'
@@ -556,13 +613,13 @@ new Vue({
 })
 ```
 
-babel ^3.4.0+^，自动注入 `const h = this.$createElement`
+注意：babel 3.4.0+，会自动注入 h 函数 。即 `const h = this.$createElement`
 
-#### 函数式组件
+### 函数式组件
 
-函数式组件 ^2.3.0+^后，组件 attribute 隐式解析成 prop
+函数式函数，渲染开销更低
 
-- 只是函数，渲染开销更低
+将组件标记为 `functional`，意味无状态（没有响应式数据），也没有实例（ this 上下文 ）
 
 ```js
 Vue.component('my-component', {
@@ -579,30 +636,72 @@ Vue.component('my-component', {
 })
 ```
 
-##### context 参数说明
+函数式组件 2.3.0+ ，可以省略 props 选项，组件 attribute 隐式解析成 prop
+
+在 2.5.0 +，使用单文件组件，函数式组件可以如下声明
+
+```html
+<template functional>
+</template>
+```
+
+#### context 参数说明
 
 - `props`：提供所有 prop 的对象
 - `children`：VNode 子节点的数组
 - `slots`：一个函数，返回了包含所有插槽的对象
-- `scopedSlots`^2.6.0+^：传入的作用域插槽的对象。也以函数形式暴露普通插槽。
+- `scopedSlots` 2.6.0+：传入的作用域插槽的对象。也以函数形式暴露普通插槽。
 - `data`：传递给组件的整个[数据对象](https://cn.vuejs.org/v2/guide/render-function.html#深入数据对象)，作为 `createElement` 的第二个参数传入组件
   - attr：attribute
   - on：事件处理函数
 - `parent`：对父组件的引用
-- `listeners`^2.3.0+^：所有父组件为当前组件注册的事件监听器的对象。 **`data.on` 的一个别名**。
-- `injections`^2.3.0+^：包含了应当被注入（inject）的 property
+- `listeners` 2.3.0+：所有父组件为当前组件注册的事件监听器的对象。 **`data.on` 的一个别名**。
+- `injections` 2.3.0+：包含了应当被注入（inject）的 property
 
-##### 单文件组件
+smart-list 组件例子
 
-```html
-<template functional> </template>
+```js
+var EmptyList = { /* ... */ }
+var TableList = { /* ... */ }
+var OrderedList = { /* ... */ }
+var UnorderedList = { /* ... */ }
+
+Vue.component('smart-list', {
+  functional: true,
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    isOrdered: Boolean
+  },
+  render: function (createElement, context) {
+    function appropriateListComponent () {
+      var items = context.props.items
+
+      if (items.length === 0)           return EmptyList
+      if (typeof items[0] === 'object') return TableList
+      if (context.props.isOrdered)      return OrderedList
+
+      return UnorderedList
+    }
+
+    return createElement(
+      appropriateListComponent(),
+      context.data,
+      context.children
+    )
+  }
+})
 ```
 
-##### 向子元素或子组件传递 attribute 和 事件
+#### 向子元素或子组件传递 attribute 和 事件
 
-普通组件，没有定义为 prop 的 attribute 会自动添加到根元素，同名 attribute 自动合并（传入优先）。
+普通组件，没有定义为 prop 的 attribute 会自动添加到根元素，同名 attribute 自动合并（先传入优先）。
 
-函数组件，不包含上述行为，需要智能合并
+函数组件，不包含上述行为，需要手动传递。
+
+通过传递 context.data，会将里面的 on 和 attr 传递下去，在组件上不需要 .native 也能触发事件。
 
 ```js
 Vue.component('my-functional-button', {
@@ -614,9 +713,7 @@ Vue.component('my-functional-button', {
 })
 ```
 
-通过传递 context.data，会将里面的 on 和 attr 传递下去，在组件上不需要 .native 也能触发事件。
-
-##### slots() 和 children
+#### slots() 和 children
 
 ```html
 <my-functional-component>
@@ -625,9 +722,34 @@ Vue.component('my-functional-button', {
 </my-functional-component>
 ```
 
-`slots`：slots().default 和 slots().foo
+上述例子：`children` 会给你两个段落标签，而 `slots().default` 只会传递第二个匿名段落标签
 
-`children`：等效 slots().default
+`slots()`：slots().default 和 slots().foo
+
+`children`：slots().default
+
+通过 slot() 和 children 可以选择让组件感知某个插槽机制，还是简单地通过传递 `children`
+
+#### 模板编译
+
+通过 Vue.compile 进行模板编译
+
+```html
+<div>
+        <header>
+          <h1>I'm a template!</h1>
+        </header>
+        <p v-if="message">{{ message }}</p>
+        <p v-else>No message.</p>
+</div>
+```
+
+```js
+function anonymous(
+) {
+  with(this){return _c('div',[_m(0),(message)?_c('p',[_v(_s(message))]):_c('p',[_v("No message.")])])}
+}
+```
 
 ## 插件
 
@@ -988,3 +1110,9 @@ Vue.nextTick(function () {
 
 - nextTick 回调函数 this 会自动绑定到 Vue 上
 - `$nextTick()` 返回一个 `Promise` 对象
+
+
+
+## 相关链接
+
+[[1] Vue Babel 插件](https://github.com/vuejs/jsx)
