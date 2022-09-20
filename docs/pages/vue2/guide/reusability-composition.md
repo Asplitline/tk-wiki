@@ -753,28 +753,55 @@ function anonymous(
 
 ## 插件
 
+插件通常为 Vue 添加全局功能
+
 ### 用途
 
-- 全局方法 或 property
-- 全局资源：指令、过滤器、过渡
-- 全局混入
-- Vue 实例方法，`Vue.prototype`
-- 提供自己 API
+1. 全局方法 或 property
+
+2. 全局资源：指令、过滤器、过渡
+
+3. 全局混入
+4. Vue 实例方法，`Vue.prototype`
+5. 提供自己 API
 
 ### 使用
 
-全局方法 `Vue.use()` 使用插件。在 `new Vue()`之前
+全局方法 `Vue.use()` 使用插件，在 `new Vue()` 启动应用之前
 
-- 可以传入可选对象
-- 多次注册，只执行一次
+```js
+// 调用 `MyPlugin.install(Vue)`
+Vue.use(MyPlugin)
+
+new Vue({
+  // ...组件选项
+})
+```
+
+Vue.use 多次注册，只执行一次
+
+可以传入可选对象
 
 ```js
 Vue.use(MyPlugin, { someOption: true })
 ```
 
-> 官方插件会自动调用 Vue.use
+注意：官方插件会自动调用 Vue.use，但 CommonJS 模块环境中，应该始终显式地调用 `Vue.use()`
+
+```js
+// 用 Browserify 或 webpack 提供的 CommonJS 模块环境时
+var Vue = require('vue')
+var VueRouter = require('vue-router')
+
+// 不要忘了调用此方法
+Vue.use(VueRouter)
+```
 
 ### 开发插件
+
+插件需要暴露 install 方法
+
+方法参数 `(Vue, options)`
 
 ```js
 MyPlugin.install = function (Vue, options) {
@@ -808,14 +835,23 @@ MyPlugin.install = function (Vue, options) {
 
 ## 过滤器
 
-用于常见文本格式化。
+自定义过滤器，常用于文本格式化
 
-### 使用
+语法：添加在 JavaScript 表达式尾部，并且通过 管道 `|` 符号
 
-**双花括号插值** 和 `v-bind` 表达式^2.1.0+^
+使用方式：**双花括号插值** 和 `v-bind` 表达式 2.1.0+
 
-- 过滤器第一个参数为 **表达式的值**
-- 过滤器可以**串联**
+```html
+<!-- 在双花括号中 -->
+{{ message | capitalize }}
+
+<!-- 在 `v-bind` 中 -->
+<div v-bind:id="rawId | formatId"></div>
+```
+
+过滤器第一个参数为 **表达式的值**
+
+过滤器可以**串联**
 
 ```html
 <!-- 在双花括号中 -->
@@ -827,22 +863,26 @@ MyPlugin.install = function (Vue, options) {
 {{ message | filterA | filterB }} {{ message | filterA('arg1', arg2) }}
 ```
 
-### 全局过滤器
-
-```js
-Vue.filter('capitalize', function (value) {
-  return ...
-})
-```
-
 ### 局部过滤器
 
 ```js
 filters: {
-  capitalize(value) {
-    return ...
+  capitalize: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
   }
 }
+```
+
+### 全局过滤器
+
+```js
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
 ```
 
 > 全局过滤器和局部过滤器同名，采用局部过滤器

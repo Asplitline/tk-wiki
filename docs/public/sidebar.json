@@ -302,6 +302,17 @@
 					"order": 18
 				}
 			]
+		},
+		{
+			"text": "TypeScript 应用",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "TypeScript 与 Vue2",
+					"link": "/pages/ts/expand/vue2",
+					"order": 0
+				}
+			]
 		}
 	],
 	"/pages/vue2": [
