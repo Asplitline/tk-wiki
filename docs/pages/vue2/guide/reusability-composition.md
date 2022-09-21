@@ -895,6 +895,8 @@ Vue.filter('capitalize', function (value) {
 
 #### HTML 内容
 
+不论使用模板还是渲染函数，内容都会被自动转义
+
 ```html
 <h1>{{ userProvidedString }}</h1>
 ```
@@ -903,7 +905,7 @@ Vue.filter('capitalize', function (value) {
 '<script>alert("hi")</script>' // userProvidedString
 ```
 
-使用模板还是渲染函数，内容都会被自动转义。
+使用模板还是渲染函数，内容都会被自动转义
 
 ```html
 &lt;script&gt;alert(&quot;hi&quot;)&lt;/script&gt;
@@ -911,15 +913,17 @@ Vue.filter('capitalize', function (value) {
 
 #### Attribute 绑定
 
+动态 attribute 绑定也会自动被转义
+
 ```html
 <h1 v-bind:title="userProvidedString">hello</h1>
 ```
 
+如果 `userProvidedString` 包含了
+
 ```js
 '" onclick="alert(\'hi\')'
 ```
-
-动态 attribute 绑定也会自动被转义
 
 ```html
 &quot; onclick=&quot;alert('hi')
@@ -929,9 +933,7 @@ Vue.filter('capitalize', function (value) {
 
 #### 注入 HTML
 
-==永远不要认为用户提供的 HTML 是 100% 安全的，除非它是在一个 iframe 沙盒里或者应用中只有编写该 HTML 的用户可以接触到它。==。
-
-当你清楚 HTML 安全，可以通过以下方式显示渲染 HTML。
+当你清楚 HTML 安全，可以通过以下式显示渲染 HTML。
 
 ##### 模板
 
@@ -955,6 +957,8 @@ h('div', {
 <div domPropsInnerHTML={this.userProvidedHtml}></div>
 ```
 
+> 永远不要认为用户提供的 HTML 是 100% 安全的，除非它是在一个 iframe 沙盒里或者应用中只有编写该 HTML 的用户可以接触到它
+
 #### 注入 URL
 
 对 URL 进行“过滤”以防止通过 `javascript:` 来执行 JavaScript
@@ -963,7 +967,7 @@ h('div', {
 <a v-bind:href="userProvidedUrl"> click me </a>
 ```
 
-> [sanitize-url](https://www.npmjs.com/package/@braintree/sanitize-url) 可以帮助过滤
+> [[2] sanitize-url](https://www.npmjs.com/package/@braintree/sanitize-url) 可以帮助过滤
 
 #### 注入样式
 
@@ -987,28 +991,34 @@ h('div', {
 </a>
 ```
 
-#### 注入 script
+#### 注入 JavaScript
 
-==永远不要认为用户提供的 JavaScript 是 100% 安全的，除非它是在一个 iframe 沙盒里或者应用中只有编写该 JavaScript 的用户可以接触到它。==。
+不鼓励使用 Vue 渲染 `<script>` 元素，因为模板和渲染函数永远不应该产生副作用。然而，这并不是唯一包含可能在运行时会被视为 JavaScript 的字符串。
+
+每个 HTML 元素都有接受 JavaScript 字符串作为其值的 attribute，如 `onclick`、`onfocus` 和 `onmouseenter`。将用户提供的 JavaScript 绑定到它们任意当中都是一个潜在的安全风险
 
 ## 深入响应式原理
 
-遍历 data，使用 `Object.defineProperty` ^es5+^将 data 中属性 转为 getter/setter。
+### 如何追踪变化
+
+遍历 data，使用 `Object.defineProperty` es5+ 将 data 中属性 转为 getter/setter。
 
 每个组件实例都对应一个 **watcher** 实例
 
-1. 记录依赖：在组件渲染的过程中把“接触”过的数据 property 记录为依赖。
-2. 监听依赖：当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。
+1. 记录依赖：在组件渲染的过程中把“接触”过的数据 property 记录为依赖
+2. 监听依赖：当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染
 
-![](https://cn.vuejs.org/images/data.png)
+![](https://v2.cn.vuejs.org/images/data.png)
 
-> ==不能检测数据和对象变化==
+
 
 ### 检测变化注意事项
 
+由于 JavaScript 的限制，Vue 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性
+
 #### 对于对象
 
-问题：由于 Vue 会在初始实例时 执行 getter/setter 转换，所以**未在 data 对象中预先定义**的属性，**无法被监听**。
+问题：由于 Vue 会在初始实例时 执行 getter/setter 转换，所以未在 data 对象中预先定义的属性，无法被监听                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
 ```js
 var vm = new Vue({
@@ -1037,10 +1047,7 @@ this.$set(this.someObject, 'b', 2)
 1. 已创建的实例，无法添加根级 property。
 2. 别名 vm.$set
 
-##### 多值响应式
-
-- #1 和 #2 都不能正确触发响应式
-- #3 可以，创建了一个新对象
+多值响应式：需要和原对象混合，创建一个新的对象
 
 ```js
 export default {
@@ -1080,12 +1087,16 @@ export default {
 }
 ```
 
+#1 和 #2 都不能正确触发响应式
+
+#3 可以，创建了一个新对象
+
 #### 对于数组
 
 Vue 不能检测以下数组变动
 
-1. 索引值访问
-2. 修改数组长度
+1. 索引值访问 `vm.items[indexOfItem] = newValue`
+2. 修改数组长度 `vm.items.length = newLength`
 
 ```js
 var vm = new Vue({
@@ -1116,21 +1127,41 @@ vm.items.splice(newLength)
 
 #### 声明响应式 property
 
-==Vue 不允许动态添加根级响应式 property，所以必须在初始化实例前声明所有根级响应式 property==
+Vue 不允许动态添加根级响应式 property，所以必须在初始化实例前声明所有根级响应式 property
 
-- 消除依赖项跟踪边界问题
-- 代码可读性
+```js
+var vm = new Vue({
+  data: {
+    // 声明 message 为一个空值字符串
+    message: ''
+  },
+  template: '<div>{{ message }}</div>'
+})
+// 之后设置 `message`
+vm.message = 'Hello!'
+```
+
+原因：
+
+1. 消除依赖项跟踪边界问题
+
+2. 统一在 data 对象声明，增加代码可读性
 
 #### 异步更新队列
 
 Vue 更新 dom 是异步执行。
 
-1. 监听到数据变化。Vue 开启一个队列，并缓冲同一事件循环内所有数据变更。同一 watcher 多次触发，只会推一次（自动去重）。
+1. 监听到数据变化。Vue 开启一个队列，并缓冲同一事件循环内所有数据变更。
+2. 同一个 watcher 多次触发，只会推一次（自动去重）。
+3. 下一次 事件循环 ‘tick’，Vue 刷新队列执行内容。Vue 在内部 对 异步队列尝试 原生 `Promise.then`、`MutationObserver` 和 `setImmediate`，环境不支持，采用 `setTimeout(fn, 0)`
 
-2. 下一次 事件循环 ‘tick’，Vue 刷新队列执行内容
-3. Vue 在内部 对 异步队列尝试 原生 `Promise.then`、`MutationObserver` 和 `setImmediate`，环境不支持，采用 `setTimeout(fn, 0)`
+例如，当你设置 `vm.someData = 'new value'`，该组件不会立即重新渲染。当刷新队列时，组件会在下一个事件循环“tick”中更新。
 
-例子：对 textContent 的设置不会立即更新，会在下一次事件循环 tick 更新
+为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 `Vue.nextTick(callback)`
+
+```html
+<div id="example">{{message}}</div>
+```
 
 ```js
 var vm = new Vue({
@@ -1146,13 +1177,29 @@ Vue.nextTick(function () {
 })
 ```
 
-通过 nextTick 保证数据更新
+ `$nextTick()` 返回一个 `Promise` 对象，可以通过 await
 
-- nextTick 回调函数 this 会自动绑定到 Vue 上
-- `$nextTick()` 返回一个 `Promise` 对象
+```js
+methods: {
+  updateMessage: async function () {
+    this.message = '已更新'
+    console.log(this.$el.textContent) // => '未更新'
+    await this.$nextTick()
+    console.log(this.$el.textContent) // => '已更新'
+  }
+}
+```
+
+> nextTick 回调函数 this 会自动绑定到 Vue 上
 
 
+
+## 与其他框架对比
+
+https://v2.cn.vuejs.org/v2/guide/comparison.html
 
 ## 相关链接
 
 [[1] Vue Babel 插件](https://github.com/vuejs/jsx)
+
+[[2] sanitize-url](https://www.npmjs.com/package/@braintree/sanitize-url)
