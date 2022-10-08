@@ -26,3 +26,4 @@ features:
   - title: Fully static yet still dynamic
     details: Go wild with true SSG + SPA architecture. Static on page load, but engage users with 100% interactivity from there.
 ---
+

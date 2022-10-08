@@ -15,8 +15,11 @@ export default defineConfig({
     nav: nav,
     sidebar: {
       ...sidebar
+    },
+    footer: {
+      message: '备案号：<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022016215号-1	</a>',
+      copyright: ''
     }
-    // sidebar: i.default
   }
 })
 try {
