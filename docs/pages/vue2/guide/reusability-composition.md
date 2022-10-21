@@ -450,15 +450,62 @@ export default {
 
 #### 约束
 
-~~VNode 唯一~~ ，在 2.5.18 后 VNode 支持复用
+组件树中的 vnodes 必须是唯一的
+
+说明：vnodes节点不唯一，渲染不会有问题。但是更新出现异常
+
+例子：第一次点击两个 p 都会更新，第二次点击，只更新第二个。
 
 ```js
-return createElement('div', [
-  // 错误 - 重复的 VNode
-  myParagraphVNode,
-  myParagraphVNode
-])
+Vue.component('ele', {
+  data() {
+    return {
+      text: 'test',
+    };
+  },
+  render: function(createElement) {
+    var ChildNode = createElement(Child, {
+      props: { text: this.text },
+      nativeOn: {
+        click: () => {
+          this.text = 'clicked ' + new Date();
+        },
+      },
+    });
+    return createElement('div', [ChildNode, ChildNode]);
+  },
+});
+new Vue({
+    el:'#app',
+})
 ```
+
+解决：使用工厂函数
+
+```js
+Vue.component('ele', {
+  data() {
+    return {
+      text: 'test',
+    };
+  },
+  render: function(createElement) {
+    return createElement('div', Array.from({length:2},()=>createElement(Child, {
+      props: { text: this.text },
+      nativeOn: {
+        click: () => {
+          this.text = 'clicked ' + new Date();
+        },
+      },
+    })));
+  },
+});
+new Vue({
+    el:'#app',
+})
+```
+
+
 
 ### Javascript 替代功能
 
