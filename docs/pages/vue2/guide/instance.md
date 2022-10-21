@@ -1090,20 +1090,6 @@ is 属性用于 常规HTML元素，这些元素将视为组件
 
 这个*attribute*以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute 都会*作为 DOM attribute 被绑定*。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 _`.prop` 修饰器_。
 
-```js
-<input id="input" type="foo" value="11" :data="inputData"></input>
-// 标签结构: <input id="input" type="foo" value="11" data="inputData的值"></input>
-// input.data === undefined
-// input.attributes.data === this.inputData
- 
-<input id="input" type="foo" value="11" :data.prop="inputData"></input>
-// 标签结构: <input id="input" type="foo" value="11"></input>
-// input.data === this.inputData
-// input.attributes.data === undefined
-```
-
-
-
 HTML属性 和 DOM属性区别
 
 **HTML 属性** (attribute)和 **DOM 属性**(property)，是相互关联的。
