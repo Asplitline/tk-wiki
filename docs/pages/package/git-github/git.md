@@ -979,6 +979,30 @@ git clean
 git reset .
 ```
 
+### 本地分支和远端分支名称不匹配
+
+场景：本地分支为 admin，想要推送到 远端feat/admin
+
+解决：`git push origin HEAD:feat/admin`
+
+```bash
+fatal: The upstream branch of your current branch does not match
+the name of your current branch.  To push to the upstream branch
+on the remote, use
+
+    git push origin HEAD:feat/admin
+
+To push to the branch of the same name on the remote, use
+
+    git push origin HEAD
+
+To choose either option permanently, see push.default in 'git help config'.
+```
+
+
+
+
+
 ## 相关链接
 
 [[1] Zsh alias](https://www.hejian.club/posts/ohMyZsh-alias)
