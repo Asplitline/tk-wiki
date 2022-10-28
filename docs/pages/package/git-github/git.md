@@ -480,7 +480,7 @@ git restore --staged <file>
 git restore <file>
 ```
 
-> 删除都是争对当前分支
+> 删除都是针对当前分支
 
 ### mv - 修改文件名
 
@@ -997,6 +997,30 @@ To push to the branch of the same name on the remote, use
     git push origin HEAD
 
 To choose either option permanently, see push.default in 'git help config'.
+```
+
+
+
+### 删除远端 dist 目录
+
+1. .gitignore 文件添加 dist
+
+```
+dist/
+```
+
+2. 删除仓库
+
+```bash
+git rm -r --cached .
+```
+
+3. 内容添加到暂存区，并再次push
+
+```bash
+git add .
+git commit -m 'remove dist'
+git push 
 ```
 
 
