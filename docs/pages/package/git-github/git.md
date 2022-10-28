@@ -981,22 +981,38 @@ git reset .
 
 ### 本地分支和远端分支名称不匹配
 
-场景：本地分支为 admin，想要推送到 远端feat/admin
+场景：本地分支为 main，想要推送到 远端feat/main
 
-解决：`git push origin HEAD:feat/admin`
+解决：`git push origin HEAD:feat/main`
 
 ```bash
 fatal: The upstream branch of your current branch does not match
 the name of your current branch.  To push to the upstream branch
 on the remote, use
 
-    git push origin HEAD:feat/admin
+    git push origin HEAD:feat/main
 
 To push to the branch of the same name on the remote, use
 
     git push origin HEAD
 
 To choose either option permanently, see push.default in 'git help config'.
+```
+
+场景：本地分支为 main，想要拉取远端分支 feat/main，无法追踪当前分支对应信息。
+
+解决：`git branch --set-upstream-to=origin/<branch> feat/main`
+
+```js
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> feat/main
 ```
 
 
