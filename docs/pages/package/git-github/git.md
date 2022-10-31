@@ -1015,7 +1015,11 @@ If you wish to set tracking information for this branch you can do so with:
     git branch --set-upstream-to=origin/<branch> feat/main
 ```
 
+### git bash 乱码
 
+修改 `计算机\HKEY_CURRENT_USER\Console\D:_git_Git_usr_bin_bash.exe`中 codePage 为 十进制 65001
+
+![image-20221031113553307](.\git.assets\image-20221031113553307.png)
 
 ### 删除远端 dist 目录
 
