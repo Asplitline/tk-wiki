@@ -480,7 +480,7 @@ git restore --staged <file>
 git restore <file>
 ```
 
-> 删除都是针对当前分支
+> 删除都是争对当前分支
 
 ### mv - 修改文件名
 
@@ -715,6 +715,10 @@ alias ....="cd ../../.."
 alias my="git config user.name Asplitline && git config user.email *@qq.com"
 alias cmy="git config user.name tink && git config user.email tink@tink.com"
 alias clsmy="git config --unset user.name && git config --unset user.email"
+
+# npm
+alias docs="npm docs"
+alias repo="npm repo"
 
 ```
 
@@ -1021,31 +1025,32 @@ If you wish to set tracking information for this branch you can do so with:
 
 ![image-20221031113553307](.\git.assets\image-20221031113553307.png)
 
-### 删除远端 dist 目录
 
-1. .gitignore 文件添加 dist
 
-```
-dist/
-```
+### 清除未追踪文件
 
-2. 删除仓库
+场景：git status后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)
+
+，只想删除 untracked file
 
 ```bash
-git rm -r --cached .
+# 删除 untracked files
+git clean -f
 ```
 
-3. 内容添加到暂存区，并再次push
+扩展
 
 ```bash
-git add .
-git commit -m 'remove dist'
-git push 
+# 连 untracked 的目录也一起删掉
+git clean -fd
+# 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
+git clean -xfd
+ 
+# 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
+git clean -nxfd
+git clean -nf
+git clean -nfd
 ```
-
-
-
-
 
 ## 相关链接
 
