@@ -4,11 +4,11 @@
   "main": "index.js",
   "author": "tk",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://asplitline.github.io/tk-wiki/",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs",
+    "start": "vitepress serve docs",
     "postinstall": "husky install",
     "prepare": "husky install",
     "clean": "rm -rf docs/public/*"

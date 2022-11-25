@@ -12,6 +12,7 @@ module.exports = {
         'revert',
         'config',
         'content',
+        'fix',
         'chore' // For articles, tutorials, etc...
       ]
     ]

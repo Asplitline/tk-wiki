@@ -1,4 +1,5 @@
 import { nav, sidebar, pages } from '../../themeConfig'
+import { baseURL } from '../../themeConfig/constants'
 import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
@@ -10,7 +11,7 @@ export default defineConfig({
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
-  base: '/tk-wiki/',
+  base: `${baseURL}/`,
   themeConfig: {
     nav: nav,
     sidebar: {

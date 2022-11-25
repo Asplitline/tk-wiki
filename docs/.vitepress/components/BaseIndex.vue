@@ -3,13 +3,13 @@ import { getDirList } from '../../../lib/pages.ts'
 import { obj2Array } from '../../../lib/tools.ts'
 import { useRoute } from 'vitepress'
 import { ref, onMounted, computed } from 'vue'
-
+import { baseURL } from '../../../themeConfig/constants.ts'
 const route = useRoute()
 const list = ref([])
 const pageInfo = ref({})
 const props = defineProps(['title'])
 const fetchData = async () => {
-  const res = await fetch('/sidebar.json').then((res) => {
+  const res = await fetch(`${baseURL}/sidebar.json`).then((res) => {
     return res.json()
   })
   const result = {}
@@ -23,7 +23,7 @@ const fetchData = async () => {
 }
 
 const fetchInfo = async () => {
-  const res = await fetch('/pageInfo.json').then((res) => {
+  const res = await fetch(`${baseURL}/sidebar.json`).then((res) => {
     return res.json()
   })
 
@@ -31,7 +31,7 @@ const fetchInfo = async () => {
 }
 
 const isRoot = computed(() => {
-  return route.path === '/pages/'
+  return route.path === `${baseURL}/pages/`
 })
 
 const rootList = computed(() => {
@@ -47,11 +47,13 @@ const rootList = computed(() => {
 
 const endList = computed(() => {
   const supportKeys = Object.keys(list.value)
-  const currentKey = route.path
+
+  const currentKey = route.path.split(baseURL)[1]
 
   const keyIndex = supportKeys.find((val) => {
     return currentKey.startsWith(val)
   })
+  console.log('keyIndex: ', keyIndex)
   if (keyIndex !== -1) {
     return list.value[keyIndex]
   } else {
