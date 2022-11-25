@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app.ca898a0e.js";const g=JSON.parse('{"title":"Git & Github","description":"","frontmatter":{"title":"Git & Github"},"headers":[],"relativePath":"pages/package/git-github/index.md"}'),i={name:"pages/package/git-github/index.md"};function n(r,s,c,o,p,d){return a(),e("div")}const m=t(i,[["render",n]]);export{g as __pageData,m as default};
