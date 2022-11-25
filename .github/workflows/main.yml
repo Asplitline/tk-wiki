@@ -1,53 +1,52 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: tk-notes-ci/cd
+# name: tk-notes-ci/cd
 
-on:
-  push:
-    branches: [master]
-  # pull_request:
-  #   branches: [master]
+# on:
+#   push:
+#     branches: [master]
+#   # pull_request:
+#   #   branches: [master]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      # download source
-      - name: Checkout
-        uses: actions/checkout@master
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
+#     steps:
+#       # download source
+#       - name: Checkout
+#         uses: actions/checkout@master
 
-      # Install & Build
-      - name: Build
-        uses: actions/setup-node@master
-      - run: |
-          yarn install
-          yarn build
+#       # Install & Build
+#       - name: Build
+#         uses: actions/setup-node@master
+#       - run: |
+#           yarn install
+#           yarn build
 
-      # copy dist
-      - name: Upload
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          source: './docs/.vitepress/dist/*'
-          target: '/data/tk-notes'
-          strip_components: 3 # 去掉 3 层路径, /data/tk-notes/docs/.vitepress/dist/* => /data/tk-notes/*
+#       # copy dist
+#       - name: Upload
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.HOST }}
+#           username: ${{ secrets.USERNAME }}
+#           password: ${{ secrets.PASSWORD }}
+#           port: ${{ secrets.PORT }}
+#           source: './docs/.vitepress/dist/*'
+#           target: '/data/tk-notes'
+#           strip_components: 3 # 去掉 3 层路径, /data/tk-notes/docs/.vitepress/dist/* => /data/tk-notes/*
 
-
-      # - name: copy file via ssh key
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     port: ${{ secrets.PORT }}
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.TOKEN }}
-      #     source: './docs/.vitepress/dist/*'
-      #     target: '/data/tk-notes'
-      #     strip_components: 3
+#       # - name: copy file via ssh key
+#       #   uses: appleboy/scp-action@master
+#       #   with:
+#       #     host: ${{ secrets.HOST }}
+#       #     port: ${{ secrets.PORT }}
+#       #     username: ${{ secrets.USERNAME }}
+#       #     key: ${{ secrets.TOKEN }}
+#       #     source: './docs/.vitepress/dist/*'
+#       #     target: '/data/tk-notes'
+#       #     strip_components: 3
