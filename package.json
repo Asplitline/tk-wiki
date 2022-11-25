@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "tk",
   "license": "MIT",
-  "homepage": "http://www.tk-292.xyz:8000/",
+  "homepage": "",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",

@@ -11,7 +11,8 @@ module.exports = {
         'refactor',
         'revert',
         'config',
-        'content' // For articles, tutorials, etc...
+        'content',
+        'chore' // For articles, tutorials, etc...
       ]
     ]
   }
