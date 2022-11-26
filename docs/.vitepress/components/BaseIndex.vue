@@ -48,12 +48,11 @@ const rootList = computed(() => {
 const endList = computed(() => {
   const supportKeys = Object.keys(list.value)
 
-  const currentKey = route.path.split(baseURL)[1]
+  const currentKey = route.path
 
   const keyIndex = supportKeys.find((val) => {
     return currentKey.startsWith(val)
   })
-  console.log('keyIndex: ', keyIndex)
   if (keyIndex !== -1) {
     return list.value[keyIndex]
   } else {
