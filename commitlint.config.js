@@ -13,6 +13,7 @@ module.exports = {
         'config',
         'content',
         'fix',
+        'feat',
         'chore' // For articles, tutorials, etc...
       ]
     ]

@@ -1,4 +1,28 @@
 {
+	"/pages/config": [
+		{
+			"text": "vitepress",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vitepress",
+					"link": "/pages/config/vitepress/vue",
+					"order": 0
+				}
+			]
+		},
+		{
+			"text": "webpack",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vue",
+					"link": "/pages/config/webpack/vue",
+					"order": 1
+				}
+			]
+		}
+	],
 	"/pages/docs": [],
 	"/pages/es6": [
 		{
@@ -149,22 +173,40 @@
 		}
 	],
 	"/pages/js": [],
-	"/pages/my": [
+	"/pages/other": [
 		{
-			"text": "个人向",
+			"text": "版本控制",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Git",
+					"link": "/pages/other/version-control/git",
+					"order": 2
+				},
+				{
+					"text": "Github",
+					"link": "/pages/other/version-control/github",
+					"order": 3
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "自定义",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "Keyboard",
-					"link": "/pages/my/keyboard",
+					"link": "/pages/other/custom/keyboard",
 					"order": 1
 				}
-			]
+			],
+			"order": 2
 		}
 	],
 	"/pages/package": [
 		{
-			"text": "Cli",
+			"text": "包管理",
 			"collapsible": true,
 			"items": [
 				{
@@ -178,32 +220,24 @@
 					"order": 2
 				},
 				{
-					"text": "实战",
-					"link": "/pages/package/cli/practice",
-					"order": 4
-				},
-				{
 					"text": "其他",
 					"link": "/pages/package/cli/add",
 					"order": 5
 				}
-			]
+			],
+			"order": 1
 		},
 		{
-			"text": "Git & Github",
+			"text": "应用",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Git",
-					"link": "/pages/package/git-github/git",
-					"order": 2
-				},
-				{
-					"text": "Github",
-					"link": "/pages/package/git-github/github",
-					"order": 3
+					"text": "应用",
+					"link": "/pages/package/apply/apply",
+					"order": 1
 				}
-			]
+			],
+			"order": 2
 		}
 	],
 	"/pages/ts": [

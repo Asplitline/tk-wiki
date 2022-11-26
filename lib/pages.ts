@@ -63,13 +63,10 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
   const fileName = file.replace(/\.md$/i, '')
   const path = joinLink([dir, fileName])
   const isReadme = path.toLowerCase() === 'index'
+  //
   if (!isAll) {
-    const { order = 0, title = '-/-' } = data
-    return {
-      text: title,
-      link: isReadme ? '' : path,
-      order
-    }
+    const { order = 0, parentOrder, title = '-/-' } = data
+    return Object.assign({ text: title, link: isReadme ? '' : path, order }, typeof parentOrder === 'number' ? { parentOrder } : {})
   } else {
     const { title, ..._data } = data
     return {
@@ -89,22 +86,23 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
 export function handlePages(dir: string, filePrefix: string = pages_root) {
   const pathList = getFileList(joinPath([dir], '..'))
   let groupName = 'unTitle'
+  let indexInfo = {}
   const result = pathList.map((path) => {
     const info = getMarkdownInfo(dir, path)
-
-    if (path.indexOf('index.md') !== -1) {
+    if (path.includes('index.md')) {
+      indexInfo = info
       groupName = info.text
       return null
     } else {
       return info
     }
-    // }
   })
   const sortResult = sortPages(result.filter((i) => i))
   return {
     text: groupName,
     collapsible: true,
-    items: sortResult
+    items: sortResult,
+    order: indexInfo?.parentOrder
   }
 }
 
@@ -148,13 +146,15 @@ export function initSideBar() {
     const endPages = {}
     dir.forEach((i) => {
       const item = handlePages(i.current)
-      // 过滤没有子项的数据
       if (i.parent === pages_root) {
         endPages[i.current] = item.items.length ? [item] : []
       } else {
         const parent = dir.find((j) => j.path === i.parent)
         item.items.length && endPages[parent.current].push(item)
       }
+    })
+    Object.keys(endPages).forEach((key) => {
+      sortPages(endPages[key])
     })
     return endPages
   } catch (error) {
