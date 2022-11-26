@@ -1,4 +1,11 @@
 {
+	"/pages/config": {
+		"text": "配置",
+		"link": "/pages/config/index",
+		"sidebar": false,
+		"order": 0,
+		"layout": "page"
+	},
 	"/pages/docs": {
 		"text": "文档",
 		"link": "/pages/docs/index"
@@ -19,9 +26,9 @@
 		"order": 0,
 		"layout": "page"
 	},
-	"/pages/my": {
-		"text": "个人向",
-		"link": "/pages/my/index",
+	"/pages/other": {
+		"text": "杂项",
+		"link": "/pages/other/index",
 		"order": 5
 	},
 	"/pages/package": {

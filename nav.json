@@ -30,17 +30,47 @@
 		]
 	},
 	{
-		"text": "包管理",
+		"text": "Package",
 		"items": [
 			{
-				"text": "Cli",
+				"text": "包管理",
 				"link": "/pages/package/cli/npm",
 				"activeMath": "/package/cli/"
 			},
 			{
+				"text": "应用",
+				"link": "/pages/package/apply/apply",
+				"activeMath": "/package/apply/"
+			}
+		]
+	},
+	{
+		"text": "Config",
+		"items": [
+			{
+				"text": "webpack",
+				"link": "/pages/config/webpack/index",
+				"activeMath": "/config/webpack/"
+			},
+			{
+				"text": "vitepress",
+				"link": "/pages/config/vitepress/index",
+				"activeMatch": "/config/vitepress/"
+			}
+		]
+	},
+	{
+		"text": "Other",
+		"items": [
+			{
 				"text": "Git & Github",
-				"link": "/pages/package/git-github/git",
-				"activeMatch": "/package/git-github/"
+				"link": "/pages/other/version-control/git",
+				"activeMatch": "/other/version-control/"
+			},
+			{
+				"text": "Keyboard",
+				"link": "/pages/other/custom/keyboard",
+				"activeMath": "/other/custom/"
 			}
 		]
 	}
