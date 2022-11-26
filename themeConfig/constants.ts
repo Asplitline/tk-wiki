@@ -1,1 +1,1 @@
-export const baseURL = '/tk-wiki'
+export const baseURL = ''
