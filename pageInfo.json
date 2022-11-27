@@ -1,14 +1,15 @@
 {
-	"/pages/config": {
-		"text": "配置",
-		"link": "/pages/config/index",
-		"sidebar": false,
-		"order": 0,
-		"layout": "page"
+	"/pages/cli": {
+		"text": "脚手架",
+		"link": "/pages/cli/index",
+		"layout": "page",
+		"sidebar": false
 	},
-	"/pages/docs": {
-		"text": "文档",
-		"link": "/pages/docs/index"
+	"/pages/custom": {
+		"text": "自定义",
+		"link": "/pages/custom/index",
+		"sidebar": false,
+		"layout": "page"
 	},
 	"/pages/es6": {
 		"text": "ES6",
@@ -22,14 +23,8 @@
 		"text": "前言",
 		"link": "/pages/js/index",
 		"sidebar": false,
-		"aside": false,
 		"order": 0,
 		"layout": "page"
-	},
-	"/pages/other": {
-		"text": "杂项",
-		"link": "/pages/other/index",
-		"order": 5
 	},
 	"/pages/package": {
 		"text": "包管理",
@@ -43,7 +38,6 @@
 		"link": "/pages/ts/index",
 		"order": 2,
 		"sidebar": false,
-		"aside": false,
 		"layout": "page"
 	},
 	"/pages/vue2": {
