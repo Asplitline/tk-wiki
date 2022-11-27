@@ -3,13 +3,11 @@ title: 版本发布
 order: 4
 ---
 
-# 其他
-
-## 版本管理
+# 版本发布
 
 版本规范：https://semver.org/
 
-### 标准版本
+## 标准版本
 
 `major`：主版本，不兼容的 API 修改
 
@@ -17,7 +15,7 @@ order: 4
 
 `patch`：修订号，向下兼容的问题修正
 
-### 先行版本
+## 先行版本
 
 先行版本号可以加到`“主版本号.次版本号.修订号”`的后面，先加上一个连接号再加上一连串以句点分隔的标识符和版本编译信息。
 
@@ -29,15 +27,15 @@ order: 4
 
 `rc` 即 `Release candiate`：正式版本候选版本
 
-### 发布版本
+## 发布版本
 
 ```shell
-### version 1.0.0
-### 升级补丁版本号 1.0.1
+## version 1.0.0
+## 升级补丁版本号 1.0.1
 npm version patch
-### 升级小版本号 1.1.0
+## 升级小版本号 1.1.0
 npm version minor
-### 升级大版本号 2.0.0
+## 升级大版本号 2.0.0
 npm version major
 ```
 
@@ -47,7 +45,7 @@ npm version major
 npm install semver
 ```
 
-### 依赖详解
+## 依赖详解
 
 ```js
   "dependencies": {
@@ -75,7 +73,7 @@ npm install semver
 - 主版本号和次版本号都为 `0`: `^0.0.z`、`~0.0.z` 都被当作固定版本
 - 主版本号为 `0`: `^0.y.z` 表现和 `~0.y.z` 相同，只保持修订号（`z`）为最新版本。
 
-### 依赖更新
+## 依赖更新
 
 `npm outdated` ：列出有哪些还没有升级到最新版本的依赖：
 
@@ -84,7 +82,7 @@ npm install semver
 
 ```shell
 npm outedated
-### 升级红色依赖
+## 升级红色依赖
 npm update
 ```
 
@@ -125,7 +123,7 @@ nvm list
 
 ### 相关链接
 
-nvm 下载地址：https://github.com/coreybutler/nvm-windows/releases
+[nvm 下载地址](https://github.com/coreybutler/nvm-windows/releases)
 
 ## npx
 
@@ -218,4 +216,4 @@ npx -c 'echo "$npm_package_name"'
 
 ### 相关链接
 
-npx 使用教程：http://www.ruanyifeng.com/blog/2019/02/npx.html
+[npx 使用教程](http://www.ruanyifeng.com/blog/2019/02/npx.html)

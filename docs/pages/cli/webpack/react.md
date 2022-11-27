@@ -1,11 +1,11 @@
 ---
 title: React
-order: 2
+order: 3
 ---
 
-# React Config
+# React Config - Webpack
 
-## react 配置全局 scss
+## 配置全局 scss
 
 1. 安装 sass `yarn add sass -D`
 2. 安装 全局 loader `yarn add sass-resources-loader -D`
@@ -80,3 +80,7 @@ yarn install
   ]
 }
 ```
+
+## 相关链接
+
+[react--添加环境变量](https://juejin.cn/post/6850418114979430413)

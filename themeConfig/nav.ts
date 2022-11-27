@@ -1,4 +1,4 @@
-import { pages_root } from '../lib/static'
+import { pageRoot } from './constants'
 const nav = [
   {
     text: 'Vue',
@@ -25,7 +25,7 @@ const nav = [
 ]
 
 const addPrefix = (link: string) => {
-  return pages_root + link
+  return pageRoot + link
 }
 
 const endNav = nav.map((i) => {

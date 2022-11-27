@@ -1,10 +1,10 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import { pages_root } from './static'
+import { pageRoot } from '../themeConfig/constants'
 
 const joinPath = (arr: string[], prefix = '.') => {
-  return path.resolve(__dirname, `../docs${pages_root}`, [prefix, ...arr].join('/'))
+  return path.resolve(__dirname, `../docs${pageRoot}`, [prefix, ...arr].join('/'))
 }
 
 const join = (pathList: string[] | string = []) => {
@@ -15,7 +15,7 @@ const join = (pathList: string[] | string = []) => {
   }
 }
 
-const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [pages_root, ...arr].join('/'))
+const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [pageRoot, ...arr].join('/'))
 
 /**
  * 是否为文件夹
@@ -91,7 +91,7 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
  * @param filePrefix
  * @returns
  */
-export function handlePages(dir: string, filePrefix: string = pages_root) {
+export function handlePages(dir: string, filePrefix: string = pageRoot) {
   const pathList = getFileList(joinPath([dir], '..'))
 
   let groupName = 'unTitle'
@@ -121,7 +121,7 @@ export function handlePages(dir: string, filePrefix: string = pages_root) {
  * @param current
  * @returns
  */
-function dir2Obj(dir: string[], parent = pages_root) {
+function dir2Obj(dir: string[], parent = pageRoot) {
   return dir.map((i) => ({ path: [parent, i].join('/'), parent: parent }))
 }
 
@@ -150,7 +150,7 @@ export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
 
 export function initSideBar() {
   try {
-    const dirList = getDirList(pages_root)
+    const dirList = getDirList(pageRoot)
     const dirObj = dir2Obj(dirList)
 
     let dir = getDeepDir(dirObj)
@@ -161,7 +161,7 @@ export function initSideBar() {
     dir.forEach((i) => {
       const item = handlePages(i.path)
 
-      if (i.parent === pages_root) {
+      if (i.parent === pageRoot) {
         endPages[i.path] = item.items.length ? [item] : []
       } else {
         const parent = dir.find((j) => j.path === i.parent)
@@ -179,11 +179,11 @@ export function initSideBar() {
 }
 
 export function initPageInfo() {
-  const dirList = getDirList(pages_root)
+  const dirList = getDirList(pageRoot)
 
   const resObj = {}
   dirList.forEach((i) => {
-    const path = `${pages_root}/${i}`
+    const path = `${pageRoot}/${i}`
     const res = getMarkdownInfo(path, 'index.md', true)
     resObj[path] = res
   })

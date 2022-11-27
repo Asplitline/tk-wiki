@@ -5,29 +5,46 @@
 			"collapsible": true,
 			"items": [
 				{
+					"text": "Webpack",
+					"link": "/pages/cli/webpack/base",
+					"order": 1
+				},
+				{
 					"text": "Vue",
 					"link": "/pages/cli/webpack/vue",
-					"order": 1
+					"order": 2
 				},
 				{
 					"text": "React",
 					"link": "/pages/cli/webpack/react",
-					"order": 2
+					"order": 3
 				}
 			],
 			"order": 1
 		},
 		{
-			"text": "VitePress",
+			"text": "Vite",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "Vue",
-					"link": "/pages/cli/vitepress/vue",
+					"link": "/pages/cli/vite/vue",
 					"order": 0
 				}
 			],
 			"order": 2
+		},
+		{
+			"text": "构建工具",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Linters",
+					"link": "/pages/cli/build-tools/lint",
+					"order": 1
+				}
+			],
+			"order": 3
 		}
 	],
 	"/pages/custom": [

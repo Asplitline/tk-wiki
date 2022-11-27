@@ -1,9 +1,9 @@
 ---
 title: Vue
-order: 1
+order: 2
 ---
 
-# Vue Config
+# Vue Config - Webpack
 
 ## 配置全局 scss
 

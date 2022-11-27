@@ -1,6 +1,5 @@
 ---
 sidebar: false
-aside: false
 order: 0
 layout: page
 title: 前言

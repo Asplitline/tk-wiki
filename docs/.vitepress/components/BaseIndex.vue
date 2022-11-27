@@ -3,17 +3,21 @@ import { getDirList } from '../../../lib/pages.ts'
 import { obj2Array } from '../../../lib/tools.ts'
 import { useRoute } from 'vitepress'
 import { ref, onMounted, computed } from 'vue'
-import { baseURL } from '../../../themeConfig/constants.ts'
+import { baseURL, pageRoot } from '../../../themeConfig/constants.ts'
 const route = useRoute()
 const list = ref([])
 const pageInfo = ref({})
 const props = defineProps(['title'])
-const fetchData = async () => {
+
+const isRoot = computed(() => {
+  return route.path === `${baseURL}${pageRoot}/`
+})
+
+const fetchSideBar = async () => {
   const res = await fetch(`${baseURL}/sidebar.json`).then((res) => {
     return res.json()
   })
   const result = {}
-  console.log('res: ', res)
   Object.entries(res).forEach(([key, value]) => {
     if (value.length > 0) {
       result[key] = value
@@ -23,17 +27,13 @@ const fetchData = async () => {
   list.value = result
 }
 
-const fetchInfo = async () => {
-  const res = await fetch(`${baseURL}/sidebar.json`).then((res) => {
+const fetchPageInfo = async () => {
+  const res = await fetch(`${baseURL}/pageInfo.json`).then((res) => {
     return res.json()
   })
 
   pageInfo.value = res
 }
-
-const isRoot = computed(() => {
-  return route.path === `${baseURL}/pages/`
-})
 
 const rootList = computed(() => {
   const newVal = obj2Array(list.value).map((i) => {
@@ -42,16 +42,12 @@ const rootList = computed(() => {
       ...pageInfo.value[i.key]
     }
   })
-
-  return newVal.sort((a, b) => a.order - b.order)
+  return newVal.sort(({ order: aOrder = 999 }, { order: bOrder = 999 }) => aOrder - bOrder)
 })
 
 const endList = computed(() => {
   const supportKeys = Object.keys(list.value)
-  console.log('supportKeys: ', supportKeys)
-
   const currentKey = route.path
-
   const keyIndex = supportKeys.find((val) => {
     return currentKey.startsWith(val)
   })
@@ -62,12 +58,9 @@ const endList = computed(() => {
   }
 })
 
-onMounted(() => {
-  fetchData()
-  fetchInfo()
-  setTimeout(() => {
-    console.log('endList.value :', endList.value)
-  }, 1000)
+onMounted(async () => {
+  await fetchPageInfo()
+  fetchSideBar()
 })
 </script>
 

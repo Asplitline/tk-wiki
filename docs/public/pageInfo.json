@@ -9,7 +9,6 @@
 		"text": "自定义",
 		"link": "/pages/custom/index",
 		"sidebar": false,
-		"order": 0,
 		"layout": "page"
 	},
 	"/pages/es6": {
@@ -24,7 +23,6 @@
 		"text": "前言",
 		"link": "/pages/js/index",
 		"sidebar": false,
-		"aside": false,
 		"order": 0,
 		"layout": "page"
 	},
@@ -40,7 +38,6 @@
 		"link": "/pages/ts/index",
 		"order": 2,
 		"sidebar": false,
-		"aside": false,
 		"layout": "page"
 	},
 	"/pages/vue2": {
