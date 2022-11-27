@@ -7,6 +7,14 @@ const joinPath = (arr: string[], prefix = '.') => {
   return path.resolve(__dirname, `../docs${pages_root}`, [prefix, ...arr].join('/'))
 }
 
+const join = (pathList: string[] | string = []) => {
+  if (Array.isArray(pathList)) {
+    return path.join(__dirname, '../docs', ...pathList)
+  } else {
+    return path.join(__dirname, '../docs', pathList)
+  }
+}
+
 const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [pages_root, ...arr].join('/'))
 
 /**
@@ -14,7 +22,7 @@ const joinLink = (arr: string[], root = true) => (root ? [...arr].join('/') : [p
  * @param path
  * @returns
  */
-const isDir = (path: string) => path.indexOf('.md') === -1
+const isDir = (path: string) => !(path.endsWith('.md') || path.startsWith('.'))
 
 /**
  * 获取路径下文件
@@ -31,8 +39,8 @@ export function getFileList(path: string) {
  * @param item
  * @returns
  */
-export function getDirList(item: string[] = []) {
-  const dirList = fs.readdirSync(joinPath(item))
+export function getDirList(item: string[] | string) {
+  const dirList = fs.readdirSync(join(item))
   return dirList.filter((i) => isDir(i))
 }
 
@@ -85,6 +93,7 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
  */
 export function handlePages(dir: string, filePrefix: string = pages_root) {
   const pathList = getFileList(joinPath([dir], '..'))
+
   let groupName = 'unTitle'
   let indexInfo = {}
   const result = pathList.map((path) => {
@@ -112,8 +121,8 @@ export function handlePages(dir: string, filePrefix: string = pages_root) {
  * @param current
  * @returns
  */
-function dir2Obj(dir: string[], parent = pages_root, current = '') {
-  return dir.map((i) => ({ path: i, parent: parent, current: current ? [current, i].join('/') : [parent, i].join('/') }))
+function dir2Obj(dir: string[], parent = pages_root) {
+  return dir.map((i) => ({ path: [parent, i].join('/'), parent: parent }))
 }
 
 /**
@@ -128,11 +137,11 @@ export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
   }
   const currentObj = dir.shift()
   result.push(currentObj)
-  const fullPath = joinPath([currentObj.path!])
+  const fullPath = join(currentObj.path)
   if (isDir(fullPath)) {
-    const dirList = getDirList([currentObj.path!])
+    const dirList = getDirList(currentObj.path)
     if (dirList.length) {
-      const newDirObj = dir2Obj(dirList, currentObj.path, currentObj.current)
+      const newDirObj = dir2Obj(dirList, currentObj.path)
       result.push(...newDirObj)
     }
   }
@@ -141,16 +150,23 @@ export function getDeepDir(dir: any[] = [], result: any[] = []): string[] {
 
 export function initSideBar() {
   try {
-    const dirList = getDirList()
-    let dir = getDeepDir(dir2Obj(dirList))
+    const dirList = getDirList(pages_root)
+    const dirObj = dir2Obj(dirList)
+
+    let dir = getDeepDir(dirObj)
+    console.log('dir: ', dir)
+
     const endPages = {}
+
     dir.forEach((i) => {
-      const item = handlePages(i.current)
+      const item = handlePages(i.path)
+
       if (i.parent === pages_root) {
-        endPages[i.current] = item.items.length ? [item] : []
+        endPages[i.path] = item.items.length ? [item] : []
       } else {
         const parent = dir.find((j) => j.path === i.parent)
-        item.items.length && endPages[parent.current].push(item)
+
+        item.items.length && endPages[parent.path].push(item)
       }
     })
     Object.keys(endPages).forEach((key) => {
@@ -163,7 +179,8 @@ export function initSideBar() {
 }
 
 export function initPageInfo() {
-  const dirList = getDirList()
+  const dirList = getDirList(pages_root)
+
   const resObj = {}
   dirList.forEach((i) => {
     const path = `${pages_root}/${i}`

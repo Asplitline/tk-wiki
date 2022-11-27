@@ -13,6 +13,7 @@ const fetchData = async () => {
     return res.json()
   })
   const result = {}
+  console.log('res: ', res)
   Object.entries(res).forEach(([key, value]) => {
     if (value.length > 0) {
       result[key] = value
@@ -47,6 +48,7 @@ const rootList = computed(() => {
 
 const endList = computed(() => {
   const supportKeys = Object.keys(list.value)
+  console.log('supportKeys: ', supportKeys)
 
   const currentKey = route.path
 
@@ -63,6 +65,9 @@ const endList = computed(() => {
 onMounted(() => {
   fetchData()
   fetchInfo()
+  setTimeout(() => {
+    console.log('endList.value :', endList.value)
+  }, 1000)
 })
 </script>
 

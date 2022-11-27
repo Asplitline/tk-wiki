@@ -1,8 +1,7 @@
 ---
-sidebar: false
-order: 0
-title: 配置
+title: 脚手架
 layout: page
+sidebar: false
 ---
 
 <base-index :title="$frontmatter.title "/>

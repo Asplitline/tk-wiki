@@ -1,6 +1,6 @@
 ---
 title: Git
-order: 2
+order: 1
 ---
 
 # Git
@@ -985,7 +985,7 @@ git reset .
 
 ### 本地分支和远端分支名称不匹配
 
-场景：本地分支为 main，想要推送到 远端feat/main
+场景：本地分支为 main，想要推送到 远端 feat/main
 
 解决：`git push origin HEAD:feat/main`
 
@@ -1025,11 +1025,9 @@ If you wish to set tracking information for this branch you can do so with:
 
 ![image-20221031113553307](.\git.assets\image-20221031113553307.png)
 
-
-
 ### 清除未追踪文件
 
-场景：git status后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)
+场景：git status 后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)
 
 ，只想删除 untracked file
 
@@ -1045,7 +1043,7 @@ git clean -f
 git clean -fd
 # 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
 git clean -xfd
- 
+
 # 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
 git clean -nxfd
 git clean -nf

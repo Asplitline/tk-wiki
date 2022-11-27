@@ -1,29 +1,48 @@
 {
-	"/pages/config": [
+	"/pages/cli": [
 		{
-			"text": "vitepress",
+			"text": "Webpack",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "vitepress",
-					"link": "/pages/config/vitepress/vue",
-					"order": 0
+					"text": "Vue",
+					"link": "/pages/cli/webpack/vue",
+					"order": 1
+				},
+				{
+					"text": "React",
+					"link": "/pages/cli/webpack/react",
+					"order": 2
 				}
-			]
+			],
+			"order": 1
 		},
 		{
-			"text": "webpack",
+			"text": "VitePress",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "vue",
-					"link": "/pages/config/webpack/vue",
+					"text": "Vue",
+					"link": "/pages/cli/vitepress/vue",
+					"order": 0
+				}
+			],
+			"order": 2
+		}
+	],
+	"/pages/custom": [
+		{
+			"text": "自定义",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "快捷键",
+					"link": "/pages/custom/keyboard",
 					"order": 1
 				}
 			]
 		}
 	],
-	"/pages/docs": [],
 	"/pages/es6": [
 		{
 			"text": "ES6 基础",
@@ -173,37 +192,6 @@
 		}
 	],
 	"/pages/js": [],
-	"/pages/other": [
-		{
-			"text": "版本控制",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "Git",
-					"link": "/pages/other/version-control/git",
-					"order": 2
-				},
-				{
-					"text": "Github",
-					"link": "/pages/other/version-control/github",
-					"order": 3
-				}
-			],
-			"order": 1
-		},
-		{
-			"text": "自定义",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "Keyboard",
-					"link": "/pages/other/custom/keyboard",
-					"order": 1
-				}
-			],
-			"order": 2
-		}
-	],
 	"/pages/package": [
 		{
 			"text": "包管理",
@@ -212,32 +200,54 @@
 				{
 					"text": "npm",
 					"link": "/pages/package/cli/npm",
-					"order": 1
+					"order": 2
 				},
 				{
 					"text": "yarn",
 					"link": "/pages/package/cli/yarn",
-					"order": 2
+					"order": 3
 				},
 				{
-					"text": "其他",
-					"link": "/pages/package/cli/add",
+					"text": "版本发布",
+					"link": "/pages/package/cli/publish",
+					"order": 4
+				},
+				{
+					"text": "应用",
+					"link": "/pages/package/cli/apply",
 					"order": 5
 				}
 			],
 			"order": 1
 		},
 		{
-			"text": "应用",
+			"text": "版本控制",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "应用",
-					"link": "/pages/package/apply/apply",
+					"text": "Git",
+					"link": "/pages/package/version-control/git",
 					"order": 1
+				},
+				{
+					"text": "Github",
+					"link": "/pages/package/version-control/github",
+					"order": 2
 				}
 			],
 			"order": 2
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Nginx",
+					"link": "/pages/package/other/nginx",
+					"order": 2
+				}
+			],
+			"order": 3
 		}
 	],
 	"/pages/ts": [

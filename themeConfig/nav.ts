@@ -15,24 +15,11 @@ const nav = [
     ]
   },
   {
-    text: 'Package',
-    items: [
-      { text: '包管理', link: '/package/cli/npm', activeMath: '/package/cli/' },
-      { text: '应用', link: '/package/apply/apply', activeMath: '/package/apply/' }
-    ]
-  },
-  {
     text: 'Config',
     items: [
-      { text: 'webpack', link: '/config/webpack/index', activeMath: '/config/webpack/' },
-      { text: 'vitepress', link: '/config/vitepress/index', activeMatch: '/config/vitepress/' }
-    ]
-  },
-  {
-    text: 'Other',
-    items: [
-      { text: 'Git & Github', link: '/other/version-control/git', activeMatch: '/other/version-control/' },
-      { text: 'Keyboard', link: '/other/custom/keyboard', activeMath: '/other/custom/' }
+      { text: '包管理', link: '/package/index', activeMath: '/package/' },
+      { text: '脚手架', link: '/cli/index', activeMath: '/cli/' },
+      { text: '个人配置', link: '/custom/index', activeMath: '/custom/' }
     ]
   }
 ]

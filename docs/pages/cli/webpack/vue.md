@@ -1,11 +1,11 @@
 ---
-title: vue
+title: Vue
 order: 1
 ---
 
 # Vue Config
 
-## vue 配置全局 scss
+## 配置全局 scss
 
 ### sass-resources-loader
 
@@ -49,33 +49,7 @@ module.exports = {
 }
 ```
 
-## element ui 按需导入
-
-安装 element ui
-
-```shell
-yarn add element-ui
-yarn add babel-plugin-component -D
-```
-
-修改 `babel.config.js`
-
-```javascript
-module.exports = {
-  presets: ['@vue/cli-plugin-babel/preset'],
-  plugins: [
-    [
-      'component',
-      {
-        libraryName: 'element-ui',
-        styleLibraryName: 'theme-chalk'
-      }
-    ]
-  ]
-}
-```
-
-## Vue 配置别名
+## 配置别名
 
 `vue.config.js`
 
@@ -89,44 +63,26 @@ module.exports = {
     config.when(process.env.NODE_ENV === 'production', config => {
     config.resolve.alias
       .set('@components', load('./src/components'))
-      .set('@css', load('./src/assets/css'))
-      .set('@components', load('./src/components'))
-      .set('@views', load('./src/views'))
-      .set('@mixins', load('./src/mixins'))
-      .set('@plugins', load('./src/plugins'))
-      .set('@static', load('./src/static'))
-      .set('@utils', load('./src/utils'))
-      .set('@api', load('./src/api'))
-      .set('@mock', load('./src/mock'))
-      .set('@store', load('./src/store'))
+   )
   }
 }
 ```
 
 ## 生产开发环境
 
-1. 新建 `.env.development` 和 `.env.production` 文件
-
-```bash
-VUE_APP_ENV="production"
-```
+1. 分别新建 `.env.development` 和 `.env.production` 文件
 
 ```bash
 VUE_APP_ENV="development"
 ```
 
+```bash
+VUE_APP_ENV="production"
+```
+
 2. 通过 `process.env.VUE_APP_ENV` 获取变量
 
 > 踩坑：如果设置 NODE*ENV 和 BASE_URL 失效，尝试以 `VUE_APP*` 开头
-
-## vue 引入 font-awesome
-
-1. 安装 `yarn add font-awesome`
-2. `main.js`引入
-
-```javascript
-import 'font-awesome/css/font-awesome.css'
-```
 
 ## px to rem
 
@@ -153,7 +109,7 @@ module.exports = {
 
 > postcss-pxtorem@6 会报错
 
-## 去除 console
+## 去除生产环境 console
 
 ```javascript
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -182,6 +138,43 @@ module.exports = {
     }
   }
 }
+```
+
+## 三方库
+
+### element ui 按需导入
+
+安装 element ui
+
+```shell
+yarn add element-ui
+yarn add babel-plugin-component -D
+```
+
+修改 `babel.config.js`
+
+```javascript
+module.exports = {
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins: [
+    [
+      'component',
+      {
+        libraryName: 'element-ui',
+        styleLibraryName: 'theme-chalk'
+      }
+    ]
+  ]
+}
+```
+
+### vue 引入 font-awesome
+
+1. 安装 `yarn add font-awesome`
+2. `main.js`引入
+
+```javascript
+import 'font-awesome/css/font-awesome.css'
 ```
 
 ##

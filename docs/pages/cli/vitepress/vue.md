@@ -1,5 +1,5 @@
 ---
-title: vitepress
+title: Vue
 order: 0
 ---
 

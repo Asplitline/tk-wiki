@@ -30,47 +30,22 @@
 		]
 	},
 	{
-		"text": "Package",
-		"items": [
-			{
-				"text": "包管理",
-				"link": "/pages/package/cli/npm",
-				"activeMath": "/package/cli/"
-			},
-			{
-				"text": "应用",
-				"link": "/pages/package/apply/apply",
-				"activeMath": "/package/apply/"
-			}
-		]
-	},
-	{
 		"text": "Config",
 		"items": [
 			{
-				"text": "webpack",
-				"link": "/pages/config/webpack/index",
-				"activeMath": "/config/webpack/"
+				"text": "包管理",
+				"link": "/pages/package/index",
+				"activeMath": "/package/"
 			},
 			{
-				"text": "vitepress",
-				"link": "/pages/config/vitepress/index",
-				"activeMatch": "/config/vitepress/"
-			}
-		]
-	},
-	{
-		"text": "Other",
-		"items": [
-			{
-				"text": "Git & Github",
-				"link": "/pages/other/version-control/git",
-				"activeMatch": "/other/version-control/"
+				"text": "脚手架",
+				"link": "/pages/cli/index",
+				"activeMath": "/cli/"
 			},
 			{
-				"text": "Keyboard",
-				"link": "/pages/other/custom/keyboard",
-				"activeMath": "/other/custom/"
+				"text": "个人配置",
+				"link": "/pages/custom/index",
+				"activeMath": "/custom/"
 			}
 		]
 	}

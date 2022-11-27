@@ -1,14 +1,16 @@
 {
-	"/pages/config": {
-		"text": "配置",
-		"link": "/pages/config/index",
+	"/pages/cli": {
+		"text": "脚手架",
+		"link": "/pages/cli/index",
+		"layout": "page",
+		"sidebar": false
+	},
+	"/pages/custom": {
+		"text": "自定义",
+		"link": "/pages/custom/index",
 		"sidebar": false,
 		"order": 0,
 		"layout": "page"
-	},
-	"/pages/docs": {
-		"text": "文档",
-		"link": "/pages/docs/index"
 	},
 	"/pages/es6": {
 		"text": "ES6",
@@ -25,11 +27,6 @@
 		"aside": false,
 		"order": 0,
 		"layout": "page"
-	},
-	"/pages/other": {
-		"text": "杂项",
-		"link": "/pages/other/index",
-		"order": 5
 	},
 	"/pages/package": {
 		"text": "包管理",

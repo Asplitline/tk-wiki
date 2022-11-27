@@ -1,6 +1,6 @@
 ---
-title: 其他
-order: 5
+title: 版本发布
+order: 4
 ---
 
 # 其他
@@ -150,9 +150,9 @@ npx 调用
 npx mocha --version
 ```
 
-原理：npx会到`node_modules/.bin`路径和环境变量`$PATH`里面，检查命令是否存在
+原理：npx 会到`node_modules/.bin`路径和环境变量`$PATH`里面，检查命令是否存在
 
-如果模块全局安装，也能通过npx运行
+如果模块全局安装，也能通过 npx 运行
 
 ```bash
 npx create-react-app my-react-app
@@ -172,7 +172,7 @@ npx --no-install http-server
  npx --ignore-existing create-react-app my-react-app
 ```
 
-### 运行指定node版本
+### 运行指定 node 版本
 
 指定某个版本的 Node 运行脚本。
 
@@ -185,7 +185,7 @@ npx --no-install http-server
 -p 参数：指定 npx 所要安装的模块
 
 ```bash
-$ npx -p node@0.12.8 node -v 
+$ npx -p node@0.12.8 node -v
 v0.12.8
 ```
 
@@ -197,9 +197,9 @@ npx -p lolcatjs -p cowsay [command]
 
 -c 参数：
 
-作用1：将所有命令都用 npx 解释
+作用 1：将所有命令都用 npx 解释
 
-默认情况下：npx 安装多个模块时，只有第一个模块会使用npx安装。
+默认情况下：npx 安装多个模块时，只有第一个模块会使用 npx 安装。
 
 ```bash
 npx -p lolcatjs -p cowsay 'cowsay hello | lolcatjs'
@@ -210,7 +210,7 @@ npx -p lolcatjs -p cowsay 'cowsay hello | lolcatjs'
 npx -p lolcatjs -p cowsay -c 'cowsay hello | lolcatjs'
 ```
 
-作用2：带入环境变量
+作用 2：带入环境变量
 
 ```bash
 npx -c 'echo "$npm_package_name"'
@@ -218,4 +218,4 @@ npx -c 'echo "$npm_package_name"'
 
 ### 相关链接
 
-npx使用教程：http://www.ruanyifeng.com/blog/2019/02/npx.html
+npx 使用教程：http://www.ruanyifeng.com/blog/2019/02/npx.html

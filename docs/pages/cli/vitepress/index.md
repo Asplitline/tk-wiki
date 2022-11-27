@@ -1,5 +1,5 @@
 ---
-title: 应用
+title: VitePress
 order: 2
 parentOrder: 2
 ---
