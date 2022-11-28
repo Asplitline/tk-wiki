@@ -1,6 +1,6 @@
 # 知识库
 
-# 踩坑
+## 踩坑
 
 ```shell
 Uncaught (in promise) DOMException: Failed to execute 'setAttribute' on 'Element': 'number,' is not a valid attribute name.
@@ -10,7 +10,7 @@ Uncaught (in promise) DOMException: Failed to execute 'setAttribute' on 'Element
 
 解决：用代码块包裹，`{size: number, label: string}`
 
-# 其他
+## 其他
 
 将 ## => # ，二级标题转一级标题
 
@@ -18,3 +18,7 @@ Uncaught (in promise) DOMException: Failed to execute 'setAttribute' on 'Element
 ^##([^#])
 #$1
 ```
+
+## TODO-LIST
+
+- [ ] vitepress 部署到 Git Page
