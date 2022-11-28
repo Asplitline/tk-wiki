@@ -92,11 +92,11 @@ server {
 }
 ```
 
-### 其他
 
-## 问题
 
-### root 权限问题
+### 问题
+
+#### root 权限问题
 
 ```shell
 sudo passwd root # 设置root密码
@@ -104,17 +104,17 @@ su root # 登录root
 sudo passwd -l root # 禁用root账号
 ```
 
-### 无法创建 nginx 配置文件
+#### 无法创建 nginx 配置文件
 
 ```shell
 sudo touch test.conf
 ```
 
-### xftp 无法创建文件
+#### xftp 无法创建文件
 
 权限不够，需要让 xshell 登录 root 账号
 
-#### 编辑 /etc/ssh/sshd_config 文件
+##### 编辑 /etc/ssh/sshd_config 文件
 
 ```shell
 # PermitRootLogin Prohibit-password
@@ -122,30 +122,30 @@ PermitRootLogin yes
 PermitEmptyPasswords no
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/2621802/1648799235046-04a87216-9235-4c96-9d6c-00393e764eaf.png#clientId=u9add4163-c643-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=562&id=u43d35d92&margin=%5Bobject%20Object%5D&name=image.png&originHeight=562&originWidth=507&originalType=binary&ratio=1&rotation=0&showTitle=false&size=30805&status=done&style=none&taskId=ub242ca68-bd1f-43a0-85fa-76bfe386858&title=&width=507)
+![image.png](deploy.assets/1648799235046-04a87216-9235-4c96-9d6c-00393e764eaf.png)
 
-#### 重启 ssh 服务
+##### 重启 ssh 服务
 
 service ssh restart（或者执行：/etc/init.d/ssh restart）
 
-#### 重启服务器
+##### 重启服务器
 
 shutdown -r now
 
-#### 登录
+##### 登录
 
 再次通过 xshell 登录
 
-# yarn
+## yarn
 
 安装 yarn
 [https://www.myfreax.com/how-to-install-yarn-on-ubuntu-18-04/](https://www.myfreax.com/how-to-install-yarn-on-ubuntu-18-04/)
 安装 nodejs 和 npmjs
 [https://www.myfreax.com/how-to-install-node-js-on-ubuntu-18-04/](https://www.myfreax.com/how-to-install-node-js-on-ubuntu-18-04/)
 
-# pm2
+## pm2
 
-## pm2 命令
+### pm2 命令
 
 ```shell
 # pm2 命令
@@ -164,7 +164,7 @@ pm2 start ecosystem.config.js # 通过配置启动
 pm2 start ecosystem.config.js --only myapp # 单独处理 myapp
 ```
 
-## 配置启动多个项目
+### 配置启动多个项目
 
 ```javascript
 module.exports = {
