@@ -85,12 +85,12 @@ pm2 官网：[https://pm2.keymetrics.io/](https://pm2.keymetrics.io/)
 ### 获取 token - 本项目未用
 
 token，配置 github actions 权限
-<img src="example.assets/1653816518588-5229b1a4-327c-46d5-b7d3-8f88b7c1cd72.png" alt="image.png" style="zoom: 67%;" />
+<img src="./example.assets/1653816518588-5229b1a4-327c-46d5-b7d3-8f88b7c1cd72.png" alt="image.png" style="zoom: 67%;" />
 
 ### 配置 Repository secrets
 
 port 端口默认 22
-<img src="example.assets/1653816442941-1e0c3957-0f1c-4d17-821f-6880e7b8ea40.png" alt="image.png" style="zoom: 80%;" />
+<img src="./example.assets/1653816442941-1e0c3957-0f1c-4d17-821f-6880e7b8ea40.png" alt="image.png" style="zoom: 80%;" />
 
 ### 配置 workflows
 

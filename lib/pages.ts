@@ -154,7 +154,6 @@ export function initSideBar() {
     const dirObj = dir2Obj(dirList)
 
     let dir = getDeepDir(dirObj)
-    console.log('dir: ', dir)
 
     const endPages = {}
 
