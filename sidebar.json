@@ -260,13 +260,23 @@
 			"order": 2
 		},
 		{
-			"text": "其他",
+			"text": "部署",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Nginx",
-					"link": "/pages/package/other/nginx",
+					"text": "部署",
+					"link": "/pages/package/deploy/deploy",
 					"order": 2
+				},
+				{
+					"text": "Nginx",
+					"link": "/pages/package/deploy/nginx",
+					"order": 2
+				},
+				{
+					"text": "实战",
+					"link": "/pages/package/deploy/example",
+					"order": 3
 				}
 			],
 			"order": 3
