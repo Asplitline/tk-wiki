@@ -5,7 +5,7 @@ order: 2
 
 # Linters
 
-## commitlint
+## Commitlint
 
 描述：git commit 提交信息检查
 
@@ -144,3 +144,39 @@ import 'lib/charting_library/charting_library.min.js'
     ],
   }
 ```
+
+
+
+## Changelog
+
+文档：https://github.com/conventional-changelog/conventional-changelog
+
+相关链接：https://zhuanlan.zhihu.com/p/51894196
+
+1. 安装 changelog-cli 
+
+```bash
+npm install -g conventional-changelog-cli
+```
+
+2. 在 package.json 添加如下 scripts
+
+```json
+"scripts": {
+    // ...
+	"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+}
+```
+
+参数说明
+
+-p：指定使用的 commit message 标准
+
+-i：从 CHANGELOG.md 读取 changelog
+
+-s：读写 changelog 为同一文件
+
+-r：release版本数，默认为0，1表示全部
+
+
+
