@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.bb5f0d48.js";const l=JSON.parse('{"title":"UniApp","description":"","frontmatter":{"title":"UniApp","order":1},"headers":[],"relativePath":"pages/devlog/uniapp/index.md"}'),n={name:"pages/devlog/uniapp/index.md"};function p(o,r,s,i,c,d){return a(),t("div")}const m=e(n,[["render",p]]);export{l as __pageData,m as default};

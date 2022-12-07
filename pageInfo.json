@@ -11,6 +11,13 @@
 		"sidebar": false,
 		"layout": "page"
 	},
+	"/pages/devlog": {
+		"text": "框架实战",
+		"link": "/pages/devlog/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/es6": {
 		"text": "ES6",
 		"link": "/pages/es6/index",
