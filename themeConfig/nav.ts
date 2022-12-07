@@ -15,12 +15,16 @@ const nav = [
     ]
   },
   {
-    text: 'Config',
+    text: '配置',
     items: [
       { text: '包管理', link: '/package/index', activeMath: '/package/' },
       { text: '脚手架', link: '/cli/index', activeMath: '/cli/' },
       { text: '个人配置', link: '/custom/index', activeMath: '/custom/' }
     ]
+  },
+  {
+    text: '实战',
+    items: [{ text: '开发日志', link: '/devlog/index', activeMath: '/devlog/' }]
   }
 ]
 

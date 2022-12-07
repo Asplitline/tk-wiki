@@ -30,7 +30,7 @@
 		]
 	},
 	{
-		"text": "Config",
+		"text": "配置",
 		"items": [
 			{
 				"text": "包管理",
@@ -46,6 +46,16 @@
 				"text": "个人配置",
 				"link": "/pages/custom/index",
 				"activeMath": "/custom/"
+			}
+		]
+	},
+	{
+		"text": "实战",
+		"items": [
+			{
+				"text": "开发日志",
+				"link": "/pages/devlog/index",
+				"activeMath": "/devlog/"
 			}
 		]
 	}
