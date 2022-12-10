@@ -433,21 +433,22 @@ git revert -n HEAD
 | 命令                                   | 作用              |                              |
 | -------------------------------------- | ----------------- | ---------------------------- |
 | `git tag`                              | 查看所有标签      |                              |
-| `git tag <tagname>`                    | 创建标签          |                              |
-| `git tag -a <tagname> -m <comment>`    | 为标签 增加说明   |                              |
-| `git show <tagname>`                   | 查看标签内容      |                              |
-| `git tag -d <tagname>`                 | 删除标签          |                              |
-| `git push origin :refs/tags/<tagname>` | 删除远程标签      |                              |
-| `git tag -l                            | xargs git tag -d` | 删除本地所有标签（==慎用==） |
+| `git tag <tag-name>`                   | 创建标签          |                              |
+| `git tag -a <tag-name> -m <comment>`   | 为标签 增加说明   |                              |
+| `git show <tag-name>`                  | 查看标签内容      |                              |
+| `git tag -d <tag-name>`                | 删除标签          |                              |
+| `git push origin :refs/tags/<tag-name>` | 删除远程标签      |                              |
+| `git tag -l                            | xargs git tag -d` | 删除本地所有标签（==慎用==） ||
 
 ### 推送和拉取
 
-| 命令                                 | 作用         |
-| ------------------------------------ | ------------ |
-| git push origin --tags               | 推送所有标签 |
-| `git push origin <tagname>`          | 推送指定标签 |
-| `git clone --branch [tag] [git_url]` | 拉取指定分支 |
-| git clone -b [tag] [git_url]         |              |
+| 命令                                            | 作用         |
+| ----------------------------------------------- | ------------ |
+| git push origin --tags                          | 推送所有标签 |
+| `git push origin <tag-name>`                    | 推送指定标签 |
+| `git clone --branch <branch-name> <remote-url>` | 拉取指定分支 |
+
+> --branch 可简写为 -b
 
 ## other - 杂项命令
 
@@ -480,7 +481,7 @@ git restore --staged <file>
 git restore <file>
 ```
 
-> 删除都是争对当前分支
+> 删除都是针对当前分支
 
 ### mv - 修改文件名
 
