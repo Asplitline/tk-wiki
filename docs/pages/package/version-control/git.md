@@ -430,21 +430,21 @@ git revert -n HEAD
 
 ### 基本操作
 
-| 命令                                   | 作用              |                              |
-| -------------------------------------- | ----------------- | ---------------------------- |
-| `git tag`                              | 查看所有标签      |                              |
-| `git tag <tag-name>`                   | 创建标签          |                              |
-| `git tag -a <tag-name> -m <comment>`   | 为标签 增加说明   |                              |
-| `git show <tag-name>`                  | 查看标签内容      |                              |
-| `git tag -d <tag-name>`                | 删除标签          |                              |
-| `git push origin :refs/tags/<tag-name>` | 删除远程标签      |                              |
-| `git tag -l                            | xargs git tag -d` | 删除本地所有标签（==慎用==） ||
+| 命令                                    | 作用                         |
+| --------------------------------------- | ---------------------------- |
+| `git tag`                               | 查看所有标签                 |
+| `git tag <tag-name>`                    | 创建标签                     |
+| `git tag -a <tag-name> -m <comment>`    | 为标签 增加说明              |
+| `git show <tag-name>`                   | 查看标签内容                 |
+| `git tag -d <tag-name>`                 | 删除标签                     |
+| `git push origin :refs/tags/<tag-name>` | 删除远程标签                 |
+| `git tag -l \| xargs git tag -d`        | 删除本地所有标签（==慎用==） |
 
 ### 推送和拉取
 
 | 命令                                            | 作用         |
 | ----------------------------------------------- | ------------ |
-| git push origin --tags                          | 推送所有标签 |
+| `git push origin --tags`                        | 推送所有标签 |
 | `git push origin <tag-name>`                    | 推送指定标签 |
 | `git clone --branch <branch-name> <remote-url>` | 拉取指定分支 |
 
