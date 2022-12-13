@@ -7,7 +7,7 @@ titleTemplate: tk-wiki
 hero:
   name: Tk Wiki
   # text: Tk 知识库
-  tagline: JavaScript , TypeScript , Vue , React , Npm , Yarn , Git
+  tagline: 个人知识库
   actions:
     - theme: brand
       text: 开始
@@ -17,12 +17,12 @@ hero:
       link: https://github.com/Asplitline
 
 features:
-  - title: "Vite: The DX that can't be beat"
-    details: Feel the speed of Vite. Instant server start and lightning fast HMR that stays fast regardless of the app size.
-  - title: Designed to be simplicity first
-    details: With Markdown-centered content, it's built to help you focus on writing and deployed with minimum configuration.
-  - title: Power of Vue meets Markdown
-    details: Enhance your content with all the features of Vue in Markdown, while being able to customize your site with Vue.
-  - title: Fully static yet still dynamic
-    details: Go wild with true SSG + SPA architecture. Static on page load, but engage users with 100% interactivity from there.
+  - title: Vue
+    details: Vue2、Vue3
+  - title: JavaScript
+    details: ES6、TypeScript
+  - title: 配置
+    details: 版本管理、webpack、vite
+  - title: 实战
+    details: 一些开发总结
 ---
