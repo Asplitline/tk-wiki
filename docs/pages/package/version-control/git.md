@@ -430,15 +430,68 @@ git revert -n HEAD
 
 ### 基本操作
 
-| 命令                                    | 作用                         |
-| --------------------------------------- | ---------------------------- |
-| `git tag`                               | 查看所有标签                 |
-| `git tag <tag-name>`                    | 创建标签                     |
-| `git tag -a <tag-name> -m <comment>`    | 为标签 增加说明              |
-| `git show <tag-name>`                   | 查看标签内容                 |
-| `git tag -d <tag-name>`                 | 删除标签                     |
-| `git push origin :refs/tags/<tag-name>` | 删除远程标签                 |
-| `git tag -l \| xargs git tag -d`        | 删除本地所有标签（==慎用==） |
+| 命令                                    | 作用             |
+| --------------------------------------- | ---------------- |
+| `git tag`                               | 查看所有标签     |
+| `git show-ref --tags`                   | 查看所有远程标签 |
+| `git tag <tag-name>`                    | 创建标签         |
+| `git tag -a <tag-name> -m <comment>`    | 为标签 增加说明  |
+| `git show <tag-name>`                   | 查看标签内容     |
+| `git tag -d <tag-name>`                 | 删除标签         |
+| `git push origin :refs/tags/<tag-name>` | 删除远程标签     |
+
+批量处理
+
+```bash
+# 删除所有标签（本地）
+git tag -l | xargs git tag -d ）
+
+# 批量删除包含beta的标签（本地）
+git tag | grep 'beta' | xargs git tag -d
+
+# 批量删除包含beta的标签（远程）
+git show-ref --tags | grep 'beta' | awk '{print $2}' | xargs git push origin --delete
+```
+
+补充
+
+```bash
+$ git show-ref --tags | grep 'beta'
+9fa2ef1cc8483b4b1....2fceda9a3ea4e0af8f2 refs/tags/v0.0.29-beta.0
+cd92619c6207eba22....5de8fef8e2163713f08 refs/tags/v0.0.29-beta.1
+```
+
+awk：一种处理文本文件的语言
+
+```bash
+$ git show-ref --tags | grep 'beta' | awk '{print $2}'
+
+refs/tags/v0.0.29-beta.0
+refs/tags/v0.0.29-beta.1
+```
+
+${number}：第number个，以空格分隔
+
+$1 -  9fa2ef1cc8483b4b1....2fceda9a3ea4e0af8f2
+
+$2 -  refs/tags/v0.0.29-beta.0
+
+相关技术
+
+grep：适合单纯的查找或匹配文本
+
+sed：适合编辑匹配到的文本
+
+awk：适合格式化文本，对文本进行较复杂格式处理
+
+```bash
+$ git show-ref --tags | grep 'beta' | awk '{print $2}' | xargs git push origin --delete
+
+# 等效
+git push origin --delete refs/tags/v0.0.29-beta.0 refs/tags/v0.0.29-beta.1
+```
+
+> xargs：将前面结果以参数形式传入后面命令
 
 ### 推送和拉取
 
