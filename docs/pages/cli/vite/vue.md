@@ -1,54 +1,123 @@
 ---
 title: Vue
-order: 0
+order: 3
 ---
 
-# Vue Config - Vite
+# Vite Config - Vue
 
-## 配置解析别名
+## Svg-icon
 
-1. 在 vite 配置 别名
+1. 安装依赖
 
-```javascript
+```bash
+yarn add vite-plugin-svg-icons -D
+```
+
+2. 配置 svg
+
+```js
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+const rootDir = dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
-  plugins: [vue()], // Vue 的插件
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
-    }
+  plugins: [
+    // https://github.com/vbenjs/vite-plugin-svg-icons
+    createSvgIconsPlugin({
+      iconDirs: [resolve(rootDir, 'src/assets/svg')],
+      symbolId: 'icon-[name]'
+    })
+  ]
+})
+
+```
+
+3. 编写 svg-icon 组件
+
+```vue
+<!-- SvgIcon.vue -->
+<template>
+  <div v-if="isOnlineSvg" :style="svgStyle" class="svg-icon svg-icon-online" :class="className" />
+  <svg
+    aria-hidden="true"
+    :style="{
+      fontSize: size + 'px'
+    }"
+    class="svg-icon"
+    :class="className"
+    v-else
+  >
+    <use :href="symbolId" />
+  </svg>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+const props = defineProps({
+  prefix: {
+    type: String,
+    default: 'icon'
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  color: {
+    type: String
+  },
+  className: {
+    type: String
+  },
+  size: {
+    type: Number
   }
 })
-```
 
-2. 配置自动自动补全，别名跳转
-
-```javascript
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
+const symbolId = computed(() => `#${props.prefix}-${props.name}`)
+const isOnlineSvg = computed(() => /^(https?:)/.test(props.name))
+const svgStyle = computed(() => {
+  const baseStyle: { '--svg-icon-url'?: string; fontSize?: string } = {}
+  if (isOnlineSvg) {
+    baseStyle['--svg-icon-url'] = `url(${props.name})`
   }
+  if (props.size) {
+    baseStyle['fontSize'] = props.size + 'px'
+  }
+  return baseStyle
+})
+</script>
+
+<style lang="scss" scoped>
+.svg-icon {
+  fill: currentColor;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  font-size: 24px;
 }
+
+.svg-icon-online {
+  background-color: currentColor;
+  mask-image: var(--svg-icon-url);
+  -webkit-mask-image: var(--svg-icon-url);
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  display: inline-block;
+}
+</style>
+
 ```
 
-## 去除 console
+4. 在 main.ts 注册 svg
 
-```javascript
- {
-    build: {
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          // 生产环境时移除console
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
-    },
-  }
+```js
+import 'virtual:svg-icons-register'
 ```
+
+5. 使用。（假定存在 `src/assets/svg/arrow-left.svg` ）
+
+```vue
+<svg-icon name="arrow-left"></svg-icon>
+```
+

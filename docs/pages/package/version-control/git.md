@@ -470,11 +470,11 @@ refs/tags/v0.0.29-beta.0
 refs/tags/v0.0.29-beta.1
 ```
 
-${number}：第number个，以空格分隔
+${number}：第 number 个，以空格分隔
 
-$1 -  9fa2ef1cc8483b4b1....2fceda9a3ea4e0af8f2
+$1 - 9fa2ef1cc8483b4b1....2fceda9a3ea4e0af8f2
 
-$2 -  refs/tags/v0.0.29-beta.0
+$2 - refs/tags/v0.0.29-beta.0
 
 相关技术
 
@@ -1082,9 +1082,7 @@ If you wish to set tracking information for this branch you can do so with:
 
 ### 清除未追踪文件
 
-场景：git status 后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)
-
-，只想删除 untracked file
+场景：git status 后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)，只想删除 untracked file
 
 ```bash
 # 删除 untracked files
