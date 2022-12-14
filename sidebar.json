@@ -27,9 +27,14 @@
 			"collapsible": true,
 			"items": [
 				{
+					"text": "Vite",
+					"link": "/pages/cli/vite/base",
+					"order": 2
+				},
+				{
 					"text": "Vue",
 					"link": "/pages/cli/vite/vue",
-					"order": 0
+					"order": 3
 				}
 			],
 			"order": 2
