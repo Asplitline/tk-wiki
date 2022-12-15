@@ -27,9 +27,14 @@
 			"collapsible": true,
 			"items": [
 				{
+					"text": "Vite",
+					"link": "/pages/cli/vite/base",
+					"order": 2
+				},
+				{
 					"text": "Vue",
 					"link": "/pages/cli/vite/vue",
-					"order": 0
+					"order": 3
 				}
 			],
 			"order": 2
@@ -278,6 +283,11 @@
 					"text": "Github",
 					"link": "/pages/package/version-control/github",
 					"order": 2
+				},
+				{
+					"text": "配置与实战",
+					"link": "/pages/package/version-control/config",
+					"order": 3
 				}
 			],
 			"order": 2
