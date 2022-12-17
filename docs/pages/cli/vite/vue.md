@@ -121,3 +121,20 @@ import 'virtual:svg-icons-register'
 <svg-icon name="arrow-left"></svg-icon>
 ```
 
+
+
+## Vue3 无法识别 @
+
+在 tsconfig.json 配置
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+}
+```
+
