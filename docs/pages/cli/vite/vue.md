@@ -49,7 +49,7 @@ export default defineConfig({
     v-else
   >
     <use :href="symbolId" />
-  </svg>
+  </svg>****
 </template>
 
 <script setup lang="ts">
