@@ -1,6 +1,6 @@
 {
   "index_name": "wiki",
-  "start_urls": ["https://wiki.tk-292.xyz/"],
+  "start_urls": ["https://wiki.tk-292.xyz/pages/"],
   "rateLimit": 8,
   "maxDepth": 10,
   "selectors": {
@@ -13,8 +13,8 @@
     "lvl3": ".vp-doc h3",
     "lvl4": ".vp-doc h4",
     "lvl5": ".vp-doc h5",
-    "content": ".vp-doc p, .vp-doc li,.vp-doc td"
+    "content": ".vp-doc p, .vp-doc li, .vp-doc td"
   },
-  "selectors_exclude": [".VPSidebar", ".VPDocFooter", ".next-and-prev-link", ".table-of-contents"],
+  "selectors_exclude": [".VPSidebar", ".VPDocFooter", ".table-of-contents"],
   "js_render": true
 }
