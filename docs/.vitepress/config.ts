@@ -21,6 +21,13 @@ export default defineConfig({
     footer: {
       message: '备案号：<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022016215号-1	</a>',
       copyright: ''
+    },
+    algolia: {
+      appId: 'K106B03X2S',
+      apiKey: '087f59581f4c0842489cd49a5544ad71',
+      indexName: 'wiki',
+      placeholder: '请输入关键词',
+      buttonText: '搜索'
     }
   }
 })
