@@ -17,7 +17,7 @@ order: 3
 
 修改 `~/.bashrc` 或 `~/.bash_profile`文件都可，建议使用 `.bashrc`，新开 shell 时无需再手动读取配置文件
 
-```shell
+```bash
 # base config
 alias see="ps -ef|grep"
 alias rl="source ~/.bashrc"
@@ -32,26 +32,29 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias glo="git log --oneline"
 alias gb="git branch"
 alias gtn="git tag -n"
-alias grm="git remote -v"
+alias grtv="git remote -v"
 alias ga="git add ."
-alias gc="git commit"
-alias gca="git commit --amend"
 alias gac="git add . && git commit -m"
 alias gaca="git add . && git commit --amend"
+alias gca="git commit --amend"
+alias gc="git commit"
+alias gct="git checkout"
+alias gcp="git cherry-pick"
 alias gpl="git pull"
 alias gp="git push"
-alias gck="git checkout"
-alias gcp="git cherry-pick"
 alias grs='git restore'
-alias grss='git restore --staged'
+alias grst='git restore --staged'
 alias gbranch="git fetch -p"
 alias gtag="git fetch -P"
 alias gtng="git tag -n | grep"
+
 alias conf="git config --list"
 alias confl="git config --local --list"
 alias confg="git config --global --list"
 alias reset="git reset HEAD"
+alias reset!="git reset --hard HEAD"
 alias reset1="git reset HEAD~1"
+alias reset1!="git reset --hard HEAD~1"
 alias clone="git clone"
 
 alias unproxy="git config --global --unset http.proxy && git config --global --unset https.proxy"
@@ -62,6 +65,7 @@ alias cls="clear"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
 # tk
 alias my="git config user.name Asplitline && git config user.email *@qq.com"
 alias cmy="git config user.name tink && git config user.email tink@tink.com"
@@ -87,7 +91,7 @@ source ~/.bash_profile
 
 [.bash_profile 和.bashrc 的区别](https://www.cnblogs.com/520yang/articles/8384321.html)
 
-
+[ohmyzsh-git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
 
 ## Vscode 配置 Git Bash
 
