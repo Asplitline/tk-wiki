@@ -258,14 +258,19 @@
 					"order": 3
 				},
 				{
+					"text": "pnpm",
+					"link": "/pages/package/cli/pnpm",
+					"order": 4
+				},
+				{
 					"text": "版本发布",
 					"link": "/pages/package/cli/publish",
-					"order": 4
+					"order": 5
 				},
 				{
 					"text": "应用",
 					"link": "/pages/package/cli/apply",
-					"order": 5
+					"order": 6
 				}
 			],
 			"order": 1

@@ -36,8 +36,8 @@ alias grtv="git remote -v"
 alias ga="git add ."
 alias gac="git add . && git commit -m"
 alias gaca="git add . && git commit --amend"
-alias gca="git commit --amend"
 alias gc="git commit"
+alias gca="git commit --amend"
 alias gct="git checkout"
 alias gcp="git cherry-pick"
 alias gpl="git pull"
@@ -443,4 +443,44 @@ git clean -nf
 git clean -nfd
 ```
 
-## 
+
+
+## vscode 配置全局 .gitignore
+
+以 .history 文件举例
+
+1. 创建 .gitignore，并向其写入 .history
+
+```bash
+echo .history >> ~/.gitignore
+```
+
+2. 应用 .gitignore
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+3. 全局 .gitignore 生效，如果 vscode `source control` 不生效，点击刷新
+
+
+
+补充：vscode setting.json 进行如下配置，进一步优化体验
+
+```json
+ // 文件列表不显示 .history
+ "files.exclude": {
+    "**/.history": true,
+  },
+ // 搜索不显示 .history
+  "search.useGlobalIgnoreFiles": true,
+  "search.useIgnoreFiles": true,
+  "search.exclude": {
+    "**/.history": true
+  }
+```
+
+
+
+
+
