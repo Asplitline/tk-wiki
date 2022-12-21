@@ -57,25 +57,28 @@ alias reset1="git reset HEAD~1"
 alias reset1!="git reset --hard HEAD~1"
 alias clone="git clone"
 
-alias unproxy="git config --global --unset http.proxy && git config --global --unset https.proxy"
-alias proxy="git config --global http.proxy http://127.0.0.1:1081 && git config --global https.proxy https://127.0.0.1:1081"
-
 # project simple
 alias cls="clear"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# tk
-alias my="git config user.name Asplitline && git config user.email *@qq.com"
-alias cmy="git config user.name tink && git config user.email tink@tink.com"
-alias clsmy="git config --unset user.name && git config --unset user.email"
-
 # npm
 alias docs="npm docs"
 alias repo="npm repo"
-
 ```
+
+```bash
+# tk
+alias unproxy="git config --global --unset http.proxy && git config --global --unset https.proxy"
+alias proxy="git config --global http.proxy http://127.0.0.1:1081 && git config --global https.proxy https://127.0.0.1:1081"
+
+alias my="git config user.name Asplitline && git config user.email *@qq.com"
+alias cmy="git config user.name tink && git config user.email tink@tink.com"
+alias clsmy="git config --unset user.name && git config --unset user.email"
+```
+
+
 
 问题：bash: xx: command not found
 
