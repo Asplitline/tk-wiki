@@ -5,6 +5,57 @@ order: 6
 
 # 应用
 
+
+
+## Yalc 本地调试node_modules
+
+1. 全局安装 yalc
+
+```bash
+npm i yalc -g
+```
+
+2. 在需要本地link的库中发布依赖。以 element-ui 为例 
+
+```bash
+yalc publish
+```
+
+yalc publish执行后，会逐一执行`npm 生命周期脚本`，如：`prepublish、prepare、prepublishOnly、prepack...`等
+
+> 通过`--no-script`禁用钩子钩动各种脚本
+
+3. 在项目中添加依赖
+
+以 demo 为例
+
+```bash
+yalc add element-ui
+```
+
+> demo/node_modules 中 element-ui 没有丢，而是放到缓存文件中
+
+4. 更改 element-ui 中代码后，进行更新
+
+```bash
+yalc publish --push
+# 简化为：
+yalc push
+```
+
+补充命令：
+
+```bash
+# 更新依赖
+yalc update <package_name>
+# 移除 yalc 依赖
+yarn remove <package_name>
+# 移除当前包所有 yalc 依赖
+yalc remove --all
+```
+
+
+
 ## node-sass
 
 ```shell
