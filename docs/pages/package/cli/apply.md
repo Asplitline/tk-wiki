@@ -43,6 +43,12 @@ yalc publish --push
 yalc push
 ```
 
+注意：
+
+在 link 库（element-ui）中使用 yalc publish 后，还需要在项目 (demo) 里面通过 yalc update 更新。
+
+而使用 yalc push 相当于 yalc publish + yalc update
+
 补充命令：
 
 ```bash
