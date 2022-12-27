@@ -6,7 +6,7 @@
 		"sidebar": false
 	},
 	"/pages/custom": {
-		"text": "自定义",
+		"text": "个人配置",
 		"link": "/pages/custom/index",
 		"sidebar": false,
 		"layout": "page"

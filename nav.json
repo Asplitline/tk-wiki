@@ -53,7 +53,7 @@
 		"text": "实战",
 		"items": [
 			{
-				"text": "开发日志",
+				"text": "框架实战",
 				"link": "/pages/devlog/index",
 				"activeMath": "/devlog/"
 			}
