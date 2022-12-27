@@ -7,7 +7,7 @@ order: 6
 
 
 
-## Yalc 本地调试node_modules
+## Yalc 本地调试 node_modules
 
 1. 全局安装 yalc
 
@@ -54,7 +54,9 @@ yarn remove <package_name>
 yalc remove --all
 ```
 
-
+> 参考：https://juejin.cn/post/7033400734746066957
+>
+> 仓库：https://github.com/wclr/yalc
 
 ## node-sass
 
