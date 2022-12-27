@@ -59,15 +59,28 @@
 	],
 	"/pages/custom": [
 		{
-			"text": "自定义",
+			"text": "基础配置",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "快捷键",
-					"link": "/pages/custom/keyboard",
+					"link": "/pages/custom/config/keyboard",
 					"order": 1
 				}
-			]
+			],
+			"order": 1
+		},
+		{
+			"text": "编程软件",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vscode",
+					"link": "/pages/custom/program/vscode",
+					"order": 1
+				}
+			],
+			"order": 2
 		}
 	],
 	"/pages/devlog": [
