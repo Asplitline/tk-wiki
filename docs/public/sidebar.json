@@ -59,15 +59,28 @@
 	],
 	"/pages/custom": [
 		{
-			"text": "自定义",
+			"text": "基础配置",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "快捷键",
-					"link": "/pages/custom/keyboard",
+					"link": "/pages/custom/config/keyboard",
 					"order": 1
 				}
-			]
+			],
+			"order": 1
+		},
+		{
+			"text": "编程软件",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vscode",
+					"link": "/pages/custom/program/vscode",
+					"order": 1
+				}
+			],
+			"order": 2
 		}
 	],
 	"/pages/devlog": [
@@ -258,14 +271,19 @@
 					"order": 3
 				},
 				{
+					"text": "pnpm",
+					"link": "/pages/package/cli/pnpm",
+					"order": 4
+				},
+				{
 					"text": "版本发布",
 					"link": "/pages/package/cli/publish",
-					"order": 4
+					"order": 5
 				},
 				{
 					"text": "应用",
 					"link": "/pages/package/cli/apply",
-					"order": 5
+					"order": 6
 				}
 			],
 			"order": 1

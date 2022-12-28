@@ -1,6 +1,6 @@
 ---
 sidebar: false
-title: 自定义
+title: 个人配置
 layout: page
 ---
 
