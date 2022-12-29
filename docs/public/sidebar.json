@@ -85,6 +85,27 @@
 	],
 	"/pages/devlog": [
 		{
+			"text": "三件套",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "HTML 实战",
+					"link": "/pages/devlog/base/html",
+					"order": 1
+				},
+				{
+					"text": "CSS 实战",
+					"link": "/pages/devlog/base/css",
+					"order": 2
+				},
+				{
+					"text": "JavaScript 实战",
+					"link": "/pages/devlog/base/javascript",
+					"order": 3
+				}
+			]
+		},
+		{
 			"text": "UniApp",
 			"collapsible": true,
 			"items": [
