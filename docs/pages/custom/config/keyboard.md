@@ -45,6 +45,12 @@ order: 1
 
 ```shell
 tree /f /a >文件名.txt
+
+# 查询所有运行端口
+netstat -ano
+
+# 查询某个运行端口
+netstat -aon|findstr "8081"
 ```
 
 ## VsCode
