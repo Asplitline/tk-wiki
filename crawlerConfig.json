@@ -8,12 +8,12 @@
       "selector": "",
       "defaultValue": "Documentation"
     },
-    "lvl1": ".vp-doc h1",
-    "lvl2": ".vp-doc h2",
-    "lvl3": ".vp-doc h3",
-    "lvl4": ".vp-doc h4",
-    "lvl5": ".vp-doc h5",
-    "content": ".vp-doc p, .vp-doc li, .vp-doc td"
+    "lvl1": ".content h1",
+    "lvl2": ".content h2",
+    "lvl3": ".content h3",
+    "lvl4": ".content h4",
+    "lvl5": ".content h5",
+    "content": ".content p, .content li, .content td"
   },
   "selectors_exclude": [".VPSidebar", ".VPDocFooter", ".table-of-contents"],
   "js_render": true
