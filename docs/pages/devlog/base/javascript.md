@@ -220,19 +220,17 @@ function obj2FormData (obj) {
  */
 function obj2Params (obj) {
  if (typeof obj !== 'object' || obj === null) return obj
-  const res: any[] = []
+  const res = []
   Object.entries(obj).forEach(([key, value]) => {
-    if (!isEmpty(value)) {
       res.push(`${key}=${value}`)
-    }
   })
   return res.join('&')
 }
 ```
 
 ```js
-obj2Params({a:2,c:'3',d:'abc'})
-// 'a=2&c=3&d=abc'
+obj2Params({a:2,c:'3',d:'abc',e:''})
+// 'a=2&c=3&d=abc&e='
 ```
 
 
