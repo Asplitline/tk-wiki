@@ -18,7 +18,3 @@ Uncaught (in promise) DOMException: Failed to execute 'setAttribute' on 'Element
 ^##([^#])
 #$1
 ```
-
-## TODO-LIST
-
-- [ ] vitepress 部署到 Git Page

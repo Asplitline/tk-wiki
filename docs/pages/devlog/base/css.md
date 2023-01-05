@@ -67,6 +67,69 @@ text-overflow: ellipsis;
 overflow: hidden;
 ```
 
+## 溢出隐藏文本和全文显示
+
+思路：
+
+1. 利用文本占位
+2. before 伪元素进行显示文本                                                                                                                                                                                                             
+3. after 伪元素处理 link 显示
+
+关键点：-webkit-line-clamp 会触发类似 bfc 的独立区域，保证盒子在 after 伪元素负值时不会重叠
+
+```html
+<div class="wrapper">
+  <div class="text" title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.">Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.</div>
+  <div class="link"><a href="#">全文</a></div>
+</div>
+
+<div class="wrapper">
+  <div class="text" title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.">Aut nobis voluptatem harum doloremque hic reiciendis dolorem.</div>
+  <div class="link"><a href="#">全文</a></div>
+</div>
+```
+
+```css
+.wrapper {
+  margin: 50px auto;
+  width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.text,
+.text::before {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+    
+  overflow: hidden;
+  text-align:justify;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  background: inherit;
+}
+
+.text::before {
+  position: absolute;
+  content: attr(title);
+  left: 15px;
+  right: 15px;
+}
+
+.text::after {
+  content: "";
+  display: block;
+  margin-top: -1.5em;
+}
+```
+
+
+
 ## box-sizing
 
 ```css

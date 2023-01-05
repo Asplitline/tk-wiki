@@ -63,3 +63,38 @@ styleObj2StyleStr(style)
 ### 不支持 $attrs 和 $listeners
 
 解决：通过 props 手动传值
+
+### 样式穿透问题
+
+在 `App` 和 `H5`中通过 `v-deep` 或 `/deep/` 进行样式穿透
+
+```html
+<template>
+	<item></item>
+</template>
+
+<style scoped>
+::v-deep .item {
+	border: 1px solid blue;
+}
+</style>
+```
+
+但是在微信小程序无效。要求`::v-deep`或`/deep/`前面必须还要有父元素的类名存在
+
+```html
+<template>
+	<view class="wrap">
+		<item></item>
+	</view>
+</template>
+
+<style scoped>
+.wrap ::v-deep .item {
+	border: 1px solid blue;
+}
+</style>
+```
+
+> 参考：https://www.uviewui.com/components/feature.html
+
