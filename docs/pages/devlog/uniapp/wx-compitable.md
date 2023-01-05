@@ -1,22 +1,11 @@
 ---
-title: 兼容性问题
+title: 微信小程序兼容性
 order: 4
 ---
 
-# 兼容性问题
+# 微信小程序兼容性
 
-## 微信兼容性
-
-目前发现
-
-1. 自定义组件不支持动态 class
-2. 动态 style 只能为 string
-3. 不支持作用域插槽
-4. 不支持自定义 v-model
-5. 不支持 $attrs 和 $listeners
-6. ...
-
-### 自定义组件不支持动态 class
+## 自定义组件不支持动态 class
 
 解决：新增 props className 来接收 class
 
@@ -36,7 +25,7 @@ export default {
 </script>
 ```
 
-### 动态 style 只能为 string
+## 动态 style 只能为 string
 
 解决：通过正则转换
 
@@ -52,31 +41,31 @@ styleObj2StyleStr(style)
 
 > todo: style 属性支持 fontSize
 
-### 不支持作用域插槽
+## 不支持作用域插槽
 
 解决：传值到父组件 or 组件内部处理好，不支持作用域插槽
 
-### 不支持自定义 v-model
+## 不支持自定义 v-model
 
 解决：通过 .sync 修饰符代替
 
-### 不支持 $attrs 和 $listeners
+## 不支持 $attrs 和 $listeners
 
 解决：通过 props 手动传值
 
-### 样式穿透问题
+## 样式穿透问题
 
 在 `App` 和 `H5`中通过 `v-deep` 或 `/deep/` 进行样式穿透
 
 ```html
 <template>
-	<item></item>
+  <item></item>
 </template>
 
 <style scoped>
-::v-deep .item {
-	border: 1px solid blue;
-}
+  ::v-deep .item {
+    border: 1px solid blue;
+  }
 </style>
 ```
 
@@ -84,17 +73,16 @@ styleObj2StyleStr(style)
 
 ```html
 <template>
-	<view class="wrap">
-		<item></item>
-	</view>
+  <view class="wrap">
+    <item></item>
+  </view>
 </template>
 
 <style scoped>
-.wrap ::v-deep .item {
-	border: 1px solid blue;
-}
+  .wrap ::v-deep .item {
+    border: 1px solid blue;
+  }
 </style>
 ```
 
 > 参考：https://www.uviewui.com/components/feature.html
-
