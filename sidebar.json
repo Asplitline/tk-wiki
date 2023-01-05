@@ -120,8 +120,8 @@
 					"order": 2
 				},
 				{
-					"text": "兼容性问题",
-					"link": "/pages/devlog/uniapp/compitable",
+					"text": "微信小程序兼容性",
+					"link": "/pages/devlog/uniapp/wx-compitable",
 					"order": 4
 				}
 			]

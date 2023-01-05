@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.341dbc19.js";const l=JSON.parse('{"title":"三件套","description":"","frontmatter":{"title":"三件套","order":1},"headers":[],"relativePath":"pages/devlog/base/index.md","lastUpdated":1672330298000}'),s={name:"pages/devlog/base/index.md"};function o(r,n,d,c,p,i){return a(),t("div")}const m=e(s,[["render",o]]);export{l as __pageData,m as default};
