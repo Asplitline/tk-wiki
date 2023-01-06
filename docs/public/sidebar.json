@@ -103,7 +103,25 @@
 					"link": "/pages/devlog/base/javascript",
 					"order": 3
 				}
-			]
+			],
+			"order": 1
+		},
+		{
+			"text": "Vue",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "TypeScript - Vue3",
+					"link": "/pages/devlog/vue/ts",
+					"order": 1
+				},
+				{
+					"text": "三方库实践",
+					"link": "/pages/devlog/vue/three-party-lib",
+					"order": 2
+				}
+			],
+			"order": 2
 		},
 		{
 			"text": "UniApp",
@@ -120,11 +138,12 @@
 					"order": 2
 				},
 				{
-					"text": "兼容性问题 - 微信小程序",
+					"text": "微信小程序兼容性",
 					"link": "/pages/devlog/uniapp/wx-compitable",
 					"order": 4
 				}
-			]
+			],
+			"order": 3
 		}
 	],
 	"/pages/es6": [
