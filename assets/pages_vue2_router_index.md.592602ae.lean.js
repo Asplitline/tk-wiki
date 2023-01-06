@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r}from"./app.9bb939e0.js";const l=JSON.parse('{"title":"路由","description":"","frontmatter":{"title":"路由","order":0},"headers":[],"relativePath":"pages/vue2/router/index.md","lastUpdated":1662219657000}'),a={name:"pages/vue2/router/index.md"};function o(s,n,c,d,p,i){return r(),t("div")}const m=e(a,[["render",o]]);export{l as __pageData,m as default};

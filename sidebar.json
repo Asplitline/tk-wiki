@@ -378,6 +378,19 @@
 			"order": 3
 		}
 	],
+	"/pages/tk": [
+		{
+			"text": "tk-utils",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/tk/utils/base",
+					"order": 1
+				}
+			]
+		}
+	],
 	"/pages/ts": [
 		{
 			"text": "TypeScript 基础",
