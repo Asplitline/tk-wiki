@@ -1,6 +1,6 @@
 ---
 title: 三方库实践
-order: 2
+order: 3
 ---
 
 # 三方库实践
@@ -15,9 +15,8 @@ yarn add vue-i18n
 
 2. 引入 vue-i18n
 
-zh-CN.js
-
 ```javascript
+// zh-CN.js
 export const btn = {
   back: '返回',
   all: '全部',
@@ -28,6 +27,7 @@ export const btn = {
 ```
 
 ```javascript
+// main.js
 import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 const i18n = new VueI18n({
@@ -61,28 +61,25 @@ app.$mount()
     </ul>
   </div>
 </template>
+参考网站：
 ```
 
-官方网址
-[https://github.com/kazupon/vue-i18n#readme](https://github.com/kazupon/vue-i18n#readme)
-其他网址
-[http://www.lingoes.net/zh/translator/langcode.htm](
+官方文档：https://github.com/kazupon/vue-i18n#readme
+
+语言标识符：http://www.lingoes.net/zh/translator/langcode.htm
 
 ## element ui
 
 问题：表单重置后无法输入
+
 原因：resetFields 会清除表单，将数据设为初始值。如果未在 data 中初始化，会丢失响应式。
 
-| resetFields | 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果 |
-| ----------- | ---------------------------------------------------------- |
+> resetFields：对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
 
-解决：需在 data 中赋予初始值。或 通过 $set 设置响应式
+解决方案：
 
-```javascript
-studentForm: {
-		number: ''
-},
-```
+1. 在 data 中赋予初始值
+2. 通过 $set 设置响应式
 
 ## wangEditor
 
@@ -92,7 +89,6 @@ studentForm: {
 const editor = new E('#editor')
 const baseUrl = 'http://47.108.129.64:8089'
 editor.config.customUploadImg = async (resultFiles, insertImgFn) => {
-  console.log(resultFiles)
   const formData = new FormData()
   formData.append('files', resultFiles[0])
   const res = await fetch('/api/file/uploadFile', {

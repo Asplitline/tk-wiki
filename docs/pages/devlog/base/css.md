@@ -1,5 +1,5 @@
 ---
-title: CSS 实战
+title: CSS
 order: 2
 ---
 

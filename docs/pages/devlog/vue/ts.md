@@ -1,9 +1,9 @@
 ---
-title: TypeScript - Vue3
-order: 1
+title: TypeScript
+order: 2
 ---
 
-# Vue3 中 TypeScript
+# Vue3 中 TypeScript 实践
 
 ## Inject & Provide
 
@@ -34,4 +34,3 @@ const format = inject(formateDateKey)
 // Cannot invoke an object which is possibly 'undefined'.ts(2722)
 format?.(utime)
 ```
-

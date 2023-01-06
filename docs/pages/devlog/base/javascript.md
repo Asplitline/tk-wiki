@@ -1,5 +1,5 @@
 ---
-title: JavaScript 实战
+title: JavaScript
 order: 3
 ---
 
@@ -10,18 +10,16 @@ order: 3
 作用：获取元素类型
 
 ```js
-function getType(source) {  
-	return Object.prototype.toString.call(source).slice(8, -1).toLowerCase()
+function getType(source) {
+  return Object.prototype.toString.call(source).slice(8, -1).toLowerCase()
 }
 ```
-
-
 
 ## deepClone - pending
 
 作用：深拷贝
 
-pending
+pending...
 
 ## isEmpty
 
@@ -43,11 +41,9 @@ function isEmpty(value: any) {
 ```
 
 ```js
-[0, '', undefined, null, [], {}, false, "false"].map(isEmpty)
+;[0, '', undefined, null, [], {}, false, 'false'].map(isEmpty)
 // [true, true, true, true, true, true, true, false]
 ```
-
-
 
 ## omit
 
@@ -63,33 +59,28 @@ function isEmpty(value: any) {
  */
 
 function omit(obj, omitKey) {
-	const allKeys = Object.keys(obj)
-	if (Array.isArray(omitKey)) {
-		const rest = {}
-		allKeys.forEach((key) => {
-			if (!omitKey.includes(key)) {
-				rest[key] = obj[key]
-			}
-		})
-		return rest
-	} else {
-		const {
-			[omitKey]: omitValue,
-			...rest
-		} = obj
-		return rest
-	}
+  const allKeys = Object.keys(obj)
+  if (Array.isArray(omitKey)) {
+    const rest = {}
+    allKeys.forEach((key) => {
+      if (!omitKey.includes(key)) {
+        rest[key] = obj[key]
+      }
+    })
+    return rest
+  } else {
+    const { [omitKey]: omitValue, ...rest } = obj
+    return rest
+  }
 }
 ```
 
 ```js
-const obj = { a: 1, b: 2, c: 3, 'd': 4 }
+const obj = { a: 1, b: 2, c: 3, d: 4 }
 const omitObj1 = omit(obj, 'a') // { b: 2, c: 3 }
 const omitObj2 = omit(obj, ['a', 'c']) // { b: 2 }
-const omitObj3 = omit(obj, 'd' ) // { a: 1, b: 2, c: 3 }
+const omitObj3 = omit(obj, 'd') // { a: 1, b: 2, c: 3 }
 ```
-
-
 
 ## pick
 
@@ -103,28 +94,28 @@ const omitObj3 = omit(obj, 'd' ) // { a: 1, b: 2, c: 3 }
  */
 
 function pick(obj, pickKey) {
-	const allKeys = Object.keys(obj)
-	if (Array.isArray(pickKey)) {
-		const rest = {}
-		pickKey.forEach((key) => {
-			if (allKeys.includes(key)) {
-				rest[key] = obj[key]
-			}
-		})
-		return rest
-	} else {
-		if (!allKeys.includes(pickKey)) return {}
-		return {
-			[pickKey]: obj[pickKey]
-		}
-	}
+  const allKeys = Object.keys(obj)
+  if (Array.isArray(pickKey)) {
+    const rest = {}
+    pickKey.forEach((key) => {
+      if (allKeys.includes(key)) {
+        rest[key] = obj[key]
+      }
+    })
+    return rest
+  } else {
+    if (!allKeys.includes(pickKey)) return {}
+    return {
+      [pickKey]: obj[pickKey]
+    }
+  }
 }
 ```
 
 ```js
- const obj = { a: 1, b: 2, c: 3 }
- const pickObj1 = pick(obj, 'a') // { a: 1 }
- const pickObj2 = pick(obj, ['a', 'c']) // { a: 1, c: 3 }
+const obj = { a: 1, b: 2, c: 3 }
+const pickObj1 = pick(obj, 'a') // { a: 1 }
+const pickObj2 = pick(obj, ['a', 'c']) // { a: 1, c: 3 }
 ```
 
 ## uniqueArr
@@ -137,24 +128,22 @@ function pick(obj, pickKey) {
  * @param {Array} arr
  * @returns
  */
-function uniqueArr (arr = []) {
+function uniqueArr(arr = []) {
   return [...new Set(arr)]
 }
 ```
 
 ```js
-uniqueArr([1,2,3,1,2])
+uniqueArr([1, 2, 3, 1, 2])
 // [1,2,3]
 ```
-
-
 
 ## kebab2Camel
 
 作用：短横线转小驼峰
 
 ```js
-function kebab2Camel (str) {
+function kebab2Camel(str) {
   /**
    * $ - 匹配值
    * $1 - 第一个捕获值
@@ -170,14 +159,12 @@ kebab2Camel('card-item')
 // cardItem
 ```
 
-
-
 ## kebab2Pascal
 
 作用：短横线转大驼峰
 
 ```js
-function kebab2Pascal (str) {
+function kebab2Pascal(str) {
   const Camel = str.replace(/-([a-z])/g, ($, $1) => {
     return $1.toUpperCase()
   })
@@ -190,14 +177,12 @@ kebab2Pascal('card-item')
 // CardItem
 ```
 
-
-
 ## obj2FormData
 
 作用：对象转 formData
 
 ```js
-function obj2FormData (obj) {
+function obj2FormData(obj) {
   const formData = new FormData()
   for (const key in obj) {
     formData.append(key, obj[key])
@@ -206,11 +191,9 @@ function obj2FormData (obj) {
 }
 ```
 
-
-
 ## obj2Params
 
-作用：对象转params
+作用：对象转 params
 
 ```js
 /**
@@ -218,22 +201,20 @@ function obj2FormData (obj) {
  * @param {Object} obj
  * @returns {String}
  */
-function obj2Params (obj) {
- if (typeof obj !== 'object' || obj === null) return obj
+function obj2Params(obj) {
+  if (typeof obj !== 'object' || obj === null) return obj
   const res = []
   Object.entries(obj).forEach(([key, value]) => {
-      res.push(`${key}=${value}`)
+    res.push(`${key}=${value}`)
   })
   return res.join('&')
 }
 ```
 
 ```js
-obj2Params({a:2,c:'3',d:'abc',e:''})
+obj2Params({ a: 2, c: '3', d: 'abc', e: '' })
 // 'a=2&c=3&d=abc&e='
 ```
-
-
 
 ## dateFormat
 
@@ -275,7 +256,7 @@ dateFormat(1672761086317)
  * @param date
  * @returns
  */
-function timeAgo (date) {
+function timeAgo(date) {
   const val = new Date(date).getTime()
   const now = Date.now()
   const diff = now - val
@@ -312,13 +293,12 @@ function timeAgo (date) {
 ```
 
 ```js
-timeAgo()
-// 刚刚
-[1672761496444,1672760496444,1672701496444,1672061496444,1670761496444,1660761496444,1602761496444].map(timeAgo)
+timeAgo()[
+  // 刚刚
+  (1672761496444, 1672760496444, 1672701496444, 1672061496444, 1670761496444, 1660761496444, 1602761496444)
+].map(timeAgo)
 // ['2分钟前', '19分钟前', '16小时前', '8天前', '23天前', '4月前', '2年前']
 ```
-
-
 
 ## formatTime
 
@@ -349,47 +329,44 @@ function formatTime(v, isMs = false) {
 ```
 
 ```js
-[1000,2000,5000,6000,10000,100000].map(v=>formatTime(v))
-// ['16分40秒', '33分20秒', '1小时23分20秒', '1小时40分', '2小时46分40秒', '1天3小时46分40秒']
-[1000,2000,5000,6000,10000,100000].map(v=>formatTime(v,true))
+;[1000, 2000, 5000, 6000, 10000, 100000]
+  .map((v) => formatTime(v))
+  [
+    // ['16分40秒', '33分20秒', '1小时23分20秒', '1小时40分', '2小时46分40秒', '1天3小时46分40秒']
+    (1000, 2000, 5000, 6000, 10000, 100000)
+  ].map((v) => formatTime(v, true))
 // ['1秒', '2秒', '5秒', '6秒', '10秒', '1分40秒']
 ```
-
-
 
 ## thousandsNumber
 
 作用：数字转千分位
 
 ```js
-function thousandsNumber (num) {
+function thousandsNumber(num) {
   return (num || 0).toLocaleString()
 }
 ```
 
 ```js
-[1,11,111,1111,11111,111111].map(thousands)
+;[1, 11, 111, 1111, 11111, 111111].map(thousands)
 // ['1', '11', '111', '1,111', '11,111', '111,111']
 ```
 
-
-
 ## hashId
 
-作用：随机生成hash串
+作用：随机生成 hash 串
 
 ```js
- function hashId(length = 32){
-	 return Array.from({length}, () => Math.floor(Math.random() * 36).toString(36)).join('')
- }
+function hashId(length = 32) {
+  return Array.from({ length }, () => Math.floor(Math.random() * 36).toString(36)).join('')
+}
 ```
 
 ```js
-[1,3,5,7,20,36].map(hashId)
+;[1, 3, 5, 7, 20, 36].map(hashId)
 // ['a', 'yp5', '5czvz', 'plled1n', '68rrks04yewxb93upncj', 'azhbqbdf7rff69ehcbb4ny92mcmf6unx1g08']
 ```
-
-
 
 ## getCharLength
 
@@ -398,23 +375,21 @@ function thousandsNumber (num) {
 > 汉字占两个，英文字符占一个
 
 ```js
-function getCharLength (value) {
-  let cnReg = /([\u4e00-\u9fa5]|[\u3000-\u303F]|[\uFF00-\uFF60])/g;
-  let mat = value.match(cnReg);
+function getCharLength(value) {
+  let cnReg = /([\u4e00-\u9fa5]|[\u3000-\u303F]|[\uFF00-\uFF60])/g
+  let mat = value.match(cnReg)
   if (mat) {
-    return  mat.length * 2 + (value.length - mat.length);
+    return mat.length * 2 + (value.length - mat.length)
   } else {
-    return value.length;
+    return value.length
   }
 }
 ```
 
 ```js
-['n','哈','哈n'].map(getCharLength)
+;['n', '哈', '哈n'].map(getCharLength)
 // [1, 2, 3]
 ```
-
-
 
 ## 其他
 
@@ -423,12 +398,11 @@ function getCharLength (value) {
 query 是一个 promise 对象。可以搭配 promise.all 实现异步函数循环
 
 ```javascript
-function handlePromise (promise) {
+function handlePromise(promise) {
   return new Promise((resolve, reject) => {
-    promise.then(res => resolve(res)).catch(err => reject(err))
+    promise.then((res) => resolve(res)).catch((err) => reject(err))
   })
 }
-
 ```
 
 ```js
@@ -441,8 +415,6 @@ api.forEach((v)=>{
 const res = Promise.all(arr)
 ```
 
-
-
 ### ？直接返回函数和闭包函数
 
 直接返回函数和闭包函数的区别
@@ -450,26 +422,26 @@ const res = Promise.all(arr)
 ```js
 let cl = {
   add: function (a, b) {
-    console.log(a, b);
-    return a + b + 2;
-  },
-};
+    console.log(a, b)
+    return a + b + 2
+  }
+}
 function test1() {
-  const { add } = cl;
-  return add;
+  const { add } = cl
+  return add
 }
 function test2() {
-  const { add } = cl;
+  const { add } = cl
   return function (query) {
-    return add(query);
-  };
+    return add(query)
+  }
 }
-const add1 = test1;
-const add2 = test2;
-console.log(add1()(1, 2));
+const add1 = test1
+const add2 = test2
+console.log(add1()(1, 2))
 // 1 2
 // 5
-console.log(add2()(1, 2));
+console.log(add2()(1, 2))
 // 1 undefined
 // NaN
 ```

@@ -89,17 +89,17 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "HTML 实战",
+					"text": "HTML",
 					"link": "/pages/devlog/base/html",
 					"order": 1
 				},
 				{
-					"text": "CSS 实战",
+					"text": "CSS",
 					"link": "/pages/devlog/base/css",
 					"order": 2
 				},
 				{
-					"text": "JavaScript 实战",
+					"text": "JavaScript",
 					"link": "/pages/devlog/base/javascript",
 					"order": 3
 				}
@@ -111,14 +111,19 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "TypeScript - Vue3",
-					"link": "/pages/devlog/vue/ts",
+					"text": "基础实践",
+					"link": "/pages/devlog/vue/base",
 					"order": 1
+				},
+				{
+					"text": "TypeScript",
+					"link": "/pages/devlog/vue/ts",
+					"order": 2
 				},
 				{
 					"text": "三方库实践",
 					"link": "/pages/devlog/vue/three-party-lib",
-					"order": 2
+					"order": 3
 				}
 			],
 			"order": 2
