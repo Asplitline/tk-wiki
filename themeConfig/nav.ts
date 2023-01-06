@@ -24,7 +24,10 @@ const nav = [
   },
   {
     text: '实战',
-    items: [{ text: '框架实战', link: '/devlog/index', activeMath: '/devlog/' }]
+    items: [
+      { text: '框架实战', link: '/devlog/index', activeMath: '/devlog/' },
+      { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
+    ]
   }
 ]
 

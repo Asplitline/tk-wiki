@@ -40,6 +40,12 @@
 		"order": 4,
 		"layout": "page"
 	},
+	"/pages/tk": {
+		"text": "tk",
+		"link": "/pages/tk/index",
+		"sidebar": false,
+		"layout": "page"
+	},
 	"/pages/ts": {
 		"text": "TypeScript",
 		"link": "/pages/ts/index",
