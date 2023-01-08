@@ -1,8 +1,9 @@
 ---
-title: TypeScript 与 Vue2
+title: TS 在 Vue2 中应用
+order: 2
 ---
 
-# TypeScript 与 Vue2
+# TS 在 Vue2 中应用
 
 ## 推荐配置
 

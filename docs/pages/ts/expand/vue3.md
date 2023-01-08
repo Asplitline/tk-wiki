@@ -1,9 +1,9 @@
 ---
-title: TypeScript
-order: 2
+title: TS 在 Vue3 中应用
+order: 3
 ---
 
-# Vue3 中 TypeScript 实践
+# TS 在 Vue3 中应用
 
 ## Inject & Provide
 

@@ -26,6 +26,7 @@ const nav = [
     text: '实战',
     items: [
       { text: '框架实战', link: '/devlog/index', activeMath: '/devlog/' },
+      { text: '错误收集', link: '/error/index', activeMath: '/error/' },
       { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
     ]
   }

@@ -18,6 +18,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/error": {
+		"text": "错误收集",
+		"link": "/pages/error/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/es6": {
 		"text": "ES6",
 		"link": "/pages/es6/index",

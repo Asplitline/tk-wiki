@@ -56,7 +56,9 @@ export function parseRemarkVar(filePath: string) {
 }
 
 const sortPages = (data: any[]) => {
-  return data.sort((a, b) => a.order - b.order)
+  return data.sort(({ order: aOrder = 999 }, { order: bOrder = 999 }) => {
+    return aOrder - bOrder
+  })
 }
 
 /**

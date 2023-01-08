@@ -27,7 +27,7 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Vite",
+					"text": "基础",
 					"link": "/pages/cli/vite/base",
 					"order": 2
 				},
@@ -66,6 +66,11 @@
 					"text": "快捷键",
 					"link": "/pages/custom/config/keyboard",
 					"order": 1
+				},
+				{
+					"text": "windows",
+					"link": "/pages/custom/config/windows",
+					"order": 2
 				}
 			],
 			"order": 1
@@ -107,23 +112,6 @@
 			"order": 1
 		},
 		{
-			"text": "React",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "基础",
-					"link": "/pages/devlog/react/base",
-					"order": 1
-				},
-				{
-					"text": "三方库",
-					"link": "/pages/devlog/react/three-party",
-					"order": 3
-				}
-			],
-			"order": 1
-		},
-		{
 			"text": "Vue",
 			"collapsible": true,
 			"items": [
@@ -133,17 +121,41 @@
 					"order": 1
 				},
 				{
-					"text": "TypeScript",
-					"link": "/pages/devlog/vue/ts",
-					"order": 2
-				},
-				{
 					"text": "三方库",
 					"link": "/pages/devlog/vue/three-party",
 					"order": 3
 				}
 			],
 			"order": 2
+		},
+		{
+			"text": "手写篇",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "JavaScript",
+					"link": "/pages/devlog/handwrite/javascript",
+					"order": 1
+				}
+			],
+			"order": 3
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vscode",
+					"link": "/pages/devlog/other/vscode",
+					"order": 1
+				},
+				{
+					"text": "chrome",
+					"link": "/pages/devlog/other/chrome",
+					"order": 2
+				}
+			],
+			"order": 4
 		},
 		{
 			"text": "UniApp",
@@ -165,24 +177,51 @@
 					"order": 4
 				}
 			],
-			"order": 3
+			"order": 4
 		},
 		{
-			"text": "其他",
+			"text": "React",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "vscode",
-					"link": "/pages/devlog/other/vscode",
+					"text": "基础",
+					"link": "/pages/devlog/react/base",
 					"order": 1
 				},
 				{
-					"text": "chrome",
-					"link": "/pages/devlog/other/chrome",
-					"order": 2
+					"text": "三方库",
+					"link": "/pages/devlog/react/three-party",
+					"order": 3
 				}
-			],
-			"order": 4
+			]
+		}
+	],
+	"/pages/error": [
+		{
+			"text": "错误处理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "兼容性处理",
+					"link": "/pages/error/base/polyfill",
+					"order": 1
+				},
+				{
+					"text": "三方库兼容性",
+					"link": "/pages/error/base/polyfill-three-party",
+					"order": 2
+				},
+				{
+					"text": "样式相关",
+					"link": "/pages/error/base/style",
+					"order": 3
+				},
+				{
+					"text": "其他错误",
+					"link": "/pages/error/base/other",
+					"order": 4
+				}
+			]
 		}
 	],
 	"/pages/es6": [
@@ -527,9 +566,24 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "TypeScript 与 Vue2",
+					"text": "TS 基础应用",
+					"link": "/pages/ts/expand/base",
+					"order": 1
+				},
+				{
+					"text": "TS 在 Vue2 中应用",
 					"link": "/pages/ts/expand/vue2",
-					"order": 0
+					"order": 2
+				},
+				{
+					"text": "TS 在 Vue3 中应用",
+					"link": "/pages/ts/expand/vue3",
+					"order": 3
+				},
+				{
+					"text": "TS 在 React 中应用",
+					"link": "/pages/ts/expand/react",
+					"order": 4
 				}
 			]
 		}
