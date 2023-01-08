@@ -50,36 +50,6 @@ yarn install
 },
 ```
 
-## 三方库
-
-### antd 按需导入
-
-1. 安装 antd `yarn add antd`
-2. 安装 按需导入插件 `yarn add babel-plugin-import -D`
-3. 拉取配置文件，然后安装依赖
-
-```json
-yarn eject
-yarn install
-```
-
-4. `package.json` 同级目录下新建 `.babelrc`（需删除 package.json 中 babel 配置）内容如下
-
-```json
-{
-  "presets": ["react-app"],
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": "css"
-      }
-    ]
-  ]
-}
-```
 
 ## 相关链接
 

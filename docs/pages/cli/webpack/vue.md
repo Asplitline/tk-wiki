@@ -68,7 +68,7 @@ module.exports = {
 }
 ```
 
-## 生产开发环境
+## 区分生产开发环境
 
 1. 分别新建 `.env.development` 和 `.env.production` 文件
 

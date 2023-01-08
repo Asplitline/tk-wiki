@@ -1,0 +1,27 @@
+{
+  // Place your tk-wiki workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "page-level1": {
+    "scope": "markdown",
+    "prefix": "pgl1",
+    "body": ["---", "title: $1", "sidebar: true", "layout: page", "---", "", "<base-index :title=\"$frontmatter.title\"/>"],
+    "description": "page level 1"
+  },
+  "page-level2": {
+    "scope": "markdown",
+    "prefix": "pgl2",
+    "body": ["---", "title: $1", "order: 1", "parentOrder: 1", "---"],
+    "description": "page level 2"
+  },
+  "page-level3": {
+    "scope": "markdown",
+    "prefix": "pgl3",
+    "body": ["---", "title: $1", "order: 1", "---"],
+    "description": "page level 2"
+  }
+}

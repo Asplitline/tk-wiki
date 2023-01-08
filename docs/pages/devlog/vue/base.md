@@ -1,5 +1,5 @@
 ---
-title: 基础实践
+title: 基础
 order: 1
 ---
 

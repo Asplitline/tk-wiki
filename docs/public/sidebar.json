@@ -5,7 +5,7 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Webpack",
+					"text": "基础",
 					"link": "/pages/cli/webpack/base",
 					"order": 1
 				},
@@ -85,7 +85,7 @@
 	],
 	"/pages/devlog": [
 		{
-			"text": "三件套",
+			"text": "基础",
 			"collapsible": true,
 			"items": [
 				{
@@ -107,11 +107,28 @@
 			"order": 1
 		},
 		{
+			"text": "React",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/devlog/react/base",
+					"order": 1
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/devlog/react/three-party",
+					"order": 3
+				}
+			],
+			"order": 1
+		},
+		{
 			"text": "Vue",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "基础实践",
+					"text": "基础",
 					"link": "/pages/devlog/vue/base",
 					"order": 1
 				},
@@ -121,8 +138,8 @@
 					"order": 2
 				},
 				{
-					"text": "三方库实践",
-					"link": "/pages/devlog/vue/three-party-lib",
+					"text": "三方库",
+					"link": "/pages/devlog/vue/three-party",
 					"order": 3
 				}
 			],
@@ -149,6 +166,23 @@
 				}
 			],
 			"order": 3
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vscode",
+					"link": "/pages/devlog/other/vscode",
+					"order": 1
+				},
+				{
+					"text": "chrome",
+					"link": "/pages/devlog/other/chrome",
+					"order": 2
+				}
+			],
+			"order": 4
 		}
 	],
 	"/pages/es6": [
