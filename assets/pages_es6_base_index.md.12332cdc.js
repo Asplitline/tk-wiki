@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.9bb939e0.js";const l=JSON.parse('{"title":"ES6 基础","description":"","frontmatter":{"title":"ES6 基础","order":0},"headers":[],"relativePath":"pages/es6/base/index.md","lastUpdated":1662219657000}'),s={name:"pages/es6/base/index.md"};function r(n,o,c,d,p,i){return a(),t("div")}const m=e(s,[["render",r]]);export{l as __pageData,m as default};

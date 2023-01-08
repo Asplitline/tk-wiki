@@ -58,6 +58,11 @@
 				"activeMath": "/devlog/"
 			},
 			{
+				"text": "错误收集",
+				"link": "/pages/error/index",
+				"activeMath": "/error/"
+			},
+			{
 				"text": "tk库",
 				"link": "/pages/tk/index",
 				"activeMath": "/tk/"
