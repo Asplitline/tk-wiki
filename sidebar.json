@@ -107,6 +107,11 @@
 					"text": "JavaScript",
 					"link": "/pages/devlog/base/javascript",
 					"order": 3
+				},
+				{
+					"text": "JavaScript - 三方库",
+					"link": "/pages/devlog/base/javascript-three-party",
+					"order": 4
 				}
 			],
 			"order": 1
@@ -174,6 +179,11 @@
 				{
 					"text": "微信小程序兼容性",
 					"link": "/pages/devlog/uniapp/wx-compitable",
+					"order": 3
+				},
+				{
+					"text": "IOS 打包",
+					"link": "/pages/devlog/uniapp/ios",
 					"order": 4
 				}
 			],
@@ -584,6 +594,11 @@
 					"text": "TS 在 React 中应用",
 					"link": "/pages/ts/expand/react",
 					"order": 4
+				},
+				{
+					"text": "TS 其他应用",
+					"link": "/pages/ts/expand/other",
+					"order": 5
 				}
 			]
 		}
