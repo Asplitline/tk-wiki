@@ -124,5 +124,3 @@ console.log(add2()(1, 2))
 // 1 undefined
 // NaN
 ```
-
-## 
