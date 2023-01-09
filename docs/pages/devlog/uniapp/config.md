@@ -31,3 +31,20 @@ order: 1
 ```
 
 
+
+## HbuilderX 无法检测模拟器
+
+| 模拟器名称    | 端口  |
+| ------------- | ----- |
+| 夜神模拟器    | 62001 |
+| 模拟          | 26944 |
+| mumu模拟器    | 7555  |
+| 天天模拟器    | 6555  |
+| AndroidStudio | 5554  |
+
+解决
+
+1. 进入 `HBuilderX\plugins\launcher\tools\adbs` 的目录运行cmd
+2. 执行 `adb connect 127.0.0.1:7555 `（ mumu模拟器 ）
+3. 通过 `adb devices` 查看是否已经连接
+

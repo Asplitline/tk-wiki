@@ -163,6 +163,7 @@ h3 {
   padding: 20px 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   .base-group {
     list-style: none;
     break-inside: avoid;
@@ -171,8 +172,11 @@ h3 {
     border-radius: 8px;
     background-color: var(--vp-c-bg-soft);
     width: 22%;
-    margin-left: 3%;
-    &:first-child {
+    margin-left: 4%;
+    &:nth-child(n + 5) {
+      margin-top: 20px;
+    }
+    &:nth-child(4n + 1) {
       margin-left: 0;
     }
   }
