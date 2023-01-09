@@ -81,9 +81,9 @@ macOS 下，打开**钥匙串访问**
 
 ## IOS 开发生产模式配置
 
-<img src="ios.assets/image-20230109232639125.png" alt="image-20230109232639125" style="zoom:80%;" />
+<img src="./ios.assets/image-20230109232639125.png" alt="image-20230109232639125" style="zoom:80%;" />
 
-<img src="ios.assets/image-20230109232655279.png" alt="image-20230109232655279" style="zoom:80%;" />
+<img src="./ios.assets/image-20230109232655279.png" alt="image-20230109232655279" style="zoom:80%;" />
 
 ## IOS 相机相册权限配置
 
