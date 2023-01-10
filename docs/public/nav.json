@@ -1,5 +1,20 @@
 [
 	{
+		"text": "JavaScript",
+		"items": [
+			{
+				"text": "ES6",
+				"link": "/pages/es6/index",
+				"activeMath": "/es6/"
+			},
+			{
+				"text": "TypeScript",
+				"link": "/pages/ts/index",
+				"activeMatch": "/ts/"
+			}
+		]
+	},
+	{
 		"text": "Vue",
 		"items": [
 			{
@@ -15,17 +30,12 @@
 		]
 	},
 	{
-		"text": "JavaScript",
+		"text": "React",
 		"items": [
 			{
-				"text": "ES6",
-				"link": "/pages/es6/index",
-				"activeMath": "/es6/"
-			},
-			{
-				"text": "TypeScript",
-				"link": "/pages/ts/index",
-				"activeMatch": "/ts/"
+				"text": "React",
+				"link": "/pages/react/index",
+				"activeMatch": "/react/"
 			}
 		]
 	},
@@ -61,6 +71,11 @@
 				"text": "错误收集",
 				"link": "/pages/error/index",
 				"activeMath": "/error/"
+			},
+			{
+				"text": "QA",
+				"link": "/pages/qa/index",
+				"activeMath": "/qa/"
 			},
 			{
 				"text": "tk库",

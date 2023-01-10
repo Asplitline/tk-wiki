@@ -1,6 +1,13 @@
 import { pageRoot } from './constants'
 const nav = [
   {
+    text: 'JavaScript',
+    items: [
+      { text: 'ES6', link: '/es6/index', activeMath: '/es6/' },
+      { text: 'TypeScript', link: '/ts/index', activeMatch: '/ts/' }
+    ]
+  },
+  {
     text: 'Vue',
     items: [
       { text: 'Vue2', link: '/vue2/index', activeMath: '/vue2/' },
@@ -8,11 +15,8 @@ const nav = [
     ]
   },
   {
-    text: 'JavaScript',
-    items: [
-      { text: 'ES6', link: '/es6/index', activeMath: '/es6/' },
-      { text: 'TypeScript', link: '/ts/index', activeMatch: '/ts/' }
-    ]
+    text: 'React',
+    items: [{ text: 'React', link: '/react/index', activeMatch: '/react/' }]
   },
   {
     text: '配置',
@@ -27,6 +31,7 @@ const nav = [
     items: [
       { text: '框架实战', link: '/devlog/index', activeMath: '/devlog/' },
       { text: '错误收集', link: '/error/index', activeMath: '/error/' },
+      { text: 'QA', link: '/qa/index', activeMath: '/qa/' },
       { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
     ]
   }
