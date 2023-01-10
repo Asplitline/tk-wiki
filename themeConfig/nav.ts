@@ -23,7 +23,8 @@ const nav = [
     items: [
       { text: '包管理', link: '/package/index', activeMath: '/package/' },
       { text: '脚手架', link: '/cli/index', activeMath: '/cli/' },
-      { text: '个人配置', link: '/custom/index', activeMath: '/custom/' }
+      { text: '个人配置', link: '/custom/index', activeMath: '/custom/' },
+      { text: '知识扩展', link: '/expand/index', activeMath: '/expand/' }
     ]
   },
   {

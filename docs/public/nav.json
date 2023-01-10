@@ -56,6 +56,11 @@
 				"text": "个人配置",
 				"link": "/pages/custom/index",
 				"activeMath": "/custom/"
+			},
+			{
+				"text": "知识扩展",
+				"link": "/pages/expand/index",
+				"activeMath": "/expand/"
 			}
 		]
 	},

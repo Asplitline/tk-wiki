@@ -382,6 +382,19 @@
 			]
 		}
 	],
+	"/pages/expand": [
+		{
+			"text": "常见",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Nginx",
+					"link": "/pages/expand/deploy/nginx",
+					"order": 1
+				}
+			]
+		}
+	],
 	"/pages/js": [],
 	"/pages/package": [
 		{

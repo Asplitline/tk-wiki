@@ -33,6 +33,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/expand": {
+		"text": "知识扩展",
+		"link": "/pages/expand/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/js": {
 		"text": "前言",
 		"link": "/pages/js/index",
