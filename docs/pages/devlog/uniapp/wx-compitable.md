@@ -27,6 +27,8 @@ export default {
 
 ## 动态 style 只能为 string
 
+问题：微信小程序不支持 style 对象
+
 解决：通过正则转换
 
 ```js
@@ -86,3 +88,48 @@ styleObj2StyleStr(style)
 ```
 
 > 参考：https://www.uviewui.com/components/feature.html
+
+## 自定义组件dom解构问题
+
+问题：微信小程序自定义组件外面会多一层解构，影响flex布局
+
+解决：设置 virtualHost 为 true
+
+```js
+options: {
+  // 微信小程序中 options 选项
+  multipleSlots: true, //  在组件定义时的选项中启动多slot支持，默认启用
+    // styleIsolation: '​apply-shared​',
+    // styleIsolation: "isolated", //  启动样式隔离。当使用页面自定义组件，希望父组件影响子组件样式时可能需要配置。具体配置选项参见：微信小程序自定义组件的样式
+    addGlobalClass: true, //  表示页面样式将影响到自定义组件，但自定义组件中指定的样式不会影响页面。这个选项等价于设置 styleIsolation: apply-shared
+    virtualHost: true, //  将自定义节点设置成虚拟的，更加接近Vue组件的表现。我们不希望自定义组件的这个节点本身可以设置样式、响应 flex 布局等，而是希望自定义组件内部的第一层节点能够响应 flex 布局或者样式由自定义组件本身完全决定
+}
+```
+
+参考：https://uniapp.dcloud.net.cn/tutorial/vue-api.html#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE
+
+
+
+## scroll-view 横向滚动问题
+
+问题：小程序使用scroll-view横向滑动时，flex布局失效问题
+
+解决：里面多加一层
+
+```html
+<scroll-view scroll-x="true" >
+  <view class="flex">
+    <view v-for="item in 4" >
+        {{item}}
+    </view>
+  </view>
+</scroll-view>
+```
+
+参考：[小程序使用scroll-view横向滑动时，flex布局失效问题](https://www.cnblogs.com/dongzhi1111/p/11884000.html)
+
+
+
+## text 下 slot 失效
+
+解决：text 改为 view
