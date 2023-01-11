@@ -356,7 +356,9 @@ s 623fc96 feat: c
 s 42817be feat: d
 ```
 
-参考：[多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
+参考：
+
+[多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
 
 ## 清除工作区文件
 

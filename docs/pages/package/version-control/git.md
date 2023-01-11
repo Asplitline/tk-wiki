@@ -338,7 +338,16 @@ git merge --no-edit
 git cherry-pick <commitHash>
 ```
 
-## rebase - replace base
+## rebase - 变基
+
+变基：replace base
+
+应用场景
+
+- 分支合并：将分支冲突处理交由分支开发者
+- 合并多次commits：
+
+### 分支合并
 
 合并冲突：从 master 分支新建分支，并且 master 分支由新的提交记录，此时新建分支还指向旧的 master。
 
@@ -353,6 +362,76 @@ rebase：将分支**出发点**从 旧 master 移动到 新 master。
 ```shell
 git rebase branch_name
 ```
+
+### 合并commits
+
+当commits过多
+
+- 不利于代码 review
+- 造成分支污染
+
+例子：合并commits
+
+1. 合并最近4次提交记录
+
+```bash
+git rebase -i HEAD~4
+```
+
+2. 此时，会进入 vi 编辑模式
+
+```bash
+p cacc52da add: qrcode
+s f072ef48 update: indexeddb hack
+s 4e84901a feat: add indexedDB floder
+s 8f33126c feat: add test2.js
+
+# Rebase 5f2452b2..8f33126c onto 5f2452b2 (4 commands)
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+```
+
+注意：不要合并先前提交的东西
+
+```bash
+s cacc52da add: qrcode
+s f072ef48 update: indexeddb hack
+s 4e84901a feat: add indexedDB floder
+p 8f33126c feat: add test2.js
+```
+
+这样会报错 `error: cannot 'squash' without a previous commit`
+
+3. 异常退出了 `vi` 窗口
+
+```bash
+git rebase --edit-todo
+```
+
+4. 修改完成并提交后
+
+```bash
+git rebase --continue
+```
+
+5. 查看结果
+
+```bash
+git log
+```
+
+此时3个commit合并为1个commit
+
+### 参考链接
+
+[彻底搞懂 Git-Rebase](http://jartto.wang/2018/12/11/git-rebase/)
 
 ## pull - 拉取
 
@@ -423,6 +502,156 @@ git revert HEAD --no-edit
 # 撤销多次操作（不会每次都提交，最终提交一次）
 git revert -n HEAD
 ```
+
+
+
+## cherry-pick - 筛选
+
+将代码从一个分支转移到另一个分支
+
+方法一：需要另一个分支的所有代码变动，采用合并（`git merge`）
+
+方法二：只需要部分代码变动，采用 cherry-pick
+
+
+
+### 基本用法
+
+```bash
+# commitHash作用于当前分支
+git cherry-pick <commitHash>
+# 参数也可以是分支名
+git cherry-pick <branchName>
+```
+
+例子
+
+```bash
+    a - b - c - d   Master
+         \
+           e - f - g Feature
+```
+
+```bash
+# 切换到 master 分支
+git checkout master
+
+# Cherry pick 操作
+git cherry-pick f
+```
+
+```bash
+    a - b - c - d - f   Master
+         \
+           e - f - g Feature
+```
+
+git cherry-pick 命令的参数，不一定是提交的哈希值，分支名也是可以的，表示转移该分支的最新提交
+
+```bash
+git cherry-pick feature
+```
+
+
+
+### 转移多个提交
+
+```bash
+# 转移 HashA HashB
+git cherry-pick <HashA> <HashB>
+# 转移 A 到 B （不包含A）
+git cherry-pick A..B
+# 转移 A 到 B
+git cherry-pick A^..B
+```
+
+
+
+### 配置项
+
+git cherry-pick 常用配置
+
+(1) `-e，--edit`
+
+打开外部编辑器，编辑提交信息
+
+(2) `-n，--no-commit`
+
+只更新工作区和暂存区，不产生新的提交
+
+(3) `-x`
+
+在提交信息的末尾追加一行`(cherry picked from commit ...)`
+
+(4) `-s，--signoff`
+
+在提交信息的末尾追加一行操作者的签名，表示是谁进行了这个操作
+
+(5) `-m parent-number，--mainline parent-number`
+
+场景：当节点为合并节点，cherry-pick 会失败
+
+原因：不知道采用哪个分支变动
+
+```bash
+git cherry-pick -m 1 <commitHash>
+```
+
+参数`parent-number`是一个从`1`开始的整数，代表原始提交的父分支编号
+
+一般来说，1号父分支是接受变动的分支（the branch being merged into），2号父分支是作为变动来源的分支（the branch being merged from）
+
+
+
+### 代码冲突
+
+代码冲突，cherry-pick 会暂停。
+
+(1) --continue
+
+1. 用户解决冲突
+
+2. 添加暂存区
+
+3. `git cherry-pick --continue`
+
+(2) --abort：放弃合并，还原
+
+(3) --quit：放弃合并
+
+
+
+### 转移到另一个代码库
+
+步骤：
+
+1. 先将仓库加为远程仓库
+
+```bash
+git remote add target git://gitUrl
+```
+
+2. 远程代码抓取到本地
+
+```bash
+git fetch target
+```
+
+3. 获取远程仓库提交的hash值
+
+```bash
+git log target/master
+```
+
+4. 使用 cherry-pick 选取提交
+
+```bash
+git cherry-pick <commitHash>
+```
+
+### 参考链接
+
+[git cherry-pick 教程](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 ## tag - 标签
 
@@ -614,78 +843,3 @@ git worktree remote -f <worktreePath> # 强制清理
 git prune
 ```
 
-### cherry-pick - 筛选
-
-作用：将指定提交作用于其他分支
-
-#### 基本用法
-
-```bash
-# commitHash作用于当前分支
-git cherry-pick <commitHash>
-# 参数也可以是分支名
-git cherry-pick <branchName>
-```
-
-例子
-
-```bash
-
-    a - b - c - d   Master
-         \
-           e - f - g Feature
-```
-
-```bash
-# 切换到 master 分支
-git checkout master
-
-# Cherry pick 操作
-git cherry-pick f
-```
-
-```js
-
-    a - b - c - d - f   Master
-         \
-           e - f - g Feature
-```
-
-#### 转移多个提交
-
-```bash
-# 转移 HashA HashB
-git cherry-pick <HashA> <HashB>
-# 转移 A 到 B （不包含A）
-git cherry-pick A..B
-# 转移 A 到 B
-git cherry-pick A^..B
-```
-
-场景：节点为合并节点，cherry-pick 会失败
-
-原因：不知道采用哪个分支变动
-
-```bash
-git cherry-pick -m 1 <commitHash>
-```
-
-> 1：接收合并的分支
->
-> 2：变动来源的分支
-
-#### 代码冲突
-
-代码冲突，cherry-pick 会暂停。
-
-方式一： --continue
-
-1. 用户解决冲突
-
-2. 添加暂存区
-
-3. `git cherry-pick --continue`
-
-方式二：--abort：放弃合并，还原
-
-方式三：--quit：放弃合并
