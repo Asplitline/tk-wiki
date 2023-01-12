@@ -92,7 +92,9 @@ export async function getSortedPostsData() {
 ### Using getServerSideProps
 
 `getStaticProps`:在请求时运行，上下文包含请求参数（`context`）
+
 场景：预渲染一个在请求时获取数据的页面
+
 首字节时间 （TTFB）比 `getStaticProps`慢。原因如下
 
 1. 要在每次请求后计算结果。
@@ -131,4 +133,3 @@ function Profile() {
 }
 ```
 
-#

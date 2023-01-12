@@ -512,6 +512,11 @@
 					"text": "路由API",
 					"link": "/pages/react/nextjs/routes-api",
 					"order": 4
+				},
+				{
+					"text": "其他选项",
+					"link": "/pages/react/nextjs/other-options",
+					"order": 5
 				}
 			],
 			"order": 1
