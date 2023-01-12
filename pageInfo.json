@@ -33,6 +33,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/expand": {
+		"text": "知识扩展",
+		"link": "/pages/expand/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/js": {
 		"text": "前言",
 		"link": "/pages/js/index",
@@ -45,6 +52,20 @@
 		"link": "/pages/package/index",
 		"sidebar": false,
 		"order": 4,
+		"layout": "page"
+	},
+	"/pages/qa": {
+		"text": "QA",
+		"link": "/pages/qa/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/react": {
+		"text": "React",
+		"link": "/pages/react/index",
+		"sidebar": false,
+		"aside": false,
 		"layout": "page"
 	},
 	"/pages/tk": {
