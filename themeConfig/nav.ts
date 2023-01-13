@@ -3,7 +3,7 @@ const nav = [
   {
     text: 'JavaScript',
     items: [
-      { text: 'ES6', link: '/es6/index', activeMath: '/es6/' },
+      { text: 'JavaScript', link: '/js/index', activeMath: '/js/' },
       { text: 'TypeScript', link: '/ts/index', activeMatch: '/ts/' }
     ]
   },
