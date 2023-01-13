@@ -249,18 +249,6 @@
 	],
 	"/pages/js": [
 		{
-			"text": "JavaScript",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "Ajax",
-					"link": "/pages/js/js/ajax",
-					"order": 3
-				}
-			],
-			"order": 1
-		},
-		{
 			"text": "ES6 基础",
 			"collapsible": true,
 			"items": [
@@ -403,6 +391,44 @@
 					"text": "最新提案",
 					"link": "/pages/js/es6/28.proposals",
 					"order": 28
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "NodeJs",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "系统模块",
+					"link": "/pages/js/nodejs/system-module",
+					"order": 1
+				},
+				{
+					"text": "三方模块",
+					"link": "/pages/js/nodejs/thrid-party-module",
+					"order": 2
+				},
+				{
+					"text": "模块化",
+					"link": "/pages/js/nodejs/module",
+					"order": 3
+				}
+			]
+		},
+		{
+			"text": "Other",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "正则表达式",
+					"link": "/pages/js/other/regexp",
+					"order": 1
+				},
+				{
+					"text": "Ajax",
+					"link": "/pages/js/other/ajax",
+					"order": 3
 				}
 			]
 		}

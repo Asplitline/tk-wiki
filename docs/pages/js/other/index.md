@@ -1,4 +1,4 @@
 ---
-title: NodeJs
+title: Other
 order: 1
 ---
