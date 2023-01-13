@@ -3,9 +3,9 @@
 		"text": "JavaScript",
 		"items": [
 			{
-				"text": "ES6",
-				"link": "/pages/es6/index",
-				"activeMath": "/es6/"
+				"text": "JavaScript",
+				"link": "/pages/js/index",
+				"activeMath": "/js/"
 			},
 			{
 				"text": "TypeScript",

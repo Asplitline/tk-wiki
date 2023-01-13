@@ -25,14 +25,6 @@
 		"aside": false,
 		"layout": "page"
 	},
-	"/pages/es6": {
-		"text": "ES6",
-		"link": "/pages/es6/index",
-		"order": 1,
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
 	"/pages/expand": {
 		"text": "知识扩展",
 		"link": "/pages/expand/index",
@@ -41,10 +33,11 @@
 		"layout": "page"
 	},
 	"/pages/js": {
-		"text": "前言",
+		"text": "JavaScript",
 		"link": "/pages/js/index",
+		"order": 1,
 		"sidebar": false,
-		"order": 0,
+		"aside": false,
 		"layout": "page"
 	},
 	"/pages/package": {
