@@ -396,6 +396,23 @@
 			"order": 1
 		},
 		{
+			"text": "JavaScript",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "JavaScript 基础知识",
+					"link": "/pages/js/js/base",
+					"order": 1
+				},
+				{
+					"text": "浏览器 API",
+					"link": "/pages/js/js/browser",
+					"order": 2
+				}
+			],
+			"order": 1
+		},
+		{
 			"text": "NodeJs",
 			"collapsible": true,
 			"items": [
