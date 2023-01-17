@@ -76,13 +76,18 @@
 			"order": 1
 		},
 		{
-			"text": "编程软件",
+			"text": "编程工具",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "vscode",
 					"link": "/pages/custom/program/vscode",
 					"order": 1
+				},
+				{
+					"text": "Chrome devtool",
+					"link": "/pages/custom/program/chrome",
+					"order": 2
 				}
 			],
 			"order": 2
@@ -243,6 +248,22 @@
 					"text": "Nginx",
 					"link": "/pages/expand/deploy/nginx",
 					"order": 1
+				},
+				{
+					"text": "Linux",
+					"link": "/pages/expand/deploy/linux",
+					"order": 2
+				}
+			]
+		},
+		{
+			"text": "规范化",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "CSS 规范",
+					"link": "/pages/expand/rule/css-rule",
+					"order": 2
 				}
 			]
 		}
@@ -391,6 +412,23 @@
 					"text": "最新提案",
 					"link": "/pages/js/es6/28.proposals",
 					"order": 28
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "JavaScript",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础知识",
+					"link": "/pages/js/js/base",
+					"order": 1
+				},
+				{
+					"text": "浏览器 API",
+					"link": "/pages/js/js/browser",
+					"order": 2
 				}
 			],
 			"order": 1
