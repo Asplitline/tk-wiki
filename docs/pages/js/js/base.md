@@ -15,7 +15,7 @@ JavaScript，是一种客户端脚本语言，主要用来向 HTML 网页添加�
 
 ECMAScript 是一套标准，定义了**一种语言的标准**，规定了基本语法、数据类型、关键字、具体 API 的设计规范等，解析引擎设计的参考标准，但与具体实现无关
 
-![image-20230115233931235](base.assets/image-20230115233931235.png)
+![image-20230115233931235](./base.assets/image-20230115233931235.png)
 
 **ECMAScript** - JavaScript 核心
 
@@ -194,7 +194,7 @@ Boolean(false)
 
 **赋值运算符**：`= += -= *= /= %= `
 
-<img src="JavaScript_image/20190406_225056.png" alt="20190406_225056"  />
+![20190406_225056](./base.assets/20190406_225056.png)
 
 ## 流程控制
 
@@ -534,7 +534,7 @@ JavaScript 解析器执行 JavaScript 代码的时候，分为两个过程
 
 > 变量只在自己的作用域中起作用，但是自己作用域是可以访问上级作用域
 
-<img src="JavaScript_image/Snipaste_2019-02-20_22-42-07.png" alt="Snipaste_2019-02-20_22-42-07" style="zoom: 67%;" />
+![20180528-183307](./base.assets/20180528-183307.png)
 
 ## 对象（Object）
 
@@ -616,7 +616,7 @@ for (var key in obj) {
 
 ## 数据内存
 
-![image-20230115235247242](base.assets/image-20230115235247242.png)
+![image-20230115235247242](./base.assets/image-20230115235247242.png)
 
 ### 基本类型
 
@@ -640,7 +640,7 @@ for (var key in obj) {
 
 面向对象是过程式代码的一种高度封装，目的在于提高代码的开发效率和可维护性
 
-<img src="base.assets/image-20230115235353870.png" alt="image-20230115235353870" style="zoom: 80%;" />
+<img src="./base.assets/image-20230115235353870.png" alt="image-20230115235353870" style="zoom: 80%;" />
 
 **面向对象的特性**
 
@@ -804,7 +804,7 @@ cat2.saycolor()
 
 #### 构造函数、实例、原型三者之间的关系
 
-<img src="JavaScript_image/510220413.png" alt="510220413" style="zoom: 50%;" />
+<img src="./base.assets/510220413.png" alt="510220413" style="zoom:50%;" />
 
 - **构造函数 prototype** 指向 **原型对象**
 - **实例对象 constructor** 指向 **构造函数**
@@ -850,7 +850,7 @@ console.log(c1.constructor) // P(){}
 console.log(c1.__proto__ === C.prototype) //false
 ```
 
-<img src="JavaScript_image/QQ20180604-195538@2x.png" alt="QQ20180604-195538@2x" style="zoom: 50%;" />
+<img src="./base.assets/QQ20180604-195538@2x.png" alt="QQ20180604-195538@2x" style="zoom:50%;" />
 
 #### 原型及原型链
 
@@ -1082,7 +1082,7 @@ res()
 
 ##### 垃圾回收机制
 
-<img src="JavaScript_image/0511154145.png" alt="0511154145" style="zoom: 80%;" />
+<img src="./base.assets/0511154145.png" alt="0511154145" style="zoom:80%;" />
 
 **垃圾回收机制**：在函数内部引入一个变量或函数时，系统都会开辟一块内存空间，并将这块内存的引用计数器进行初始化
 

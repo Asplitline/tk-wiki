@@ -21,7 +21,7 @@ DOM(Document Object Model)：JavaScript 操作网页的接口。
 
 所有的节点和最终的树状结构，都有规范的对外接口。
 
-<img src="browser.assets/20180526-215645.png" alt="20180526-215645" style="zoom:50%;" />
+<img src="./browser.assets/20180526-215645.png" alt="20180526-215645" style="zoom:50%;" />
 
 ### 节点
 
@@ -163,7 +163,7 @@ abort(音视频终止加载)，resize，error，load，unload，mouseenter，mou
 
 当点击 div1 时，触发 事件 1，但是，紧跟着，事件 2 和事件 3 也被触发了。这种现象是**事件冒泡**
 
-![20180528-183307](JavaScript_image/20180528-183307.png)
+![20180528-183307](./browser.assets/20180528-183307.png)
 
 JS 中事件发生后，会在不同 DOM 节点之间传播
 
@@ -177,7 +177,7 @@ JS 中事件发生后，会在不同 DOM 节点之间传播
 
 **冒泡阶段**：从目标节点传回 window 对象
 
-![20180528-183442](JavaScript_image/20180528-183442.png)
+![20180528-183442](./browser.assets/20180528-183442.png)
 
 传播顺序：
 
