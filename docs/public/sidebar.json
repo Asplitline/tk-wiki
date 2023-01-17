@@ -400,7 +400,7 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "JavaScript 基础知识",
+					"text": "基础知识",
 					"link": "/pages/js/js/base",
 					"order": 1
 				},

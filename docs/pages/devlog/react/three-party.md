@@ -286,8 +286,18 @@ module.exports = override(
 
 ## antd 按需导入
 
-1. 安装 antd `yarn add antd`
-2. 安装 按需导入插件 `yarn add babel-plugin-import -D`
+1. 安装 antd 
+
+```shell
+yarn add antd
+```
+
+2. 安装 按需导入插件
+
+```shell
+yarn add babel-plugin-import -D
+```
+
 3. 拉取配置文件，然后安装依赖
 
 ```json
@@ -312,3 +322,12 @@ yarn install
   ]
 }
 ```
+
+补充：手动引入
+
+```js
+import DatePicker from 'antd/es/date-picker'; // 加载 JS
+import 'antd/es/date-picker/style/css'; // 加载 CSS
+// import 'antd/es/date-picker/style';         // 加载 LESS
+```
+
