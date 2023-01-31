@@ -7,6 +7,18 @@ order: 2
 
 
 
+## 基础用法
+
+```shell
+## 新建文件
+touch <file>
+
+## 新建文件夹
+mkdir <folder>
+```
+
+
+
 ## 批量替换内容
 
 语法
