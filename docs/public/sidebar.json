@@ -57,6 +57,19 @@
 			"order": 3
 		}
 	],
+	"/pages/css": [
+		{
+			"text": "预处理器",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "SCSS",
+					"link": "/pages/css/other/scss",
+					"order": 2
+				}
+			]
+		}
+	],
 	"/pages/custom": [
 		{
 			"text": "基础配置",

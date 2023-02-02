@@ -8,6 +8,10 @@ const nav = [
     ]
   },
   {
+    text: 'CSS',
+    items: [{ text: 'css', link: '/css/index', activeMath: '/css/' }]
+  },
+  {
     text: 'Vue',
     items: [
       { text: 'Vue2', link: '/vue2/index', activeMath: '/vue2/' },
