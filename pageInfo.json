@@ -5,6 +5,13 @@
 		"layout": "page",
 		"sidebar": false
 	},
+	"/pages/css": {
+		"text": "CSS",
+		"link": "/pages/css/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/custom": {
 		"text": "个人配置",
 		"link": "/pages/custom/index",

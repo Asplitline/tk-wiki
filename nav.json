@@ -15,6 +15,16 @@
 		]
 	},
 	{
+		"text": "CSS",
+		"items": [
+			{
+				"text": "css",
+				"link": "/pages/css/index",
+				"activeMath": "/css/"
+			}
+		]
+	},
+	{
 		"text": "Vue",
 		"items": [
 			{
