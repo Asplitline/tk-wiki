@@ -250,6 +250,8 @@ console.log(res) //9887
 
 也叫 顺序肯定环视
 
+语法：`?=`
+
 every(?=n) 匹配任何**其后紧接**指定字符串 n 的字符串。
 
 ```javascript
@@ -262,6 +264,8 @@ console.log(res) //["win"]
 ### 正向否定预查
 
 也叫 顺序否定环视
+
+语法：`?!`
 
 every(?!n) 匹配任何其后没有紧接指定字符串 n 的字符串。
 
@@ -300,6 +304,50 @@ var arr = ['img/20181013/a.jpg', 'img/20181014/b.png', 'image/20181014/a.jpg', '
 ```
 
 ![wps391D.tmp](regexp.assets/wps391D.tmp.jpg)
+
+### 反向肯定预查
+
+语法：`?<=`
+
+匹配前面有 "rt " 的字符序列 test
+
+```js
+(?<=rt )test
+```
+
+```js
+Start "test"
+Start a test
+Start "test"
+test Start
+some Start "test"
+some Start some test
+Start some
+Start abc
+```
+
+>  双引号为匹配值
+
+### 反向否定预查
+
+语法：`?<!`
+
+匹配前面没有"rt "的字符序列 test
+
+```js
+(?<!rt) test
+```
+
+```js
+Start test
+Start a "test"
+Start test
+test Start
+some Start test
+some Start some "test"
+Start some
+Start abc
+```
 
 ## 应用
 
@@ -349,13 +397,13 @@ var pattern = /@/
 精确版：
 
     必须有@和.
-
+    
     @前面是邮箱名，要求至少一个字符，要求是数字、字母、下划线、[还可以用.-]，但是开头必须是数字字母下划线
-
+    
     @和点之间：是一个域名，要求至少一个字符，可以是数字字母中横线，要求开头是数字或字母
-
+    
     点后面：要求是至少一个字符，必须是字母
-
+    
     点xxx，这部分可以出现一次，也可以出现多次
 
 最后一个点后面，字符长度为 2-6 的字母
@@ -408,3 +456,20 @@ replace：#$1
 ```
 
 **完整的 Unicode 编码表**：http://blog.csdn.net/hherima/article/details/9045861
+
+### 匹配不包含某个串
+
+找到不包含某些字符串(如test)
+
+```js
+^((?!test).)*$
+```
+
+```js
+"asdasdaea"
+testa
+asdasd test
+"asdasd"
+"qweqwe"
+```
+
