@@ -484,5 +484,102 @@ git config --global core.excludesfile ~/.gitignore
 
 
 
+## 撤销 git commit --amend
+
+查看提交记录
+
+```bash
+git reflog
+ccccccc HEAD@{0}: commit (amend): xxxx
+bbbbbbb HEAD@{1}: commit: xxxx
+```
+
+撤销 --amend
+
+```bash
+git reset --soft HEAD@{1}
+```
 
 
+
+## 撤销操作
+
+### 撤销提交
+
+场景：想撤回某些提交
+
+原理：新增一次提交，抵消掉上一次提交导致的所有变化
+
+```bash
+git revert HEAD
+```
+
+撤销多次提交
+
+```bash
+git revert [倒数第一个提交] [倒数第二个提交]
+```
+
+参数说明
+
+- `--no-edit`：执行时不打开默认编辑器，直接使用 Git 自动生成的提交信息。
+- `--no-commit`：只抵消暂存区和工作区的文件变化，不产生新的提交。
+
+### 丢弃提交
+
+场景：想丢弃某些提交
+
+原理：最新提交指针回到以前
+
+默认情况下，不改变工作区的文件（但会改变暂存区），可以通过 --hard 让工作区也回到以前
+
+```bash
+git reset <commitHashId>
+```
+
+> 通过 git reflog 可以找回丢弃的提交
+
+### 替换提交
+
+场景：提交后，想修改提交信息
+
+原理：产生一个新的提交对象，替换掉上一次提交产生的提交对象
+
+```bash
+git commit --amend -m "Fixes bug #42"
+```
+
+### 撤销工作区文件
+
+场景：工作区某个文件修改，但还没提交，通过 git checkout 找回修改之前的文件
+
+原理：先找暂存区，如果该文件有暂存的版本，则恢复该版本，否则恢复上一次提交的版本
+
+```bash
+git checkout -- [filename]
+```
+
+### 撤销暂存区文件
+
+场景：不小心将文件添加暂存区，想撤销
+
+```bash
+git rm --cached [filename]
+```
+
+### 撤销当前分支变化
+
+当前分支上做了几次提交，突然发现放错了分支，这几个提交本应该放到另一个分支
+
+```bash
+# 新建一个 feature 分支，指向当前最新的提交
+# 注意，这时依然停留在当前分支
+$ git branch feature
+
+# 切换到这几次提交之前的状态
+$ git reset --hard [当前分支此前的最后一次提交]
+
+# 切换到 feature 分支
+```
+
+参考：https://www.ruanyifeng.com/blog/2019/12/git-undo.html
