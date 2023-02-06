@@ -189,6 +189,12 @@ git push # 需先记住地址
 
 > 不带参数，与`push.default`有关
 
+```bash
+git push origin --tags # 推送所有本地tag到远程
+```
+
+
+
 ## stash - 临时存储区
 
 暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。
@@ -324,6 +330,8 @@ git remote update origin -p
 | 命令                           | 作用                                 |
 | ------------------------------ | ------------------------------------ |
 | `git fetch origin master:temp` | 拉取远端分支`master`并新建分支`temp` |
+
+
 
 ## merge - 合并分支
 

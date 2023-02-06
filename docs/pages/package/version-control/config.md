@@ -583,3 +583,15 @@ $ git reset --hard [当前分支此前的最后一次提交]
 ```
 
 参考：https://www.ruanyifeng.com/blog/2019/12/git-undo.html
+
+## 同步本地和远端tag
+
+场景：远程repository中已经删除的tag，使用git fetch --prune，甚至"git fetch --tags"确保下载所有tags，也不会让其在本地也将其删除
+
+```bash
+git tag -l | xargs git tag -d #删除所有本地分支
+git fetch origin --prune #从远程拉取所有信息
+git branch -a --contains Tag_V1.0.0 # 看看哪个分支包含这个tag/commit
+```
+
+参考：https://www.cnblogs.com/xiaouisme/p/10857149.html
