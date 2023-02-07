@@ -62,32 +62,34 @@ netstat -aon|findstr "8081"
 //#endregion
 ```
 
-| 按键                                  | 功能                                 |
-| :------------------------------------ | :----------------------------------- |
-| Ctrl + P                              | 打开文件                             |
-| Ctrl + Shift + ([ `or` ])             | 折叠/展开代码块（当前）              |
-| Ctrl + K (Ctrl + 0 `or` Ctrl + J)     | 折叠/展开所有代码                    |
-| Ctrl + G                              | 行跳转                               |
-| Ctrl + D                              | 多次触发后，在所有相同文字后追加光标 |
-| Ctrl + R                              | 切换工作区                           |
-| Ctrl + T                              | 全局元素导航                         |
-| F12                                   | 跳到声明（ Ctrl + LeftClick 同效果） |
-| Alt + F12                             | 查看声明（ Ctrl + LeftClick 同效果） |
-| Alt + (Left `or` Right)               | 上次/下次光标位置                    |
-|                                       |                                      |
-| Ctrl + KS                             | 快捷键                               |
-| Ctrl + F2                             | 选中所有匹配项                       |
-| Ctrl + KX                             | 减去末尾空格                         |
-| Ctrl + Shift + L                      | 选中文本的所有相同内容处，出现光标   |
-| Ctrl + Shift + \\                     | 跳转到匹配括号                       |
-| Alt + Shift + arrowRight              | 选中括号间文本                       |
-| Ctrl + p 输入 @ `or` Ctrl + Shift + o | 符号导航                             |
-| Alt + Q                               | 当前文件终端                         |
-| Ctrl + shift + C                      | 当前工作区终端                       |
-|                                       |                                      |
-| 自定义快捷键                          |                                      |
-| Ctrl + ED                             | 打开文件夹                           |
-| Ctrl + KZ                             | 禅模式                               |
+| 按键                                  | 功能                                                         |
+| :------------------------------------ | :----------------------------------------------------------- |
+| Ctrl + P                              | 打开文件                                                     |
+| Ctrl + Shift + ([ `or` ])             | 折叠/展开代码块（当前）                                      |
+| Ctrl + K (Ctrl + 0 `or` Ctrl + J)     | 折叠/展开所有代码                                            |
+| Ctrl + G                              | 行跳转                                                       |
+| Ctrl + D                              | 多次触发后，在所有相同文字后追加光标                         |
+| Ctrl + R                              | 切换工作区                                                   |
+| Ctrl + T                              | 全局元素导航                                                 |
+| F12                                   | 跳到声明（ Ctrl + LeftClick 同效果）                         |
+| Alt + F12                             | 查看声明（ Ctrl + LeftClick 同效果）                         |
+| Alt + (Left `or` Right)               | 上次/下次光标位置                                            |
+| Alt + Shift + T                       | 切换已打开的工作区（与Ctrl + Shift + P 中 swtich window 类似） |
+|                                       |                                                              |
+| Ctrl + KS                             | 快捷键                                                       |
+| Ctrl + F2                             | 选中所有匹配项                                               |
+| Ctrl + KX                             | 减去末尾空格                                                 |
+| Ctrl + Shift + L                      | 选中文本的所有相同内容处，出现光标                           |
+| Ctrl + Shift + \\                     | 跳转到匹配括号                                               |
+| Alt + Shift + arrowRight              | 选中括号间文本                                               |
+| Ctrl + p 输入 @ `or` Ctrl + Shift + o | 符号导航                                                     |
+| Alt + Q                               | 当前文件终端                                                 |
+| Ctrl + shift + C                      | 当前工作区终端                                               |
+| Ctrl + Alt + R                        | 搜索代码片段                                                 |
+|                                       |                                                              |
+| 自定义快捷键                          |                                                              |
+| Ctrl + ED                             | 打开文件夹                                                   |
+| Ctrl + KZ                             | 禅模式                                                       |
 
 | 按键                           | 功能                                                |
 | :----------------------------- | :-------------------------------------------------- |
@@ -113,6 +115,16 @@ netstat -aon|findstr "8081"
 | **Ctrl + Tab**                 | **切换 Tab**                                        |
 | Ctrl + KR                      | 快捷键 pdf                                          |
 | Ctrl + Shift + H               | 替换文件                                            |
+
+### 扩展
+
+| 按键            | 功能                                                         | 扩展名称        |
+| --------------- | ------------------------------------------------------------ | --------------- |
+| alt + shift + p | 以新窗口打开项目（自定义快捷键 projectManager.listProjectsNewWindow） | Project Manager |
+|                 |                                                              |                 |
+|                 |                                                              |                 |
+
+
 
 ## Chrome
 
