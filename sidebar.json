@@ -608,6 +608,33 @@
 				}
 			],
 			"order": 1
+		},
+		{
+			"text": "React",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "React 核心",
+					"link": "/pages/react/react/react-core",
+					"order": 2
+				},
+				{
+					"text": "React Hook",
+					"link": "/pages/react/react/react-hook",
+					"order": 2
+				},
+				{
+					"text": "React 进阶",
+					"link": "/pages/react/react/react-advance",
+					"order": 3
+				},
+				{
+					"text": "React Router",
+					"link": "/pages/react/react/react-router",
+					"order": 4
+				}
+			],
+			"order": 1
 		}
 	],
 	"/pages/tk": [
