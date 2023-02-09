@@ -809,7 +809,8 @@
 					"link": "/pages/vue2/guide/reusability-composition",
 					"order": 4
 				}
-			]
+			],
+			"order": 1
 		},
 		{
 			"text": "路由",
@@ -824,6 +825,18 @@
 					"text": "进阶",
 					"link": "/pages/vue2/router/advance",
 					"order": 2
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "数据处理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Vuex",
+					"link": "/pages/vue2/data/vuex",
+					"order": 1
 				}
 			]
 		}
