@@ -31,3 +31,30 @@ export default function useBoolean() {
 }
 
 ```
+
+## ts - 7053
+
+```ts
+const data = {
+  101: {
+    title: '101',
+  },
+   102: {
+    title: '102',
+  },
+}
+
+const index:any = 101
+console.log(data[index])
+// Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ 101: { title: string; }; 102: { title: string; }; }'.(7053)
+```
+
+分析：any类型 不能用于 object key。
+
+解决：手动指定 index 类型
+
+```ts
+const index:keyof typeof data = 101
+console.log(data[index])
+```
+
