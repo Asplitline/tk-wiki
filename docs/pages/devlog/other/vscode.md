@@ -32,3 +32,23 @@ certificate.pem
   }
 ```
 
+## \#region folding for VS Code
+
+插件说明：用 #region 包裹代码，[下载地址](https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder)
+
+默认不支持vue，以下配置 vue 格式支持
+
+```json
+"maptz.regionfolder": {
+    "[vue]": {
+      "defaultFoldStartRegex": "\\// [\\s]*#region\\(collapsed\\)[\\s]*(.*)",
+      "foldEnd": "// #endregion ",
+      "foldEndRegex": "\\//[\\s]*#endregion",
+      "foldStart": "// #region [NAME]",
+      "foldStartRegex": "\\// [\\s]*#region[\\s]*(.*)"
+    }
+  }
+```
+
+
+
