@@ -59,6 +59,33 @@
 	],
 	"/pages/css": [
 		{
+			"text": "CSS",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "CSS",
+					"link": "/pages/css/base/css",
+					"order": 1
+				},
+				{
+					"text": "CSS3",
+					"link": "/pages/css/base/css3",
+					"order": 1
+				},
+				{
+					"text": "移动web",
+					"link": "/pages/css/base/mobile",
+					"order": 3
+				},
+				{
+					"text": "css补充",
+					"link": "/pages/css/base/add",
+					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
 			"text": "预处理器",
 			"collapsible": true,
 			"items": [
@@ -66,6 +93,11 @@
 					"text": "SCSS",
 					"link": "/pages/css/other/scss",
 					"order": 2
+				},
+				{
+					"text": "styled-components",
+					"link": "/pages/css/other/styled-components",
+					"order": 3
 				}
 			]
 		}
