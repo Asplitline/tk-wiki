@@ -3,13 +3,9 @@ title: CSS
 order: 1
 ---
 
-[toc]
-
-
-
 # CSS
 
-Cascading  Style  Sheets （层叠样式表）
+Cascading Style Sheets （层叠样式表）
 
 ## 引入
 
@@ -17,7 +13,7 @@ Cascading  Style  Sheets （层叠样式表）
 
 ```html
 <style type="text/css">
-/* 样式 */
+  /* 样式 */
 </style>
 ```
 
@@ -32,17 +28,17 @@ Cascading  Style  Sheets （层叠样式表）
 ```html
 <!-- 1.使用标签关联 -->
 <head>
-    <link rel="stylesheet" type="text/css" href="css文件路径">
+  <link rel="stylesheet" type="text/css" href="css文件路径" />
 </head>
 <!-- 2.使用指令关联 -->
 <style type="text/css">
-    @import url("css文件路径")
+  @import url('css文件路径');
 </style>
 ```
 
 **优先级**：行内 > 外部样式 > 默认样式
 
-## css基础属性
+## css 基础属性
 
 ### 字体属性
 
@@ -60,10 +56,10 @@ Cascading  Style  Sheets （层叠样式表）
 
 ```css
 /* font: font-style  font-weight  font-size/line-height  font-family */
-font:italic bolder 30px/100px "微软雅黑";
+font: italic bolder 30px/100px '微软雅黑';
 ```
 
->`font-size`和`font-family`**必写**，其余选写
+> `font-size`和`font-family`**必写**，其余选写
 
 ### 文本属性
 
@@ -88,9 +84,9 @@ font:italic bolder 30px/100px "微软雅黑";
 
 **首行缩进** - `text-indent`
 
-- 取值：px或em
+- 取值：px 或 em
 
-### css尺寸和行高
+### css 尺寸和行高
 
 #### 尺寸
 
@@ -100,19 +96,19 @@ font:italic bolder 30px/100px "微软雅黑";
 
 - 单位 px 或 em
 
-> **div不设高度，默认为0**
+> **div 不设高度，默认为 0**
 
 #### 行高
 
 文字与文字之间的上下距离 `line-height`：值
 
-*行高   =  上距离 +  内容高度  + 下距离* 
+_行高 = 上距离 + 内容高度 + 下距离_
 
-*TIPS* **标签文字垂直居中**，标签的高度和行高
+_TIPS_ **标签文字垂直居中**，标签的高度和行高
 
 ![1](css.assets/1.png)
 
-### 背景属性 
+### 背景属性
 
 `background-color`
 
@@ -120,7 +116,7 @@ font:italic bolder 30px/100px "微软雅黑";
 - 十六进制值 - 比如 `#ff0000`
 - RGB 值 - 比如 `rgb(255,0,0)`
 
->  `opacity` 属性为背景添加透明度，所有*子元素都继承*相同的透明度
+> `opacity` 属性为背景添加透明度，所有*子元素都继承*相同的透明度
 
 **背景颜色**：`background-color`：颜色值
 
@@ -137,7 +133,7 @@ font:italic bolder 30px/100px "微软雅黑";
 **背景图片位置**：`background-position`:水平位置，垂直位置
 
 - `top left bottom right center`
-- `x y`（单位px）
+- `x y`（单位 px）
 
 只有一个值为`center`，水平垂直为`center`
 
@@ -152,14 +148,17 @@ font:italic bolder 30px/100px "微软雅黑";
 
 > 只写一个参数，参数为高度
 
-*TIPS***背景图填充**：center top
+\*TIPS**\*背景图填充**：center top
 
 ```css
-html,body {height: 100%;}
+html,
 body {
-     background: url(img/vivo-bg.jpg) no-repeat center top;
-     background-size: cover;
-}      
+  height: 100%;
+}
+body {
+  background: url(img/vivo-bg.jpg) no-repeat center top;
+  background-size: cover;
+}
 ```
 
 **背景受滚动条的影响**`background-attachment`：值
@@ -180,16 +179,16 @@ body {
 - `border-box`：裁剪到边框
 - `content-box`：裁剪到内容框
 
-**背景透明**：`background:rgba()` ，取值 0-1 
+**背景透明**：`background:rgba()` ，取值 0-1
 
-**background简写**
+**background 简写**
 
 ```css
 /* background: 背景颜色 背景图片地址 背景平铺 背景滚动 背景位置 背景大小; */
-background: transparent url(image.jpg) repeat-y  scroll center top ;
+background: transparent url(image.jpg) repeat-y scroll center top;
 ```
 
-***`img` 和 `backgroud-image`区别***
+**_`img` 和 `backgroud-image`区别_**
 
 **img**
 
@@ -207,56 +206,56 @@ background: transparent url(image.jpg) repeat-y  scroll center top ;
 
 **列表前缀自定义图片**：`list-style-image:url(图片路径)`
 
-> ul去掉自定义样式
+> ul 去掉自定义样式
 
 ```css
-ul{
-    list-style:none;
-    padding:0;
-    margin:0;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 ```
 
-## css选择器
+## css 选择器
 
 ### 基本选择器
 
 |            |    基本选择器     |   例子   |                  |
 | :--------: | :---------------: | :------: | ---------------- |
 | 元素选择器 |     `element`     |   p{}    |                  |
-|  id选择器  |       `#id`       |  #id{}   |                  |
+| id 选择器  |       `#id`       |  #id{}   |                  |
 |  类选择器  |     `.class`      | .class{} |                  |
 | 分组选择器 | `element,element` |  div, p  | 选中多个元素     |
-| 通配选择器 |        `*`        |    *     | 选择**所有**元素 |
+| 通配选择器 |        `*`        |    \*    | 选择**所有**元素 |
 
-> id选择器：用于选择唯一元素（元素id唯一）
+> id 选择器：用于选择唯一元素（元素 id 唯一）
 
 ### 常用选择器
 
 |   常用选择器   |       选择器        | 说明               | 例子    |                                    |
 | :------------: | :-----------------: | ------------------ | ------- | ---------------------------------- |
 |   后代选择器   |  `element element`  | 选择**所有**子元素 | div p   | div 元素内的所有 p 元素            |
-|  子元素选择器  | `element > element` | 选择**直接**子元素 | div > p | 父元素是 div的**所有** p 元素      |
+|  子元素选择器  | `element > element` | 选择**直接**子元素 | div > p | 父元素是 div 的**所有** p 元素     |
 | 相邻元素选择器 | `element + element` | 选择**相邻**元素   | div + p | **紧跟** div 元素的**首个** p 元素 |
-|   兄弟选择器   | `element ~ element` | 选择**兄弟**元素   | p ~ ul  | **前面**有 p 的**每个**ul元素      |
+|   兄弟选择器   | `element ~ element` | 选择**兄弟**元素   | p ~ ul  | **前面**有 p 的**每个**ul 元素     |
 
 ### 属性选择器
 
-|      属性选择器      | 说明                             |         例子         |
-| :------------------: | -------------------------------- | :------------------: |
-|    `[attribute]`     | 带有**指定属性**的元素           |       [target]       |
-| `[attribute=value]`  | 带有**指定属性并且值相同**的元素 |   [target=_blank]    |
-| `[attribute~=value]` | **包含**指定词汇的元素           |   [title~=flower]    |
-| `[attribute|=value]` | 选取属性值**以指定值开头**的元素 |     [lang\|=en]      |
-| `[attribute^=value]` | 以**指定值开头**的元素           |   a[href^="https"]   |
-| `[attribute$=value]` | 以**指定值结尾**的元素           |   a[href$=".pdf"]    |
-| `[attribute*=value]` | **包含指定值**的元素             | a[href*="w3schools"] |
-| `[attribute$=value]` | 以**指定值结尾**的每个元素       |  div[class$="test"]  |
+|      属性选择器      | 说明                             |               例子               |
+| :------------------: | -------------------------------- | :------------------------------: | ----------- |
+|    `[attribute]`     | 带有**指定属性**的元素           |             [target]             |
+| `[attribute=value]`  | 带有**指定属性并且值相同**的元素 |         [target=_blank]          |
+| `[attribute~=value]` | **包含**指定词汇的元素           |         [title~=flower]          |
+|     `[attribute      | =value]`                         | 选取属性值**以指定值开头**的元素 | [lang\|=en] |
+| `[attribute^=value]` | 以**指定值开头**的元素           |         a[href^="https"]         |
+| `[attribute$=value]` | 以**指定值结尾**的元素           |         a[href$=".pdf"]          |
+| `[attribute*=value]` | **包含指定值**的元素             |       a[href*="w3schools"]       |
+| `[attribute$=value]` | 以**指定值结尾**的每个元素       |        div[class$="test"]        |
 
 `[attribute~=value]` ：**值为整个单词**
 
-*有效*：`test` `second`
-*无效*：`tes`
+_有效_：`test` `second`
+_无效_：`tes`
 
 ```html
 <div class="first_test">第一个 div 元素。</div>
@@ -266,15 +265,13 @@ ul{
 
 `[attribute | =value]`：**该值必须是整个单词，或者后面跟着连字符**
 
-*有效*：`top`、`content`
-*无效*：`to` `top-` `header` `con` 
+_有效_：`top`、`content`
+_无效_：`to` `top-` `header` `con`
 
 ```html
 <h1 class="top-header">Welcome</h1>
 <p class="content">Are you learning CSS?</p>
 ```
-
-
 
 > `[attribute*=value]` 包含固定字符即可
 >
@@ -292,55 +289,55 @@ ul{
 | `:active`  | 鼠标按下状态                    |
 | `:focus`   | 选取获得焦点的元素 （表单元素） |
 
-`visited`和`link`不能适用于普通标签，只有a标签才有
+`visited`和`link`不能适用于普通标签，只有 a 标签才有
 
-> 考虑CSS权重问题，将一般的放在上面，将特殊的放在下面，focus在hover和 active之间
+> 考虑 CSS 权重问题，将一般的放在上面，将特殊的放在下面，focus 在 hover 和 active 之间
 >
 > 按照`lv f ha`顺序 - love hate
 
 **其他伪类**
 
-| 伪类                   | 例子                      | 说明                                                   |
-| ---------------------- | ------------------------- | ------------------------------------------------------ |
-| `:root`                | root                      | 选择元素的**根元素**                                   |
-| `:not(selector)`       | :not(p)                   | 选择每个**非 `<p>` 元素**的元素                        |
-| `:empty`               | p:empty                   | 选择**没有子元素**的每个 <p> 元素                      |
-|                        |                           |                                                        |
-| `:first-child`         | p:first-child             | 父节点下第一个元素且为<p>元素                          |
-| `:first-of-type`       | p:first-of-type           | 父节点下第一个 <p>元素                                 |
-| `:nth-child(n)`        | p:nth-child(2)            | 父节点下第二个元素且为<p>标签                          |
-| `:nth-of-type(n)`      | p:nth-of-type(2)          | 父节点下第二个 <p>元素                                 |
-| `:last-child`          | p:last-child              | 与first类似，从后往前                                  |
-| `:last-of-type`        | p:last-of-type            | 与first类似，从后往前                                  |
-| `:nth-last-child(n)`   | p:nth-last-child(2)       | 与first类似，从后往前                                  |
-| `:nth-last-of-type(n)` | p:nth-last-of-type(2)     | 父节点下倒数第二个<p>元素                              |
-| `:only-child`          | p:only-child              | 父节点仅有一个元素且为<p>元素，支持嵌套                |
-| `:only-of-type`        | p:only-of-type            | 父节点下唯一<p>元素，支持嵌套                          |
-| **input**              |                           |                                                        |
-| `:checked`             | input:checked             | **被选中** <input> 元素                                |
-| `:disabled`            | input:disabled            | **被禁用** <input> 元素                                |
-| `:enabled`             | input:enabled             | **已启用**<input> 元素（默认）                         |
-| `:in-range`            | input:in-range            | 值在**范围内**的<input>元素                            |
-| `:out-of-range`        | input:out-of-range        | 值在**范围外**的<input>元素                            |
-| `:invalid`             | input:invalid             | **具有无效值**的 <input> 元素                          |
-| `:valid`               | input:valid               | **具有有效值**的 <input> 元素                          |
-| `:read-only`           | input:read-only           | **带 "readonly"**  <input> 元素                        |
-| `:read-write`          | input:read-write          | **不带 "readonly"**  <input> 元素                      |
-| `:required`            | input:required            | **带 "required"** <input> 元素                         |
-| `:optional`            | input:optional            | **不带 "required"** <input> 元素                       |
-|                        |                           |                                                        |
-| **other**              |                           |                                                        |
-| `:lang(language)`      | p:lang(it)                | lang属性以`it`开头的元素（eg：lang=“it” lang=“it-ha”） |
-| `:target`              | p:target<br />#new:target | 选择瞄点定位后的<p>元素<br />herf=“#new”锚点定位后元素 |
+| 伪类                   | 例子                      | 说明                                                     |
+| ---------------------- | ------------------------- | -------------------------------------------------------- |
+| `:root`                | root                      | 选择元素的**根元素**                                     |
+| `:not(selector)`       | :not(p)                   | 选择每个**非 `<p>` 元素**的元素                          |
+| `:empty`               | p:empty                   | 选择**没有子元素**的每个 `<p>` 元素                      |
+|                        |                           |                                                          |
+| `:first-child`         | p:first-child             | 父节点下第一个元素且为`<p>`元素                          |
+| `:first-of-type`       | p:first-of-type           | 父节点下第一个 `<p>`元素                                 |
+| `:nth-child(n)`        | p:nth-child(2)            | 父节点下第二个元素且为`<p>`标签                          |
+| `:nth-of-type(n)`      | p:nth-of-type(2)          | 父节点下第二个 `<p>`元素                                 |
+| `:last-child`          | p:last-child              | 与 first 类似，从后往前                                  |
+| `:last-of-type`        | p:last-of-type            | 与 first 类似，从后往前                                  |
+| `:nth-last-child(n)`   | p:nth-last-child(2)       | 与 first 类似，从后往前                                  |
+| `:nth-last-of-type(n)` | p:nth-last-of-type(2)     | 父节点下倒数第二个`<p>`元素                              |
+| `:only-child`          | p:only-child              | 父节点仅有一个元素且为`<p>`元素，支持嵌套                |
+| `:only-of-type`        | p:only-of-type            | 父节点下唯一`<p>`元素，支持嵌套                          |
+| **input**              |                           |                                                          |
+| `:checked`             | input:checked             | **被选中** `<input/>` 元素                               |
+| `:disabled`            | input:disabled            | **被禁用** `<input/>` 元素                               |
+| `:enabled`             | input:enabled             | **已启用**`<input/>` 元素（默认）                        |
+| `:in-range`            | input:in-range            | 值在**范围内**的`<input/>`元素                           |
+| `:out-of-range`        | input:out-of-range        | 值在**范围外**的`<input/>`元素                           |
+| `:invalid`             | input:invalid             | **具有无效值**的 `<input/>` 元素                         |
+| `:valid`               | input:valid               | **具有有效值**的 `<input/>` 元素                         |
+| `:read-only`           | input:read-only           | **带 "readonly"** `<input/>` 元素                        |
+| `:read-write`          | input:read-write          | **不带 "readonly"** `<input/>` 元素                      |
+| `:required`            | input:required            | **带 "required"** `<input/>` 元素                        |
+| `:optional`            | input:optional            | **不带 "required"** `<input/>` 元素                      |
+|                        |                           |                                                          |
+| **other**              |                           |                                                          |
+| `:lang(language)`      | p:lang(it)                | lang 属性以`it`开头的元素（eg：lang=“it” lang=“it-ha”）  |
+| `:target`              | p:target<br />#new:target | 选择瞄点定位后的`<p>`元素<br />herf=“#new”锚点定位后元素 |
 
-**nth-child扩展**
+**nth-child 扩展**
 
 - 2n - 偶数
 - 2n+1 - 奇数
 - 5n - 5 10 15
-- n+5 - 从第5个开始
-- -n+5 - 前5个
-- **n从0开始，但是大于0才有效**
+- n+5 - 从第 5 个开始
+- -n+5 - 前 5 个
+- **n 从 0 开始，但是大于 0 才有效**
 
 ```css
 /* 一行四个item */
@@ -371,18 +368,18 @@ CSS 伪元素用于设置**元素指定部分的样式**
 
 一个选择器中只能使用一个伪元素。伪元素必须紧跟在语句中的简单选择器/基础选择器之后
 
-| 伪元素           | 例子                   | 说明                                     |
-| ---------------- | ---------------------- | ---------------------------------------- |
-| `::after`        | p::after               | <p> 元素**之后**插入内容                 |
-| `::before`       | p::before              | <p> 元素**之前**插入内容                 |
-| `::first-letter` | p::first-letter        | 每个 <p> 元素的**首字母**                |
-| `::first-line`   | p::first-line          | 每个 <p> 元素的**首行**                  |
-| `::placeholder`  | input::placehold**er** | **带 "placeholder"** 属性的 <input> 元素 |
-| `::selection`    | p::selection           | 选择用户**选择的元素部分**               |
+| 伪元素           | 例子                   | 说明                                         |
+| ---------------- | ---------------------- | -------------------------------------------- |
+| `::after`        | p::after               | `<p>` 元素**之后**插入内容                   |
+| `::before`       | p::before              | `<p>` 元素**之前**插入内容                   |
+| `::first-letter` | p::first-letter        | 每个 `<p>` 元素的**首字母**                  |
+| `::first-line`   | p::first-line          | 每个 `<p>` 元素的**首行**                    |
+| `::placeholder`  | input::placehold**er** | **带 "placeholder"** 属性的 `<input />` 元素 |
+| `::selection`    | p::selection           | 选择用户**选择的元素部分**                   |
 
 > `::first-letter` `::first-line` 只适用于块级
 
-## css特性
+## css 特性
 
 ### 样式的继承和覆盖
 
@@ -393,24 +390,25 @@ CSS 伪元素用于设置**元素指定部分的样式**
 **继承**：父标签设置了样式，子标签都会具有父标签的样式
 
 - **font-，text-，color，line- 能继承**
-- **div不能继承高度，可以继承宽度**
-- 子标签和父标签设置相同css，会覆盖父标签样式
+- **div 不能继承高度，可以继承宽度**
+- 子标签和父标签设置相同 css，会覆盖父标签样式
 
-### 样式优先级 
+### 样式优先级
 
-​	**样式分类**：`行内样式>内部=外部`，内部样式和外部样式权重主要看顺序。
+**样式分类**：`行内样式>内部=外部`，内部样式和外部样式权重主要看顺序。
 
-​	**样式优先级**：`伪类首字>伪类首行>!important>id名>类名=属性>标签名>通配`
+**样式优先级**：`伪类首字>伪类首行>!important>id名>类名=属性>标签名>通配`
 
-​	**样式叠加**：`!important(无穷大) 行内样式(1000) id(100) class(10) 标签(1)`
+**样式叠加**：`!important(无穷大) 行内样式(1000) id(100) class(10) 标签(1)`
 
-> 每一级满10也不会往前进1   10 class权重小于1 id
+> 每一级满 10 也不会往前进 1 10 class 权重小于 1 id
 
 ### 修改样式三步走
 
-- 看标签是否选中
-  - 选中，计算权重，谁大选谁
-  - 没选择，权重为0（因为继承权重为0）
+看标签是否选中
+
+- 选中，计算权重，谁大选谁
+- 没选择，权重为 0（因为继承权重为 0）
 
 > 计算权重：**关键看是不是直接修饰的目标标签**
 
@@ -426,7 +424,7 @@ CSS 伪元素用于设置**元素指定部分的样式**
 div、h1-h6、p、pre、ul、ol、li、form、table
 ```
 
-**p标签不能放任何块级元素**，但可以存放含 `display:block` 元素
+**p 标签不能放任何块级元素**，但可以存放含 `display:block` 元素
 
 ```html
 <p><p></p></p>
@@ -435,7 +433,7 @@ div、h1-h6、p、pre、ul、ol、li、form、table
 <p></p>
 ```
 
-h1-h6、dt里面不能放其他块级元素
+h1-h6、dt 里面不能放其他块级元素
 
 ### 行元素
 
@@ -468,20 +466,20 @@ img、input、td
 - **inline-block**：行内块元素
 - **none**：隐藏元素 （不占空间）
 
-> 浮动后元素特性：类似 inline-block。（浮动脱标，inline-block不脱标）
+> 浮动后元素特性：类似 inline-block。（浮动脱标，inline-block 不脱标）
 
 ## 盒子模型
 
 ### padding - 内边距
 
-padding值**会增加盒子宽或高**
+padding 值**会增加盒子宽或高**
 
-- 1值-上下左右
-- 2值-上下  左右
-- 3值-上 左右 下
-- 4值-上 右 下 左 （顺时针）
+- 1 值-上下左右
+- 2 值-上下 左右
+- 3 值-上 左右 下
+- 4 值-上 右 下 左 （顺时针）
 
-**默认撑开盒子，但是如果没有宽度或继承的宽度，padding不会撑开盒子**
+**默认撑开盒子，但是如果没有宽度或继承的宽度，padding 不会撑开盒子**
 
 ```html
 <div>
@@ -502,28 +500,27 @@ div p {
 }
 ```
 
-注释width：100%，宽度等于父级宽度
+注释 width：100%，宽度等于父级宽度
 
-解开width：100%，宽度等于父级宽度+60px
+解开 width：100%，宽度等于父级宽度+60px
 
 ### margin - 内边距
 
 **块级盒子居中**
 
-- 有宽度，左右为auto 
-- 无宽度，默认为100%，不存在居中
+- 有宽度，左右为 auto
+- 无宽度，默认为 100%，不存在居中
 
 ```css
 /*写法1*/
-margin:0 auto;
+margin: 0 auto;
 /*写法2*/
-margin:auto;
+margin: auto;
 /*写法3*/
-margin-left:auto; /*左侧充满*/
-margin-right:auto; /*右侧充满*/
+margin-left: auto; /*左侧充满*/
+margin-right: auto; /*右侧充满*/
 /* 根据剩余长度居中对齐 */
 ```
-
 
 > **行内元素尽量只设置 左右边距**
 
@@ -542,11 +539,11 @@ margin-right:auto; /*右侧充满*/
 
 **边框厚度**：`border-width`
 
-**简写**：`border:宽度 类型 颜色` 
+**简写**：`border:宽度 类型 颜色`
 
 **边框圆角**：`border-radius:值`
 
-- 左上角 右上角  右下角  左下角 (顺时针)
+- 左上角 右上角 右下角 左下角 (顺时针)
 - border-top、border-right、border-bottom、border-left
 
 **去边框**：`border：none`
@@ -556,17 +553,15 @@ margin-right:auto; /*右侧充满*/
 - 合并相邻边框
 - 表格和单元格都加边框属性
 
-> 块级盒子没有width（包含继承），添加padding和border不会撑大盒子
+> 块级盒子没有 width（包含继承），添加 padding 和 border 不会撑大盒子
 
-### 盒子模型的bug
+### 盒子模型的 bug
 
 **1.盒子上下摆放，上盒子有下外边距，下盒子有上外边距，两个边距会重合，以大的边距为准**
 
 <img src="css.assets/1536638640212.png" alt="1536638640212" style="zoom:80%;" />
 
 **解决**：间距给到一个元素上
-
-
 
 **2.两个盒子嵌套关系，两个盒子对于上外边距会重合，以大的边距为准**
 
@@ -586,7 +581,7 @@ margin-right:auto; /*右侧充满*/
 - padding：盒子撑大
 - margin：垂直外边距合并
 
-### margin负值
+### margin 负值
 
 **水平垂直居中**：负边距+定位
 
@@ -603,15 +598,15 @@ margin-right:auto; /*右侧充满*/
 }
 ```
 
-> 很少使用，通常  `transform:translate(-50%,-50%)`
+> 很少使用，通常 `transform:translate(-50%,-50%)`
 
 **压住盒子相邻边**
 
-场景：由于设置`border`，4个盒子总宽度 (200+2)\*4，所以末尾盒子背挤向下一排
+场景：由于设置`border`，4 个盒子总宽度 (200+2)\*4，所以末尾盒子背挤向下一排
 
 解决：设置 `margin-left:-2px`
 
-原理：第1个item向前移动2px，第2个item由于浮动先贴紧，然后再向左移动2px，以此类推，第4个item，在原来基础上向左移动8px。
+原理：第 1 个 item 向前移动 2px，第 2 个 item 由于浮动先贴紧，然后再向左移动 2px，以此类推，第 4 个 item，在原来基础上向左移动 8px。
 
 ```css
 .list {
@@ -650,14 +645,14 @@ margin-right:auto; /*右侧充满*/
 - 块级元素，从上向下
 - 行内元素，从左到右，边缘换行
 
-###  **浮动流**
+### **浮动流**
 
- `float:left/right/none`
+`float:left/right/none`
 
-  - 脱离标准流，浮在标准流上面（**不占位置**）
-  - 任何元素都可浮动
-  - 浮动后生成块级框（类似行内块），**不换行，能设置宽高** 
-  - 设置浮动的元素，**居中不起作用**
+- 脱离标准流，浮在标准流上面（**不占位置**）
+- 任何元素都可浮动
+- 浮动后生成块级框（类似行内块），**不换行，能设置宽高**
+- 设置浮动的元素，**居中不起作用**
 
 #### 浮动元素重叠
 
@@ -697,11 +692,11 @@ margin-right:auto; /*右侧充满*/
 - 盒子左右对齐
 - 文字环绕图片
 
-> 盒子水平排列：可以用inline-block，但盒子间空隙不方便处理
+> 盒子水平排列：可以用 inline-block，但盒子间空隙不方便处理
 
 #### 浮动问题
 
-**浮动在父盒子不占位置，无法撑开父盒子**（高度为0），影响之后元素
+**浮动在父盒子不占位置，无法撑开父盒子**（高度为 0），影响之后元素
 
 <img src="css.assets/n.jpg" alt="n" style="zoom: 80%;" />
 
@@ -715,31 +710,34 @@ margin-right:auto; /*右侧充满*/
 2. **额外标签法(隔墙法)**：在浮动元素末尾添加一个空的标签
 
 ```css
-<div class='clear'></div>
-.clear{clear: both;}
+<div class='clear' > </div > .clear {
+  clear: both;
+}
 ```
 
 > 添加无意义标签，结构化差
 
-3. **父级添加overflow属性** `overflow:auto`
+3. **父级添加 overflow 属性** `overflow:auto`
 
 - hidden 溢出全部隐藏
 - auto 溢出产生滚动条
 
 缺陷：内容溢出后，会隐藏元素
 
-4. after伪元素(**推荐**)
+4. after 伪元素(**推荐**)
 
 ```css
-.clearfix:after { 
-     content: "\200B"; 
-     display: block; 
-     height: 0; 
-     clear: both;
-     visibility: hidden; 
-} 
+.clearfix:after {
+  content: '\200B';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
- .clearfix {*zoom: 1;}   /* IE6、7 专有 */
+.clearfix {
+  *zoom: 1;
+} /* IE6、7 专有 */
 ```
 
 > \200B - 零宽度空格，也可用 `.` ，可以不写
@@ -750,27 +748,28 @@ margin-right:auto; /*右侧充满*/
 >
 > clear:both - 清除浮动
 >
-> hidden  - 隐藏元素（占位）
+> hidden - 隐藏元素（占位）
 
-  > *zoom - 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout
+> \*zoom - 由于 IE6-7 不支持:after，使用 zoom:1 触发 hasLayout
 
 5. **使用双伪元素清除浮动(推荐)**
 
 ```css
-.clearfix:before,.clearfix:after { 
-  content:"";
-  display:table; 
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
 }
 
 .clearfix:after {
- clear:both;
+  clear: both;
 }
 .clearfix {
-  *zoom:1;
+  *zoom: 1;
 }
 ```
 
-  >  table - 创建匿名单元格触发 bfc
+> table - 创建匿名单元格触发 bfc
 
 ### 定位流
 
@@ -788,7 +787,7 @@ margin-right:auto; /*右侧充满*/
 
 `position：relative`
 
-**相对于自身标准流的位置**进行定位	
+**相对于自身标准流的位置**进行定位
 
 - 出发点：**自身标准流**的位置
 - 自身在标准流中**还占有空间**
@@ -802,12 +801,12 @@ margin-right:auto; /*右侧充满*/
 
 **脱离标准流**进行定位
 
-- **偏移参考**：设置过定位[^1]的**直系父元素或直系祖先**。一直未找到，参考最顶层html
+- **偏移参考**：设置过定位[^1]的**直系父元素或直系祖先**。一直未找到，参考最顶层 html
 
 - **会脱离标准流**，不占空间，内容决定宽高，可定义宽高
 - `margin：auto` 失效
 
-如果父级（祖先）没有定位则**相对于html**，以下为父级有定位
+如果父级（祖先）没有定位则**相对于 html**，以下为父级有定位
 
 <img src="css.assets/06_%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D_%E7%88%B6%E7%BA%A7%E6%9C%89%E5%AE%9A%E4%BD%8D.png" alt="06_绝对定位_父级有定位" style="zoom: 25%;" />
 
@@ -838,7 +837,7 @@ margin-right:auto; /*右侧充满*/
 
 **特性**：
 
-- z-index只针对**定位**[^1]元素有效果
+- z-index 只针对**定位**[^1]元素有效果
 - **父元素比较过层级**（均有`z-index`值，且不为`auto`），==子元素不会再比较==
 - **`auto`比正数小**
 
@@ -853,9 +852,6 @@ margin-right:auto; /*右侧充满*/
 
 > 定位[^1]元素不会**触发外边距合并**的问题
 
-
-
-# 引用
+## 引用
 
 [^1]: 相对/绝对/固定
-

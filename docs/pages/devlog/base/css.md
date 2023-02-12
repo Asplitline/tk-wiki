@@ -72,19 +72,27 @@ overflow: hidden;
 思路：
 
 1. 利用文本占位
-2. before 伪元素进行显示文本                                                                                                                                                                                                             
+2. before 伪元素进行显示文本
 3. after 伪元素处理 link 显示
 
 关键点：-webkit-line-clamp 会触发类似 bfc 的独立区域，保证盒子在 after 伪元素负值时不会重叠
 
 ```html
 <div class="wrapper">
-  <div class="text" title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.">Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.</div>
+  <div
+    class="text"
+    title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem."
+  >
+    Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis voluptatem harum doloremque hic reiciendis dolorem.Aut nobis
+    voluptatem harum doloremque hic reiciendis dolorem.
+  </div>
   <div class="link"><a href="#">全文</a></div>
 </div>
 
 <div class="wrapper">
-  <div class="text" title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.">Aut nobis voluptatem harum doloremque hic reiciendis dolorem.</div>
+  <div class="text" title="Aut nobis voluptatem harum doloremque hic reiciendis dolorem.">
+    Aut nobis voluptatem harum doloremque hic reiciendis dolorem.
+  </div>
   <div class="link"><a href="#">全文</a></div>
 </div>
 ```
@@ -106,9 +114,9 @@ overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-    
+
   overflow: hidden;
-  text-align:justify;
+  text-align: justify;
   text-overflow: ellipsis;
   line-height: 1.5;
   background: inherit;
@@ -122,13 +130,11 @@ overflow: hidden;
 }
 
 .text::after {
-  content: "";
+  content: '';
   display: block;
   margin-top: -1.5em;
 }
 ```
-
-
 
 ## box-sizing
 
