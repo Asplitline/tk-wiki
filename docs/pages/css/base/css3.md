@@ -454,7 +454,7 @@ animation: move 2s linear 1s infinite alternate forwards;
 
 - z 轴：垂直屏幕
 
-<img src="css3.assets/sanwei.png" alt="sanwei" style="zoom: 67%;" />
+<img src="./css3.assets/sanwei.png" alt="sanwei" style="zoom: 67%;" />
 
 ### 位移 - translate3d
 

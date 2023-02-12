@@ -140,7 +140,7 @@ vertical-align: baseline |top |middle |bottom;
 
 **应用**：图片/表单与文字的对齐
 
-<img src="css-add.assets/xian.jpg" alt="xian" style="zoom: 67%;" />
+<img src="./css-add.assets/xian.jpg" alt="xian" style="zoom: 67%;" />
 
 #### 垂直居中补充
 

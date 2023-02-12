@@ -106,7 +106,7 @@ _行高 = 上距离 + 内容高度 + 下距离_
 
 _TIPS_ **标签文字垂直居中**，标签的高度和行高
 
-![1](css.assets/1.png)
+![1](./css.assets/1.png)
 
 ### 背景属性
 
@@ -559,13 +559,13 @@ margin-right: auto; /*右侧充满*/
 
 **1.盒子上下摆放，上盒子有下外边距，下盒子有上外边距，两个边距会重合，以大的边距为准**
 
-<img src="css.assets/1536638640212.png" alt="1536638640212" style="zoom:80%;" />
+<img src="./css.assets/1536638640212.png" alt="1536638640212" style="zoom:80%;" />
 
 **解决**：间距给到一个元素上
 
 **2.两个盒子嵌套关系，两个盒子对于上外边距会重合，以大的边距为准**
 
-<img src="css.assets/1536639894389.png" alt="1536639894389" style="zoom:80%;" />
+<img src="./css.assets/1536639894389.png" alt="1536639894389" style="zoom:80%;" />
 
 **解决**：
 
@@ -670,7 +670,7 @@ margin-right: auto; /*右侧充满*/
 - 前一个元素 `<` 前两个元素，到前一个元素下方
 - 前一个元素 `=` 前两个元素，向前移，比较前二
 
-<img src="../../../../../notes/01_CSS/01-CSS_image/image-20210803234535642.png" alt="image-20210803234535642" style="zoom: 50%;" /><img src="../../../../../notes/01_CSS/01-CSS_image/image-20210803234611101.png" alt="image-20210803234611101" style="zoom:50%;" /><img src="css.assets/image-20210803234719632.png" alt="image-20210803234719632" style="zoom:50%;" />
+<img src="./css.assets/image-20230213000404298.png" alt="image-20230213000404298" style="zoom: 50%;" /><img src="./css.assets/image-20230213000418973.png" alt="image-20230213000418973" style="zoom:50%;" /><img src="./css.assets/image-20230213000425077.png" alt="image-20230213000425077" style="zoom:50%;" />
 
 ##### 浮动元素和父盒子
 
@@ -698,9 +698,9 @@ margin-right: auto; /*右侧充满*/
 
 **浮动在父盒子不占位置，无法撑开父盒子**（高度为 0），影响之后元素
 
-<img src="css.assets/n.jpg" alt="n" style="zoom: 80%;" />
+<img src="./css.assets/n.jpg" alt="n" style="zoom: 80%;" />
 
-<img src="css.assets/no.jpg" alt="no" style="zoom:80%;" />
+<img src="./css.assets/no.jpg" alt="no" style="zoom:80%;" />
 
 #### 清除浮动
 
@@ -793,7 +793,7 @@ margin-right: auto; /*右侧充满*/
 - 自身在标准流中**还占有空间**
 - **可以盖在标准流的上方**
 
-<img src="css.assets/04_%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E6%A1%88%E4%BE%8B.png" alt="04_相对定位案例" style="zoom: 25%;" />
+<img src="./css.assets/relative.png" style="zoom: 25%;" />
 
 #### 绝对定位
 
@@ -801,14 +801,14 @@ margin-right: auto; /*右侧充满*/
 
 **脱离标准流**进行定位
 
-- **偏移参考**：设置过定位[^1]的**直系父元素或直系祖先**。一直未找到，参考最顶层 html
+- **偏移参考**：设置过定位（相对/绝对/固定）的**直系父元素或直系祖先**。一直未找到，参考最顶层 html
 
 - **会脱离标准流**，不占空间，内容决定宽高，可定义宽高
 - `margin：auto` 失效
 
 如果父级（祖先）没有定位则**相对于 html**，以下为父级有定位
 
-<img src="css.assets/06_%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D_%E7%88%B6%E7%BA%A7%E6%9C%89%E5%AE%9A%E4%BD%8D.png" alt="06_绝对定位_父级有定位" style="zoom: 25%;" />
+<img src="./css.assets/absolute.png"  style="zoom: 25%;" />
 
 应用：**父相子绝**
 
@@ -837,7 +837,7 @@ margin-right: auto; /*右侧充满*/
 
 **特性**：
 
-- z-index 只针对**定位**[^1]元素有效果
+- z-index 只针对**定位**（相对/绝对/固定）元素有效果
 - **父元素比较过层级**（均有`z-index`值，且不为`auto`），==子元素不会再比较==
 - **`auto`比正数小**
 
@@ -850,8 +850,5 @@ margin-right: auto; /*右侧充满*/
 | absolute | 完全脱标，不占有位置 | 可以   | **相对于定位的父级**移动位置 |
 | fixed    | 完全脱标，不占有位置 | 可以   | **相对于浏览器**移动位置     |
 
-> 定位[^1]元素不会**触发外边距合并**的问题
+> 定位（相对/绝对/固定）元素不会**触发外边距合并**的问题
 
-## 引用
-
-[^1]: 相对/绝对/固定

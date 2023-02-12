@@ -78,8 +78,8 @@
 					"order": 3
 				},
 				{
-					"text": "css补充",
-					"link": "/pages/css/base/add",
+					"text": "CSS补充",
+					"link": "/pages/css/base/css-add",
 					"order": 4
 				}
 			],
