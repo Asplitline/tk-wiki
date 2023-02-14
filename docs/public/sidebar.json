@@ -256,6 +256,30 @@
 			]
 		}
 	],
+	"/pages/electron": [
+		{
+			"text": "electron 指南",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "入门",
+					"link": "/pages/electron/base/guide",
+					"order": 1
+				},
+				{
+					"text": "流程模型",
+					"link": "/pages/electron/base/model",
+					"order": 2
+				},
+				{
+					"text": "进程间通信",
+					"link": "/pages/electron/base/message",
+					"order": 3
+				}
+			],
+			"order": 1
+		}
+	],
 	"/pages/error": [
 		{
 			"text": "错误处理",

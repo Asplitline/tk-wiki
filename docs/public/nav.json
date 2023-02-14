@@ -18,7 +18,7 @@
 		"text": "CSS",
 		"items": [
 			{
-				"text": "css",
+				"text": "CSS",
 				"link": "/pages/css/index",
 				"activeMath": "/css/"
 			}
@@ -96,6 +96,21 @@
 				"text": "tk库",
 				"link": "/pages/tk/index",
 				"activeMath": "/tk/"
+			}
+		]
+	},
+	{
+		"text": "其他框架",
+		"items": [
+			{
+				"text": "electron",
+				"link": "/pages/electron/index",
+				"activeMath": "/electron/"
+			},
+			{
+				"text": "next - pending",
+				"link": "/pages/next/index",
+				"activeMath": "/next/"
 			}
 		]
 	}

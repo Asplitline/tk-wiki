@@ -9,7 +9,7 @@ const nav = [
   },
   {
     text: 'CSS',
-    items: [{ text: 'css', link: '/css/index', activeMath: '/css/' }]
+    items: [{ text: 'CSS', link: '/css/index', activeMath: '/css/' }]
   },
   {
     text: 'Vue',
@@ -38,6 +38,13 @@ const nav = [
       { text: '错误收集', link: '/error/index', activeMath: '/error/' },
       { text: 'QA', link: '/qa/index', activeMath: '/qa/' },
       { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
+    ]
+  },
+  {
+    text: '其他框架',
+    items: [
+      { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
+      { text: 'next - pending', link: '/next/index', activeMath: '/next/' }
     ]
   }
 ]
