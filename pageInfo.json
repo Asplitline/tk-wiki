@@ -25,6 +25,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/electron": {
+		"text": "electron",
+		"link": "/pages/electron/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/error": {
 		"text": "错误收集",
 		"link": "/pages/error/index",
