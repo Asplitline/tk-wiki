@@ -131,3 +131,33 @@ vim ~/.vimrc
 :set num
 ```
 
+## 反向搜索
+
+1. 按下 Ctrl + R，进入反向搜索
+
+```bash
+Ambit@myqz MINGW64 ~
+(reverse-i-search)`':
+```
+
+2. 输入 git，显示历史命令中一条匹配
+
+```bash
+Ambit@myqz MINGW64 ~
+(reverse-i-search)`git': git branch -a
+```
+
+3. 再次按下 Ctrl + R，继续向前搜索
+
+```bash
+Ambit@myqz MINGW64 ~
+(reverse-i-search)`git': git diff
+```
+
+4. 按下 右方向键（`->`）或 `esc` ,退出搜索模式
+
+```bash
+Ambit@myqz MINGW64 ~
+$ git diff
+```
+
