@@ -5,8 +5,6 @@ order: 2
 
 # linux
 
-
-
 ## 基础用法
 
 ```shell
@@ -16,8 +14,6 @@ touch <file>
 ## 新建文件夹
 mkdir <folder>
 ```
-
-
 
 ## 批量替换内容
 
@@ -29,7 +25,7 @@ mkdir <folder>
 
 `[addr]`：表示检索范围，省略时表示当前行
 
-“1,20” ：表示从第1行到20行；
+“1,20” ：表示从第 1 行到 20 行；
 
 “%” ：表示整个文件，同“1,$”；
 
@@ -39,7 +35,7 @@ mkdir <folder>
 
 `[option]`：操作类型
 
-g - 全局替换; 
+g - 全局替换;
 
 c - 进行确认
 
@@ -160,4 +156,3 @@ Ambit@myqz MINGW64 ~
 Ambit@myqz MINGW64 ~
 $ git diff
 ```
-
