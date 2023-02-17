@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.05b23b35.js";const l=JSON.parse('{"title":"数据处理","description":"","frontmatter":{"title":"数据处理","order":1},"headers":[],"relativePath":"pages/vue2/data/index.md","lastUpdated":1675957799000}'),r={name:"pages/vue2/data/index.md"};function s(n,o,d,c,p,i){return a(),t("div")}const m=e(r,[["render",s]]);export{l as __pageData,m as default};
