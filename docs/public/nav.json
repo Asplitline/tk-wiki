@@ -108,6 +108,11 @@
 				"activeMath": "/electron/"
 			},
 			{
+				"text": "uniapp",
+				"link": "/pages/uniapp/index",
+				"activeMath": "/uniapp/"
+			},
+			{
 				"text": "next - pending",
 				"link": "/pages/next/index",
 				"activeMath": "/next/"

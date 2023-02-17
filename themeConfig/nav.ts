@@ -44,6 +44,7 @@ const nav = [
     text: '其他框架',
     items: [
       { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
+      { text: 'uniapp', link: '/uniapp/index', activeMath: '/uniapp/' },
       { text: 'next - pending', link: '/next/index', activeMath: '/next/' }
     ]
   }

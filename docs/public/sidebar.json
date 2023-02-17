@@ -846,6 +846,35 @@
 			]
 		}
 	],
+	"/pages/uniapp": [
+		{
+			"text": "Uniapp",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "入门",
+					"link": "/pages/uniapp/base/base",
+					"order": 1
+				},
+				{
+					"text": "配置",
+					"link": "/pages/uniapp/base/config",
+					"order": 2
+				},
+				{
+					"text": "Api",
+					"link": "/pages/uniapp/base/api",
+					"order": 4
+				},
+				{
+					"text": "组件",
+					"link": "/pages/uniapp/base/component",
+					"order": 4
+				}
+			],
+			"order": 1
+		}
+	],
 	"/pages/vue2": [
 		{
 			"text": "指南",
