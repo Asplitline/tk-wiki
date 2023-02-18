@@ -34,3 +34,44 @@ const format = inject(formateDateKey)
 // Cannot invoke an object which is possibly 'undefined'.ts(2722)
 format?.(utime)
 ```
+
+
+
+## defineProps not defined
+
+参考：https://eslint.vuejs.org/user-guide/#does-not-work-well-with-script-setup
+
+以前：
+
+```js
+// .eslintrc.js
+module.exports = {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    // Parser that checks the content of the <script> tag
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    ecmaVersion: 2020,
+  },
+  env: {
+    // ...
+    'vue/setup-compiler-macros': true, // <-
+  }
+}
+```
+
+现在：
+
+```js
+// .eslintrc.js
+
+module.exports = {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: 'espree', // <-
+    ecmaVersion: 2022, // <-
+    sourceType: 'module'
+  },
+}
+```
+

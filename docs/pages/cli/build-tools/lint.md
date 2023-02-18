@@ -127,6 +127,19 @@ import 'lib/charting_library/charting_library.min.js'
 /* eslint-disable */
 ```
 
+#### False positive of no-shadow rule with ENUMs
+
+问题：使用 enum 时报错
+
+解决：禁用 no-shadow
+
+```json
+"rules": {
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error"
+}
+```
+
 ### Eslint-prettier
 
 在 eslint 中重写 prettier
