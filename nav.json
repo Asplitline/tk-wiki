@@ -36,6 +36,11 @@
 				"text": "Vue3",
 				"link": "/pages/vue3/index",
 				"activeMatch": "/vue3/"
+			},
+			{
+				"text": "uniapp",
+				"link": "/pages/uniapp/index",
+				"activeMath": "/uniapp/"
 			}
 		]
 	},
@@ -106,11 +111,6 @@
 				"text": "electron",
 				"link": "/pages/electron/index",
 				"activeMath": "/electron/"
-			},
-			{
-				"text": "uniapp",
-				"link": "/pages/uniapp/index",
-				"activeMath": "/uniapp/"
 			},
 			{
 				"text": "next - pending",
