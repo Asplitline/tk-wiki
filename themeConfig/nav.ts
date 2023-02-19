@@ -15,7 +15,8 @@ const nav = [
     text: 'Vue',
     items: [
       { text: 'Vue2', link: '/vue2/index', activeMath: '/vue2/' },
-      { text: 'Vue3', link: '/vue3/index', activeMatch: '/vue3/' }
+      { text: 'Vue3', link: '/vue3/index', activeMatch: '/vue3/' },
+      { text: 'uniapp', link: '/uniapp/index', activeMath: '/uniapp/' }
     ]
   },
   {
@@ -44,7 +45,6 @@ const nav = [
     text: '其他框架',
     items: [
       { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
-      { text: 'uniapp', link: '/uniapp/index', activeMath: '/uniapp/' },
       { text: 'next - pending', link: '/next/index', activeMath: '/next/' }
     ]
   }
