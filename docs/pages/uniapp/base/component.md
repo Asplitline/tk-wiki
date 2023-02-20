@@ -1,6 +1,6 @@
 ---
 title: 组件
-order: 4
+order: 2
 ---
 
 # 组件概述

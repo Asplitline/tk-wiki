@@ -857,22 +857,49 @@
 					"order": 1
 				},
 				{
+					"text": "组件",
+					"link": "/pages/uniapp/base/component",
+					"order": 2
+				},
+				{
 					"text": "配置",
 					"link": "/pages/uniapp/base/config",
 					"order": 2
 				},
 				{
-					"text": "Api",
+					"text": "通用Api",
 					"link": "/pages/uniapp/base/api",
-					"order": 4
+					"order": 3
 				},
 				{
-					"text": "组件",
-					"link": "/pages/uniapp/base/component",
+					"text": "框架Api",
+					"link": "/pages/uniapp/base/framework_api",
 					"order": 4
 				}
 			],
 			"order": 1
+		},
+		{
+			"text": "配置",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "page.json",
+					"link": "/pages/uniapp/config/page",
+					"order": 1
+				},
+				{
+					"text": "manifest.json",
+					"link": "/pages/uniapp/config/manifest",
+					"order": 2
+				},
+				{
+					"text": "其他配置",
+					"link": "/pages/uniapp/config/other",
+					"order": 3
+				}
+			],
+			"order": 2
 		}
 	],
 	"/pages/vue2": [
