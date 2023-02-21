@@ -900,6 +900,38 @@
 				}
 			],
 			"order": 2
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "配置相关",
+					"link": "/pages/uniapp/other/config",
+					"order": 1
+				},
+				{
+					"text": "实践总结",
+					"link": "/pages/uniapp/other/parctice",
+					"order": 2
+				},
+				{
+					"text": "三方库使用",
+					"link": "/pages/uniapp/other/third-party",
+					"order": 3
+				},
+				{
+					"text": "微信小程序兼容性",
+					"link": "/pages/uniapp/other/wx-compitable",
+					"order": 4
+				},
+				{
+					"text": "IOS 打包",
+					"link": "/pages/uniapp/other/ios",
+					"order": 5
+				}
+			],
+			"order": 4
 		}
 	],
 	"/pages/vue2": [
