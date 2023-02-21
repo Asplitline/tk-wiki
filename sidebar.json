@@ -862,6 +862,11 @@
 					"order": 2
 				},
 				{
+					"text": "配置",
+					"link": "/pages/uniapp/base/config",
+					"order": 2
+				},
+				{
 					"text": "通用Api",
 					"link": "/pages/uniapp/base/api",
 					"order": 3
