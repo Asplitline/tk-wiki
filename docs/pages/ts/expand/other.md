@@ -34,3 +34,28 @@ declare module 'axios' {
 ```
 
 参考：https://docs.shanyuhai.top/frontend/typescript/change-axios-response-type.html
+
+
+
+## nodemon Unknown file extension ".ts"
+
+1- Add "type": "module" to package.json
+
+2- Install ts-node npm i -g ts-node
+
+3- Go to tsconfig.json and add the following:
+
+```json
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    /* ... your props ... */
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
+```
+
+参考：https://stackoverflow.com/a/71389363/19747672

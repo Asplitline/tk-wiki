@@ -213,33 +213,6 @@
 			"order": 4
 		},
 		{
-			"text": "UniApp",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "配置相关",
-					"link": "/pages/devlog/uniapp/config",
-					"order": 1
-				},
-				{
-					"text": "三方库使用",
-					"link": "/pages/devlog/uniapp/uniapp",
-					"order": 2
-				},
-				{
-					"text": "微信小程序兼容性",
-					"link": "/pages/devlog/uniapp/wx-compitable",
-					"order": 3
-				},
-				{
-					"text": "IOS 打包",
-					"link": "/pages/devlog/uniapp/ios",
-					"order": 4
-				}
-			],
-			"order": 4
-		},
-		{
 			"text": "React",
 			"collapsible": true,
 			"items": [
