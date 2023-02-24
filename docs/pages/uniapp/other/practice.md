@@ -5,6 +5,10 @@ order: 2
 
 # 实践总结
 
+## 遮罩层滚动穿透
+
+`@touchmove.native.prevent` 设置在 遮罩层上
+
 ## App - IOS 端软键盘上方横条去除方案
 
 `pages.json`

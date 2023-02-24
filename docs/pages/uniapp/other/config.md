@@ -16,10 +16,6 @@ order: 1
 },
 ```
 
-## 遮罩层滚动穿透
-
-`@touchmove.native.prevent` 设置在 遮罩层上
-
 ## sdk 警告
 
 ```json
