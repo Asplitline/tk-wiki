@@ -98,6 +98,23 @@ echo PATH = /usr/local/lib
 echo PATH = ${pwd}/lib/include  # 使用${},也可以直接使用双引号
 ```
 
+## init - 初始化
+
+使用新的或已经存在npm包
+
+```bash
+npm init <package-spec> (same as `npx <package-spec>)
+npm init <@scope> (same as `npx <@scope>/create`)
+
+aliases: create, innit
+```
+
+`npm init <initializer>`，将执行 `create-<initializer>`
+
+举例：`npm init foo` -> `npm exec create-foo`
+
+
+
 ## other - 其他
 
 ```shell
