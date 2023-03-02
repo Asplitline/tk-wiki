@@ -166,12 +166,23 @@ border-bottom: 150px solid green;
 
 > 100vw 为 视窗宽度，100%为内容宽度，100vw - 100 % 为 滚动条宽度。margin-right 也可以。
 
-## 隐藏 空元素
+## 隐藏空元素
 
 ```css
 // 作用于所有节点
 :empty {
   display: none;
+}
+```
+
+## 斜向分割线
+
+```css
+.hr-line {
+  border: 0;
+  padding: 3px;
+  background: repeating-linear-gradient(135deg, #a2a9b6 0px, #a2a9b6 1px, transparent 1px, transparent 6px);
+  margin: 0;
 }
 ```
 

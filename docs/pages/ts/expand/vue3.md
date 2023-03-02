@@ -35,8 +35,6 @@ const format = inject(formateDateKey)
 format?.(utime)
 ```
 
-
-
 ## defineProps not defined
 
 参考：https://eslint.vuejs.org/user-guide/#does-not-work-well-with-script-setup
@@ -51,11 +49,11 @@ module.exports = {
     // Parser that checks the content of the <script> tag
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
-    ecmaVersion: 2020,
+    ecmaVersion: 2020
   },
   env: {
     // ...
-    'vue/setup-compiler-macros': true, // <-
+    'vue/setup-compiler-macros': true // <-
   }
 }
 ```
@@ -71,7 +69,6 @@ module.exports = {
     parser: 'espree', // <-
     ecmaVersion: 2022, // <-
     sourceType: 'module'
-  },
+  }
 }
 ```
-

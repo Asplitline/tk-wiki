@@ -200,14 +200,9 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "vscode",
-					"link": "/pages/devlog/other/vscode",
-					"order": 1
-				},
-				{
 					"text": "chrome",
 					"link": "/pages/devlog/other/chrome",
-					"order": 2
+					"order": 1
 				}
 			],
 			"order": 4
