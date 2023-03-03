@@ -72,3 +72,17 @@ module.exports = {
   }
 }
 ```
+
+## 自定义组件中枚举prop
+
+自定义组件中枚举值处理
+
+```js
+const props = defineProps({
+  mode: {
+    type: String as PropType<'matrix' | 'country'>,
+    required: true
+  }
+})
+```
+

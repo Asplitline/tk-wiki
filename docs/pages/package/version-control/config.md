@@ -502,6 +502,41 @@ git reset --soft HEAD@{1}
 
 
 
+## 修改 commit 提交人信息
+
+场景：commit 提交用户信息错误
+
+解决：通过 rebase + commit --amend 处理
+
+第一步：rebase commit 提交记录
+
+```bash
+git rebase -i HEAD~N
+```
+
+```bash
+$ git rebase -i HEAD~3
+pick a6976ec6 commit-1
+pick 88c985a0 commit-2(error commit)
+pick e333375e commit-3
+```
+
+第二步：将对应提交信息 pick 变更为 edit，并保存（`:wq`）退出
+
+```bash
+pick a6976ec6 commit-1
+edit 88c985a0 commit-2(error commit)
+pick e333375e commit-3
+```
+
+第三步：输入以下命令
+
+```bash
+git commit --amend --reset-author
+```
+
+
+
 ## 撤销操作
 
 ### 撤销提交
