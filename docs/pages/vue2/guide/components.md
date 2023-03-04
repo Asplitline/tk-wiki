@@ -411,9 +411,7 @@ Vue.component('base-input', {
 
 `v-model = @input + value` - 默认
 
-#### model 选项
-
-手动设置`prop`和`event`下
+在 model 选项手动设置 `prop` 和`event` 可以自定义 v-model
 
 ```js
 Vue.component('base-checkbox', {
@@ -443,8 +441,6 @@ Vue.component('base-checkbox', {
 
 ### 原生事件绑定到组件
 
-#### native 修饰符
-
 场景：自定义组件只能监听自定义事件，原生事件无法直接触发。
 
 解决：通过 native 修饰符
@@ -460,11 +456,9 @@ Vue.component('base-checkbox', {
 </label>
 ```
 
-**`.native` 失效场景**
+但是上面例子，不会产生预期的效果，因为 input 外包裹了一层 label，.native 实际会绑定到 label 上。
 
-场景：input 外包裹了一层 label，native 无法生效
-
-解决：使用 `$listenters`
+解决：使用 `$listenters`重写 input 中处理函数
 
 > `$listenters` 里面包含组件上所有监听器
 
@@ -474,8 +468,6 @@ Vue.component('base-checkbox', {
   <input v-bind="$attrs" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" />
 </label>
 ```
-
-重写 input 中处理函数
 
 ```js
 Vue.component('base-input', {
@@ -813,13 +805,15 @@ methods: {
 
 Vue 允许工厂函数方式定义组件，这个工厂函数会异步解析你定义的组件
 
-特点：
+异步组件特点：
 
 1. 组件渲染时触发
 
 2. 缓存渲染结果
 
 #### 全局组件
+
+异步组件全局注册的两种写法
 
 require 写法：加载完成会执行 resolve，并将加载结果传入
 
@@ -941,9 +935,9 @@ inject: ['getMap']
 
 1. 祖先不需要知道哪些后代组件使用
 
-2. 后代组件也不需要直到 property 来自哪里
+2. 后代组件也不需要知道 property 来自哪里
 
-缺陷
+依赖注入的缺陷
 
 1. **耦合度高**，重构困难
 
