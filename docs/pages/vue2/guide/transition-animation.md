@@ -9,6 +9,8 @@ order: 3
 
 `transition` ：在下列情形中，可以给任何元素和组件添加进入/离开过渡
 
+transition 生效场景
+
 - 条件渲染 (使用 `v-if`)
 - 条件展示 (使用 `v-show`)
 - 动态组件
@@ -56,15 +58,15 @@ new Vue({
 
 ![Transition Diagram](https://v2.cn.vuejs.org/images/transition.png)
 
-| 类名           | 生效           | 移除              | 说明               |
-| -------------- | -------------- | ----------------- | ------------------ |
-| v-enter        | 插入之前       | 插入之后下一帧    | 进入过渡的开始状态 |
-| v-enter-active | 插入之前       | 过渡/动画完成之后 | 进入过渡生效状态   |
-| v-enter-to     | 插入之后下一帧 | 过渡/动画完成之后 | 进入过渡结束状态   |
-|                |                |                   |                    |
-| v-leave        | 离开过渡       | 离开过渡下一帧    | 离开过渡开始状态   |
-| v-leave-active | 离开过渡       | 过渡/动画完成之后 | 离开过渡生效状态   |
-| v-leave-to     | 离开过渡下一帧 | 过渡/动画完成之后 | 离开过渡结束状态   |
+| 类名           | 生效           | 移除              | 说明             |
+| -------------- | -------------- | ----------------- | ---------------- |
+| v-enter        | 插入之前       | 插入之后下一帧    | 进入过渡开始状态 |
+| v-enter-active | 插入之前       | 过渡/动画完成之后 | 进入过渡生效状态 |
+| v-enter-to     | 插入之后下一帧 | 过渡/动画完成之后 | 进入过渡结束状态 |
+|                |                |                   |                  |
+| v-leave        | 离开过渡       | 离开过渡下一帧    | 离开过渡开始状态 |
+| v-leave-active | 离开过渡       | 过渡/动画完成之后 | 离开过渡生效状态 |
+| v-leave-to     | 离开过渡下一帧 | 过渡/动画完成之后 | 离开过渡结束状态 |
 
 #### CSS 过渡
 
@@ -289,7 +291,7 @@ new Vue({
 
 ### 初始渲染的过渡
 
-`appear` attribute： 设置节点在初始渲染的过渡
+`appear` attribute： 节点在首次渲染是否应用过渡
 
 ```html
 <transition appear>
@@ -403,9 +405,9 @@ button {
 }
 ```
 
-`in-out`：新元素先过渡，完成后，当前元素过渡离开
+`in-out`：新元素先进入，当前元素再离开
 
-`out-in`：当前元素先过渡，完成后，新元素过渡进入
+`out-in`：当前元素先离开，新元素再进入
 
 ### 多组件过渡
 
@@ -449,11 +451,11 @@ new Vue({
 
 `<transition-group>` 组件渲染整个列表
 
-具有以下特点
+列表过渡具有以下特点
 
 1. 非虚拟元素，是**真实元素**。默认 span，可通过 tag 更换
 
-2. 过渡模式不可用
+2. `<transition>` 中过渡模式不可用
 
 3. 内部元素总需要 唯一 `key`
 
@@ -514,9 +516,17 @@ methods: {
 
 #### 列表排序过渡
 
-可以通过 v-move 设置过渡切换时机和过渡曲线
+`<transition-group>` 不仅可以进入和离开动画，还可以改变定位。需新增 `v-move` class，同之前的类名，可以通过 `name` attribute 来自定义前缀，也可以通过 `move-class` attribute 手动设置
 
-注意：inline 元素不是 [[3] transformable elements](#相关链接)，不支持 transform
+`v-move` 对于设置过渡的切换时机和过渡曲线非常有用
+
+```html
+<transition-group name="list" tag="ul">
+    <li v-for="item in items" v-bind:key="item">
+      {{ item }}
+    </li>
+  </transition-group>
+```
 
 ```css
 /* 设置移动的过渡效果 - 可选 */
@@ -524,6 +534,8 @@ methods: {
 	transition: all 1s;
 } 
 ```
+
+> 注意：inline 元素不是 [[3] transformable elements](#相关链接)，不支持 transform
 
 #### 列表交错过渡
 
@@ -559,7 +571,7 @@ Vue.component('my-special-transition', {
 })
 ```
 
-函数式组件 - 推荐
+函数式组件 (推荐)，funtional属性为true
 
 ```js
 Vue.component('my-special-transition', {
@@ -642,7 +654,7 @@ export default {
 
 ### 过渡放到组件里
 
-管理太多的状态过渡会很快的增加 Vue 实例或者组件的复杂性，幸好很多的动画可以提取到专用的子组件。
+管理太多的状态过渡会增加Vue实例和组件的复杂性，可以提取到子组件管理
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -703,7 +715,7 @@ Vue.component('animated-integer', {
 })
 ```
 
-> 
+> [tween.js](https://github.com/tweenjs/tween.js)
 
 ## 相关链接
 
