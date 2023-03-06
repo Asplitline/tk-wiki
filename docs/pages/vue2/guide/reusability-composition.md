@@ -107,7 +107,7 @@ Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
 
 但对普通 DOM 进行底层操作，使用自定义指令
 
-### 指令
+### 指令声明
 
 全局指令：`Vue.directive`
 
@@ -140,11 +140,11 @@ directives: {
 <input v-focus />
 ```
 
-### 钩子函数
+### 指令钩子函数
 
 | 函数名称         | 调用时机                            | 说明                                                         |
 | ---------------- | ----------------------------------- | ------------------------------------------------------------ |
-| bind             | 指令**第一次绑定到元素时**（）      | 初始化设置                                                   |
+| bind             | 指令**第一次绑定到元素时**          | 初始化设置                                                   |
 | inserted         | 被绑定元素**插入父节点时**          | 只保证父节点存在，不保证已被插入                             |
 | update           | 所有组件 **VNode 更新时**           | 但可能发生在子 VNode 更新之前。指令的值可能发生了改变，也可能没有。 |
 | componentUpdated | 组件 VNode 及子 VNode**全部更新后** |                                                              |
@@ -666,7 +666,9 @@ new Vue({
 
 函数式函数，渲染开销更低
 
-将组件标记为 `functional`，意味无状态（没有响应式数据），也没有实例（ this 上下文 ）
+将组件标记为 `functional`，意味无状态
+
+无状态：组件没有状态（state）和实例（instance）。即不支持响应式，也不能通过 this 引用自己。通常用来渲染简单内容，不需要数据和方法。
 
 ```js
 Vue.component('my-component', {
@@ -802,7 +804,7 @@ function anonymous(
 
 插件通常为 Vue 添加全局功能
 
-### 用途
+### 插件用途
 
 1. 全局方法 或 property
 
@@ -812,7 +814,7 @@ function anonymous(
 4. Vue 实例方法，`Vue.prototype`
 5. 提供自己 API
 
-### 使用
+### 使用插件
 
 全局方法 `Vue.use()` 使用插件，在 `new Vue()` 启动应用之前
 
@@ -982,13 +984,13 @@ Vue.filter('capitalize', function (value) {
 
 当你清楚 HTML 安全，可以通过以下式显示渲染 HTML。
 
-##### 模板
+##### 模板写法
 
 ```html
 <div v-html="userProvidedHtml"></div>
 ```
 
-##### 渲染函数
+##### 渲染函数写法
 
 ```js
 h('div', {
@@ -998,7 +1000,7 @@ h('div', {
 })
 ```
 
-##### JSX 渲染函数
+##### JSX 渲染函数写法
 
 ```jsx
 <div domPropsInnerHTML={this.userProvidedHtml}></div>
@@ -1062,6 +1064,10 @@ h('div', {
 ### 检测变化注意事项
 
 由于 JavaScript 的限制，Vue 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性
+
+JavsScript限制：对象和数组通过引用值存储，而不是值存储。当内容变化时，引用没有变，Vue无法监听到这些变化。
+
+> [Vue2.0 不能监测数组和对象的变化原因以及解决方案](https://blog.csdn.net/XH_jing/article/details/120413904)
 
 #### 对于对象
 
@@ -1140,7 +1146,7 @@ export default {
 
 #### 对于数组
 
-Vue 不能检测以下数组变动
+对于数组 Vue 不能检测以下数组变动
 
 1. 索引值访问 `vm.items[indexOfItem] = newValue`
 2. 修改数组长度 `vm.items.length = newLength`
@@ -1188,11 +1194,13 @@ var vm = new Vue({
 vm.message = 'Hello!'
 ```
 
-原因：
+不允许添加根级响应式的原因：
 
 1. 消除依赖项跟踪边界问题
 
 2. 统一在 data 对象声明，增加代码可读性
+
+> 依赖项跟踪边界：指在一个组件中，响应式属性的变化只会触发该组件内部的响应式操作，而不会影响到其他组件。避免不必要的渲染和性能损失。
 
 #### 异步更新队列
 
@@ -1200,7 +1208,7 @@ Vue 更新 dom 是异步执行。
 
 1. 监听到数据变化。Vue 开启一个队列，并缓冲同一事件循环内所有数据变更。
 2. 同一个 watcher 多次触发，只会推一次（自动去重）。
-3. 下一次 事件循环 ‘tick’，Vue 刷新队列执行内容。Vue 在内部 对 异步队列尝试 原生 `Promise.then`、`MutationObserver` 和 `setImmediate`，环境不支持，采用 `setTimeout(fn, 0)`
+3. 下一次 事件循环 ‘tick’，Vue 刷新队列执行内容。Vue 在内部 对 异步队列尝试原生 `Promise.then`、`MutationObserver` 和 `setImmediate`，如果环境，则不支持采用 `setTimeout(fn, 0)`。根据环境选择最优方法执行异步队列。
 
 例如，当你设置 `vm.someData = 'new value'`，该组件不会立即重新渲染。当刷新队列时，组件会在下一个事件循环“tick”中更新。
 
