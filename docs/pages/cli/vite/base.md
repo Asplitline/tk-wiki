@@ -5,9 +5,9 @@ order: 2
 
 # Vite Config - Base
 
-## __dirname 替代方案
+## \_\_dirname 替代方案
 
-方案一：__dirname 在 ES module 中不存在，使用 import.meta.url 代替
+方案一：\_\_dirname 在 ES module 中不存在，使用 import.meta.url 代替
 
 ```js
 import { resolve, dirname } from 'path'
@@ -21,8 +21,6 @@ const rootDir = dirname(fileURLToPath(import.meta.url))
 yarn add --dev @types/node
 ```
 
-
-
 ## 判断当前环境
 
 在 vite.config.js 中，会将相关信息传到默认导出函数中。
@@ -31,7 +29,7 @@ yarn add --dev @types/node
 // vite.config.js
 // payload => { mode: 'development', command: 'serve', ssrBuild: false }
 export default (payload) => {
-	return defineConfig()
+  return defineConfig()
 }
 ```
 
@@ -40,8 +38,6 @@ export default (payload) => {
 ```js
 import.meta.env.mode
 ```
-
-
 
 ## 生产环境去除 console
 
@@ -89,7 +85,7 @@ export default defineConfig({
 }
 ```
 
-## 配置proxy
+## 配置 proxy
 
 参考：https://cn.vitejs.dev/config/server-options.html#server-proxy
 
@@ -107,3 +103,18 @@ export default defineConfig({
 })
 ```
 
+## 全局 scss 变量
+
+```js
+export default {
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // example : additionalData: `@import "./src/design/styles/variables";`
+        // dont need include file extend .scss
+        additionalData: `@import "~@/css/variables.scss";@import "~@/css/mixins.scss";`
+      }
+    }
+  }
+}
+```
