@@ -1,5 +1,5 @@
 ---
-title: Chrome devtool
+title: chrome devtool
 order: 2
 ---
 

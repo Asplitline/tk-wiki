@@ -3,8 +3,6 @@ title: 配置与实战
 order: 3
 ---
 
-
-
 # Git 配置与实战
 
 ## ---配置---
@@ -25,10 +23,12 @@ alias bashconf="code ~/.bashrc"
 alias gitconf="code ~/.gitconfig"
 alias npmconf="code ~/.npmrc"
 alias yarnconf="code ~/.yarnrc"
+alias as="cat ~/.bashrc"
+alias asg="cat ~/.bashrc | grep"
 
 # git config
 alias gs="git status"
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  "
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset q-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit  "
 alias glo="git log --oneline"
 alias gb="git branch"
 alias gtn="git tag -n"
@@ -38,6 +38,7 @@ alias gac="git add . && git commit -m"
 alias gaca="git add . && git commit --amend"
 alias gc="git commit"
 alias gca="git commit --amend"
+alias gcan="git commit --amend --no-edit"
 alias gct="git checkout"
 alias gcp="git cherry-pick"
 alias gpl="git pull"
@@ -77,8 +78,6 @@ alias my="git config user.name Asplitline && git config user.email *@qq.com"
 alias cmy="git config user.name tink && git config user.email tink@tink.com"
 alias clsmy="git config --unset user.name && git config --unset user.email"
 ```
-
-
 
 问题：bash: xx: command not found
 
@@ -122,8 +121,6 @@ where git
   }
 },
 ```
-
-
 
 ## ---实战---
 
@@ -445,8 +442,6 @@ git clean -nf
 git clean -nfd
 ```
 
-
-
 ## vscode 配置全局 .gitignore
 
 以 .history 文件举例
@@ -465,8 +460,6 @@ git config --global core.excludesfile ~/.gitignore
 
 3. 全局 .gitignore 生效，如果 vscode `source control` 不生效，点击刷新
 
-
-
 补充：vscode setting.json 进行如下配置，进一步优化体验
 
 ```json
@@ -481,8 +474,6 @@ git config --global core.excludesfile ~/.gitignore
     "**/.history": true
   }
 ```
-
-
 
 ## 撤销 git commit --amend
 
@@ -499,8 +490,6 @@ bbbbbbb HEAD@{1}: commit: xxxx
 ```bash
 git reset --soft HEAD@{1}
 ```
-
-
 
 ## 修改 commit 提交人信息
 
@@ -534,8 +523,6 @@ pick e333375e commit-3
 ```bash
 git commit --amend --reset-author
 ```
-
-
 
 ## 撤销操作
 
@@ -619,9 +606,9 @@ $ git reset --hard [当前分支此前的最后一次提交]
 
 参考：https://www.ruanyifeng.com/blog/2019/12/git-undo.html
 
-## 同步本地和远端tag
+## 同步本地和远端 tag
 
-场景：远程repository中已经删除的tag，使用git fetch --prune，甚至"git fetch --tags"确保下载所有tags，也不会让其在本地也将其删除
+场景：远程 repository 中已经删除的 tag，使用 git fetch --prune，甚至"git fetch --tags"确保下载所有 tags，也不会让其在本地也将其删除
 
 ```bash
 git tag -l | xargs git tag -d #删除所有本地分支
