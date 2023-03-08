@@ -100,7 +100,7 @@ echo PATH = ${pwd}/lib/include  # 使用${},也可以直接使用双引号
 
 ## init - 初始化
 
-使用新的或已经存在npm包
+使用新的或已经存在 npm 包
 
 ```bash
 npm init <package-spec> (same as `npx <package-spec>)
@@ -111,9 +111,11 @@ aliases: create, innit
 
 `npm init <initializer>`，将执行 `create-<initializer>`
 
-举例：`npm init foo` -> `npm exec create-foo`
+举例：`npm init vite`
 
-
+1. 先找 create-vite 包
+2. 执行 npm exec create-vite 命令
+3. 执行 create-vite 包中 create-vite 脚本（bin）
 
 ## other - 其他
 
@@ -207,7 +209,5 @@ resolutions ：选择性依赖，控制依赖的版本
   "foo/**/bar": "1.0.0"
 }
 ```
-
-
 
 ## 相关链接
