@@ -98,6 +98,11 @@
 					"text": "styled-components",
 					"link": "/pages/css/other/styled-components",
 					"order": 3
+				},
+				{
+					"text": "CSS实战",
+					"link": "/pages/css/other/practice",
+					"order": 4
 				}
 			]
 		}
@@ -130,7 +135,7 @@
 					"order": 1
 				},
 				{
-					"text": "Chrome devtool",
+					"text": "chrome devtool",
 					"link": "/pages/custom/program/chrome",
 					"order": 2
 				}
@@ -147,11 +152,6 @@
 					"text": "HTML",
 					"link": "/pages/devlog/base/html",
 					"order": 1
-				},
-				{
-					"text": "CSS",
-					"link": "/pages/devlog/base/css",
-					"order": 2
 				},
 				{
 					"text": "JavaScript",
