@@ -9,7 +9,7 @@ const nav = [
   },
   {
     text: 'CSS',
-    
+
     items: [{ text: 'CSS', link: '/css/index', activeMath: '/css/' }]
   },
   {
@@ -17,7 +17,8 @@ const nav = [
     items: [
       { text: 'Vue2', link: '/vue2/index', activeMath: '/vue2/' },
       { text: 'Vue3', link: '/vue3/index', activeMatch: '/vue3/' },
-      { text: 'uniapp', link: '/uniapp/index', activeMath: '/uniapp/' }
+      { text: 'uniapp', link: '/uniapp/index', activeMath: '/uniapp/' },
+      { text: 'nextjs', link: '/nextjs/index', activeMath: '/nextjs/' }
     ]
   },
   {
@@ -44,10 +45,7 @@ const nav = [
   },
   {
     text: '其他框架',
-    items: [
-      { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
-      { text: 'next - pending', link: '/next/index', activeMath: '/next/' }
-    ]
+    items: [{ text: 'electron', link: '/electron/index', activeMath: '/electron/' }]
   }
 ]
 

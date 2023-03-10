@@ -41,6 +41,11 @@
 				"text": "uniapp",
 				"link": "/pages/uniapp/index",
 				"activeMath": "/uniapp/"
+			},
+			{
+				"text": "nextjs",
+				"link": "/pages/nextjs/index",
+				"activeMath": "/nextjs/"
 			}
 		]
 	},
@@ -111,11 +116,6 @@
 				"text": "electron",
 				"link": "/pages/electron/index",
 				"activeMath": "/electron/"
-			},
-			{
-				"text": "next - pending",
-				"link": "/pages/next/index",
-				"activeMath": "/next/"
 			}
 		]
 	}
