@@ -54,6 +54,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/nextjs": {
+		"text": "NextJs",
+		"link": "/pages/nextjs/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/package": {
 		"text": "包管理",
 		"link": "/pages/package/index",

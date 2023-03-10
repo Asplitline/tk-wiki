@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.3d0d93d2.js";const l=JSON.parse('{"title":"预处理器","description":"","frontmatter":{"title":"预处理器","order":1},"headers":[],"relativePath":"pages/css/other/index.md","lastUpdated":1675353756000}'),s={name:"pages/css/other/index.md"};function r(o,n,c,d,p,i){return a(),t("div")}const m=e(s,[["render",r]]);export{l as __pageData,m as default};

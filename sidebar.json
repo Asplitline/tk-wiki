@@ -167,23 +167,6 @@
 			"order": 1
 		},
 		{
-			"text": "Vue",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "基础",
-					"link": "/pages/devlog/vue/base",
-					"order": 1
-				},
-				{
-					"text": "三方库",
-					"link": "/pages/devlog/vue/three-party",
-					"order": 3
-				}
-			],
-			"order": 2
-		},
-		{
 			"text": "手写篇",
 			"collapsible": true,
 			"items": [
@@ -206,22 +189,6 @@
 				}
 			],
 			"order": 4
-		},
-		{
-			"text": "React",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "基础",
-					"link": "/pages/devlog/react/base",
-					"order": 1
-				},
-				{
-					"text": "三方库",
-					"link": "/pages/devlog/react/three-party",
-					"order": 3
-				}
-			]
 		}
 	],
 	"/pages/electron": [
@@ -524,6 +491,39 @@
 			]
 		}
 	],
+	"/pages/nextjs": [
+		{
+			"text": "基础",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/nextjs/base/base",
+					"order": 2
+				},
+				{
+					"text": "预渲染和数据获取",
+					"link": "/pages/nextjs/base/pre-render",
+					"order": 2
+				},
+				{
+					"text": "动态路由",
+					"link": "/pages/nextjs/base/dynamic-routes",
+					"order": 3
+				},
+				{
+					"text": "路由API",
+					"link": "/pages/nextjs/base/routes-api",
+					"order": 4
+				},
+				{
+					"text": "其他选项",
+					"link": "/pages/nextjs/base/other-options",
+					"order": 5
+				}
+			]
+		}
+	],
 	"/pages/package": [
 		{
 			"text": "包管理",
@@ -618,60 +618,45 @@
 	],
 	"/pages/react": [
 		{
-			"text": "NextJs",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "基础",
-					"link": "/pages/react/nextjs/base",
-					"order": 2
-				},
-				{
-					"text": "预渲染和数据获取",
-					"link": "/pages/react/nextjs/pre-render",
-					"order": 2
-				},
-				{
-					"text": "动态路由",
-					"link": "/pages/react/nextjs/dynamic-routes",
-					"order": 3
-				},
-				{
-					"text": "路由API",
-					"link": "/pages/react/nextjs/routes-api",
-					"order": 4
-				},
-				{
-					"text": "其他选项",
-					"link": "/pages/react/nextjs/other-options",
-					"order": 5
-				}
-			],
-			"order": 1
-		},
-		{
 			"text": "React",
 			"collapsible": true,
 			"items": [
 				{
 					"text": "React 核心",
-					"link": "/pages/react/react/react-core",
+					"link": "/pages/react/base/react-core",
 					"order": 2
 				},
 				{
 					"text": "React Hook",
-					"link": "/pages/react/react/react-hook",
+					"link": "/pages/react/base/react-hook",
 					"order": 2
 				},
 				{
 					"text": "React 进阶",
-					"link": "/pages/react/react/react-advance",
+					"link": "/pages/react/base/react-advance",
 					"order": 3
 				},
 				{
 					"text": "React Router",
-					"link": "/pages/react/react/react-router",
+					"link": "/pages/react/base/react-router",
 					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/react/parctice/base",
+					"order": 1
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/react/parctice/three-party",
+					"order": 3
 				}
 			],
 			"order": 1
@@ -965,6 +950,22 @@
 					"text": "Vuex",
 					"link": "/pages/vue2/data/vuex",
 					"order": 1
+				}
+			]
+		},
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/vue2/practice/base",
+					"order": 1
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/vue2/practice/three-party",
+					"order": 3
 				}
 			]
 		}
