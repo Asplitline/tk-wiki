@@ -1,6 +1,6 @@
 ---
-title: JavaScript
-order: 3
+title: 基础
+order: 2
 ---
 
 # JavaScript 实战
@@ -86,13 +86,11 @@ const res = Promise.all(arr)
 `'1,2,3,4,[7,8,9],4,5,7,[111,22,44]'` =>` ["1", "2", "3", "4", "[7,8,9]", "4", "5", "7", "[111,22,44]"]`
 
 ```javascript
-const str = '1,2,3,4,[7,8,9],4,5,7,[111,22,44,a]';
-const reg = /(\[.*?\])|,/g;
-const arr = str.split(reg).filter(Boolean);
-console.log(arr);
+const str = '1,2,3,4,[7,8,9],4,5,7,[111,22,44,a]'
+const reg = /(\[.*?\])|,/g
+const arr = str.split(reg).filter(Boolean)
+console.log(arr)
 ```
-
-
 
 ## ？直接返回函数和闭包函数
 

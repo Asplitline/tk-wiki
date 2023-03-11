@@ -1,7 +1,17 @@
 [
 	{
-		"text": "JavaScript",
+		"text": "三件套",
 		"items": [
+			{
+				"text": "HTML",
+				"link": "/pages/html/index",
+				"activeMath": "/html/"
+			},
+			{
+				"text": "CSS",
+				"link": "/pages/css/index",
+				"activeMath": "/css/"
+			},
 			{
 				"text": "JavaScript",
 				"link": "/pages/js/index",
@@ -11,16 +21,6 @@
 				"text": "TypeScript",
 				"link": "/pages/ts/index",
 				"activeMatch": "/ts/"
-			}
-		]
-	},
-	{
-		"text": "CSS",
-		"items": [
-			{
-				"text": "CSS",
-				"link": "/pages/css/index",
-				"activeMath": "/css/"
 			}
 		]
 	},
@@ -88,11 +88,6 @@
 		"text": "实战",
 		"items": [
 			{
-				"text": "框架实战",
-				"link": "/pages/devlog/index",
-				"activeMath": "/devlog/"
-			},
-			{
 				"text": "错误收集",
 				"link": "/pages/error/index",
 				"activeMath": "/error/"
@@ -101,21 +96,21 @@
 				"text": "QA",
 				"link": "/pages/qa/index",
 				"activeMath": "/qa/"
-			},
-			{
-				"text": "tk库",
-				"link": "/pages/tk/index",
-				"activeMath": "/tk/"
 			}
 		]
 	},
 	{
-		"text": "其他框架",
+		"text": "其他",
 		"items": [
 			{
 				"text": "electron",
 				"link": "/pages/electron/index",
 				"activeMath": "/electron/"
+			},
+			{
+				"text": "tk库",
+				"link": "/pages/tk/index",
+				"activeMath": "/tk/"
 			}
 		]
 	}

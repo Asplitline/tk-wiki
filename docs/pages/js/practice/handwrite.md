@@ -1,6 +1,6 @@
 ---
-title: JavaScript
-order: 1
+title: 手写
+order: 3
 ---
 
 # JavaScript 手写

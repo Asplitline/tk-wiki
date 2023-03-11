@@ -1,16 +1,13 @@
 import { pageRoot } from './constants'
 const nav = [
   {
-    text: 'JavaScript',
+    text: '三件套',
     items: [
+      { text: 'HTML', link: '/html/index', activeMath: '/html/' },
+      { text: 'CSS', link: '/css/index', activeMath: '/css/' },
       { text: 'JavaScript', link: '/js/index', activeMath: '/js/' },
       { text: 'TypeScript', link: '/ts/index', activeMatch: '/ts/' }
     ]
-  },
-  {
-    text: 'CSS',
-
-    items: [{ text: 'CSS', link: '/css/index', activeMath: '/css/' }]
   },
   {
     text: 'Vue',
@@ -37,15 +34,16 @@ const nav = [
   {
     text: '实战',
     items: [
-      { text: '框架实战', link: '/devlog/index', activeMath: '/devlog/' },
       { text: '错误收集', link: '/error/index', activeMath: '/error/' },
-      { text: 'QA', link: '/qa/index', activeMath: '/qa/' },
-      { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
+      { text: 'QA', link: '/qa/index', activeMath: '/qa/' }
     ]
   },
   {
-    text: '其他框架',
-    items: [{ text: 'electron', link: '/electron/index', activeMath: '/electron/' }]
+    text: '其他',
+    items: [
+      { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
+      { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
+    ]
   }
 ]
 
