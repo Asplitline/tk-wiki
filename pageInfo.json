@@ -46,6 +46,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/html": {
+		"text": "HTML",
+		"link": "/pages/html/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/js": {
 		"text": "JavaScript",
 		"link": "/pages/js/index",
