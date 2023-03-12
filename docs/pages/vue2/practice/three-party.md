@@ -100,3 +100,68 @@ editor.config.customUploadImg = async (resultFiles, insertImgFn) => {
 }
 editor.create()
 ```
+
+
+
+## font-awesome
+
+1. 安装 font-awesome
+
+```bash
+yarn add font-awesome@^4
+```
+
+2. 在 main.js 引入
+
+```js
+import 'font-awesome/css/font-awesome.css'
+```
+
+3. 使用
+
+```html
+ <i class="fa fa-tag" aria-hidden="true"></i>
+```
+
+> font-awesome v4官网：https://fontawesome.com/v4/icons/
+
+## xicons
+
+1. 安装 xicons
+
+```
+yarn add @v2icons/fa @v2icons/utils
+```
+
+> @v2icons/fa 图标库
+>
+> @v2icons/utils 包含图标组件
+
+2. 使用 icons
+
+```html
+<template>
+  <div>
+      <Icon size="20">
+          <CartArrowDown size="16"></CartArrowDown>
+      </Icon>
+  </div>
+</template>
+
+<script>
+import { CartArrowDown } from '@v2icons/fa'
+export default {
+  components: {
+    CartArrowDown,
+    Icon
+  },
+
+}
+</script>
+
+
+```
+
+> xicons：https://www.xicons.org/#/
+>
+> guide：https://github.com/07akioni/xicons#installation
