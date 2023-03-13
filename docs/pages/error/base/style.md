@@ -14,3 +14,14 @@ sass-loader 版本过高，降级到 ^7.3
 ```css
 yarn add sass-loader@^7.3
 ```
+
+## node-sass 问题
+
+删除 node-sass ，安装 sass 和 sass-loader。
+
+```
+"sass": "~1.32.13",
+"sass-loader": "~8.0.2",
+```
+
+> 需要锁住版本

@@ -140,6 +140,8 @@ module.exports = {
 }
 ```
 
+
+
 ## 三方库
 
 ### element ui 按需导入
@@ -167,14 +169,3 @@ module.exports = {
   ]
 }
 ```
-
-### vue 引入 font-awesome
-
-1. 安装 `yarn add font-awesome`
-2. `main.js`引入
-
-```javascript
-import 'font-awesome/css/font-awesome.css'
-```
-
-##
