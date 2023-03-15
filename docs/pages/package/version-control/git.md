@@ -799,14 +799,26 @@ git mv index.js Index.js
 
 ### archive - 打包操作
 
-```shell
+```bash
 # 生成zip
-git archive master --prefix='confict/' --format=zip > confict.zip
+git archive master --prefix='confict/' --format=zip > master.zip
+
+git archive master --format=tar.gz --output=./master.zip
 ```
+
+```bash
+--format <fmt>        archive format
+--prefix <prefix>     prepend prefix to each pathname in the archive
+-o, --output <file>   write the archive to this file
+```
+
+
 
 ### diff - 差异
 
 查看工作区、暂存区、本地版本库之间的文件差异
+
+
 
 ### blame - 历史信息
 
