@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Git
 order: 1
 ---
@@ -140,7 +141,7 @@ git show <commitHashId>
 
 git log 运行过程
 
-1. 查找`HEAD`指针对应的分支（假设为master）
+1. 查找`HEAD`指针对应的分支（假设为 master）
 2. 找到`master`指针指向的快照
 3. 找到父节点（前一个快照）
 4. 以此类推，显示当前分支的所有快照
@@ -192,8 +193,6 @@ git push # 需先记住地址
 ```bash
 git push origin --tags # 推送所有本地tag到远程
 ```
-
-
 
 ## stash - 临时存储区
 
@@ -331,8 +330,6 @@ git remote update origin -p
 | ------------------------------ | ------------------------------------ |
 | `git fetch origin master:temp` | 拉取远端分支`master`并新建分支`temp` |
 
-
-
 ## merge - 合并分支
 
 两个分支时会产生一个特殊的提交记录，它有两个父节点
@@ -365,7 +362,7 @@ git cherry-pick <commitHash>
 应用场景
 
 - 分支合并：将分支冲突处理交由分支开发者
-- 合并多次commits：
+- 合并多次 commits：
 
 ### 分支合并
 
@@ -383,16 +380,16 @@ rebase：将分支**出发点**从 旧 master 移动到 新 master。
 git rebase branch_name
 ```
 
-### 合并commits
+### 合并 commits
 
-当commits过多
+当 commits 过多
 
 - 不利于代码 review
 - 造成分支污染
 
-例子：合并commits
+例子：合并 commits
 
-1. 合并最近4次提交记录
+1. 合并最近 4 次提交记录
 
 ```bash
 git rebase -i HEAD~4
@@ -447,7 +444,7 @@ git rebase --continue
 git log
 ```
 
-此时3个commit合并为1个commit
+此时 3 个 commit 合并为 1 个 commit
 
 ### 参考链接
 
@@ -523,8 +520,6 @@ git revert HEAD --no-edit
 git revert -n HEAD
 ```
 
-
-
 ## cherry-pick - 筛选
 
 将代码从一个分支转移到另一个分支
@@ -532,8 +527,6 @@ git revert -n HEAD
 方法一：需要另一个分支的所有代码变动，采用合并（`git merge`）
 
 方法二：只需要部分代码变动，采用 cherry-pick
-
-
 
 ### 基本用法
 
@@ -572,8 +565,6 @@ git cherry-pick 命令的参数，不一定是提交的哈希值，分支名也�
 git cherry-pick feature
 ```
 
-
-
 ### 转移多个提交
 
 ```bash
@@ -584,8 +575,6 @@ git cherry-pick A..B
 # 转移 A 到 B
 git cherry-pick A^..B
 ```
-
-
 
 ### 配置项
 
@@ -619,9 +608,7 @@ git cherry-pick -m 1 <commitHash>
 
 参数`parent-number`是一个从`1`开始的整数，代表原始提交的父分支编号
 
-一般来说，1号父分支是接受变动的分支（the branch being merged into），2号父分支是作为变动来源的分支（the branch being merged from）
-
-
+一般来说，1 号父分支是接受变动的分支（the branch being merged into），2 号父分支是作为变动来源的分支（the branch being merged from）
 
 ### 代码冲突
 
@@ -639,8 +626,6 @@ git cherry-pick -m 1 <commitHash>
 
 (3) --quit：放弃合并
 
-
-
 ### 转移到另一个代码库
 
 步骤：
@@ -657,7 +642,7 @@ git remote add target git://gitUrl
 git fetch target
 ```
 
-3. 获取远程仓库提交的hash值
+3. 获取远程仓库提交的 hash 值
 
 ```bash
 git log target/master
@@ -812,13 +797,9 @@ git archive master --format=tar.gz --output=./master.zip
 -o, --output <file>   write the archive to this file
 ```
 
-
-
 ### diff - 差异
 
 查看工作区、暂存区、本地版本库之间的文件差异
-
-
 
 ### blame - 历史信息
 
@@ -874,4 +855,3 @@ git worktree remote -f <worktreePath> # 强制清理
 # Prune working tree information in $GIT_DIR/worktrees.
 git prune
 ```
-

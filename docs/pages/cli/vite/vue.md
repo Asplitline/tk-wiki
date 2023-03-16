@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Vue
 order: 3
 ---
@@ -30,7 +31,6 @@ export default defineConfig({
     })
   ]
 })
-
 ```
 
 3. 编写 svg-icon 组件
@@ -48,8 +48,8 @@ export default defineConfig({
     :class="className"
     v-else
   >
-    <use :href="symbolId" />
-  </svg>****
+    <use :href="symbolId" /></svg
+  >****
 </template>
 
 <script setup lang="ts">
@@ -106,7 +106,6 @@ const svgStyle = computed(() => {
   display: inline-block;
 }
 </style>
-
 ```
 
 4. 在 main.ts 注册 svg
@@ -121,8 +120,6 @@ import 'virtual:svg-icons-register'
 <svg-icon name="arrow-left"></svg-icon>
 ```
 
-
-
 ## Vue3 无法识别 @
 
 在 tsconfig.json 配置
@@ -134,7 +131,6 @@ import 'virtual:svg-icons-register'
     "paths": {
       "@/*": ["src/*"]
     }
-  },
+  }
 }
 ```
-

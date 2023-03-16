@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: React
 order: 3
 ---
@@ -49,7 +50,6 @@ yarn install
   sideEffects: true,
 },
 ```
-
 
 ## 相关链接
 

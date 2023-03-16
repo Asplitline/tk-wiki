@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Vue
 order: 1
 ---

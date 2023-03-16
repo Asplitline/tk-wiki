@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 可复用性 & 组合
 order: 4
 ---
@@ -36,7 +37,7 @@ var component = new Component()
 
 **钩子函数**：将合并为数组，都会被调用。**混入钩子函数 先于 组件钩子函数** 调用
 
-**值为对象的选项**：（`methods`、`components` 、`directives`）合并为同一个对象。**对象键名冲突，优先取组件数据。*
+**值为对象的选项**：（`methods`、`components` 、`directives`）合并为同一个对象。\*_对象键名冲突，优先取组件数据。_
 
 注意：`Vue.extend()`使用同样策略合并
 
@@ -99,8 +100,6 @@ Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
 }
 ```
 
-
-
 ## 自定义指令
 
 代码复用和抽象的主要形式是组件。
@@ -142,13 +141,13 @@ directives: {
 
 ### 指令钩子函数
 
-| 函数名称         | 调用时机                            | 说明                                                         |
-| ---------------- | ----------------------------------- | ------------------------------------------------------------ |
-| bind             | 指令**第一次绑定到元素时**          | 初始化设置                                                   |
-| inserted         | 被绑定元素**插入父节点时**          | 只保证父节点存在，不保证已被插入                             |
+| 函数名称         | 调用时机                            | 说明                                                                |
+| ---------------- | ----------------------------------- | ------------------------------------------------------------------- |
+| bind             | 指令**第一次绑定到元素时**          | 初始化设置                                                          |
+| inserted         | 被绑定元素**插入父节点时**          | 只保证父节点存在，不保证已被插入                                    |
 | update           | 所有组件 **VNode 更新时**           | 但可能发生在子 VNode 更新之前。指令的值可能发生了改变，也可能没有。 |
-| componentUpdated | 组件 VNode 及子 VNode**全部更新后** |                                                              |
-| unbind           | 指令**与元素解绑时**（只调用一次）  |                                                              |
+| componentUpdated | 组件 VNode 及子 VNode**全部更新后** |                                                                     |
+| unbind           | 指令**与元素解绑时**（只调用一次）  |                                                                     |
 
 ### 钩子函数参数
 
@@ -221,7 +220,7 @@ Vue.directive('color-swatch', function (el, binding) {
 
 例子：通过 level 动态生成标题的组件
 
-template方式
+template 方式
 
 ```html
 <script type="text/x-template" id="anchored-heading-template">
@@ -285,8 +284,6 @@ export default {
 
 <img src="https://v2.cn.vuejs.org/images/dom-tree.png" alt="DOM 树可视化" style="zoom:50%;" />
 
-
-
 每个元素都是一个节点。每段文字也是一个节点。甚至注释也都是节点。
 
 #### 虚拟 DOM
@@ -334,7 +331,7 @@ createElement(
 
 #### 深入数据对象
 
-允许你绑定普通的 HTML attribute，也允许绑定如 `innerHTML` 这样的 DOM property 
+允许你绑定普通的 HTML attribute，也允许绑定如 `innerHTML` 这样的 DOM property
 
 ```js
 {
@@ -452,7 +449,7 @@ export default {
 
 组件树中的 vnodes 必须是唯一的
 
-说明：vnodes节点不唯一，渲染不会有问题。但是更新出现异常
+说明：vnodes 节点不唯一，渲染不会有问题。但是更新出现异常
 
 例子：第一次点击两个 p 都会更新，第二次点击，只更新第二个。
 
@@ -460,23 +457,23 @@ export default {
 Vue.component('ele', {
   data() {
     return {
-      text: 'test',
-    };
+      text: 'test'
+    }
   },
-  render: function(createElement) {
+  render: function (createElement) {
     var ChildNode = createElement(Child, {
       props: { text: this.text },
       nativeOn: {
         click: () => {
-          this.text = 'clicked ' + new Date();
-        },
-      },
-    });
-    return createElement('div', [ChildNode, ChildNode]);
-  },
-});
+          this.text = 'clicked ' + new Date()
+        }
+      }
+    })
+    return createElement('div', [ChildNode, ChildNode])
+  }
+})
 new Vue({
-    el:'#app',
+  el: '#app'
 })
 ```
 
@@ -486,26 +483,29 @@ new Vue({
 Vue.component('ele', {
   data() {
     return {
-      text: 'test',
-    };
+      text: 'test'
+    }
   },
-  render: function(createElement) {
-    return createElement('div', Array.from({length:2},()=>createElement(Child, {
-      props: { text: this.text },
-      nativeOn: {
-        click: () => {
-          this.text = 'clicked ' + new Date();
-        },
-      },
-    })));
-  },
-});
+  render: function (createElement) {
+    return createElement(
+      'div',
+      Array.from({ length: 2 }, () =>
+        createElement(Child, {
+          props: { text: this.text },
+          nativeOn: {
+            click: () => {
+              this.text = 'clicked ' + new Date()
+            }
+          }
+        })
+      )
+    )
+  }
+})
 new Vue({
-    el:'#app',
+  el: '#app'
 })
 ```
-
-
 
 ### Javascript 替代功能
 
@@ -571,13 +571,13 @@ on: {
 
 对于其它的修饰符，可以在事件处理函数中使用事件方法
 
-| 修饰符                                      | 处理函数中的等价操作                                         |
-| :------------------------------------------ | :----------------------------------------------------------- |
-| `.stop`                                     | `event.stopPropagation()`                                    |
-| `.prevent`                                  | `event.preventDefault()`                                     |
-| `.self`                                     | `if (event.target !== event.currentTarget) return`           |
+| 修饰符                                      | 处理函数中的等价操作                                                                                            |
+| :------------------------------------------ | :-------------------------------------------------------------------------------------------------------------- |
+| `.stop`                                     | `event.stopPropagation()`                                                                                       |
+| `.prevent`                                  | `event.preventDefault()`                                                                                        |
+| `.self`                                     | `if (event.target !== event.currentTarget) return`                                                              |
 | 按键： `.enter`, `.13`                      | `if (event.keyCode !== 13) return` (对于别的按键修饰符来说，可将 `13` 改为[另一个按键码](http://keycode.info/)) |
-| 修饰键： `.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (将 `ctrlKey` 分别修改为 `altKey`、`shiftKey` 或者 `metaKey`) |
+| 修饰键： `.ctrl`, `.alt`, `.shift`, `.meta` | `if (!event.ctrlKey) return` (将 `ctrlKey` 分别修改为 `altKey`、`shiftKey` 或者 `metaKey`)                      |
 
 ```js
 on: {
@@ -690,8 +690,7 @@ Vue.component('my-component', {
 在 2.5.0 +，使用单文件组件，函数式组件可以如下声明
 
 ```html
-<template functional>
-</template>
+<template functional> </template>
 ```
 
 #### context 参数说明
@@ -710,10 +709,18 @@ Vue.component('my-component', {
 smart-list 组件例子
 
 ```js
-var EmptyList = { /* ... */ }
-var TableList = { /* ... */ }
-var OrderedList = { /* ... */ }
-var UnorderedList = { /* ... */ }
+var EmptyList = {
+  /* ... */
+}
+var TableList = {
+  /* ... */
+}
+var OrderedList = {
+  /* ... */
+}
+var UnorderedList = {
+  /* ... */
+}
 
 Vue.component('smart-list', {
   functional: true,
@@ -725,21 +732,17 @@ Vue.component('smart-list', {
     isOrdered: Boolean
   },
   render: function (createElement, context) {
-    function appropriateListComponent () {
+    function appropriateListComponent() {
       var items = context.props.items
 
-      if (items.length === 0)           return EmptyList
+      if (items.length === 0) return EmptyList
       if (typeof items[0] === 'object') return TableList
-      if (context.props.isOrdered)      return OrderedList
+      if (context.props.isOrdered) return OrderedList
 
       return UnorderedList
     }
 
-    return createElement(
-      appropriateListComponent(),
-      context.data,
-      context.children
-    )
+    return createElement(appropriateListComponent(), context.data, context.children)
   }
 })
 ```
@@ -785,18 +788,19 @@ Vue.component('my-functional-button', {
 
 ```html
 <div>
-        <header>
-          <h1>I'm a template!</h1>
-        </header>
-        <p v-if="message">{{ message }}</p>
-        <p v-else>No message.</p>
+  <header>
+    <h1>I'm a template!</h1>
+  </header>
+  <p v-if="message">{{ message }}</p>
+  <p v-else>No message.</p>
 </div>
 ```
 
 ```js
-function anonymous(
-) {
-  with(this){return _c('div',[_m(0),(message)?_c('p',[_v(_s(message))]):_c('p',[_v("No message.")])])}
+function anonymous() {
+  with (this) {
+    return _c('div', [_m(0), message ? _c('p', [_v(_s(message))]) : _c('p', [_v('No message.')])])
+  }
 }
 ```
 
@@ -1059,19 +1063,17 @@ h('div', {
 
 ![](https://v2.cn.vuejs.org/images/data.png)
 
-
-
 ### 检测变化注意事项
 
 由于 JavaScript 的限制，Vue 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性
 
-JavsScript限制：对象和数组通过引用值存储，而不是值存储。当内容变化时，引用没有变，Vue无法监听到这些变化。
+JavsScript 限制：对象和数组通过引用值存储，而不是值存储。当内容变化时，引用没有变，Vue 无法监听到这些变化。
 
 > [Vue2.0 不能监测数组和对象的变化原因以及解决方案](https://blog.csdn.net/XH_jing/article/details/120413904)
 
 #### 对于对象
 
-问题：由于 Vue 会在初始实例时 执行 getter/setter 转换，所以未在 data 对象中预先定义的属性，无法被监听                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+问题：由于 Vue 会在初始实例时 执行 getter/setter 转换，所以未在 data 对象中预先定义的属性，无法被监听
 
 ```js
 var vm = new Vue({
@@ -1232,7 +1234,7 @@ Vue.nextTick(function () {
 })
 ```
 
- `$nextTick()` 返回一个 `Promise` 对象，可以通过 await
+`$nextTick()` 返回一个 `Promise` 对象，可以通过 await
 
 ```js
 methods: {
@@ -1246,8 +1248,6 @@ methods: {
 ```
 
 > nextTick 回调函数 this 会自动绑定到 Vue 上
-
-
 
 ## 与其他框架对比
 

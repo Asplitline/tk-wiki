@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 微信小程序兼容性
 order: 4
 ---
@@ -89,9 +90,9 @@ styleObj2StyleStr(style)
 
 > 参考：https://www.uviewui.com/components/feature.html
 
-## 自定义组件dom解构问题
+## 自定义组件 dom 解构问题
 
-问题：微信小程序自定义组件外面会多一层解构，影响flex布局
+问题：微信小程序自定义组件外面会多一层解构，影响 flex 布局
 
 解决：设置 virtualHost 为 true
 
@@ -108,27 +109,21 @@ options: {
 
 参考：https://uniapp.dcloud.net.cn/tutorial/vue-api.html#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE
 
-
-
 ## scroll-view 横向滚动问题
 
-问题：小程序使用scroll-view横向滑动时，flex布局失效问题
+问题：小程序使用 scroll-view 横向滑动时，flex 布局失效问题
 
 解决：里面多加一层
 
 ```html
-<scroll-view scroll-x="true" >
+<scroll-view scroll-x="true">
   <view class="flex">
-    <view v-for="item in 4" >
-        {{item}}
-    </view>
+    <view v-for="item in 4"> {{item}} </view>
   </view>
 </scroll-view>
 ```
 
-参考：[小程序使用scroll-view横向滑动时，flex布局失效问题](https://www.cnblogs.com/dongzhi1111/p/11884000.html)
-
-
+参考：[小程序使用 scroll-view 横向滑动时，flex 布局失效问题](https://www.cnblogs.com/dongzhi1111/p/11884000.html)
 
 ## text 下 slot 失效
 

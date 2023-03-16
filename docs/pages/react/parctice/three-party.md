@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 三方库
 order: 3
 ---
@@ -286,7 +287,7 @@ module.exports = override(
 
 ## antd 按需导入
 
-1. 安装 antd 
+1. 安装 antd
 
 ```shell
 yarn add antd
@@ -326,8 +327,7 @@ yarn install
 补充：手动引入
 
 ```js
-import DatePicker from 'antd/es/date-picker'; // 加载 JS
-import 'antd/es/date-picker/style/css'; // 加载 CSS
+import DatePicker from 'antd/es/date-picker' // 加载 JS
+import 'antd/es/date-picker/style/css' // 加载 CSS
 // import 'antd/es/date-picker/style';         // 加载 LESS
 ```
-

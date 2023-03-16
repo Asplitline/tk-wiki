@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: CSS 规范
 order: 2
 ---

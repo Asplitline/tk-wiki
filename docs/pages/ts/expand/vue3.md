@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: TS 在 Vue3 中应用
 order: 3
 ---
@@ -73,7 +74,7 @@ module.exports = {
 }
 ```
 
-## 自定义组件中枚举prop
+## 自定义组件中枚举 prop
 
 自定义组件中枚举值处理
 
@@ -85,4 +86,3 @@ const props = defineProps({
   }
 })
 ```
-

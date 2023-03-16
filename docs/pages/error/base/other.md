@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 其他错误
 order: 4
 ---

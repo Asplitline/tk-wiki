@@ -1,13 +1,14 @@
 ---
+outline: deep
 title: 配置与实战
 order: 3
 ---
 
 # Git 配置与实战
 
-## ---配置---
+## 配置
 
-## 别名配置
+### 别名配置
 
 .bash_profile：登录时执行一次，可以手动执行
 
@@ -95,7 +96,7 @@ source ~/.bash_profile
 
 [ohmyzsh-git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
 
-## Vscode 配置 Git Bash
+### Vscode 配置 Git Bash
 
 查看 git 位置
 
@@ -122,9 +123,9 @@ where git
 },
 ```
 
-## ---实战---
+## 实战
 
-## Git 回退
+### Git 回退
 
 1. 撤销提交
 
@@ -195,7 +196,7 @@ git reset --hard [当前分支此前的最后一次提交]
 git checkout feature
 ```
 
-## 暂存区和未暂存区互换
+### 暂存区和未暂存区互换
 
 暂存的内容变成未暂存，把未暂存的内容暂存起来
 
@@ -209,7 +210,7 @@ git stash pop --index 0
 
 > -- index 保证 文件状态，否则默认还原为未暂存
 
-## git status 检测不到文件变化
+### git status 检测不到文件变化
 
 git 管理软件 SourceTree 会遇到往项目里新增了文件，软件却没有任何反应的问题，
 
@@ -226,7 +227,7 @@ git 管理软件 SourceTree 会遇到往项目里新增了文件，软件却没�
 4. 执行 git commit -m .  # SourceTree自带推送按钮，这一步命令行可以省略.
 ```
 
-## 无法监测文件名大小写
+### 无法监测文件名大小写
 
 `git mv`
 
@@ -242,7 +243,7 @@ git mv Hello.js hello.js
 
 > 需要通过 commit 后，再操作才能监听
 
-## 锁定的 main
+### 锁定的 main
 
 `remote rejected`：! [远程服务器拒绝] main -> main (TF402455: 不允许推送(push)这个分支; 你必须使用 pull request 来更新这个分支.)
 
@@ -258,7 +259,7 @@ git reset --hard o/main # 回滚
 git checkout xx
 ```
 
-## git clone - RPC failed
+### git clone - RPC failed
 
 ```bash
 error: RPC failed; curl 18 transfer closed with outstanding read data remaining
@@ -271,7 +272,7 @@ fatal: fetch-pack: invalid index-pack output
 git config --global http.postBuffer 524288000
 ```
 
-## remote: HTTP Basic: Access denied
+### remote: HTTP Basic: Access denied
 
 ```bash
 fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-bundle.crt
@@ -282,7 +283,7 @@ fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-
 git config --global http.sslVerify false
 ```
 
-## OpenSSL SSL_read: Connection was reset, errno 10054
+### OpenSSL SSL_read: Connection was reset, errno 10054
 
 1. ssh 目录下是否有 ssh 的密钥
 
@@ -295,7 +296,7 @@ id_rsa  id_rsa.pub
 
 2. 将 pub 里的字符串配置到 ssh 中
 
-## You are not currently on a branch
+### You are not currently on a branch
 
 原因：HEAD 指向和 当前分支记录不符合
 
@@ -315,7 +316,7 @@ git merge temp
 git branch -d temp
 ```
 
-## 多个 commits 合并
+### 多个 commits 合并
 
 ```bash
 git rebase -i [hashA] [hashB]
@@ -357,7 +358,7 @@ s 42817be feat: d
 
 [多个 commits 合并](https://www.cnblogs.com/yxhblogs/p/10527271.html)
 
-## 清除工作区文件
+### 清除工作区文件
 
 情况一：未 add 或 commit
 
@@ -377,7 +378,7 @@ git clean
 git reset .
 ```
 
-## 本地分支和远端分支名称不匹配
+### 本地分支和远端分支名称不匹配
 
 场景：本地分支为 main，想要推送到 远端 feat/main
 
@@ -413,13 +414,13 @@ If you wish to set tracking information for this branch you can do so with:
     git branch --set-upstream-to=origin/<branch> feat/main
 ```
 
-## git bash 乱码
+### git bash 乱码
 
 修改 `计算机\HKEY_CURRENT_USER\Console\D:_git_Git_usr_bin_bash.exe`中 codePage 为 十进制 65001
 
 ![image-20221031113553307](config.assets/image-20221031113553307.png)
 
-## 清除未追踪文件
+### 清除未追踪文件
 
 场景：git status 后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)，只想删除 untracked file
 
@@ -442,7 +443,7 @@ git clean -nf
 git clean -nfd
 ```
 
-## vscode 配置全局 .gitignore
+### vscode 配置全局 .gitignore
 
 以 .history 文件举例
 
@@ -475,7 +476,7 @@ git config --global core.excludesfile ~/.gitignore
   }
 ```
 
-## 撤销 git commit --amend
+### 撤销 git commit --amend
 
 查看提交记录
 
@@ -491,7 +492,7 @@ bbbbbbb HEAD@{1}: commit: xxxx
 git reset --soft HEAD@{1}
 ```
 
-## 修改 commit 提交人信息
+### 修改 commit 提交人信息
 
 场景：commit 提交用户信息错误
 
@@ -524,9 +525,9 @@ pick e333375e commit-3
 git commit --amend --reset-author
 ```
 
-## 撤销操作
+### 撤销操作
 
-### 撤销提交
+#### 撤销提交
 
 场景：想撤回某些提交
 
@@ -547,7 +548,7 @@ git revert [倒数第一个提交] [倒数第二个提交]
 - `--no-edit`：执行时不打开默认编辑器，直接使用 Git 自动生成的提交信息。
 - `--no-commit`：只抵消暂存区和工作区的文件变化，不产生新的提交。
 
-### 丢弃提交
+#### 丢弃提交
 
 场景：想丢弃某些提交
 
@@ -561,7 +562,7 @@ git reset <commitHashId>
 
 > 通过 git reflog 可以找回丢弃的提交
 
-### 替换提交
+#### 替换提交
 
 场景：提交后，想修改提交信息
 
@@ -571,7 +572,7 @@ git reset <commitHashId>
 git commit --amend -m "Fixes bug #42"
 ```
 
-### 撤销工作区文件
+#### 撤销工作区文件
 
 场景：工作区某个文件修改，但还没提交，通过 git checkout 找回修改之前的文件
 
@@ -581,7 +582,7 @@ git commit --amend -m "Fixes bug #42"
 git checkout -- [filename]
 ```
 
-### 撤销暂存区文件
+#### 撤销暂存区文件
 
 场景：不小心将文件添加暂存区，想撤销
 
@@ -589,7 +590,7 @@ git checkout -- [filename]
 git rm --cached [filename]
 ```
 
-### 撤销当前分支变化
+#### 撤销当前分支变化
 
 当前分支上做了几次提交，突然发现放错了分支，这几个提交本应该放到另一个分支
 
@@ -606,7 +607,7 @@ $ git reset --hard [当前分支此前的最后一次提交]
 
 参考：https://www.ruanyifeng.com/blog/2019/12/git-undo.html
 
-## 同步本地和远端 tag
+### 同步本地和远端 tag
 
 场景：远程 repository 中已经删除的 tag，使用 git fetch --prune，甚至"git fetch --tags"确保下载所有 tags，也不会让其在本地也将其删除
 

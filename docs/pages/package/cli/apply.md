@@ -1,11 +1,10 @@
 ---
+outline: deep
 title: 应用
 order: 6
 ---
 
 # 应用
-
-
 
 ## Yalc 本地调试 node_modules
 
@@ -15,13 +14,13 @@ order: 6
 npm i yalc -g
 ```
 
-2. 在需要本地link的库中发布依赖。以 element-ui 为例 
+2. 在需要本地 link 的库中发布依赖。以 element-ui 为例
 
 ```bash
 yalc publish
 ```
 
-yalc publish执行后，会逐一执行`npm 生命周期脚本`，如：`prepublish、prepare、prepublishOnly、prepack...`等
+yalc publish 执行后，会逐一执行`npm 生命周期脚本`，如：`prepublish、prepare、prepublishOnly、prepack...`等
 
 > 通过`--no-script`禁用钩子钩动各种脚本
 

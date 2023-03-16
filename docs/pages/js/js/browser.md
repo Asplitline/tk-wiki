@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 浏览器 API
 order: 2
 ---

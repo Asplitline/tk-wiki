@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: NextJs
 sidebar: false
 aside: false

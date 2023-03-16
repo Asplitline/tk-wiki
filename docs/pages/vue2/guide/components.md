@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 深入了解组件
 order: 2
 ---
@@ -141,7 +142,8 @@ props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
 
 ```js
 props: {
-  title: String,
+  outline: deep
+title: String,
   // ...
   contactsPromise: Promise // or any other constructor
 }
@@ -226,7 +228,8 @@ v-bind:title
 ```js
 post: {
   id: 1,
-  title: 'My Journey with Vue'
+  outline: deep
+title: 'My Journey with Vue'
 }
 ```
 
@@ -941,7 +944,7 @@ inject: ['getMap']
 
 1. **耦合度高**，重构困难
 
-2. property**非响应式**，单项数据流（同prop）
+2. property**非响应式**，单项数据流（同 prop）
 
 ### 程序化的事件侦听器
 

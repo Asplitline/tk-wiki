@@ -1,11 +1,10 @@
 ---
+outline: deep
 title: 基础
 order: 1
 ---
 
-# Vue 基础实践
-
-## ---Vue2---
+# Vue2 实践
 
 ## 全局混入
 
@@ -218,12 +217,6 @@ $scopedSlots - 作用域插槽
 
 写法 2：slot-scope
 待续。。。
-
-## ---Vue3---
-
-pending ...
-
-## ---通用---
 
 ## v-html 中修改样式
 

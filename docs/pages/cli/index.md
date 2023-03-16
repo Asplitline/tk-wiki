@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 脚手架
 layout: page
 sidebar: false

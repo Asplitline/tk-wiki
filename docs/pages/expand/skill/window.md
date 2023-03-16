@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Window
 order: 2
 ---
@@ -9,13 +10,13 @@ order: 2
 
 `\HKEY_CLASSES_ROOT\*\shell`
 
-1,    `Win+R` 打开运行，输入`regedit`，打开`注册表`，找到`HKEY_CLASSES_ROOT\*\shell`分支，如果没有shell分支，则在`*`下点击右键，选择“`新建`－`项`”，建立shell分支。
+1, `Win+R` 打开运行，输入`regedit`，打开`注册表`，找到`HKEY_CLASSES_ROOT\*\shell`分支，如果没有 shell 分支，则在`*`下点击右键，选择“`新建`－`项`”，建立 shell 分支。
 
-2,    在shell下新建“`VisualCode`”项，在右侧窗口的“**默认**”双击，在数据里输入“`用VSCode打开`”。~~这是右键上显示的文字~~
+2, 在 shell 下新建“`VisualCode`”项，在右侧窗口的“**默认**”双击，在数据里输入“`用VSCode打开`”。~~这是右键上显示的文字~~
 
-3,    在“`VisualCode`”下再新建`Command`项，在右侧窗口的“**默认**”键值栏内输入程序所在的安装路径，我的是：`"D:\anzhuang\Microsoft VS Code\Code.exe" "%1"`。**其中的%1表示要打开的文件参数**。
+3, 在“`VisualCode`”下再新建`Command`项，在右侧窗口的“**默认**”键值栏内输入程序所在的安装路径，我的是：`"D:\anzhuang\Microsoft VS Code\Code.exe" "%1"`。**其中的%1 表示要打开的文件参数**。
 
-4,    配置缩略图。在`VisualCode`项上新建`可扩充字符串值`，命名为`Icon`，双击，把`"D:\anzhuang\Microsoft VS Code\Code.exe"`放进数据就可以了。
+4, 配置缩略图。在`VisualCode`项上新建`可扩充字符串值`，命名为`Icon`，双击，把`"D:\anzhuang\Microsoft VS Code\Code.exe"`放进数据就可以了。
 
 ![image-20210824184345909](window.assets/image-20210824184345909.png)
 
@@ -25,9 +26,9 @@ order: 2
 
 `HKEY_CLASSES_ROOT\Directory\shell`
 
-1,    `Win+R` 打开运行，输入`regedit`，打开`注册表`，找到`HKEY_CLASSES_ROOT\Directory\shell`分支
+1, `Win+R` 打开运行，输入`regedit`，打开`注册表`，找到`HKEY_CLASSES_ROOT\Directory\shell`分支
 
-2,  同上面的2一样，数据内的值为“`用VSCode打开文件夹`”
+2, 同上面的 2 一样，数据内的值为“`用VSCode打开文件夹`”
 
 3、4、5、步骤完全一样，不再重复说明了。
 
@@ -41,11 +42,11 @@ order: 2
 
 1. `Win+R` 打开运行，输入`regedit`，打开`注册表`，找到`HKEY_CLASSES_ROOT\Directory\Background\shell\`分支
 
-2、同上面的2完全一样
+2、同上面的 2 完全一样
 
 3、同上，把 `%1` 改为`%V`，例如：`"D:\anzhuang\Microsoft VS Code\Code.exe" "%V"`
 
-4、5同上，完全一样
+4、5 同上，完全一样
 
 ![image-20210824184750514](window.assets/image-20210824184750514.png)
 
@@ -62,7 +63,7 @@ start "" "E:\WeChat\WeChat.exe"&ping localhost -n 1
 
 `start "" path&&ping localhost -n 0`
 
-> `&ping localhost -n 0`：可选项，表示1秒延迟
+> `&ping localhost -n 0`：可选项，表示 1 秒延迟
 
 ```shell
 start "" "E:\qq\Bin\QQScLauncher.exe"&ping localhost -n 0
@@ -73,15 +74,15 @@ start "" "E:\HbuilderX\HBuilderX\HBuilderX.exe"&ping localhost -n 2
 
 ## 查看文件树形结构
 
-`tree/?`：帮助  `tree`：文件夹结构  `tree/f`：含文件名
+`tree/?`：帮助 `tree`：文件夹结构 `tree/f`：含文件名
 
-`tree/f file.txt`：导出文件树到file.txt
+`tree/f file.txt`：导出文件树到 file.txt
 
-> `/?`：可以查看命令说明 
+> `/?`：可以查看命令说明
 >
 > eg ： `tree /?`
 
-## 找回windows图片查看器
+## 找回 windows 图片查看器
 
 1. 新建文件 .txt
 2. 将内容 写入 文件
@@ -156,6 +157,3 @@ shutdown -s -t <关闭时间> -c "<提示>"
 
 shutdown -s -t 时间　# 设置关机倒计时。 设置关闭前的超时为 xxx 秒
 ```
-
-
-

@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 三方库
 order: 3
 ---
@@ -11,8 +12,6 @@ order: 3
 
 文档：https://www.npmjs.com/package/cross-env
 
-
-
 ```javascript
 "scripts": {
     "start": "react-scripts start",
@@ -23,8 +22,6 @@ order: 3
     "eject": "react-scripts eject"
 }
 ```
-
-
 
 ## dotenv
 
@@ -60,4 +57,3 @@ console.log(process.env)
     "eject": "react-scripts eject"
 },
 ```
-

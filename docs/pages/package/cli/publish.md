@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 版本发布
 order: 5
 ---

@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 三方库
 order: 3
 ---
@@ -101,8 +102,6 @@ editor.config.customUploadImg = async (resultFiles, insertImgFn) => {
 editor.create()
 ```
 
-
-
 ## font-awesome
 
 1. 安装 font-awesome
@@ -120,10 +119,10 @@ import 'font-awesome/css/font-awesome.css'
 3. 使用
 
 ```html
- <i class="fa fa-tag" aria-hidden="true"></i>
+<i class="fa fa-tag" aria-hidden="true"></i>
 ```
 
-> font-awesome v4官网：https://fontawesome.com/v4/icons/
+> font-awesome v4 官网：https://fontawesome.com/v4/icons/
 
 ## xicons
 
@@ -142,24 +141,21 @@ yarn add @v2icons/fa @v2icons/utils
 ```html
 <template>
   <div>
-      <Icon size="20">
-          <CartArrowDown size="16"></CartArrowDown>
-      </Icon>
+    <Icon size="20">
+      <CartArrowDown size="16"></CartArrowDown>
+    </Icon>
   </div>
 </template>
 
 <script>
-import { CartArrowDown } from '@v2icons/fa'
-export default {
-  components: {
-    CartArrowDown,
-    Icon
-  },
-
-}
+  import { CartArrowDown } from '@v2icons/fa'
+  export default {
+    components: {
+      CartArrowDown,
+      Icon
+    }
+  }
 </script>
-
-
 ```
 
 > xicons：https://www.xicons.org/#/

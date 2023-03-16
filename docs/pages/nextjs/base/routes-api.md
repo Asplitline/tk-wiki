@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 路由API
 order: 4
 ---
@@ -36,4 +37,3 @@ export default (req, res) => {
 不能从 `getStaticProps `or `getStaticPaths` 获取 API route 。应该直接写在 `getStaticProps `or `getStaticPaths`
 
 > `getStaticProps `or `getStaticPaths`跑在服务端，不会包含浏览器 js bundle，能直接在里面写数据库查询。
-

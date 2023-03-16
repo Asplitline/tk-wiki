@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Linters
 order: 2
 ---
@@ -158,15 +159,13 @@ import 'lib/charting_library/charting_library.min.js'
   }
 ```
 
-
-
 ## Changelog
 
 文档：https://github.com/conventional-changelog/conventional-changelog
 
 相关链接：https://zhuanlan.zhihu.com/p/51894196
 
-1. 安装 changelog-cli 
+1. 安装 changelog-cli
 
 ```bash
 npm install -g conventional-changelog-cli
@@ -189,7 +188,4 @@ npm install -g conventional-changelog-cli
 
 -s：读写 changelog 为同一文件
 
--r：release版本数，默认为0，1表示全部
-
-
-
+-r：release 版本数，默认为 0，1 表示全部

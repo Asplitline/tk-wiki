@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: SCSS
 order: 2
 ---

@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: TS 其他应用
 order: 5
 ---
@@ -35,8 +36,6 @@ declare module 'axios' {
 
 参考：https://docs.shanyuhai.top/frontend/typescript/change-axios-response-type.html
 
-
-
 ## nodemon Unknown file extension ".ts"
 
 1- Add "type": "module" to package.json
@@ -49,7 +48,7 @@ declare module 'axios' {
 {
   "compilerOptions": {
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Node"
     /* ... your props ... */
   },
   "ts-node": {

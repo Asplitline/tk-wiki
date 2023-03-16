@@ -1,9 +1,8 @@
 ---
+outline: deep
 title: React Router
 order: 4
 ---
-
-
 
 # React-Router
 
@@ -18,13 +17,8 @@ npm install react-router-dom
 `<Switch>`渲染第一个匹配的 `<Route>`
 
 ```jsx
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 export default function App() {
   return (
@@ -56,22 +50,15 @@ export default function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 ```
 
 ### 嵌套路由
 
 ```jsx
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom'
 
 export default function App() {
   return (
@@ -101,19 +88,19 @@ export default function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <h2>Home</h2>
 }
 
 function About() {
-  return <h2>About</h2>;
+  return <h2>About</h2>
 }
 
 function Topics() {
-  let match = useRouteMatch();
+  let match = useRouteMatch()
   return (
     <div>
       <h2>Topics</h2>
@@ -122,9 +109,7 @@ function Topics() {
           <Link to={`${match.url}/components`}>Components</Link>
         </li>
         <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
+          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
         </li>
       </ul>
 
@@ -141,12 +126,12 @@ function Topics() {
         </Route>
       </Switch>
     </div>
-  );
+  )
 }
 
 function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
+  let { topicId } = useParams()
+  return <h3>Requested topic ID: {topicId}</h3>
 }
 ```
 
@@ -160,9 +145,9 @@ function Topic() {
 
 `<BrowserRouter>`：常规 URL，需要服务器配置，[配置指南](https://create-react-app.dev/docs/deployment#serving-apps-with-client-side-routing)。
 
-`<HashRouter>`：存储在 URL hash 部分，hash不会发送到服务器，无需单独配置。
+`<HashRouter>`：存储在 URL hash 部分，hash 不会发送到服务器，无需单独配置。
 
-> 确保router在元素根级层次，将 `<app>`包裹在 路由器下
+> 确保 router 在元素根级层次，将 `<app>`包裹在 路由器下
 
 ### route matchers
 
@@ -172,7 +157,7 @@ function Topic() {
 
 > `/`将会匹配所有路由
 
-path 默认匹配，*以...开始的路由*。完整路径匹配，使用 `exact`
+path 默认匹配，_以...开始的路由_。完整路径匹配，使用 `exact`
 
 ```jsx
 <Route exact path="/">
@@ -182,7 +167,7 @@ path 默认匹配，*以...开始的路由*。完整路径匹配，使用 `exact
 
 ### Navigation
 
-`<Link>`：创造一个链接，类似a标签
+`<Link>`：创造一个链接，类似 a 标签
 
 ```jsx
 <Link to="/">Home</Link>
@@ -210,11 +195,11 @@ path 默认匹配，*以...开始的路由*。完整路径匹配，使用 `exact
 
 不必加载所有代码。
 
- `.babelrc` 
+`.babelrc`
 
-webpack 内置  [`dynamic imports`](https://github.com/tc39/proposal-dynamic-import)
+webpack 内置 [`dynamic imports`](https://github.com/tc39/proposal-dynamic-import)
 
-编译 JSX 和 JS 使用  [`@babel/plugin-syntax-dynamic-import`](https://babeljs.io/docs/plugins/syntax-dynamic-import/) 
+编译 JSX 和 JS 使用 [`@babel/plugin-syntax-dynamic-import`](https://babeljs.io/docs/plugins/syntax-dynamic-import/)
 
 ```json
 {
@@ -234,16 +219,16 @@ yarn add @loadable/component
 `LoadableComponent` 渲染之前 使用 `Loading` 占位
 
 ```jsx
-import loadable from "@loadable/component";
-import Loading from "./Loading.js";
+import loadable from '@loadable/component'
+import Loading from './Loading.js'
 
-const LoadableComponent = loadable(() => import("./Dashboard.js"), {
+const LoadableComponent = loadable(() => import('./Dashboard.js'), {
   fallback: <Loading />
-});
+})
 
 export default class LoadableDashboard extends React.Component {
   render() {
-    return <LoadableComponent />;
+    return <LoadableComponent />
   }
 }
 ```
@@ -265,7 +250,7 @@ function App() {
       <ScrollToTop />
       <App />
     </Router>
-  );
+  )
 }
 ```
 
@@ -274,17 +259,17 @@ function App() {
 添加 `pathname` 依赖
 
 ```jsx
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo(0, 0)
+  }, [pathname])
 
-  return null;
+  return null
 }
 ```
 
@@ -293,24 +278,22 @@ export default function ScrollToTop() {
 `componentDidUpdate` 更新钩子
 
 ```jsx
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 class ScrollToTop extends React.Component {
   componentDidUpdate(prevProps) {
-    if (
-      this.props.location.pathname !== prevProps.location.pathname
-    ) {
-      window.scrollTo(0, 0);
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      window.scrollTo(0, 0)
     }
   }
 
   render() {
-    return null;
+    return null
   }
 }
 
-export default withRouter(ScrollToTop);
+export default withRouter(ScrollToTop)
 ```
 
 #### 初始化时触发
@@ -322,10 +305,10 @@ export default withRouter(ScrollToTop);
 ```jsx
 function ScrollToTopOnMount() {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
-  return null;
+  return null
 }
 ```
 
@@ -336,10 +319,10 @@ function ScrollToTopOnMount() {
 ```jsx
 class ScrollToTopOnMount extends React.Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
   render() {
-    return null;
+    return null
   }
 }
 ```
@@ -349,7 +332,7 @@ class ScrollToTopOnMount extends React.Component {
 需要解决两个问题
 
 - 向上滚动导航，这样你就不会启动一个滚动到底部的新屏幕
-- *前进、后退 、溢出元素* 恢复 窗口位置，
+- _前进、后退 、溢出元素_ 恢复 窗口位置，
 
 ```jsx
 <Router>
@@ -358,9 +341,7 @@ class ScrollToTopOnMount extends React.Component {
       <h1>App</h1>
 
       <RestoredScroll id="bunny">
-        <div style={{ height: "200px", overflow: "auto" }}>
-          I will overflow
-        </div>
+        <div style={{ height: '200px', overflow: 'auto' }}>I will overflow</div>
       </RestoredScroll>
     </div>
   </ScrollRestoration>
@@ -391,7 +372,7 @@ const App = () => (
       <Route path="/tacos" component={Tacos} />
     </div>
   </BrowserRouter>
-);
+)
 
 // when the url matches `/tacos` this component renders
 const Tacos = ({ match }) => (
@@ -399,9 +380,9 @@ const Tacos = ({ match }) => (
   <div>
     {/* here's a nested Route,
         match.url helps us make a relative path */}
-    <Route path={match.url + "/carnitas"} component={Carnitas} />
+    <Route path={match.url + '/carnitas'} component={Carnitas} />
   </div>
-);
+)
 ```
 
 ### 响应路由

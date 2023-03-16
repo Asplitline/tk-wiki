@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Github
 order: 2
 ---

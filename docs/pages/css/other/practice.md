@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: CSS实战
 order: 4
 ---

@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 三方库使用
 order: 3
 ---
@@ -33,8 +34,6 @@ Vue.use(uView)
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	}
 ```
-
-
 
 ## 引入 iconfont
 

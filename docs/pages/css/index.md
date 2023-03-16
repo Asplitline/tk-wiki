@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: CSS
 sidebar: false
 aside: false

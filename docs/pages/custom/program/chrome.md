@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: chrome devtool
 order: 2
 ---

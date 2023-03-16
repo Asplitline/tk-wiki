@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Vue 基础
 order: 1
 ---
@@ -48,19 +49,19 @@ data.a // => 2
 
 <img src="https://v2.cn.vuejs.org/images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 67%;" />
 
-| 周期函数      | 执行时机                           | 补充                                                         |
-| ------------- | ---------------------------------- | ------------------------------------------------------------ |
-| beforeCreate  | 实例初始化之前                     | 初始化空对象实例，只有默认生命周期函数和默认事件             |
-| created       | 实例被创建之后                     | 实例已完成对选项的处理（数据侦听、计算属性、方法、事件/侦听器的回调函数）- data和method已初始化 |
-| beforeMounted | 挂载开始之前                       | `render` 函数首次被调用，但dom还未挂载                       |
-| mounted       | 实例被挂载后                       | `el` 被新创建的 `vm.$el` 替换                                |
-| beforeUpdate  | 数据改变后，DOM 更新前             | 适合在现有 DOM 将要被更新之前访问                            |
-| updated       | 虚拟 DOM 重新渲染和更新完毕之后    | 执行依赖于 DOM 的操作，此时页面和数据保持同步                |
-| activated     | 被 keep-alive 缓存的组件**激活**时 |                                                              |
-| deactivated   | 被 keep-alive 缓存的组件**失活**时 |                                                              |
-| beforeDestroy | 实例销毁前                         | 准备进入销毁状态，所有操作还可用                             |
-| destroyed     | 实例销毁后调用                     | 调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。 |
-| errorCaptured | 捕获一个来自后代组件的错误时被调用 |                                                              |
+| 周期函数      | 执行时机                           | 补充                                                                                               |
+| ------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| beforeCreate  | 实例初始化之前                     | 初始化空对象实例，只有默认生命周期函数和默认事件                                                   |
+| created       | 实例被创建之后                     | 实例已完成对选项的处理（数据侦听、计算属性、方法、事件/侦听器的回调函数）- data 和 method 已初始化 |
+| beforeMounted | 挂载开始之前                       | `render` 函数首次被调用，但 dom 还未挂载                                                           |
+| mounted       | 实例被挂载后                       | `el` 被新创建的 `vm.$el` 替换                                                                      |
+| beforeUpdate  | 数据改变后，DOM 更新前             | 适合在现有 DOM 将要被更新之前访问                                                                  |
+| updated       | 虚拟 DOM 重新渲染和更新完毕之后    | 执行依赖于 DOM 的操作，此时页面和数据保持同步                                                      |
+| activated     | 被 keep-alive 缓存的组件**激活**时 |                                                                                                    |
+| deactivated   | 被 keep-alive 缓存的组件**失活**时 |                                                                                                    |
+| beforeDestroy | 实例销毁前                         | 准备进入销毁状态，所有操作还可用                                                                   |
+| destroyed     | 实例销毁后调用                     | 调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。          |
+| errorCaptured | 捕获一个来自后代组件的错误时被调用 |                                                                                                    |
 
 #### created
 
@@ -118,7 +119,7 @@ info：错误来源信息的字符串
 
 ### 插值
 
-文本：使用双大括号语法 （ Mustache语法 ）
+文本：使用双大括号语法 （ Mustache 语法 ）
 
 ```html
 <span>Message: {{ msg }}</span>
@@ -130,9 +131,9 @@ info：错误来源信息的字符串
 <span v-once>这个将不会改变: {{ msg }}</span>
 ```
 
-双大括号插值会将文本解释为普通文本，无法输出html
+双大括号插值会将文本解释为普通文本，无法输出 html
 
-v-html：解析html
+v-html：解析 html
 
 ```html
 <span v-html="rawHtml"></span>
@@ -142,7 +143,7 @@ v-html：解析html
 
 指令 (Directives) 是带有 `v-` 前缀的特殊 attribute。
 
-指令预期值是 JavaScript 表达式（v-for是例外）
+指令预期值是 JavaScript 表达式（v-for 是例外）
 
 作用：表达式值改变，响应式作用于 DOM
 
@@ -156,7 +157,7 @@ v-html：解析html
 
 #### 动态参数
 
->  2.6.0+
+> 2.6.0+
 
 用**方括号**括起来的 JavaScript 表达式作为一个指令的参数
 
@@ -218,8 +219,6 @@ v-on 缩写
 <!-- 动态参数的缩写 (2.6.0+) -->
 <a @[event]="doSomething"> ... </a>
 ```
-
-
 
 ## 计算属性和侦听器
 
@@ -294,7 +293,7 @@ var vm = new Vue({
 <div v-bind:class="classObject"></div>
 ```
 
-active 这个类是否存在，取决于 isActive 的 Truthy [[1] Truthy](#相关链接) 
+active 这个类是否存在，取决于 isActive 的 Truthy [[1] Truthy](#相关链接)
 
 #### 数组语法
 
@@ -318,7 +317,7 @@ active 这个类是否存在，取决于 isActive 的 Truthy [[1] Truthy](#相�
 
 #### 用在组件上
 
-class在**自定义组件**上使用，会自动绑定到**组件根元素**上（合并的形式）
+class 在**自定义组件**上使用，会自动绑定到**组件根元素**上（合并的形式）
 
 ```js
 Vue.component('my-component', {
@@ -370,8 +369,6 @@ Vue.component('my-component', {
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-
-
 ## 条件渲染
 
 ### v-if
@@ -397,26 +394,26 @@ v-if：指令表达式返回`truthy`时条件性渲染一块内容。
 ```html
 <template v-if="loginType === 'username'">
   <label>Username</label>
-  <input placeholder="Enter your username">
+  <input placeholder="Enter your username" />
 </template>
 <template v-else>
   <label>Email</label>
-  <input placeholder="Enter your email address">
+  <input placeholder="Enter your email address" />
 </template>
 ```
 
-问题：不会清除input里面的的内容。因为 Vue 尽可能复用， input 不会被替换，只替换 placeholder。
+问题：不会清除 input 里面的的内容。因为 Vue 尽可能复用， input 不会被替换，只替换 placeholder。
 
 解决：添加 `key` attribute，使元素独立，不复用
 
 ```html
 <template v-if="loginType === 'username'">
   <label>Username</label>
-  <input placeholder="Enter your username" key="username-input">
+  <input placeholder="Enter your username" key="username-input" />
 </template>
 <template v-else>
   <label>Email</label>
-  <input placeholder="Enter your email address" key="email-input">
+  <input placeholder="Enter your email address" key="email-input" />
 </template>
 ```
 
@@ -473,17 +470,13 @@ name：键名（对象）
 
 遍历顺序：按 `Object.keys()`
 
-
-
 ### 维护状态
 
 v-for 默认渲染策略：数据项**顺序改变**，**不会移动 DOM 匹配数据项**，就地更新元素。通常通过 key 来确保每个索引都正确显示
 
-默认渲染策略是高效的，但只适用于不依赖组件状态或临时DOM状态的列表渲染输出。
+默认渲染策略是高效的，但只适用于不依赖组件状态或临时 DOM 状态的列表渲染输出。
 
 总结：数据改变，就地更新，DOM 不变，通过 key 重用重排元素。
-
-
 
 ### 数组更新检测
 
@@ -516,8 +509,6 @@ example1.items = example1.items.filter(function (item) {
 你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表
 
 Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的**启发式方法**，所以用一个含有**相同元素的数组**去替换**原来的数组**是非常高效的操作
-
-
 
 #### 注意事项
 
@@ -588,8 +579,6 @@ methods: {
 </ul>
 ```
 
-
-
 ### v-if 和 v-for
 
 不推荐同时使用 v-if 和 v-for
@@ -617,12 +606,7 @@ methods: {
 原因：减少代码耦合，手动通过 props 注入，这样能明确数据来源。
 
 ```html
-<my-component
-  v-for="(item, index) in items"
-  v-bind:item="item"
-  v-bind:index="index"
-  v-bind:key="item.id"
-></my-component>
+<my-component v-for="(item, index) in items" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></my-component>
 ```
 
 使用 DOM 模板时，在 `<ul>` 元素内只有 `<li>` 元素会被看作有效内容
@@ -673,15 +657,15 @@ vm.greet() // 通过实例调用
 
 ### 事件修饰符
 
-通过事件修饰符，代替在时间处理程序中调用  `event.preventDefault()` 或 `event.stopPropagation()`等等
+通过事件修饰符，代替在时间处理程序中调用 `event.preventDefault()` 或 `event.stopPropagation()`等等
 
 - `.stop`
 - `.prevent`
 
 - `.capture` - 捕获模式，从外部到内部触发事件。
 - `.self` - 在 `event.target` 是当前元素自身时，触发处理函数
-- `.once` 2.1.4+ - 事件只触发一次 (可用在组件上面，而其他修饰符只能对原生DOM事件起作用)
-- `.passive` 2.3.0+  - 直接触发默认行为，优化移动端的，如 `onScroll`
+- `.once` 2.1.4+ - 事件只触发一次 (可用在组件上面，而其他修饰符只能对原生 DOM 事件起作用)
+- `.passive` 2.3.0+ - 直接触发默认行为，优化移动端的，如 `onScroll`
 
 ```html
 <!-- 阻止单击事件继续传播 - stopPropagation -->
@@ -723,13 +707,13 @@ vm.greet() // 通过实例调用
 
 ```html
 <!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
-<input v-on:keyup.enter="submit">
+<input v-on:keyup.enter="submit" />
 ```
 
 直接将 [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) 暴露的任意有效按键名转换为 kebab-case 来作为修饰符
 
 ```html
-<input v-on:keyup.page-down="onPageDown">
+<input v-on:keyup.page-down="onPageDown" />
 ```
 
 按键码
@@ -780,7 +764,7 @@ Vue.config.keyCodes = {
 
 ```html
 <!-- Alt + C -->
-<input v-on:keyup.alt.67="clear">
+<input v-on:keyup.alt.67="clear" />
 
 <!-- Ctrl + Click -->
 <div v-on:click.ctrl="doSomething">Do something</div>
@@ -834,7 +818,7 @@ v-model 本质是语法糖
 #### 文本
 
 ```html
-<input v-model="message" placeholder="edit me">
+<input v-model="message" placeholder="edit me" />
 <p>Message is: {{ message }}</p>
 ```
 
@@ -861,12 +845,12 @@ v-model 本质是语法糖
 
 ```html
 <div id="example-4">
-  <input type="radio" id="one" value="One" v-model="picked">
+  <input type="radio" id="one" value="One" v-model="picked" />
   <label for="one">One</label>
-  <br>
-  <input type="radio" id="two" value="Two" v-model="picked">
+  <br />
+  <input type="radio" id="two" value="Two" v-model="picked" />
   <label for="two">Two</label>
-  <br>
+  <br />
   <span>Picked: {{ picked }}</span>
 </div>
 ```
@@ -893,16 +877,14 @@ v-model 初始未匹配任何对象，通过 disabled + value 禁用
 
 ### 值绑定
 
-
-
 v-model 绑定值通常为 静态字符串
 
 ```html
 <!-- 当选中时，`picked` 为字符串 "a" -->
-<input type="radio" v-model="picked" value="a">
+<input type="radio" v-model="picked" value="a" />
 
 <!-- `toggle` 为 true 或 false -->
-<input type="checkbox" v-model="toggle">
+<input type="checkbox" v-model="toggle" />
 
 <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
 <select v-model="selected">
@@ -926,7 +908,7 @@ vm.toggle === 'no' // 没有选中
 #### 单选按钮
 
 ```html
-<input type="radio" v-model="pick" v-bind:value="a">
+<input type="radio" v-model="pick" v-bind:value="a" />
 ```
 
 ```js
@@ -1086,11 +1068,11 @@ Vue.component('blog-post', {
 <component v-bind:is="currentTab.component" class="tab"></component>
 ```
 
-is 属性用于 常规HTML元素，这些元素将视为组件
+is 属性用于 常规 HTML 元素，这些元素将视为组件
 
 这个*attribute*以用于常规 HTML 元素，但这些元素将被视为组件，这意味着所有的 attribute 都会*作为 DOM attribute 被绑定*。对于像 `value` 这样的 property，若想让其如预期般工作，你需要使用 _`.prop` 修饰器_。
 
-HTML属性 和 DOM属性区别
+HTML 属性 和 DOM 属性区别
 
 **HTML 属性** (attribute)和 **DOM 属性**(property)，是相互关联的。
 

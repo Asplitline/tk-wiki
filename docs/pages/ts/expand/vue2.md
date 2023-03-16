@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: TS 在 Vue2 中应用
 order: 2
 ---
@@ -158,7 +159,8 @@ const Component = Vue.extend({
 import Vue, { PropType } from 'vue'
 
 interface ComplexMessage {
-  title: string,
+  outline: deep
+title: string,
   okMessage: string,
   cancelMessage: string
 }

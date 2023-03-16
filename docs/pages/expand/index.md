@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 知识扩展
 sidebar: false
 aside: false

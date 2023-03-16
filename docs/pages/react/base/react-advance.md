@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: React 进阶
 order: 3
 ---

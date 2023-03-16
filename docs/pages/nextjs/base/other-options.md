@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 其他选项
 order: 5
 ---

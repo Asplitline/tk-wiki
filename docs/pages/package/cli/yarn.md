@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: yarn
 order: 3
 ---

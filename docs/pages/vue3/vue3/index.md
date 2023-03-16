@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Vue3
 order: 0
 ---

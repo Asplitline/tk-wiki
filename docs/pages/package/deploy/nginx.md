@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Nginx
 order: 2
 ---

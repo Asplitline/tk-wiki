@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 流程模型
 order: 2
 ---
@@ -56,9 +57,9 @@ app.on('window-all-closed', function () {
 
 为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个**单独的渲染器进程**
 
--  HTML 文件作为渲染器进程的入口点
--  层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式.
--  `<script>` 元素可添加可执行的 JavaScript 代码
+- HTML 文件作为渲染器进程的入口点
+- 层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式.
+- `<script>` 元素可添加可执行的 JavaScript 代码
 
 **渲染器无法直接访问 `require` 或其他 Node.js API**
 
@@ -69,7 +70,7 @@ app.on('window-all-closed', function () {
 **预加载（preload）脚本**：包含了那些**执行于渲染器进程中**，且**先于网页内容开始加载的代码**。
 
 - 执行于渲染器进程中，且**先于网页内容开始加载的代码**
-- 运行于渲染器的环境中，**能访问 Node.js API** 
+- 运行于渲染器的环境中，**能访问 Node.js API**
 - 在 `BrowserWindow` 构造方法中的 `webPreferences` 选项，将预处理脚本添加到主进程
 
 ```js
@@ -96,7 +97,7 @@ console.log(window.myAPI) // => undefined
 
 > **语境隔离（Context Isolation）**：预加载脚本与渲染器的主要运行环境是隔离开来的，以避免泄漏任何具特权的 API 到您的网页内容代码中
 
-通过  [`contextBridge`](https://www.electronjs.org/zh/docs/latest/api/context-bridge) 模块来安全地实现交互
+通过 [`contextBridge`](https://www.electronjs.org/zh/docs/latest/api/context-bridge) 模块来安全地实现交互
 
 - 暴露 [`ipcRenderer`](https://www.electronjs.org/zh/docs/latest/api/ipc-renderer) 帮手模块于渲染器中，使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 )。
 - 如果您正在为远程 URL 上托管的现有 web 应用开发 Electron 封裝，则您可在渲染器的 `window` 全局变量上添加自定义的属性，好在 web 客户端用上仅适用于桌面应用的设计逻辑 。
@@ -112,4 +113,3 @@ contextBridge.exposeInMainWorld('myAPI', {
 console.log(window.myAPI)
 // => { desktop: true }
 ```
-

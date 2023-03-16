@@ -1,9 +1,8 @@
 ---
+outline: deep
 title: 部署
 order: 2
 ---
-
-
 
 # 部署
 
@@ -91,8 +90,6 @@ server {
     }
 }
 ```
-
-
 
 ### 问题
 

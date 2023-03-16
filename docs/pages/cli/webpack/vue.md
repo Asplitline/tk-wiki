@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Vue
 order: 2
 ---
@@ -139,8 +140,6 @@ module.exports = {
   }
 }
 ```
-
-
 
 ## 三方库
 

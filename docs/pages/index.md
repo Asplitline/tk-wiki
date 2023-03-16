@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 文档索引
 sidebar: true
 layout: page

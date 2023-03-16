@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 过渡 & 动画
 order: 3
 ---
@@ -52,7 +53,7 @@ new Vue({
 
 - 自动嗅探目标元素是否应用了 CSS 过渡或动画，如果是，在恰当的时机添加/删除 CSS 类名。
 - 过渡组件提供钩子函数，恰当实际调用钩子函数
-- 没有钩子函数也没检测到过渡或动画，DOM操作在下一帧执行（此处帧指浏览器逐帧动画机制，不同于nextTick）
+- 没有钩子函数也没检测到过渡或动画，DOM 操作在下一帧执行（此处帧指浏览器逐帧动画机制，不同于 nextTick）
 
 ### 过渡的类名
 
@@ -142,20 +143,14 @@ new Vue({
 - `leave-active-class`
 - `leave-to-class` (2.1.8+)
 
-自定义类名优先级高于普通类名，有利于 Vue 过渡系统和其他CSS动画库结合。如 [[1] Animate.css](#相关链接)
+自定义类名优先级高于普通类名，有利于 Vue 过渡系统和其他 CSS 动画库结合。如 [[1] Animate.css](#相关链接)
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css" />
 
 <div id="example-3">
-  <button @click="show = !show">
-    Toggle render
-  </button>
-  <transition
-    name="custom-classes-transition"
-    enter-active-class="animated tada"
-    leave-active-class="animated bounceOutRight"
-  >
+  <button @click="show = !show">Toggle render</button>
+  <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
     <p v-if="show">hello</p>
   </transition>
 </div>
@@ -231,7 +226,7 @@ methods: {
 
 只有 JavaScript 过渡的时候：在 `enter` 和 `leave` 中必须使用 `done` 进行回调。否则会被同步调用，过渡立即完成
 
-只有 JavaScript 过渡的元素添加 `v-bind:css="false"`。可以跳过 css 检查，避免css对过渡的影响
+只有 JavaScript 过渡的元素添加 `v-bind:css="false"`。可以跳过 css 检查，避免 css 对过渡的影响
 
 使用 Velocity.js 的简单例子
 
@@ -244,18 +239,9 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="example-4">
-  <button @click="show = !show">
-    Toggle
-  </button>
-  <transition
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
-    v-bind:css="false"
-  >
-    <p v-if="show">
-      Demo
-    </p>
+  <button @click="show = !show">Toggle</button>
+  <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave" v-bind:css="false">
+    <p v-if="show">Demo</p>
   </transition>
 </div>
 ```
@@ -278,12 +264,16 @@ new Vue({
     leave: function (el, done) {
       Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
       Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
-      Velocity(el, {
-        rotateZ: '45deg',
-        translateY: '30px',
-        translateX: '30px',
-        opacity: 0
-      }, { complete: done })
+      Velocity(
+        el,
+        {
+          rotateZ: '45deg',
+          translateY: '30px',
+          translateX: '30px',
+          opacity: 0
+        },
+        { complete: done }
+      )
     }
   }
 })
@@ -522,17 +512,15 @@ methods: {
 
 ```html
 <transition-group name="list" tag="ul">
-    <li v-for="item in items" v-bind:key="item">
-      {{ item }}
-    </li>
-  </transition-group>
+  <li v-for="item in items" v-bind:key="item">{{ item }}</li>
+</transition-group>
 ```
 
 ```css
 /* 设置移动的过渡效果 - 可选 */
 .list-move {
-	transition: all 1s;
-} 
+  transition: all 1s;
+}
 ```
 
 > 注意：inline 元素不是 [[3] transformable elements](#相关链接)，不支持 transform
@@ -571,7 +559,7 @@ Vue.component('my-special-transition', {
 })
 ```
 
-函数式组件 (推荐)，funtional属性为true
+函数式组件 (推荐)，funtional 属性为 true
 
 ```js
 Vue.component('my-special-transition', {
@@ -654,18 +642,16 @@ export default {
 
 ### 过渡放到组件里
 
-管理太多的状态过渡会增加Vue实例和组件的复杂性，可以提取到子组件管理
+管理太多的状态过渡会增加 Vue 实例和组件的复杂性，可以提取到子组件管理
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 
 <div id="example-8">
-  <input v-model.number="firstNumber" type="number" step="20"> +
-  <input v-model.number="secondNumber" type="number" step="20"> =
-  {{ result }}
+  <input v-model.number="firstNumber" type="number" step="20" /> + <input v-model.number="secondNumber" type="number" step="20" /> = {{
+  result }}
   <p>
-    <animated-integer v-bind:value="firstNumber"></animated-integer> +
-    <animated-integer v-bind:value="secondNumber"></animated-integer> =
+    <animated-integer v-bind:value="firstNumber"></animated-integer> + <animated-integer v-bind:value="secondNumber"></animated-integer> =
     <animated-integer v-bind:value="result"></animated-integer>
   </p>
 </div>
@@ -696,7 +682,7 @@ Vue.component('animated-integer', {
   methods: {
     tween: function (startValue, endValue) {
       var vm = this
-      function animate () {
+      function animate() {
         if (TWEEN.update()) {
           requestAnimationFrame(animate)
         }

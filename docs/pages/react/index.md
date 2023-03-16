@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: React
 sidebar: false
 aside: false

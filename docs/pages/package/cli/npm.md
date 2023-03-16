@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: npm
 order: 2
 ---

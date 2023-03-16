@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 样式相关
 order: 3
 ---

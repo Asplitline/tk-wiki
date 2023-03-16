@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 三方库兼容性
 order: 2
 ---
@@ -108,8 +109,6 @@ export default defineConfig({
 
 参考链接：[web3js-fails-to-import-in-vue3-composition-api-project](
 
-
-
 ## visual studio 模块缺失
 
 错误信息
@@ -192,6 +191,6 @@ gyp ERR! stack Error: Could not find any Python installation to use
 
 1. 安装 python
 2. 配置 环境变量
-3. cmd 通过 python命令 检测是否安装成功
+3. cmd 通过 python 命令 检测是否安装成功
 
 下载地址：https://www.python.org/downloads/windows/

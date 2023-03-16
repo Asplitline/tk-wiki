@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: Ajax
 order: 3
 ---
@@ -274,8 +275,6 @@ axios.interceptors.response.use(
   }
 )
 ```
-
-
 
 ## axios 实战
 

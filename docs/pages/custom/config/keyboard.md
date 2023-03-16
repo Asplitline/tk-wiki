@@ -1,4 +1,5 @@
 ---
+outline: deep
 title: 快捷键
 order: 1
 ---
