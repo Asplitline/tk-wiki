@@ -391,3 +391,36 @@ function getCharLength(value) {
 ;['n', '哈', '哈n'].map(getCharLength)
 // [1, 2, 3]
 ```
+
+
+
+## char2Ascii
+
+作用：字符转ascii码
+
+```js
+function char2Ascii(char) {
+    return char.charCodeAt()
+}
+```
+
+```js
+char2Ascii('a')
+// 97
+```
+
+## ascii2Char
+
+作用：字符转ascii码
+
+```js
+function ascii2Char(num) {
+    return String.fromCharCode(num);
+}
+```
+
+```js
+ascii2Char(97)
+// 'a'
+```
+
