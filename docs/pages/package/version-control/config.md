@@ -37,6 +37,7 @@ alias grtv="git remote -v"
 alias ga="git add ."
 alias gac="git add . && git commit -m"
 alias gaca="git add . && git commit --amend"
+alias gacan="git add . && git commit --amend --no-edit"
 alias gc="git commit"
 alias gca="git commit --amend"
 alias gcan="git commit --amend --no-edit"
@@ -492,7 +493,7 @@ bbbbbbb HEAD@{1}: commit: xxxx
 git reset --soft HEAD@{1}
 ```
 
-### 修改 commit 提交人信息
+### 修改 commit 信息
 
 场景：commit 提交用户信息错误
 
@@ -523,6 +524,14 @@ pick e333375e commit-3
 
 ```bash
 git commit --amend --reset-author
+```
+
+补充：上面方法可以用来改commit message
+
+第三步输入如下命令
+
+```bash
+git commit --amend -m <new_message>
 ```
 
 ### 撤销操作
