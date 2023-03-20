@@ -6,7 +6,9 @@ order: 4
 
 # CSS 实战
 
-## input number 输入框上下箭头
+## 应用类
+
+### input number 输入框上下箭头
 
 ```css
 input::-webkit-outer-spin-button,
@@ -18,7 +20,7 @@ input[type='number'] {
 }
 ```
 
-## 0.5px 细线边框
+### 0.5px 细线边框
 
 ```less
 .box {
@@ -37,7 +39,7 @@ input[type='number'] {
 }
 ```
 
-## 滚动穿透
+### 滚动穿透
 
 ```javascript
 toggleForbidScrollThrough(isForbide) {
@@ -58,7 +60,7 @@ toggleForbidScrollThrough(isForbide) {
 }
 ```
 
-## 多行溢出隐藏
+### 多行溢出隐藏
 
 ```css
 display: -webkit-box; /*弹性伸缩盒子模型*/
@@ -68,7 +70,7 @@ text-overflow: ellipsis;
 overflow: hidden;
 ```
 
-## 溢出隐藏文本和全文显示
+### 溢出隐藏文本和全文显示
 
 思路：
 
@@ -137,7 +139,7 @@ overflow: hidden;
 }
 ```
 
-## box-sizing
+### box-sizing
 
 ```css
 html {
@@ -150,14 +152,14 @@ html {
 }
 ```
 
-## CSS 实现 - 三角形
+### 实现三角形
 
 ```css
 border: 50px solid transparent;
 border-bottom: 150px solid green;
 ```
 
-## 滚动条抖动问题
+### 滚动条抖动问题
 
 ```css
 .box {
@@ -167,7 +169,7 @@ border-bottom: 150px solid green;
 
 > 100vw 为 视窗宽度，100%为内容宽度，100vw - 100 % 为 滚动条宽度。margin-right 也可以。
 
-## 隐藏空元素
+### 隐藏空元素
 
 ```css
 // 作用于所有节点
@@ -176,7 +178,7 @@ border-bottom: 150px solid green;
 }
 ```
 
-## 斜向分割线
+### 斜向分割线
 
 ```css
 .hr-line {
@@ -187,9 +189,118 @@ border-bottom: 150px solid green;
 }
 ```
 
-## ---文字类---
+## 其他类
 
-## 文字镂空
+### fixed 失效
+
+层叠上下文对 fixed 影响，导致无法相对视口定位。
+
+原因：堆叠上下文（Stacking Context）。堆叠上下文是 HTML 元素的三维概念，这些 HTML 元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的 z 轴上延伸，**HTML 元素依据其自身属性按照优先级顺序占用层叠上下文的空间**。
+
+> 生成了 Stacking Context 的元素会影响该元素的层叠关系与定位关系
+
+以下条件会触发
+
+1. `z-index` 值不为 auto的 绝对/相对定位
+2. 一个 `z-index` 值不为 auto的 flex 项目 (flex item)
+3. `opacity` 属性值小于 1 的元素
+4. `transform` 属性值不为 none的元素
+5. `mix-blend-mode` 属性值不为 normal的元素
+6. `filter`值不为“none”的元素
+7. `perspective`值不为“none”的元素
+8. `isolation` 属性被设置为 isolate的元素
+9. 在 `will-change` 中指定了任意 CSS 属性
+10. `-webkit-overflow-scrolling` 属性被设置 touch的元素
+11. 设置了 `transform-style`: preserve-3d 的元素
+12. 设置了 `contain`: paint | layout | content | strict 的元素
+13. 设置了 `backdrop-filter` 的元素
+
+
+
+在线示例：https://codepen.io/Chokcoco/pen/wqXZXd
+
+
+
+### 3D坍塌
+
+使用 CSS 混合模式（滤镜同理）的时候，堆叠上下文会重新对这个使用了混合模式的元素的根节点处创建一个独立的渲染平面，但是很可惜，这个渲染平面是不支持 preserve-3d 的，所以我们看到是一个 2D 的平面效果
+
+参考：https://chokcoco.github.io/demo/ppt/html/YOU_DONT_KNOW_CSS.html#/8/7
+
+
+
+### 100vh
+
+在移动端 chrome 浏览器中， 100vh 高度会出现滚动条
+
+原因：很多浏览器，会把地址栏计算在内
+
+更优写法，利用百分比
+
+```css
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+div {
+    height: 100%;
+}
+```
+
+
+
+### 替换元素伪元素
+
+所有元素都有 `::before` 和 `::after` 伪元素吗？
+
+无法将 CSS 伪元素 `::before` 和 `::after` 添加到文本输入框和图片，因为这些元素是**替换元素**
+
+原因：替换元素将替换元素的所有内容，包括 `::before` 和 `::after`
+
+常见替换元素：
+
+- `<audio>`
+- `<canvas>`
+- `<embed>`
+- `<iframe>`
+- `<img>`
+- `<input>`
+- `<object>`
+- `<video>`
+
+
+
+特例：`<img>` 元素不一定总是替换元素
+
+如果图像无法加载，则在 Chrome 和 Firefox 中可以将 `::before` 和 `::after` 添加到 `<img>` 中
+
+利用这个特性将 默认图片 和 alt 同时显示
+
+```html
+<img src="image.png" onerror="this.classList.add('error');" alt="Alt Info">
+```
+
+```css
+img.error {
+    position: relative;
+}
+img.error::before {
+    content: "";
+    /** 定位代码 **/
+    background: url(error-default.png);
+}
+img.error::after {
+    content: attr(alt);
+    /** 定位代码 **/
+}
+```
+
+在线示例：https://codepen.io/Chokcoco/pen/WNGgNqv
+
+## 文字类
+
+### 文字镂空
 
 ```css
 h1 {
@@ -204,7 +315,7 @@ h1 {
 }
 ```
 
-## @font-face 字体多源
+### @font-face 字体多源
 
 1. 声明多个源
 
@@ -254,3 +365,120 @@ strong em {
 ```
 
 > 参考 [@font-face tip: define font-weight and font-style](https://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/)
+
+## 技巧类
+
+### 选择器权重
+
+```html
+<div class="box"></div>
+```
+
+```css
+body > .box {
+    background-color: red;
+}
+```
+
+场景：需要改变上面背景颜色
+
+1. 新增 class，提高权重
+2. 利用 !important 强行提高权重
+3. class 复用 (推荐)
+
+```css
+.box.box {
+    background-color: blue;
+}
+```
+
+4. 利用属性选择器 (推荐)
+
+```css
+.box[class] {
+    background-color: blue;
+}
+```
+
+
+
+### currentColor 和 color
+
+currentColor = color，但 color 不止为字体颜色
+
+```css
+.g-currentColor {
+    color: #f00;
+    border: 1px solid;
+    box-shadow: 2px 2px 10px 2px;
+    text-shadow: 2px 2px 5px;
+}
+```
+
+`border: 1px solid` 等价于 `border: 1px solid currentColor`
+
+### unset、initial、inherit
+
+inherit：从父级继承
+
+应用：继承图片资源重用图片
+
+```css
+.g-reflect {
+    width: 200px;
+    height: 200px;
+    background-image: url('image.jpg');
+}
+.g-reflect::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: -100%;
++   background-image: inherit;
+    transform: rotateX(180deg);
+    mask: linear-gradient(transparent, #000);
+}
+```
+
+unset：有继承样式，设置为继承值。没有继承样式，设置为初始值
+
+应用：有些场景不好设置初值
+
+```css
+div {
+    position: relative;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+}
+div::before,
+div::after {
+    content: "<";
+    position: absolute;
+    top: 130px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 1px solid #999;
+    text-align: center;
+    cursor: pointer;
+}
+/* 重置left */
+div::after {
+    left: unset;
+    right: 20px;
+}
+```
+
+
+
+
+
+## 相关链接
+
+- [你不知道的CSS](https://chokcoco.github.io/demo/ppt/html/YOU_DONT_KNOW_CSS.html)

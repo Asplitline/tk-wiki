@@ -526,7 +526,7 @@ pick e333375e commit-3
 git commit --amend --reset-author
 ```
 
-补充：上面方法可以用来改commit message
+补充：上面方法可以用来改 commit message
 
 第三步输入如下命令
 
