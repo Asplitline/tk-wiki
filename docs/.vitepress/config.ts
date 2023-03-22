@@ -26,8 +26,7 @@ export default defineConfig({
       appId: 'K106B03X2S',
       apiKey: '087f59581f4c0842489cd49a5544ad71',
       indexName: 'wiki',
-      placeholder: '请输入关键词',
-      buttonText: '搜索'
+      placeholder: '请输入关键词'
     }
   }
 })
