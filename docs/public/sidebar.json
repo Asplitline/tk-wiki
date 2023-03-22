@@ -143,7 +143,19 @@
 			"order": 2
 		}
 	],
-	"/pages/devlog": [],
+	"/pages/devlog": [
+		{
+			"text": "unTitle",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "JavaScript - 三方库",
+					"link": "/pages/devlog/base/javascript-three-party",
+					"order": 4
+				}
+			]
+		}
+	],
 	"/pages/electron": [
 		{
 			"text": "electron 指南",
@@ -765,6 +777,11 @@
 			"collapsible": true,
 			"items": [
 				{
+					"text": "-/-",
+					"link": "/pages/ts/expand/other",
+					"order": 0
+				},
+				{
 					"text": "TS 基础应用",
 					"link": "/pages/ts/expand/base",
 					"order": 1
@@ -783,11 +800,6 @@
 					"text": "TS 在 React 中应用",
 					"link": "/pages/ts/expand/react",
 					"order": 4
-				},
-				{
-					"text": "TS 其他应用",
-					"link": "/pages/ts/expand/other",
-					"order": 5
 				}
 			]
 		}
