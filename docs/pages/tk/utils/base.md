@@ -424,3 +424,34 @@ ascii2Char(97)
 // 'a'
 ```
 
+
+
+## chainStrGet
+
+作用：通过字符串的形式链式获取属性
+
+```js
+function chainStrGet(obj, key) {
+    return key.split('.').reduce((o,i)=>o ? o[i] : undefined, obj)
+}
+```
+
+```js
+const ob = {
+    a: {
+        b: 2,
+        c: 3,
+        d: {
+            e: 4
+        },
+        q: [1,2,3]
+    }
+}
+
+
+chainStrGet(ob, 'a.b')   // 2
+chainStrGet(ob, 'a.d.e') // 4
+chainStrGet(ob, 'a.q.1') // 2
+chainStrGet(ob, 'a.e') // undefined
+```
+
