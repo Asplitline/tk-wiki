@@ -59,19 +59,37 @@ declare module 'axios' {
 
 参考：https://stackoverflow.com/a/71389363/19747672
 
+## number 值赋空
 
+场景：下拉选项中 value 为 string 或 number。
 
-## 为 number 类型设置初值
+- value 是 string 类型，赋值 `''`。
 
-场景：ui库中下拉选择器，一般为number或string。string类型设置初值，使用 `''`,number类型设置初始？
+- value 是 number 类型，赋值为 0，会影响初始值显示，赋值为 null，后面无法赋值 number，因为已被解析为 null 类型。
 
-解决：设置为可选number，并且不进行初始化
+解决：赋值为可选类型
 
-```ts
-interface IOption {
-    selected?: number
+```tsx
+interface option {
+  optionId?: number
 }
-
-const defOption: IOption = {}
 ```
 
+## 可选和函数默认值冲突
+
+问题：可选符和默认值同时存在产生冲突
+
+```tsx
+useTable(
+  options?: TableOptions = {}
+) => {}
+// error: Parameter cannot have question mark and initializer.ts(1015)
+```
+
+解决：去掉可选符
+
+```
+useTable(
+  options: TableOptions = {}
+) => {}
+```
