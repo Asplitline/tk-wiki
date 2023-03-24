@@ -151,7 +151,7 @@ gyp ERR! System Windows_NT 10.0.22000
 npm install --global --production windows-build-tools
 ```
 
-参考：https://www.ossez.com/t/msvs-version-not-set-from-command-line-or-npm-config/13800
+参考：https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c
 
 ## 没有找到 python
 

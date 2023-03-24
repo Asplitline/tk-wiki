@@ -58,3 +58,20 @@ declare module 'axios' {
 ```
 
 参考：https://stackoverflow.com/a/71389363/19747672
+
+
+
+## 为 number 类型设置初值
+
+场景：ui库中下拉选择器，一般为number或string。string类型设置初值，使用 `''`,number类型设置初始？
+
+解决：设置为可选number，并且不进行初始化
+
+```ts
+interface IOption {
+    selected?: number
+}
+
+const defOption: IOption = {}
+```
+
