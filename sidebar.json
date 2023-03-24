@@ -754,14 +754,9 @@
 					"order": 16
 				},
 				{
-					"text": "实战",
-					"link": "/pages/ts/base/17.practical",
-					"order": 17
-				},
-				{
 					"text": "相关链接",
-					"link": "/pages/ts/base/18.reference",
-					"order": 18
+					"link": "/pages/ts/base/17.reference",
+					"order": 17
 				}
 			]
 		},
