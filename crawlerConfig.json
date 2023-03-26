@@ -13,8 +13,17 @@
     "lvl3": ".vp-doc h3",
     "lvl4": ".vp-doc h4",
     "lvl5": ".vp-doc h5",
-    "content": ".vp-doc p, .vp-doc li, .vp-doc td"
+    "content": ".vp-doc p, .vp-doc li, .vp-doc td",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true
+    }
   },
+
   "selectors_exclude": [".VPSidebar", ".VPDocFooter", ".table-of-contents"],
+  "custom_settings": {
+    "attributesForFaceting": ["lang", "tags"]
+  },
   "js_render": true
 }
