@@ -175,6 +175,11 @@
 					"text": "进程间通信",
 					"link": "/pages/electron/base/message",
 					"order": 3
+				},
+				{
+					"text": "JavaScript - 三方库",
+					"link": "/pages/devlog/base/javascript-three-party",
+					"order": 4
 				}
 			],
 			"order": 1
@@ -800,6 +805,11 @@
 					"text": "TS 在 React 中应用",
 					"link": "/pages/ts/expand/react",
 					"order": 4
+				},
+				{
+					"text": "TS 其他应用",
+					"link": "/pages/ts/expand/other",
+					"order": 5
 				}
 			]
 		}
