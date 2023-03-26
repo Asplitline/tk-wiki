@@ -175,11 +175,6 @@
 					"text": "进程间通信",
 					"link": "/pages/electron/base/message",
 					"order": 3
-				},
-				{
-					"text": "JavaScript - 三方库",
-					"link": "/pages/devlog/base/javascript-three-party",
-					"order": 4
 				}
 			],
 			"order": 1
@@ -781,11 +776,6 @@
 			"text": "TypeScript 应用",
 			"collapsible": true,
 			"items": [
-				{
-					"text": "-/-",
-					"link": "/pages/ts/expand/other",
-					"order": 0
-				},
 				{
 					"text": "TS 基础应用",
 					"link": "/pages/ts/expand/base",
