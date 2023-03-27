@@ -455,3 +455,21 @@ chainStrGet(ob, 'a.q.1') // 2
 chainStrGet(ob, 'a.e') // undefined
 ```
 
+## sleep
+
+作用：阻塞代码执行
+
+```js
+function sleep(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(null), ms)
+  })
+}
+```
+
+```js
+(async ()=>{
+	await sleep(5000)
+})()
+```
+
