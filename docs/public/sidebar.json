@@ -143,19 +143,7 @@
 			"order": 2
 		}
 	],
-	"/pages/devlog": [
-		{
-			"text": "unTitle",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "JavaScript - 三方库",
-					"link": "/pages/devlog/base/javascript-three-party",
-					"order": 4
-				}
-			]
-		}
-	],
+	"/pages/devlog": [],
 	"/pages/electron": [
 		{
 			"text": "electron 指南",
@@ -253,6 +241,11 @@
 				{
 					"text": "chrome",
 					"link": "/pages/expand/skill/chrome",
+					"order": 4
+				},
+				{
+					"text": "Fiddler - 转载",
+					"link": "/pages/expand/skill/fiddler",
 					"order": 4
 				}
 			]
