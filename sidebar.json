@@ -242,6 +242,11 @@
 					"text": "chrome",
 					"link": "/pages/expand/skill/chrome",
 					"order": 4
+				},
+				{
+					"text": "Fiddler - 转载",
+					"link": "/pages/expand/skill/fiddler",
+					"order": 4
 				}
 			]
 		}
