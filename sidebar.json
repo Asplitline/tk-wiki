@@ -793,6 +793,11 @@
 					"text": "TS 其他应用",
 					"link": "/pages/ts/expand/other",
 					"order": 5
+				},
+				{
+					"text": "TS 杂谈",
+					"link": "/pages/ts/expand/essay",
+					"order": 6
 				}
 			]
 		}
