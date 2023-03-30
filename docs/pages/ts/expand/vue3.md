@@ -86,3 +86,20 @@ const props = defineProps({
   }
 })
 ```
+
+## defineExpose
+
+import type 导入
+
+```ts
+import type MyComponent from '..'
+const myRef = ref<(typeof MyComponent)>()
+```
+
+import 导入
+
+```ts
+import MyComponent from '..'
+const myRef = ref<InstanceType<typeof MyComponent>>()
+```
+
