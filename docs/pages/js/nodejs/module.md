@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 模块化
 order: 3
 ---

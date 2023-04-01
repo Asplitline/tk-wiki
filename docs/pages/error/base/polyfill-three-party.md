@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 三方库兼容性
 order: 2
 ---

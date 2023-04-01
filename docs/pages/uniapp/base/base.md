@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 入门
 order: 1
 ---

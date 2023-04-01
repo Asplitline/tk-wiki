@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 预渲染和数据获取
 order: 2
 ---

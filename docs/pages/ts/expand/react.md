@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: TS 在 React 中应用
 order: 4
 ---

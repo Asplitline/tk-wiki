@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Ajax
 order: 3
 ---

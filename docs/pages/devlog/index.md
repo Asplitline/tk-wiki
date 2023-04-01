@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 框架实战
 sidebar: false
 aside: false

@@ -3,18 +3,26 @@ import { baseURL } from '../../themeConfig/constants'
 import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
+import { github } from './meta'
 export default defineConfig({
-  title: 'Tk Wiki',
+  title: ' ',
   description: 'tk Wiki',
   lastUpdated: true,
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
   base: `${baseURL}/`,
   themeConfig: {
+    logo: '/logo-text.svg',
+    outline: 'deep',
     nav: nav,
+    editLink: {
+      pattern: `${github}/tree/main/docs/:path`,
+      text: '在 GitHub 上编辑此页'
+    },
     sidebar: {
       ...sidebar
     },

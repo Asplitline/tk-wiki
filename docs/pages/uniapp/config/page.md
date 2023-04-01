@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: page.json
 order: 1
 ---

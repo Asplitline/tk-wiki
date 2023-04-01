@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: React 核心
 order: 2
 ---
@@ -506,8 +505,7 @@ class MyTitle extends React.Component {
 }
 
 MyTitle.propTypes = {
-  outline: deep
-title: PropTypes.string
+  title: PropTypes.string
 }
 ReactDOM.render(<MyTitle title={title} />, document.getElementById('example'))
 ```
@@ -777,10 +775,8 @@ function Blog(props) {
 }
 
 const posts = [
-  { id: 1, outline: deep
-title: 'Hello World', content: 'Welcome to learning React!' },
-  { id: 2, outline: deep
-title: 'Installation', content: 'You can install React from npm.' }
+  { id: 1, title: 'Hello World', content: 'Welcome to learning React!' },
+  { id: 2, title: 'Installation', content: 'You can install React from npm.' }
 ]
 ReactDOM.render(<Blog posts={posts} />, document.getElementById('root'))
 ```

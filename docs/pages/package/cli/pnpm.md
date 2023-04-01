@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: pnpm
 order: 4
 ---

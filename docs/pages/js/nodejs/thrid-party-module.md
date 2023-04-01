@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 三方模块
 order: 2
 ---
@@ -176,16 +175,20 @@ const Course = mongoose.model('Course', courseSchema) // courses
 
 ```js
 // 用户集合
-const User = mongoose.model('User', new mongoose.Schema({ name: { type: String } }));
+const User = mongoose.model('User', new mongoose.Schema({ name: { type: String } }))
 // 文章集合
-const Post = mongoose.model('Post', new mongoose.Schema({
-    outline: deep
-title: { type: String },
+const Post = mongoose.model(
+  'Post',
+  new mongoose.Schema({
+    title: { type: String },
     // 使用ID将文章集合和作者集合进行关联
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-}));
+  })
+)
 //联合查询
-Post.find().populate('author').then((err, result) => console.log(result));
+Post.find()
+  .populate('author')
+  .then((err, result) => console.log(result))
 ```
 
 #### 文档操作

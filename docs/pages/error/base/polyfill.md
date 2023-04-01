@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 兼容性处理
 order: 1
 ---

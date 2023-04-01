@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: TypeScript
 order: 2
 sidebar: false

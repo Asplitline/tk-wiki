@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: TS 其他应用
 order: 5
 ---

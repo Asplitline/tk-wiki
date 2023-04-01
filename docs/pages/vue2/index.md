@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Vue2
 sidebar: false
 order: 3

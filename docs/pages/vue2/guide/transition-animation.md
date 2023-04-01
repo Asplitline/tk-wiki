@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 过渡 & 动画
 order: 3
 ---

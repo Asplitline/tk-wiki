@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 通用Api
 order: 3
 ---

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: CSS3
 order: 1
 ---

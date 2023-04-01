@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: tk
 sidebar: false
 layout: page

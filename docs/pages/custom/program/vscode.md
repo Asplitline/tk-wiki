@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: vscode
 order: 1
 ---

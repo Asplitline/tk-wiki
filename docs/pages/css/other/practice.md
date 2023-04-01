@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: CSS实战
 order: 4
 ---
@@ -66,10 +65,10 @@ toggleForbidScrollThrough(isForbide) {
 
 ```css
 .single-line {
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 ```
 
@@ -79,13 +78,13 @@ toggleForbidScrollThrough(isForbide) {
 
 ```css
 .multiple-line {
-    width: 200px;
-    white-space: normal;
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box; /*弹性伸缩盒子模型*/
-    -webkit-line-clamp: 2; /*设置显示文本行数*/
-    -webkit-box-orient: vertical; /*伸缩盒子子排列方式*/
+  width: 200px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /*弹性伸缩盒子模型*/
+  -webkit-line-clamp: 2; /*设置显示文本行数*/
+  -webkit-box-orient: vertical; /*伸缩盒子子排列方式*/
 }
 ```
 
@@ -95,16 +94,16 @@ toggleForbidScrollThrough(isForbide) {
 
 ```html
 <p class="person-card__desc single-line inlineblock">
-    <span>FE</span>
-    <span>BE</span>
-    <span>UX Designer</span>
-    <span>前端工程师</span>
+  <span>FE</span>
+  <span>BE</span>
+  <span>UX Designer</span>
+  <span>前端工程师</span>
 </p>
 ```
 
 ```css
 .inlineblock span {
-    display: inline-block;
+  display: inline-block;
 }
 ```
 
@@ -463,8 +462,6 @@ img.error::after {
 3. `contain: paint` 不绘制元素范围外的内容
 
 > `contain: paint` 属性诞生的目的，即是为加快页面的渲染，在非必要区域，不渲染元素。因此，如果元素不在屏幕上或以其他方式设定为不可见，则其后代不可见不被渲染。
-
-
 
 参考链接：https://github.com/chokcoco/iCSS/issues/90
 

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: CSS
 order: 1
 ---

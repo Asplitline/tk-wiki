@@ -1,7 +1,6 @@
 ---
 title: TS 杂谈
 order: 6
-outline: deep
 ---
 
 # TS 杂谈

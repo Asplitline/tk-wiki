@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: styled-components
 order: 3
 ---

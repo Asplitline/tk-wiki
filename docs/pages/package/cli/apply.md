@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 应用
 order: 6
 ---

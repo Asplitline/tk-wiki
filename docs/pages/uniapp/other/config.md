@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 配置相关
 order: 1
 ---

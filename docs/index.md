@@ -1,8 +1,8 @@
 ---
 layout: home
 
-title: tk-wiki
-titleTemplate: tk-wiki
+title: Tk Wiki
+titleTemplate: Tk Wiki
 
 hero:
   name: Tk Wiki

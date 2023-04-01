@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 清单
 sidebar: true
 ---

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 正则表达式
 order: 1
 ---

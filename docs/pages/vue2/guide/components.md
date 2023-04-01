@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 深入了解组件
 order: 2
 ---
@@ -142,7 +141,7 @@ props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
 
 ```js
 props: {
-  outline: deep
+
 title: String,
   // ...
   contactsPromise: Promise // or any other constructor
@@ -228,7 +227,7 @@ v-bind:title
 ```js
 post: {
   id: 1,
-  outline: deep
+
 title: 'My Journey with Vue'
 }
 ```

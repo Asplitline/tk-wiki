@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 基础
 order: 1
 ---
@@ -392,15 +391,13 @@ function getCharLength(value) {
 // [1, 2, 3]
 ```
 
-
-
 ## char2Ascii
 
-作用：字符转ascii码
+作用：字符转 ascii 码
 
 ```js
 function char2Ascii(char) {
-    return char.charCodeAt()
+  return char.charCodeAt()
 }
 ```
 
@@ -411,11 +408,11 @@ char2Ascii('a')
 
 ## ascii2Char
 
-作用：字符转ascii码
+作用：字符转 ascii 码
 
 ```js
 function ascii2Char(num) {
-    return String.fromCharCode(num);
+  return String.fromCharCode(num)
 }
 ```
 
@@ -424,32 +421,29 @@ ascii2Char(97)
 // 'a'
 ```
 
-
-
 ## chainStrGet
 
 作用：通过字符串的形式链式获取属性
 
 ```js
 function chainStrGet(obj, key) {
-    return key.split('.').reduce((o,i)=>o ? o[i] : undefined, obj)
+  return key.split('.').reduce((o, i) => (o ? o[i] : undefined), obj)
 }
 ```
 
 ```js
 const ob = {
-    a: {
-        b: 2,
-        c: 3,
-        d: {
-            e: 4
-        },
-        q: [1,2,3]
-    }
+  a: {
+    b: 2,
+    c: 3,
+    d: {
+      e: 4
+    },
+    q: [1, 2, 3]
+  }
 }
 
-
-chainStrGet(ob, 'a.b')   // 2
+chainStrGet(ob, 'a.b') // 2
 chainStrGet(ob, 'a.d.e') // 4
 chainStrGet(ob, 'a.q.1') // 2
 chainStrGet(ob, 'a.e') // undefined
@@ -468,8 +462,7 @@ function sleep(ms) {
 ```
 
 ```js
-(async ()=>{
-	await sleep(5000)
+;(async () => {
+  await sleep(5000)
 })()
 ```
-

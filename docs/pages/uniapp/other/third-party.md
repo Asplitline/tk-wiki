@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 三方库使用
 order: 3
 ---

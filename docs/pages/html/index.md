@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: HTML
 sidebar: false
 aside: false

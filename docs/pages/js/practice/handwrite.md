@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 手写
 order: 3
 ---

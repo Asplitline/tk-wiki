@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 实践总结
 order: 2
 ---

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Git
 order: 1
 ---

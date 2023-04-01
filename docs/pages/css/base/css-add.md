@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: CSS补充
 order: 4
 ---

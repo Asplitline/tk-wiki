@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: manifest.json
 order: 2
 ---

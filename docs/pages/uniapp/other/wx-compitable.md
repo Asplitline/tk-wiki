@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 微信小程序兼容性
 order: 4
 ---

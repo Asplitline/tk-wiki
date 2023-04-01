@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: chrome
 order: 4
 ---

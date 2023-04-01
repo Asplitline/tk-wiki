@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Linters
 order: 2
 ---

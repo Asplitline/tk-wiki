@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 可复用性 & 组合
 order: 4
 ---

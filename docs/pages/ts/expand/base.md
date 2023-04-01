@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: TS 基础应用
 order: 1
 ---
@@ -38,19 +37,19 @@ export default function useBoolean() {
 ```ts
 const data = {
   101: {
-    outline: deep
+
 title: '101',
   },
    102: {
-    outline: deep
+
 title: '102',
   },
 }
 
 const index:any = 101
 console.log(data[index])
-// Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ 101: { outline: deep
-title: string; }; 102: { outline: deep
+// Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ 101: {
+title: string; }; 102: {
 title: string; }; }'.(7053)
 ```
 

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: electron
 sidebar: false
 aside: false

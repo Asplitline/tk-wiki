@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 进程间通信
 order: 3
 ---

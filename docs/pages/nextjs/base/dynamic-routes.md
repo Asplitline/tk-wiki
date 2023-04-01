@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 动态路由
 order: 3
 ---

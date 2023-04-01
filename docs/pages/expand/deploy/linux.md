@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Linux
 order: 2
 ---

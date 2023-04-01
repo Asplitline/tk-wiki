@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: TS 在 Vue3 中应用
 order: 3
 ---
@@ -93,7 +92,7 @@ import type 导入
 
 ```ts
 import type MyComponent from '..'
-const myRef = ref<(typeof MyComponent)>()
+const myRef = ref<typeof MyComponent>()
 ```
 
 import 导入
@@ -102,4 +101,3 @@ import 导入
 import MyComponent from '..'
 const myRef = ref<InstanceType<typeof MyComponent>>()
 ```
-

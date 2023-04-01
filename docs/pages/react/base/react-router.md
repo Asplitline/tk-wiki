@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: React Router
 order: 4
 ---

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Vuex
 order: 1
 ---

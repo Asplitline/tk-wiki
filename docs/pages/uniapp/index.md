@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: Uniapp
 sidebar: false
 aside: false

@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 配置与实战
 order: 3
 ---

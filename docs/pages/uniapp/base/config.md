@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 配置
 order: 2
 ---

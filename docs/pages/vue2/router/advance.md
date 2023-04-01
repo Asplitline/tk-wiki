@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 进阶
 order: 2
 ---

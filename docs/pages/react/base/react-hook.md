@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: React Hook
 order: 2
 ---

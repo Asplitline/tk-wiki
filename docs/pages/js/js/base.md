@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: 基础知识
 order: 1
 ---

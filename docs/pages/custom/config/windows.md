@@ -1,5 +1,4 @@
 ---
-outline: deep
 title: windows
 order: 2
 ---
