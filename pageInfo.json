@@ -2,14 +2,12 @@
 	"/pages/cli": {
 		"text": "脚手架",
 		"link": "/pages/cli/index",
-		"outline": "deep",
 		"layout": "page",
 		"sidebar": false
 	},
 	"/pages/css": {
 		"text": "CSS",
 		"link": "/pages/css/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -18,13 +16,11 @@
 		"text": "个人配置",
 		"link": "/pages/custom/index",
 		"sidebar": false,
-		"outline": "deep",
 		"layout": "page"
 	},
 	"/pages/devlog": {
 		"text": "框架实战",
 		"link": "/pages/devlog/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -32,7 +28,6 @@
 	"/pages/electron": {
 		"text": "electron",
 		"link": "/pages/electron/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -40,7 +35,6 @@
 	"/pages/error": {
 		"text": "错误收集",
 		"link": "/pages/error/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -48,7 +42,6 @@
 	"/pages/expand": {
 		"text": "知识扩展",
 		"link": "/pages/expand/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -56,7 +49,6 @@
 	"/pages/html": {
 		"text": "HTML",
 		"link": "/pages/html/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -64,7 +56,6 @@
 	"/pages/js": {
 		"text": "JavaScript",
 		"link": "/pages/js/index",
-		"outline": "deep",
 		"order": 1,
 		"sidebar": false,
 		"aside": false,
@@ -73,7 +64,6 @@
 	"/pages/nextjs": {
 		"text": "NextJs",
 		"link": "/pages/nextjs/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -83,13 +73,11 @@
 		"link": "/pages/package/index",
 		"sidebar": false,
 		"order": 4,
-		"outline": "deep",
 		"layout": "page"
 	},
 	"/pages/qa": {
 		"text": "QA",
 		"link": "/pages/qa/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -97,7 +85,6 @@
 	"/pages/react": {
 		"text": "React",
 		"link": "/pages/react/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -105,14 +92,12 @@
 	"/pages/tk": {
 		"text": "tk",
 		"link": "/pages/tk/index",
-		"outline": "deep",
 		"sidebar": false,
 		"layout": "page"
 	},
 	"/pages/ts": {
 		"text": "TypeScript",
 		"link": "/pages/ts/index",
-		"outline": "deep",
 		"order": 2,
 		"sidebar": false,
 		"layout": "page"
@@ -120,7 +105,6 @@
 	"/pages/uniapp": {
 		"text": "Uniapp",
 		"link": "/pages/uniapp/index",
-		"outline": "deep",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -128,7 +112,6 @@
 	"/pages/vue2": {
 		"text": "Vue2",
 		"link": "/pages/vue2/index",
-		"outline": "deep",
 		"sidebar": false,
 		"order": 3,
 		"layout": "page"
@@ -136,7 +119,6 @@
 	"/pages/vue3": {
 		"text": "清单",
 		"link": "/pages/vue3/index",
-		"outline": "deep",
 		"sidebar": true
 	}
 }
