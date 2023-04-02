@@ -5,20 +5,16 @@ order: 1
 
 # CSS3
 
-## flex
+## 弹性布局 - flex
 
 `display:flex`
 
 ### 与传统布局对比
 
-#### 传统布局
-
-布局繁琐。移动端不友好
+传统布局：布局繁琐。移动端不友好
 兼容性好
 
-#### flex 布局
-
-布局简单，移动端使用广泛
+flex 布局：布局简单，移动端使用广泛
 
 兼容性：pc 端浏览器支持情况差、IE11 或更低版本不支持 flex 或仅支持部分
 
@@ -250,17 +246,13 @@ div {
 
 > 边框阴影和边框没有关系
 
-## 内减模式
+## 盒模型
 
 将 padding 内边距和边框带来增大盒子的影响去掉，**不能去 margin 影响**
 
-**css3 盒子模型**
+**css3 盒子模型**：`box-sizing:border-box;`
 
-`box-sizing:border-box;`
-
-> **传统盒子模型**
->
-> box-sizing: content-box
+**传统盒子模型**：`box-sizing: content-box`
 
 ## 新增属性选择器
 
@@ -274,8 +266,9 @@ div {
 
 给元素追加一个**虚拟标签**，由 css 加载，可以节省 html 的资源开销
 
-- `::after`：指定标签后添加一个对象
-- `::before`：指定标签前添加一个对象
+`::after`：指定标签后添加一个对象
+
+`::before`：指定标签前添加一个对象
 
 :after 和 ::after 区别
 
@@ -524,19 +517,23 @@ body {
 
 ### 语法规范
 
-- **@media** - 开头
-- **mediatype** - 媒体类型
-  - **all** - 所有设备
-  - **print** - 打印机和打印预览
-  - **screen** - 电脑、平板、手机
-- **and not only** - 关键字
+**@media** - 开头
 
-  - **and** - 多个媒体类型连接到一起
-  - **not** - 排除某个媒体类型 （可省）
-  - **only** - 指定某个媒体类型 （可省）
+**mediatype** - 媒体类型
 
-- **media feature** - 媒体特性
-  - **width** (可见区域)| **min-width** （最小可见区域）| **max-width**（最大可见区域）
+- **all** - 所有设备
+- **print** - 打印机和打印预览
+- **screen** - 电脑、平板、手机
+
+**and not only** - 关键字
+
+- **and** - 多个媒体类型连接到一起
+- **not** - 排除某个媒体类型 （可省）
+- **only** - 指定某个媒体类型 （可省）
+
+**media feature** - 媒体特性
+
+- **width** (可见区域)| **min-width** （最小可见区域）| **max-width**（最大可见区域）
 
 ```css
 @media mediatype and|not|only (media feature) {
@@ -544,4 +541,244 @@ body {
 }
 ```
 
-> ​ 尽量从小到大书写，由于权重关系，可使代码更简洁
+>  尽量从小到大书写，由于权重关系，可使代码更简洁
+
+
+
+## CSS 变量
+
+### 变量声明
+
+变量名前面要加两根连词线（`--`）
+
+
+CSS 变量（CSS variable）又叫做"CSS 自定义属性"（CSS custom properties）。与color、font-size等正式属性没有什么不同，只是没有默认含义。
+
+
+> 变量名大小写敏感，--header-color和--Header-Color是两个不同变量
+
+
+### var()函数
+
+var() 函数：用于读取变量
+
+```css
+<var()> = var( <custom-property-name> , <declaration-value>? )  
+```
+
+
+`custom-property-name`：css变量名
+
+`declaration-value`：css变量默认值
+
+第二个参数不处理内部的逗号或空格，都视作参数的一部分
+
+```css
+var(--font-stack, "Roboto", "Helvetica");
+var(--pad, 10px 15px 20px);
+```
+
+
+var()函数还可以用在变量的声明
+
+```css
+:root {
+  --primary-color: red;
+  --logo-text: var(--primary-color);
+}
+```
+
+
+变量值只能用作属性值，不能用作属性名
+
+```css
+.foo {
+  --side: margin-top;
+  /* 无效 */
+  var(--side): 20px;
+}
+```
+
+
+### 变量类型
+
+变量值为**字符串**，可以与其他字符串拼接
+
+```css
+--bar: 'hello';
+--foo: var(--bar)' world';
+```
+
+
+变量值为**数值**，不能与数值单位直接连用，使用`calc()`函数
+
+```css
+.foo {
+  --gap: 20;
+  /* 无效 */
+  margin-top: var(--gap)px;
+}
+```
+
+```css
+.foo {
+  --gap: 20;
+  margin-top: calc(var(--gap) * 1px);
+}
+```
+
+
+变量值带有单位，就不能写成字符串
+
+```css
+/* 无效 */
+.foo {
+  --foo: '20px';
+  font-size: var(--foo);
+}
+
+/* 有效 */
+.foo {
+  --foo: 20px;
+  font-size: var(--foo);
+}
+```
+
+
+### 作用域
+
+同一个 CSS 变量，可以在多个选择器内声明。读取的时候，优先级最高的声明生效。
+
+
+变量的作用域就是它所在的选择器的有效范围
+
+```css
+body {
+  --foo: #7F583F;
+}
+
+.content {
+  --bar: #F7EFD2;
+}
+```
+
+
+变量`--foo`的作用域是`body`选择器的生效范围，`--bar`的作用域是`.content`选择器的生效范围
+
+全局的变量通常放在根元素`:root`，确保任何选择器都可以读取
+
+```css
+:root {
+  --main-color: #06c;
+}
+```
+
+
+### 变量应用
+
+在响应式布局的media命令里面声明变量，使得不同的屏幕宽度有不同的变量值
+
+```css
+body {
+  --primary: #7F583F;
+  --secondary: #F7EFD2;
+}
+
+a {
+  color: var(--primary);
+  text-decoration-color: var(--secondary);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --primary:  #F7EFD2;
+    --secondary: #7F583F;
+  }
+}
+```
+
+
+### 兼容性处理
+
+不支持 CSS 变量的浏览器，采用下写法
+
+```css
+a {
+  color: #7F583F;
+  color: var(--primary);
+}
+```
+
+也可使用`@support`命令进行检测
+
+```css
+@supports ( (--a: 0)) {
+  /* supported */
+}
+
+@supports ( not (--a: 0)) {
+  /* not supported */
+}
+```
+
+
+### JavaScript 操作
+
+检测浏览器是否支持 CSS 变量
+
+```javascript
+const isSupported =
+  window.CSS &&
+  window.CSS.supports &&
+  window.CSS.supports('--a', 0);
+
+if (isSupported) {
+  /* supported */
+} else {
+  /* not supported */
+}
+```
+
+
+JavaScript 操作 CSS 变量
+
+```javascript
+// 设置变量
+document.body.style.setProperty('--primary', '#7F583F');
+
+// 读取变量
+document.body.style.getPropertyValue('--primary').trim();
+// '#7F583F'
+
+// 删除变量
+document.body.style.removeProperty('--primary');
+```
+
+
+意味着，JavaScript 可以将任意值存入样式表。
+
+```javascript
+const docStyle = document.documentElement.style;
+
+document.addEventListener('mousemove', (e) => {
+  docStyle.setProperty('--mouse-x', e.clientX);
+  docStyle.setProperty('--mouse-y', e.clientY);
+});
+```
+
+
+对 CSS 无用的信息，也可以放入 CSS 变量。
+
+```css
+--foo: if(x > 5) this.width = 10;
+```
+
+
+虽然 --foo 在 CSS 无效，但是可以被 `JavaScript` 获取
+
+> CSS 变量提供了 JavaScript 与 CSS 通信的一种途径。
+
+
+### 参考链接
+
+https://www.ruanyifeng.com/blog/2017/05/css-variables.html

@@ -27,7 +27,7 @@ export default defineConfig({
       ...sidebar
     },
     footer: {
-      message: '备案号：<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022016215号-1	</a>',
+      message: '备案号：<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022016215号-1 	</a>',
       copyright: ''
     },
     algolia: {

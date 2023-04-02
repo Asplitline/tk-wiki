@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { getDirList } from '../../../lib/pages.ts'
-import { obj2Array } from '../../../lib/tools.ts'
+import { getDirList } from '../../../lib/pages'
+import { obj2Array } from '../../../lib/tools'
 import { useRoute } from 'vitepress'
 import { ref, onMounted, computed } from 'vue'
-import { baseURL, pageRoot } from '../../../themeConfig/constants.ts'
+import { baseURL, pageRoot } from '../../../themeConfig/constants'
 const route = useRoute()
 const list = ref([])
 const pageInfo = ref({})
