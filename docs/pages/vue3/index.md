@@ -1,8 +1,8 @@
 ---
-title: 清单
-sidebar: true
+title: Vue3
+sidebar: false
+aside: false
+layout: page
 ---
 
-# Vue3
-
-pending
+<base-index :title="$frontmatter.title"/>

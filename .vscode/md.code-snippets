@@ -25,13 +25,13 @@
   "page-level2": {
     "scope": "markdown",
     "prefix": "pgl2",
-    "body": ["---", "outline: deep", "title: $1", "order: 1", "parentOrder: 1", "---"],
+    "body": ["---", "title: $1", "order: 1", "parentOrder: 1", "---"],
     "description": "page level 2"
   },
   "page-level3": {
     "scope": "markdown",
     "prefix": "pgl3",
-    "body": ["---", "outline: deep", "title: $1", "order: 1", "---"],
+    "body": ["---", "title: $1", "order: 1", "---"],
     "description": "page level 2"
   }
 }
