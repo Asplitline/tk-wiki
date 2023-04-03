@@ -968,5 +968,17 @@
 			]
 		}
 	],
-	"/pages/vue3": []
+	"/pages/vue3": [
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "三方库",
+					"link": "/pages/vue3/practice/three-party",
+					"order": 2
+				}
+			]
+		}
+	]
 }

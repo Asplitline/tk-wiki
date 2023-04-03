@@ -117,8 +117,10 @@
 		"layout": "page"
 	},
 	"/pages/vue3": {
-		"text": "清单",
+		"text": "Vue3",
 		"link": "/pages/vue3/index",
-		"sidebar": true
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
 	}
 }
