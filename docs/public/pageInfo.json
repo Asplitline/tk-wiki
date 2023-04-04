@@ -117,7 +117,7 @@
 		"layout": "page"
 	},
 	"/pages/vue3": {
-		"text": "Vue3",
+		"text": "Vue31",
 		"link": "/pages/vue3/index",
 		"sidebar": false,
 		"aside": false,

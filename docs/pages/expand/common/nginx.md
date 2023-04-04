@@ -1,9 +1,9 @@
 ---
-title: Nginx
+title: nginx
 order: 1
 ---
 
-# Nginx
+# nginx
 
 ## Nginx 简介
 

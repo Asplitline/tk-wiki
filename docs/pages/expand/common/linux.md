@@ -1,5 +1,5 @@
 ---
-title: Linux
+title: linux
 order: 2
 ---
 

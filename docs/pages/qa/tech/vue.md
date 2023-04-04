@@ -1,11 +1,27 @@
 ---
-title: Vue
-order: 1
+title: vue
+order: 4
 ---
 
 # Vue
 
-## Q: hash 路由和 history 路由有什么区别
+## 常规
+
+### 组件间通讯
+
+### 介绍 render 函数，描述虚拟 dom 到真实 dom 的过程
+
+### .sync 和 v-model 区别
+
+### diff 算法
+
+### vue 中如何做 seo 优化
+
+## 对比
+
+### hash 路由和 history 路由区别
+
+<details><summary>答案</summary>
 
 hash 路由: https://example.com/#/user/id
 
@@ -22,3 +38,15 @@ location / {
   try_files $uri $uri/ /index.html;
 }
 ```
+
+</details>
+
+### vue2 和 vue3 区别
+
+### vue 和 React 区别
+
+### composition api 和 option api 区别
+
+### vuex 和 pinia 区别
+
+### react diff 和 vue diff 区别

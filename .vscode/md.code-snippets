@@ -33,5 +33,11 @@
     "prefix": "pgl3",
     "body": ["---", "title: $1", "order: 1", "---"],
     "description": "page level 2"
+  },
+  "qa-summary": {
+    "scope": "markdown",
+    "prefix": "qasm",
+    "body": ["<details><summary>答案$1</summary>", "$2", "</details>"],
+    "description": "QA summary"
   }
 }

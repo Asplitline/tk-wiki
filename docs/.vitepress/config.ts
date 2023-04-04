@@ -20,7 +20,7 @@ export default defineConfig({
     outline: 'deep',
     nav: nav,
     editLink: {
-      pattern: `${github}/tree/main/docs/:path`,
+      pattern: `${github}/tree/master/docs/:path`,
       text: '在 GitHub 上编辑此页'
     },
     sidebar: {

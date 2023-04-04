@@ -3,6 +3,8 @@ title: Window
 order: 2
 ---
 
+# Window
+
 ## 右键打开
 
 ### 打开文件
