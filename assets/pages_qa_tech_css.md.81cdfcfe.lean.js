@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s}from"./chunks/framework.7addaa9c.js";const l=JSON.parse('{"title":"css","description":"","frontmatter":{"title":"css","order":2},"headers":[],"relativePath":"pages/qa/tech/css.md","lastUpdated":1680626193000}'),a={name:"pages/qa/tech/css.md"};function c(r,o,n,p,d,_){return s(),t("div")}const m=e(a,[["render",c]]);export{l as __pageData,m as default};
