@@ -202,14 +202,19 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Nginx",
-					"link": "/pages/expand/deploy/nginx",
+					"text": "nginx",
+					"link": "/pages/expand/common/nginx",
 					"order": 1
 				},
 				{
-					"text": "Linux",
-					"link": "/pages/expand/deploy/linux",
+					"text": "linux",
+					"link": "/pages/expand/common/linux",
 					"order": 2
+				},
+				{
+					"text": "markdown",
+					"link": "/pages/expand/common/markdown",
+					"order": 3
 				}
 			]
 		},
@@ -602,13 +607,28 @@
 	],
 	"/pages/qa": [
 		{
-			"text": "技术相关QA",
+			"text": "技术相关",
 			"collapsible": true,
 			"items": [
 				{
-					"text": "Vue",
-					"link": "/pages/qa/tech/vue",
+					"text": "html",
+					"link": "/pages/qa/tech/html",
 					"order": 1
+				},
+				{
+					"text": "css",
+					"link": "/pages/qa/tech/css",
+					"order": 2
+				},
+				{
+					"text": "javascript",
+					"link": "/pages/qa/tech/javascript",
+					"order": 3
+				},
+				{
+					"text": "vue",
+					"link": "/pages/qa/tech/vue",
+					"order": 4
 				}
 			],
 			"order": 1
