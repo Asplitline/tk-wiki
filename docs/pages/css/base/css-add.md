@@ -3,21 +3,7 @@ title: CSS补充
 order: 4
 ---
 
-# 补充
-
-## 背景线性渐变
-
-起始方向： **方位名词 或者 度数**
-
-如果省略默认就是 `top`
-
-```css
-background: linear-gradient(起始方向, 颜色1, 颜色2, ...);
-background: -webkit-linear-gradient(left, red, blue);
-background: -webkit-linear-gradient(left top, red, blue);
-```
-
-> 背景渐变必须添加浏览器私有前缀
+# CSS补充
 
 ## BFC
 
@@ -211,17 +197,3 @@ child {
 
 - 值 123：颜色（0-255）
 - 值 4：透明度
-
-**缩放 ZOOM**：`zoom:值`
-
-- 倍数（整数，小数）
-
-**zoom 和 transform 区别**
-
-`zoom：2`
-
-默认以左上角，占位
-
-`transform:scale(2);`
-
-默认以中心点，不占位
