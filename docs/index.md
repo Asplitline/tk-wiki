@@ -8,21 +8,40 @@ hero:
   name: Tk Wiki
   # text: Tk 知识库
   tagline: 个人知识库
+  image:
+    src: /banner.svg
+    alt: Tk Wiki
   actions:
     - theme: brand
-      text: 开始
+      text: 开始阅读
       link: /pages/
     - theme: alt
       text: GitHub
       link: https://github.com/Asplitline
 
 features:
-  - title: Vue
-    details: Vue2、Vue3
-  - title: JavaScript
-    details: ES6、TypeScript
-  - title: 配置
-    details: 版本管理、webpack、vite
-  - title: 实战
-    details: 一些开发总结
+  - icon:
+      src: /icon/js.svg
+    title: JavaScript
+    details: 前端三件套之 JavaScript。
+    link: /pages/js/
+    linkText: 前往
+  - icon:
+      src: /icon/ts.svg
+    title: TypeScript
+    details: JavaScript超集。
+    link: /pages/ts/
+    linkText: 前往
+  - icon:
+      src: /icon/vue.svg
+    title: Vue
+    details: Vue从基础到实战。
+    link: /pages/vue2/
+    linkText: 前往
+  - icon:
+      src: /icon/npm.svg
+    title: 包管理
+    details: npm、yarn、pnpm。
+    link: /pages/package/
+    linkText: 前往
 ---
