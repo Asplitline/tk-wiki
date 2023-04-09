@@ -48,7 +48,7 @@ export default defineConfig({
     },
     footer: {
       message: '备案号：<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022016215号-1 	</a>',
-      copyright: '1'
+      copyright: ''
     },
     algolia: {
       appId: 'K106B03X2S',
