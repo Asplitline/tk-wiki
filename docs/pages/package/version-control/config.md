@@ -123,6 +123,27 @@ where git
 },
 ```
 
+### 配置 ssh 拉取代码
+
+1. 将 ssh 密钥文件添加至 .ssh 目录下。如：`C:\Users\administrator\.ssh`
+
+```shell
+# 密钥文件
+<key_file>.pub
+<key_file>
+```
+
+2. 新增配置文件`config`，指向 ssh 密钥文件
+
+```
+Host codeup.aliyun.com 
+HostName codeup.aliyun.com 
+IdentityFile ~/.ssh/<key_file>
+User <dev_name>
+```
+
+> 如果未发现 .ssh 文件，通过 `ssh-keygen -t rsa -C 123@qq.com` 命令生成
+
 ## 实战
 
 ### Git 回退

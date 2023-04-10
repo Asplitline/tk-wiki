@@ -86,9 +86,11 @@ git pull
 3. 将公钥添加至 ssh key
 4. 通过 ssh 地址 克隆仓库
 
-> 通过添加 ssh key，可以让设备直接下载 项目
+> 通过添加 ssh key，可以让设备直接下载项目
 
-## \*.crt not found
+
+
+## *.crt not found
 
 fatal: Custom certificate bundle not found at path: D:/\*.crt
 
