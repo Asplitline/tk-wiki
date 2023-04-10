@@ -1,6 +1,5 @@
 ---
 layout: home
-
 title: Tk Wiki
 titleTemplate: Tk Wiki
 
@@ -18,7 +17,6 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/Asplitline
-
 features:
   - icon:
       src: /icon/js.svg
