@@ -5,8 +5,8 @@ import fs from 'fs'
 import path from 'path'
 import { description, github, keywords, name, site } from './meta'
 export default defineConfig({
-  title: ' ',
-  description: 'tk Wiki',
+  title: 'Tk  Wiki',
+  description: 'Tk Wiki',
   lastUpdated: true,
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
@@ -18,12 +18,11 @@ export default defineConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['meta', { name: 'keywords', content: keywords }],
-    ['meta', { name: 'author', content: 'Choi Yang' }],
+    ['meta', { name: 'author', content: 'tink' }],
     ['meta', { property: 'og:type', content: 'article' }],
     ['meta', { name: 'application-name', content: name }],
     ['meta', { name: 'apple-mobile-web-app-title', content: name }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
-    // ['link', { rel: 'apple-touch-icon', sizes: '120x120', href: '/images/icons/apple-touch-icon.png' }],
     // webfont
     ['link', { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],

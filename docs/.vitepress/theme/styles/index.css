@@ -1,2 +1,6 @@
 @import './normalize.css';
 @import './reset.css';
+
+.VPNavBarTitle a.title {
+  font-size: 0;
+}
