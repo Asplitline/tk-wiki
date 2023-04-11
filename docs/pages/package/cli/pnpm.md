@@ -5,7 +5,29 @@ order: 4
 
 # pnpm
 
-## pnpm patch
+## install
+
+```
+pnpm install
+```
+
+```bash
+Usage: pnpm install [options]
+
+Alias: i
+
+Installs all dependencies of the project in the current working directory. When executed inside a workspace, installs all dependencies of all projects.
+
+Options:
+  -D, --dev                             Only `devDependencies` are installed regardless of the `NODE_ENV`
+  -P, --prod                            Packages in `devDependencies` won't be installed
+      --public-hoist-pattern <pattern>  Hoist all dependencies matching the pattern to the root of the modules directory
+  -w, --workspace-root                  Run the command on the root workspace project
+```
+
+
+
+## patch
 
 1. 生成临时包
 
