@@ -1,6 +1,6 @@
 ---
 title: vue
-order: 4
+order: 5
 ---
 
 # Vue
@@ -80,6 +80,8 @@ order: 4
 
 ### vue 中如何做 seo 优化
 
+### 单页应用和多页应用的区别
+
 ## 对比
 
 ### 02-v-if和v-for哪个优先级更高？
@@ -127,9 +129,7 @@ location / {
 
 ### .sync 和 v-model 区别
 
-### vue2 和 vue3 区别
-
-### vue 和 React 区别
+### Vue 和 React 区别
 
 ### composition api 和 option api 区别
 
@@ -198,9 +198,25 @@ location / {
 
 
 
+## 实战篇
+
+### 实现 el-table
 
 
-## 参考链接
+
+## 收集篇
+
+uni-app怎么实现一套代码可以生成多端小程序的包参考链接
+
+nextTick除了解决异步导致页面显示错误的问题，还有什么用？
+
+小程序和uniapp的渲染机制
+
+小程序的架构有什么优点
+
+前端和原生native的通信是怎么实现的
+
+### 参考链接
 
 https://juejin.cn/post/7097067108663558151
 
