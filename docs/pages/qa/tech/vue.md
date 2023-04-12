@@ -16,6 +16,26 @@ order: 5
 2. 按组件关系阐述使用场景
 
 <details><summary>答案</summary>
+组件间通讯分类
+
+- 父子组件
+- 兄弟组件
+- 祖孙组件
+- 非关系组件
+
+常见通讯方式
+
+1. props传递 - 父子
+2. $emits 触发 - 子父
+3. ref - 父子
+4. eventBus - 兄弟
+5. $parent 和 $root - 兄弟
+6. $attrs 与 $listeners - 祖先传给子孙
+7. provide 和 inject - 祖先传给子孙
+8. vuex - 任意组件传值
+
+> $parent 和 $root:通过共同 $parent 或 $root 
+
 </details>
 
 ### 03-Vue 生命周期及每个阶段做的事
@@ -28,7 +48,44 @@ order: 5
 4. 结合实践
 5. 扩展：vue3变化
 
-### 04-双向绑定使用和原理
+<details><summary>答案</summary>
+</details>
+
+1. 每个Vue组件实例被创建后都会经过一系列初始化步骤，比如，数据观测，模板编译，挂载实例到dom上，以及数据变化时更新dom。这个过程会运行叫做生命周期钩子的函数，以便开发者在特定的阶段做特定的事情。
+2. 生命周期总共可以分为8个阶段：**创建前后, 载入前后, 更新前后, 销毁前后**。
+
+3. 具体描述
+
+| 生命周期v2    | 生命周期v3        | 描述                       |
+| ------------- | ----------------- | -------------------------- |
+| beforeCreate  | -      | 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。 |
+| created       | -           | 实例创建完成后被立即调用。 |
+| beforeMount   | -       | 挂载开始之前被调用，相关的 render 函数首次被调用。 |
+| mounted       | -           | 挂载完成后被调用，这时组件已经被挂载到了 DOM 上。 |
+| beforeUpdate  | -      | 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 |
+| updated       | -           | 数据更新之后调用，发生在虚拟 DOM 重新渲染和打补丁之后。 |
+| beforeDestroy | **beforeUnmount** | 组件实例销毁之前           |
+| destroyed     | **unmounted**     | 组件实例销毁之后           |
+| activated     | -           | keep-alive 缓存的组件激活时              |
+| deactivated   | -         | keep-alive 缓存的组件停用时调用          |
+| errorCaptured | -       | 捕获一个来自子孙组件的错误时被调用       |
+| -             | **renderTracked**   | 调试钩子，响应式依赖被收集时调用         |
+| -             | **renderTriggered** | 调试钩子，响应式依赖被触发时调用         |
+| -             | **serverPrefetch**  | ssr only，组件实例在服务器上被渲染前调用 |
+
+vue3 差异详解：
+
+1. `beforeDestroy -> beforeUnmount` , `Destoryed -> Unmounted`
+2. 新增了三个用于调试和服务端渲染场景 （`renderTracked、renderTriggered、serverPrefetch`）
+3. composition 下新增 setup 函数在  `beforeCreate` 和 `created` 之前执行。`setupStatefulComponent`进行 setup 函数调用，之后在 `finishComponentSetup` 中 `applyOptions`中进行 `beforeCreate` 和 `created` 钩子函数调用
+
+相关代码：
+
+[setupStatefulComponent](https://github1s.com/vuejs/core/blob/HEAD/packages/runtime-core/src/componentOptions.ts)
+
+[applyOptions](https://github1s.com/vuejs/core/blob/HEAD/packages/runtime-core/src/componentOptions.ts#L610)
+
+
 
 思路
 

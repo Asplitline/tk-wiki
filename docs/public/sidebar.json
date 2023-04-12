@@ -256,7 +256,12 @@
 				{
 					"text": "Fiddler - 转载",
 					"link": "/pages/expand/skill/fiddler",
-					"order": 4
+					"order": 5
+				},
+				{
+					"text": "程序员英语",
+					"link": "/pages/expand/skill/pronunce",
+					"order": 6
 				}
 			]
 		}
@@ -618,22 +623,37 @@
 				{
 					"text": "html",
 					"link": "/pages/qa/tech/html",
-					"order": 1
+					"order": 2
 				},
 				{
 					"text": "css",
 					"link": "/pages/qa/tech/css",
-					"order": 2
+					"order": 3
 				},
 				{
 					"text": "javascript",
 					"link": "/pages/qa/tech/javascript",
-					"order": 3
+					"order": 4
+				},
+				{
+					"text": "性能优化",
+					"link": "/pages/qa/tech/perf",
+					"order": 5
 				},
 				{
 					"text": "vue",
 					"link": "/pages/qa/tech/vue",
-					"order": 4
+					"order": 5
+				},
+				{
+					"text": "计算机网络",
+					"link": "/pages/qa/tech/network",
+					"order": 6
+				},
+				{
+					"text": "其他问题",
+					"link": "/pages/qa/tech/iq",
+					"order": 7
 				}
 			],
 			"order": 1

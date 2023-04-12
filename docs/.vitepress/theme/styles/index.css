@@ -1,6 +1,11 @@
-@import './normalize.css';
-@import './reset.css';
+/* @import './normalize.css';
+@import './reset.css'; */
 
 .VPNavBarTitle a.title {
   font-size: 0;
+}
+
+.vp-doc.vp-doc :not(pre) > code {
+  color: #d63200;
+  background-color: #fff5f5;
 }

@@ -1,6 +1,6 @@
-import './styles/index.css'
 import DefaultTheme from 'vitepress/theme'
 import BaseIndex from '../components/BaseIndex.vue'
+import './styles/index.css'
 export default {
   ...DefaultTheme,
   enhanceApp({ app, router, siteData }) {
