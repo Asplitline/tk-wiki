@@ -636,23 +636,23 @@
 					"order": 4
 				},
 				{
-					"text": "性能优化",
-					"link": "/pages/qa/tech/perf",
-					"order": 5
-				},
-				{
 					"text": "vue",
 					"link": "/pages/qa/tech/vue",
 					"order": 5
 				},
 				{
-					"text": "计算机网络",
-					"link": "/pages/qa/tech/network",
+					"text": "性能优化",
+					"link": "/pages/qa/tech/perf",
 					"order": 6
 				},
 				{
 					"text": "其他问题",
 					"link": "/pages/qa/tech/iq",
+					"order": 7
+				},
+				{
+					"text": "计算机网络",
+					"link": "/pages/qa/tech/network",
 					"order": 7
 				}
 			],
