@@ -85,23 +85,13 @@
 		]
 	},
 	{
-		"text": "实战",
+		"text": "其他",
 		"items": [
 			{
 				"text": "错误收集",
 				"link": "/pages/error/index",
 				"activeMath": "/error/"
 			},
-			{
-				"text": "QA",
-				"link": "/pages/qa/index",
-				"activeMath": "/qa/"
-			}
-		]
-	},
-	{
-		"text": "其他",
-		"items": [
 			{
 				"text": "electron",
 				"link": "/pages/electron/index",
