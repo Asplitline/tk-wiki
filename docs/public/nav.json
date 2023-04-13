@@ -1,0 +1,17 @@
+[
+	{
+		"text": "test",
+		"items": [
+			{
+				"text": "test1",
+				"link": "/pages/a/index",
+				"activeMath": "/a/"
+			},
+			{
+				"text": "test2",
+				"link": "/pages/b/index",
+				"activeMath": "/b/"
+			}
+		]
+	}
+]

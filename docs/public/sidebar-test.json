@@ -1,0 +1,38 @@
+{
+	"/pages/a": [
+		{
+			"text": "a-test",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "a-test1",
+					"link": "/pages/a/1",
+					"order": 2
+				},
+				{
+					"text": "a-test2",
+					"link": "/pages/a/2",
+					"order": 3
+				}
+			]
+		}
+	],
+	"/pages/b": [
+		{
+			"text": "b-test",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "b-test1",
+					"link": "/pages/b/1",
+					"order": 1
+				},
+				{
+					"text": "b-test2",
+					"link": "/pages/b/2",
+					"order": 2
+				}
+			]
+		}
+	]
+}

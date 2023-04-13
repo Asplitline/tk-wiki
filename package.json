@@ -1,0 +1,30 @@
+{
+  "name": "tk-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tk",
+  "license": "MIT",
+  "homepage": "https://wiki.tk-292.xyz/",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "start": "vitepress serve docs",
+    "postinstall": "husky install",
+    "prepare": "husky install",
+    "clean": "rm -rf docs/public/*"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/node": "^18.15.11",
+    "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "@vue/theme": "^2.2.1",
+    "gray-matter": "^4.0.3",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
+    "vitepress": "^1.0.0-alpha.65",
+    "vue": "^3.2.47"
+  }
+}

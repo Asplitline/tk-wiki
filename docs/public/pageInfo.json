@@ -1,0 +1,16 @@
+{
+	"/pages/a": {
+		"text": "a-test",
+		"link": "/pages/a/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/b": {
+		"text": "b-test",
+		"link": "/pages/b/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	}
+}
