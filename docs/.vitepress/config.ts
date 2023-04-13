@@ -69,7 +69,7 @@ try {
   console.log('error :', error)
 }
 
-function generateJson(test = true) {
+function generateJson(test = false) {
   if (!test) {
     fs.writeFileSync(path.resolve(__dirname, '../public/sidebar.json'), JSON.stringify(sidebar, null, '\t'))
     fs.writeFileSync(path.resolve(__dirname, '../public/nav.json'), JSON.stringify(nav, null, '\t'))
