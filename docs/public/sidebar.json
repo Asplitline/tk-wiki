@@ -615,50 +615,6 @@
 			"order": 3
 		}
 	],
-	"/pages/qa": [
-		{
-			"text": "技术相关",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "html",
-					"link": "/pages/qa/tech/html",
-					"order": 2
-				},
-				{
-					"text": "css",
-					"link": "/pages/qa/tech/css",
-					"order": 3
-				},
-				{
-					"text": "javascript",
-					"link": "/pages/qa/tech/javascript",
-					"order": 4
-				},
-				{
-					"text": "vue",
-					"link": "/pages/qa/tech/vue",
-					"order": 5
-				},
-				{
-					"text": "性能优化",
-					"link": "/pages/qa/tech/perf",
-					"order": 6
-				},
-				{
-					"text": "其他问题",
-					"link": "/pages/qa/tech/iq",
-					"order": 7
-				},
-				{
-					"text": "计算机网络",
-					"link": "/pages/qa/tech/network",
-					"order": 7
-				}
-			],
-			"order": 1
-		}
-	],
 	"/pages/react": [
 		{
 			"text": "React",

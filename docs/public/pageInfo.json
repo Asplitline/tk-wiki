@@ -75,13 +75,6 @@
 		"order": 4,
 		"layout": "page"
 	},
-	"/pages/qa": {
-		"text": "QA",
-		"link": "/pages/qa/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
 	"/pages/react": {
 		"text": "React",
 		"link": "/pages/react/index",
