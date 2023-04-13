@@ -2,14 +2,14 @@
   <div class="base-layout">
     <template v-if="isRoot">
       <h1>{{ title }}</h1>
-      <div v-for="(lst, key) in rootList" class="base-section">
+      <div v-for="(lst, key) in rootList" class="base-section" :key="key">
         <h2 class="base-section-title">{{ lst.text }}</h2>
         <div>
           <div v-for="(value, idx) of lst.value" :key="idx" class="base-groups">
             <h3>{{ value.text }}</h3>
             <ul class="base-group">
               <li v-for="(it, groupIdx) of value.items" :key="it.link">
-                <a :href="it.link + '.html'">{{ groupIdx + 1 }}. {{ it.text }}</a>
+                <a href="javascript:;" @click="skipLink(it.link)">{{ groupIdx + 1 }}. {{ it.text }}</a>
               </li>
             </ul>
           </div>
@@ -23,30 +23,50 @@
           <h3>{{ item.text }}</h3>
           <ul>
             <li v-for="it of item.items" :key="it.link">
-              <a :href="it.link + '.html'">{{ it.text }}</a>
+              <a href="javascript:;" @click="skipLink(it.link)">{{ it.text }}</a>
             </li>
           </ul>
         </div>
       </div>
     </template>
-
-    <!-- <div v-if="!filtered.length" class="no-match">No base matching "{{ query }}" found.</div> -->
   </div>
 </template>
 
 <script setup lang="ts">
-import { getDirList } from '../../../lib/pages'
+import { useRoute, useRouter } from 'vitepress'
+import { computed, onMounted, ref } from 'vue'
 import { obj2Array } from '../../../lib/tools'
-import { useRoute } from 'vitepress'
-import { ref, onMounted, computed } from 'vue'
 import { baseURL, pageRoot } from '../../../themeConfig/constants'
 const route = useRoute()
+const router = useRouter()
 const list = ref([])
 const pageInfo = ref({})
-const props = defineProps(['title'])
-
+defineProps(['title'])
 const isRoot = computed(() => {
   return route.path === `${baseURL}${pageRoot}/`
+})
+
+const rootList = computed(() => {
+  const newVal = obj2Array(list.value).map((i) => {
+    return {
+      ...i,
+      ...pageInfo.value[i.key]
+    }
+  })
+  return newVal.sort(({ order: aOrder = 999 }, { order: bOrder = 999 }) => aOrder - bOrder)
+})
+
+const endList = computed(() => {
+  const supportKeys = Object.keys(list.value)
+  const currentKey = route.path
+  const keyIndex = supportKeys.findIndex((val) => {
+    return currentKey.startsWith(baseURL + val)
+  })
+  if (keyIndex !== -1) {
+    return list.value[supportKeys[keyIndex]]
+  } else {
+    return []
+  }
 })
 
 const fetchSideBar = async () => {
@@ -71,28 +91,9 @@ const fetchPageInfo = async () => {
   pageInfo.value = res
 }
 
-const rootList = computed(() => {
-  const newVal = obj2Array(list.value).map((i) => {
-    return {
-      ...i,
-      ...pageInfo.value[i.key]
-    }
-  })
-  return newVal.sort(({ order: aOrder = 999 }, { order: bOrder = 999 }) => aOrder - bOrder)
-})
-
-const endList = computed(() => {
-  const supportKeys = Object.keys(list.value)
-  const currentKey = route.path
-  const keyIndex = supportKeys.find((val) => {
-    return currentKey.startsWith(val)
-  })
-  if (keyIndex !== -1) {
-    return list.value[keyIndex]
-  } else {
-    return []
-  }
-})
+const skipLink = (link: string) => {
+  router.go(baseURL + link)
+}
 
 onMounted(async () => {
   await fetchPageInfo()

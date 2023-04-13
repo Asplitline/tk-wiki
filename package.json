@@ -9,6 +9,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "start": "vitepress serve docs",
+    "start:test": "yarn build && yarn start",
     "postinstall": "husky install",
     "prepare": "husky install",
     "clean": "rm -rf docs/public/*"
