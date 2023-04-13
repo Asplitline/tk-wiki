@@ -1,11 +1,23 @@
-/* @import './normalize.css';
-@import './reset.css'; */
-
 .VPNavBarTitle a.title {
   font-size: 0;
 }
 
-.vp-doc.vp-doc :not(pre) > code {
+:root:not(.dark) .vp-doc.vp-doc :not(pre) > code {
   color: #d63200;
   background-color: #fff5f5;
+}
+
+:root.dark .logo {
+  filter: invert(1) hue-rotate(180deg) saturate(150%) brightness(90%);
+}
+
+.VPImage.feature-icon.feature-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background-color: var(--vp-c-bg-soft-down);
+  padding: 6px;
+  transition: background-color 0.25s;
 }

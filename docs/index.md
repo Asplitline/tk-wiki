@@ -19,12 +19,14 @@ hero:
 features:
   - icon:
       src: /icon/test.svg
+      class: feature-icon
     title: Test1
     details: 测试页面1。
     link: /pages/a/
     linkText: 前往
   - icon:
       src: /icon/test.svg
+      class: feature-icon
     title: Test2
     details: 测试页面2。
     link: /pages/b/
