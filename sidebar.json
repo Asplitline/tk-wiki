@@ -149,6 +149,84 @@
 		}
 	],
 	"/pages/devlog": [],
+	"/pages/devops": [
+		{
+			"text": "包管理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "npm",
+					"link": "/pages/devops/cli/npm",
+					"order": 2
+				},
+				{
+					"text": "yarn",
+					"link": "/pages/devops/cli/yarn",
+					"order": 3
+				},
+				{
+					"text": "pnpm",
+					"link": "/pages/devops/cli/pnpm",
+					"order": 4
+				},
+				{
+					"text": "版本发布",
+					"link": "/pages/devops/cli/publish",
+					"order": 5
+				},
+				{
+					"text": "应用",
+					"link": "/pages/devops/cli/apply",
+					"order": 6
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "版本控制",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Git",
+					"link": "/pages/devops/version-control/git",
+					"order": 1
+				},
+				{
+					"text": "Github",
+					"link": "/pages/devops/version-control/github",
+					"order": 2
+				},
+				{
+					"text": "配置与实战",
+					"link": "/pages/devops/version-control/config",
+					"order": 3
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "部署",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础部署",
+					"link": "/pages/devops/deploy/deploy",
+					"order": 2
+				},
+				{
+					"text": "nginx",
+					"link": "/pages/devops/deploy/nginx",
+					"order": 2
+				},
+				{
+					"text": "部署实战",
+					"link": "/pages/devops/deploy/example",
+					"order": 3
+				}
+			],
+			"order": 3
+		}
+	],
 	"/pages/electron": [
 		{
 			"text": "electron 指南",
@@ -535,84 +613,6 @@
 					"order": 5
 				}
 			]
-		}
-	],
-	"/pages/package": [
-		{
-			"text": "包管理",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "npm",
-					"link": "/pages/package/cli/npm",
-					"order": 2
-				},
-				{
-					"text": "yarn",
-					"link": "/pages/package/cli/yarn",
-					"order": 3
-				},
-				{
-					"text": "pnpm",
-					"link": "/pages/package/cli/pnpm",
-					"order": 4
-				},
-				{
-					"text": "版本发布",
-					"link": "/pages/package/cli/publish",
-					"order": 5
-				},
-				{
-					"text": "应用",
-					"link": "/pages/package/cli/apply",
-					"order": 6
-				}
-			],
-			"order": 1
-		},
-		{
-			"text": "版本控制",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "Git",
-					"link": "/pages/package/version-control/git",
-					"order": 1
-				},
-				{
-					"text": "Github",
-					"link": "/pages/package/version-control/github",
-					"order": 2
-				},
-				{
-					"text": "配置与实战",
-					"link": "/pages/package/version-control/config",
-					"order": 3
-				}
-			],
-			"order": 2
-		},
-		{
-			"text": "部署",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "部署",
-					"link": "/pages/package/deploy/deploy",
-					"order": 2
-				},
-				{
-					"text": "Nginx",
-					"link": "/pages/package/deploy/nginx",
-					"order": 2
-				},
-				{
-					"text": "实战",
-					"link": "/pages/package/deploy/example",
-					"order": 3
-				}
-			],
-			"order": 3
 		}
 	],
 	"/pages/react": [

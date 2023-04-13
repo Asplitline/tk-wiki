@@ -25,6 +25,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/devops": {
+		"text": "DevOps",
+		"link": "/pages/devops/index",
+		"sidebar": false,
+		"order": 4,
+		"layout": "page"
+	},
 	"/pages/electron": {
 		"text": "electron",
 		"link": "/pages/electron/index",
@@ -66,13 +73,6 @@
 		"link": "/pages/nextjs/index",
 		"sidebar": false,
 		"aside": false,
-		"layout": "page"
-	},
-	"/pages/package": {
-		"text": "包管理",
-		"link": "/pages/package/index",
-		"sidebar": false,
-		"order": 4,
 		"layout": "page"
 	},
 	"/pages/react": {

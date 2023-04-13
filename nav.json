@@ -63,9 +63,9 @@
 		"text": "配置",
 		"items": [
 			{
-				"text": "包管理",
-				"link": "/pages/package/index",
-				"activeMath": "/package/"
+				"text": "DevOps",
+				"link": "/pages/devops/index",
+				"activeMath": "/devops/"
 			},
 			{
 				"text": "脚手架",
