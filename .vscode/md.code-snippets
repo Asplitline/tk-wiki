@@ -37,7 +37,7 @@
   "qa-summary": {
     "scope": "markdown",
     "prefix": "qasm",
-    "body": ["<details><summary>答案$1</summary>", "$2", "</details>"],
+    "body": ["<details class=\"details-block\"><summary>答案$1</summary>", "$2", "</details>"],
     "description": "QA summary"
   }
 }

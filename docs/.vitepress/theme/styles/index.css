@@ -29,3 +29,15 @@
 :root.dark .vp-doc strong {
   color: var(--vp-c-brand);
 }
+
+.details-block {
+  border-radius: 8px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-color: var(--vp-custom-block-details-border);
+  background-color: var(--vp-custom-block-details-bg);
+}
+
+.details-block summary {
+  cursor: pointer;
+}
