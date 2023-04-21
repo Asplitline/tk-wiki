@@ -29,6 +29,6 @@ features:
       class: feature-icon
     title: Test2
     details: 测试页面2。
-    link: /pages/b/
+    link: /pages/a/
     linkText: 前往
 ---

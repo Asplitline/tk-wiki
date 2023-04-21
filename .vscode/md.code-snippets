@@ -39,5 +39,20 @@
     "prefix": "qasm",
     "body": ["<details class=\"details-block\"><summary>答案$1</summary>", "$2", "</details>"],
     "description": "QA summary"
+  },
+  "wiki-reproduce": {
+    "scope": "markdown",
+    "prefix": "wkrp",
+    "body": [
+      "::: warning 文章非原创",
+      "",
+      "作者：$1",
+      "",
+      "来源：$2",
+      "",
+      "注意：个人学习使用，会对原文进行修改批注",
+      ":::"
+    ],
+    "description": "wiki reproduce"
   }
 }

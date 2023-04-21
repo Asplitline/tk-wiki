@@ -1,1 +1,5 @@
-{}
+{
+	"/pages/a": {
+		"link": "/pages/a/index"
+	}
+}
