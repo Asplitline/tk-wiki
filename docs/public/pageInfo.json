@@ -85,6 +85,13 @@
 		"aside": false,
 		"layout": "page"
 	},
+	"/pages/reproduce": {
+		"text": "转载文章",
+		"link": "/pages/reproduce/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/tk": {
 		"text": "tk",
 		"link": "/pages/tk/index",

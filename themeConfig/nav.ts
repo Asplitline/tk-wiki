@@ -35,8 +35,9 @@ const nav = [
     text: '其他',
     items: [
       { text: '错误收集', link: '/error/index', activeMath: '/error/' },
+      { text: '转载文章', link: '/reproduce/index', activeMath: '/reproduce/' },
       { text: 'electron', link: '/electron/index', activeMath: '/electron/' },
-      { text: 'tk库', link: '/tk/index', activeMath: '/tk/' }
+      { text: 'tk库', link: '/tk/index', activeMath: '/tk/' },
     ]
   }
 ]

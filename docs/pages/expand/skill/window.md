@@ -53,36 +53,6 @@ order: 2
 
 ![image-20210824184802965](window.assets/image-20210824184802965.png)
 
-## 自定义 bat 开启应用
-
-```bash
-start "" "E:\qq\Bin\QQScLauncher.exe"&ping localhost -n 0
-start "" "E:\WeChat\WeChat.exe"&ping localhost -n 1
-::start "" "E:\HbuilderX\HBuilderX\HBuilderX.exe"&ping localhost -n 2
-::start "" "E:\Microsoft VS Code\Code.exe"&ping localhost -n 2
-```
-
-`start "" path&&ping localhost -n 0`
-
-> `&ping localhost -n 0`：可选项，表示 1 秒延迟
-
-```shell
-start "" "E:\qq\Bin\QQScLauncher.exe"&ping localhost -n 0
-start "" "E:\WeChat\WeChat.exe"&ping localhost -n 1
-start "" "E:\HbuilderX\HBuilderX\HBuilderX.exe"&ping localhost -n 2
-::start "" "E:\Microsoft VS Code\Code.exe"&ping localhost -n 2
-```
-
-## 查看文件树形结构
-
-`tree/?`：帮助 `tree`：文件夹结构 `tree/f`：含文件名
-
-`tree/f file.txt`：导出文件树到 file.txt
-
-> `/?`：可以查看命令说明
->
-> eg ： `tree /?`
-
 ## 找回 windows 图片查看器
 
 1. 新建文件 .txt
@@ -137,7 +107,9 @@ Windows Registry Editor Version 5.00
 
 ```
 
-## 关机命令
+## bat
+
+### 关机命令
 
 ```shell
 shutdown -a　#取消关机
@@ -158,3 +130,50 @@ shutdown -s -t <关闭时间> -c "<提示>"
 
 shutdown -s -t 时间　# 设置关机倒计时。 设置关闭前的超时为 xxx 秒
 ```
+
+## 自定义 bat 开启应用
+
+```bash
+start "" "E:\qq\Bin\QQScLauncher.exe"&ping localhost -n 0
+start "" "E:\WeChat\WeChat.exe"&ping localhost -n 1
+::start "" "E:\HbuilderX\HBuilderX\HBuilderX.exe"&ping localhost -n 2
+::start "" "E:\Microsoft VS Code\Code.exe"&ping localhost -n 2
+```
+
+`start "" path&&ping localhost -n 0`
+
+> `&ping localhost -n 0`：可选项，表示 1 秒延迟
+
+```shell
+start "" "E:\qq\Bin\QQScLauncher.exe"&ping localhost -n 0
+start "" "E:\WeChat\WeChat.exe"&ping localhost -n 1
+start "" "E:\HbuilderX\HBuilderX\HBuilderX.exe"&ping localhost -n 2
+::start "" "E:\Microsoft VS Code\Code.exe"&ping localhost -n 2
+```
+
+## cmd
+
+### 查看文件树形结构
+
+`tree/?`：帮助 `tree`：文件夹结构 `tree/f`：含文件名
+
+`tree/f file.txt`：导出文件树到 file.txt
+
+> `/?`：可以查看命令说明
+>
+> eg ： `tree /?`
+
+### 查看端口占用
+
+```shell
+netstat -aon # 查看所有端口
+
+netstat -aon|findstr "8000" # 查看8000端口
+```
+
+### 终止进程
+
+```shell
+taskkill /pid 1234 # 终止pid为1234的进程
+```
+
