@@ -93,6 +93,11 @@
 				"activeMath": "/error/"
 			},
 			{
+				"text": "转载文章",
+				"link": "/pages/reproduce/index",
+				"activeMath": "/reproduce/"
+			},
+			{
 				"text": "electron",
 				"link": "/pages/electron/index",
 				"activeMath": "/electron/"
