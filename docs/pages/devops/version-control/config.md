@@ -144,6 +144,102 @@ User <dev_name>
 
 > 如果未发现 .ssh 文件，通过 `ssh-keygen -t rsa -C 123@qq.com` 命令生成
 
+### vscode 配置全局 .gitignore
+
+以 .history 文件举例
+
+1. 创建 .gitignore，并向其写入 .history
+
+```bash
+echo .history >> ~/.gitignore
+```
+
+2. 应用 .gitignore
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+3. 全局 .gitignore 生效，如果 vscode `source control` 不生效，点击刷新
+
+补充：vscode setting.json 进行如下配置，进一步优化体验
+
+```json
+ // 文件列表不显示 .history
+ "files.exclude": {
+    "**/.history": true,
+  },
+ // 搜索不显示 .history
+  "search.useGlobalIgnoreFiles": true,
+  "search.useIgnoreFiles": true,
+  "search.exclude": {
+    "**/.history": true
+  }
+```
+
+### git bash 乱码
+
+修改 `计算机\HKEY_CURRENT_USER\Console\D:_git_Git_usr_bin_bash.exe`中 codePage 为 十进制 65001
+
+![image-20221031113553307](config.assets/image-20221031113553307.png)
+
+### Git 多平台换行符问题
+
+**文本文件所使用的换行符，在不同的系统平台上是不一样的**。
+
+UNIX/Linux 使用的是 `0x0A（LF）`，早期的 Mac OS 使用的是 `0x0D（CR）`，后来的 OS X 在更换内核后与 UNIX 保持一致了。但 DOS/Windows 一直使用 `0x0D0A（CRLF）` 作为换行符。
+
+Git 提供了一个 `autocrlf` 的配置项，用于在**提交和检出时自动转换换行符**，该配置有三个可选项
+
+- **true:** 提交时转换为 LF，检出时转换为 CRLF
+- **false:** 提交检出均不转换
+- **input:** 提交时转换为LF，检出时不转换
+
+```bash
+# 提交时转换为LF，检出时转换为CRLF
+git config --global core.autocrlf true
+
+# 提交时转换为LF，检出时不转换
+git config --global core.autocrlf input
+
+# 提交检出均不转换
+git config --global core.autocrlf false
+```
+
+把 `autocrlf` 设置为 false 时，那另一个配置项 `safecrlf` 最好设置为 **ture**。该选项用于检查文件是否包含混合换行符，其有三个可选项：
+
+- **true:** 拒绝提交包含混合换行符的文件
+- **false:** 允许提交包含混合换行符的文件
+- **warn:** 提交包含混合换行符的文件时给出警告
+
+```bash
+# 拒绝提交包含混合换行符的文件
+git config --global core.safecrlf true
+
+# 允许提交包含混合换行符的文件
+git config --global core.safecrlf false
+
+# 提交包含混合换行符的文件时给出警告
+git config --global core.safecrlf warn
+```
+
+
+
+多个系统平台上工作，推荐将 git 做如下配置
+
+```bash
+# 提交检出均不转换
+git config --global core.autocrlf false
+# git config --global core.autocrlf input
+
+# 允许提交包含混合换行符的文件
+git config --global core.safecrlf true
+```
+
+> 配置后需要重新拉去代码
+
+参考链接：http://kuanghy.github.io/2017/03/19/git-lf-or-crlf
+
 ## 实战
 
 ### Git 回退
@@ -435,12 +531,6 @@ If you wish to set tracking information for this branch you can do so with:
     git branch --set-upstream-to=origin/<branch> feat/main
 ```
 
-### git bash 乱码
-
-修改 `计算机\HKEY_CURRENT_USER\Console\D:_git_Git_usr_bin_bash.exe`中 codePage 为 十进制 65001
-
-![image-20221031113553307](config.assets/image-20221031113553307.png)
-
 ### 清除未追踪文件
 
 场景：git status 后，发现包含 修改文件(Changes not staged for commit) 和 未追踪文件 (untracked file)，只想删除 untracked file
@@ -462,39 +552,6 @@ git clean -xfd
 git clean -nxfd
 git clean -nf
 git clean -nfd
-```
-
-### vscode 配置全局 .gitignore
-
-以 .history 文件举例
-
-1. 创建 .gitignore，并向其写入 .history
-
-```bash
-echo .history >> ~/.gitignore
-```
-
-2. 应用 .gitignore
-
-```bash
-git config --global core.excludesfile ~/.gitignore
-```
-
-3. 全局 .gitignore 生效，如果 vscode `source control` 不生效，点击刷新
-
-补充：vscode setting.json 进行如下配置，进一步优化体验
-
-```json
- // 文件列表不显示 .history
- "files.exclude": {
-    "**/.history": true,
-  },
- // 搜索不显示 .history
-  "search.useGlobalIgnoreFiles": true,
-  "search.useIgnoreFiles": true,
-  "search.exclude": {
-    "**/.history": true
-  }
 ```
 
 ### 撤销 git commit --amend
@@ -670,3 +727,6 @@ git checkout main
 # current branch - main
 git rebase master
 ```
+
+
+
