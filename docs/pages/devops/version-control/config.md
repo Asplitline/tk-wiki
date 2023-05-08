@@ -123,26 +123,63 @@ where git
 },
 ```
 
-### 配置 ssh 拉取代码
 
-1. 将 ssh 密钥文件添加至 .ssh 目录下。如：`C:\Users\administrator\.ssh`
 
-```shell
+### shell 免密登录
+
+通过添加 ssh key，可以免除密码进行代码操作
+
+基本流程：**生成密钥 -> 公钥添加至 ssh key -> 本地添加ssh配置 -> 通过 ssh地址克隆仓库**
+
+> 如果未发现 .ssh 文件夹，通过 `ssh-keygen -t rsa -C 123@qq.com` 命令生成
+
+1. 生成密钥
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "<comment-info>"
+```
+
+```bash
 # 密钥文件
 <key_file>.pub
 <key_file>
 ```
 
-2. 新增配置文件`config`，指向 ssh 密钥文件
+2. 将公钥添加至仓库 ssh key 中
 
-```
-Host codeup.aliyun.com
-HostName codeup.aliyun.com
-IdentityFile ~/.ssh/<key_file>
-User <dev_name>
+![image-20230508223941110](config.assets/image-20230508223941110.png)
+
+3. 在 `.ssh/config` 文件下添加如下信息。如果没有config文件，新建一个。
+
+```shell
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/<key_file>
+    User <dev_name>
+# 也可以配置多个密钥
+Host codeup1.aliyun.com
+    HostName codeup1.aliyun.com
+    IdentityFile ~/.ssh/<key_file>
+    User <dev_name>
 ```
 
-> 如果未发现 .ssh 文件，通过 `ssh-keygen -t rsa -C 123@qq.com` 命令生成
+4. 测试 ssh 配置是否成功
+
+```bash
+ssh -T git@github.com
+```
+
+5. 通过 ssh 地址拉取代码
+
+
+
+参考文章
+
+[SSH 的config配置之多账号简单管理](https://jingwei.link/2018/12/15/ssh-config-multi-app-manager.html)
+
+[生成新的 SSH 密钥并将其添加到 ssh-agent](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+
 
 ### vscode 配置全局 .gitignore
 
@@ -183,7 +220,9 @@ git config --global core.excludesfile ~/.gitignore
 
 ![image-20221031113553307](config.assets/image-20221031113553307.png)
 
-### Git 多平台换行符问题
+
+
+### git 多平台换行符问题
 
 **文本文件所使用的换行符，在不同的系统平台上是不一样的**。
 
@@ -223,8 +262,6 @@ git config --global core.safecrlf false
 git config --global core.safecrlf warn
 ```
 
-
-
 多个系统平台上工作，推荐将 git 做如下配置
 
 ```bash
@@ -239,6 +276,51 @@ git config --global core.safecrlf true
 > 配置后需要重新拉去代码
 
 参考链接：http://kuanghy.github.io/2017/03/19/git-lf-or-crlf
+
+### *.crt not found
+
+fatal: Custom certificate bundle not found at path: D:/\*.crt
+
+```shell
+git config --global http.sslCAinfo D:\\git\\Git\\mingw64\\ssl\\certs\\ca-bundle.crt
+```
+
+### git clone - RPC failed
+
+```bash
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+```
+
+```bash
+git config --global http.postBuffer 524288000
+```
+
+### remote: HTTP Basic: Access denied
+
+```bash
+fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-bundle.crt
+fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-bundle.crt
+```
+
+```bash
+git config --global http.sslVerify false
+```
+
+### OpenSSL SSL_read: Connection was reset, errno 10054
+
+1. ssh 目录下是否有 ssh 的密钥
+
+```shell
+ls ~/.ssh
+
+>>>>
+id_rsa  id_rsa.pub
+```
+
+2. 将 pub 里的字符串配置到 ssh 中
 
 ## 实战
 
@@ -375,43 +457,6 @@ git checkout main
 git reset --hard o/main # 回滚
 git checkout xx
 ```
-
-### git clone - RPC failed
-
-```bash
-error: RPC failed; curl 18 transfer closed with outstanding read data remaining
-fetch-pack: unexpected disconnect while reading sideband packet
-fatal: early EOF
-fatal: fetch-pack: invalid index-pack output
-```
-
-```bash
-git config --global http.postBuffer 524288000
-```
-
-### remote: HTTP Basic: Access denied
-
-```bash
-fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-bundle.crt
-fatal: Custom certificate bundle not found at path: D:/Git/mingw64/ssl/certs/ca-bundle.crt
-```
-
-```bash
-git config --global http.sslVerify false
-```
-
-### OpenSSL SSL_read: Connection was reset, errno 10054
-
-1. ssh 目录下是否有 ssh 的密钥
-
-```shell
-ls ~/.ssh
-
->>>>
-id_rsa  id_rsa.pub
-```
-
-2. 将 pub 里的字符串配置到 ssh 中
 
 ### You are not currently on a branch
 

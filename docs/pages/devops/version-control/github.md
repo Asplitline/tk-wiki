@@ -69,35 +69,12 @@ git pull
 1. 程序员 C fork 仓库
 2. 程序员 C 将仓库克隆在本地进行修改
 3. 程序员 C 将仓库推送到远程
-4. 程序员 C 发起 pull reqest
+4. 程序员 C 发起 pull request
 5. 原仓库作者审核
 6. 原仓库作者合并代码
 
-## shell 免登录
+> github - pull request
+>
+> gitlab - merge request
 
-1. 生成秘钥：`ssh-keygen`
-
-2. 密钥存储目录：`C:\Users\用户\\.ssh`
-
-   - 公钥名称：`id_rsa.pub`
-
-   - 私钥名称：`id_rsa`
-
-3. 将公钥添加至 ssh key
-4. 通过 ssh 地址 克隆仓库
-
-> 通过添加 ssh key，可以让设备直接下载项目
-
-
-
-## *.crt not found
-
-fatal: Custom certificate bundle not found at path: D:/\*.crt
-
-```shell
-git config --global http.sslCAinfo D:\\git\\Git\\mingw64\\ssl\\certs\\ca-bundle.crt
-```
-
-## ? git 自动化部署
-
-https://docs.github.com/en/developers/webhooks-and-events/webhooks
+参考：[Pull Request 与 Merge Request 的区别](https://zhuanlan.zhihu.com/p/138868306)
