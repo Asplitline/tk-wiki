@@ -121,9 +121,20 @@ nvm use 12.14.0
 nvm list
 ```
 
+### 更换源
+
+windows下 `%appdata%/nvm`文件夹中 `setting.txt` 添加如下配置 
+
+```
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+```
+
 ### 相关链接
 
 [nvm 下载地址](https://github.com/coreybutler/nvm-windows/releases)
+
+[nvm 换源](https://blog.urcloud.co/archives/105)
 
 ## npx
 

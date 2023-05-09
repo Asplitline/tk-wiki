@@ -775,3 +775,39 @@ git rebase master
 
 
 
+### 更新fork项目到最新
+
+1. 查看远程信息
+
+```bash
+git remote -v
+origin  https://github.com/xxx/xx.git (fetch)
+origin  https://github.com/xxx/xx.git (push)
+upstream    <repo-url> (fetch)
+upstream    <repo-url> (push)
+```
+
+2. 添加上游仓库信息 (默认情况没有 upstream )
+
+```bash
+# 添加上游仓库
+git remote add upstream <repo-url>
+# 修改上游仓库
+git remote set-url upstream <repo-url>
+```
+
+3. 同步最新内容
+
+```bash
+git fetch upstream
+```
+
+4. 根据情况处理上游分支
+
+```bash
+* master # 本地分支
+upstream/master  # 同步后上游仓库分支
+```
+
+
+
