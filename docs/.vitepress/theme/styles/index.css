@@ -32,18 +32,11 @@
   color: var(--vp-c-brand);
 }
 
-.details-block {
-  margin: 16px 0;
-  border-radius: 8px;
-  padding: 0 16px;
-  border: 1px solid transparent;
+.details.custom-block {
   border-color: var(--vp-custom-block-details-border);
   background-color: var(--vp-custom-block-details-bg);
 }
 
-.details-block summary {
-  cursor: pointer;
-}
 
 @media (max-width: 768px) {
   .details-block div[class*='language-'] {

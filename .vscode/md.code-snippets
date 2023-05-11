@@ -37,7 +37,11 @@
   "qa-summary": {
     "scope": "markdown",
     "prefix": "qasm",
-    "body": ["<details class=\"details-block\"><summary>答案$1</summary>", "$2", "</details>"],
+    "body": [
+      "<details class=\"details-block\"><summary>答案$1</summary>",
+      "$2",
+      "</details>"
+    ],
     "description": "QA summary"
   },
   "wiki-reproduce": {
@@ -54,5 +58,35 @@
       ":::"
     ],
     "description": "wiki reproduce"
+  },
+  "md-info": {
+    "scope": "markdown",
+    "prefix": "qainfo",
+    "body": ["::: info", "$1", ":::"],
+    "description": "QA info"
+  },
+  "md-tip": {
+    "scope": "markdown",
+    "prefix": "qatip",
+    "body": ["::: tip", "$1", ":::"],
+    "description": "QA tip"
+  },
+  "md-warning": {
+    "scope": "markdown",
+    "prefix": "qawarning",
+    "body": ["::: warning", "$1", ":::"],
+    "description": "QA info"
+  },
+  "md-danger": {
+    "scope": "markdown",
+    "prefix": "qadanger",
+    "body": ["::: danger", "$1", ":::"],
+    "description": "QA danger"
+  },
+  "md-details": {
+    "scope": "markdown",
+    "prefix": "qadetails",
+    "body": ["::: details", "$1", ":::"],
+    "description": "QA details"
   }
 }

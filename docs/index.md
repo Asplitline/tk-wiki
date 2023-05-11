@@ -20,15 +20,16 @@ features:
   - icon:
       src: /icon/test.svg
       class: feature-icon
-    title: Test1
-    details: 测试页面1。
-    link: /pages/a/
+    title: Demo
+    details: 常见示例
+    link: /pages/demo/
     linkText: 前往
   - icon:
       src: /icon/test.svg
       class: feature-icon
-    title: Test2
-    details: 测试页面2。
-    link: /pages/a/
+    title: Demo
+    details: 常见示例
+    link: /pages/demo/
     linkText: 前往
+  
 ---
