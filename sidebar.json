@@ -1,5 +1,4 @@
 {
-	"/pages/a": [],
 	"/pages/cli": [
 		{
 			"text": "Webpack",
@@ -149,6 +148,7 @@
 			"order": 2
 		}
 	],
+	"/pages/demo": [],
 	"/pages/devlog": [],
 	"/pages/devops": [
 		{

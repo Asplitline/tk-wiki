@@ -1,7 +1,4 @@
 {
-	"/pages/a": {
-		"link": "/pages/a/index"
-	},
 	"/pages/cli": {
 		"text": "脚手架",
 		"link": "/pages/cli/index",
@@ -20,6 +17,9 @@
 		"link": "/pages/custom/index",
 		"sidebar": false,
 		"layout": "page"
+	},
+	"/pages/demo": {
+		"link": "/pages/demo/index"
 	},
 	"/pages/devlog": {
 		"text": "框架实战",
