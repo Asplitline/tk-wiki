@@ -1,5 +1,122 @@
 {
-	"/pages/demo": {
-		"link": "/pages/demo/index"
+	"/pages/a": {
+		"link": "/pages/a/index"
+	},
+	"/pages/cli": {
+		"text": "脚手架",
+		"link": "/pages/cli/index",
+		"layout": "page",
+		"sidebar": false
+	},
+	"/pages/css": {
+		"text": "CSS",
+		"link": "/pages/css/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/custom": {
+		"text": "个人配置",
+		"link": "/pages/custom/index",
+		"sidebar": false,
+		"layout": "page"
+	},
+	"/pages/devlog": {
+		"text": "框架实战",
+		"link": "/pages/devlog/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/devops": {
+		"text": "DevOps",
+		"link": "/pages/devops/index",
+		"sidebar": false,
+		"order": 4,
+		"layout": "page"
+	},
+	"/pages/electron": {
+		"text": "electron",
+		"link": "/pages/electron/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/error": {
+		"text": "错误收集",
+		"link": "/pages/error/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/expand": {
+		"text": "知识扩展",
+		"link": "/pages/expand/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/html": {
+		"text": "HTML",
+		"link": "/pages/html/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/js": {
+		"text": "JavaScript",
+		"link": "/pages/js/index",
+		"order": 1,
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/nextjs": {
+		"text": "NextJs",
+		"link": "/pages/nextjs/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/react": {
+		"text": "React",
+		"link": "/pages/react/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/tk": {
+		"text": "tk",
+		"link": "/pages/tk/index",
+		"sidebar": false,
+		"layout": "page"
+	},
+	"/pages/ts": {
+		"text": "TypeScript",
+		"link": "/pages/ts/index",
+		"order": 2,
+		"sidebar": false,
+		"layout": "page"
+	},
+	"/pages/uniapp": {
+		"text": "Uniapp",
+		"link": "/pages/uniapp/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/vue2": {
+		"text": "Vue2",
+		"link": "/pages/vue2/index",
+		"sidebar": false,
+		"order": 3,
+		"layout": "page"
+	},
+	"/pages/vue3": {
+		"text": "Vue3",
+		"link": "/pages/vue3/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
 	}
 }

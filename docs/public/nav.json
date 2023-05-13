@@ -1,16 +1,106 @@
 [
 	{
-		"text": "test",
+		"text": "三件套",
 		"items": [
 			{
-				"text": "test1",
-				"link": "/pages/a/index",
-				"activeMath": "/a/"
+				"text": "HTML",
+				"link": "/pages/html/index",
+				"activeMath": "/html/"
 			},
 			{
-				"text": "test2",
-				"link": "/pages/b/index",
-				"activeMath": "/b/"
+				"text": "CSS",
+				"link": "/pages/css/index",
+				"activeMath": "/css/"
+			},
+			{
+				"text": "JavaScript",
+				"link": "/pages/js/index",
+				"activeMath": "/js/"
+			},
+			{
+				"text": "TypeScript",
+				"link": "/pages/ts/index",
+				"activeMatch": "/ts/"
+			}
+		]
+	},
+	{
+		"text": "Vue",
+		"items": [
+			{
+				"text": "Vue2",
+				"link": "/pages/vue2/index",
+				"activeMath": "/vue2/"
+			},
+			{
+				"text": "Vue3",
+				"link": "/pages/vue3/index",
+				"activeMatch": "/vue3/"
+			},
+			{
+				"text": "uniapp",
+				"link": "/pages/uniapp/index",
+				"activeMath": "/uniapp/"
+			},
+			{
+				"text": "nextjs",
+				"link": "/pages/nextjs/index",
+				"activeMath": "/nextjs/"
+			}
+		]
+	},
+	{
+		"text": "React",
+		"items": [
+			{
+				"text": "React",
+				"link": "/pages/react/index",
+				"activeMatch": "/react/"
+			}
+		]
+	},
+	{
+		"text": "配置",
+		"items": [
+			{
+				"text": "DevOps",
+				"link": "/pages/devops/index",
+				"activeMath": "/devops/"
+			},
+			{
+				"text": "脚手架",
+				"link": "/pages/cli/index",
+				"activeMath": "/cli/"
+			},
+			{
+				"text": "个人配置",
+				"link": "/pages/custom/index",
+				"activeMath": "/custom/"
+			},
+			{
+				"text": "知识扩展",
+				"link": "/pages/expand/index",
+				"activeMath": "/expand/"
+			}
+		]
+	},
+	{
+		"text": "其他",
+		"items": [
+			{
+				"text": "错误收集",
+				"link": "/pages/error/index",
+				"activeMath": "/error/"
+			},
+			{
+				"text": "electron",
+				"link": "/pages/electron/index",
+				"activeMath": "/electron/"
+			},
+			{
+				"text": "tk库",
+				"link": "/pages/tk/index",
+				"activeMath": "/tk/"
 			}
 		]
 	}

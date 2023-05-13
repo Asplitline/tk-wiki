@@ -1,5 +1,5 @@
 /* base-config */
-export const baseURL = '/wiki-template'
+export const baseURL = ''
 export const pageRoot = '/pages'
 
 /* meta */

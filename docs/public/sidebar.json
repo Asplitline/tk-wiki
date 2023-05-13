@@ -1,3 +1,986 @@
 {
-	"/pages/demo": []
+	"/pages/a": [],
+	"/pages/cli": [
+		{
+			"text": "Webpack",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/cli/webpack/base",
+					"order": 1
+				},
+				{
+					"text": "Vue",
+					"link": "/pages/cli/webpack/vue",
+					"order": 2
+				},
+				{
+					"text": "React",
+					"link": "/pages/cli/webpack/react",
+					"order": 3
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "Vite",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/cli/vite/base",
+					"order": 2
+				},
+				{
+					"text": "Vue",
+					"link": "/pages/cli/vite/vue",
+					"order": 3
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "构建工具",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Linters",
+					"link": "/pages/cli/build-tools/lint",
+					"order": 2
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/cli/build-tools/env",
+					"order": 3
+				}
+			],
+			"order": 3
+		}
+	],
+	"/pages/css": [
+		{
+			"text": "CSS",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "CSS",
+					"link": "/pages/css/base/css",
+					"order": 1
+				},
+				{
+					"text": "CSS3",
+					"link": "/pages/css/base/css3",
+					"order": 1
+				},
+				{
+					"text": "移动web",
+					"link": "/pages/css/base/mobile",
+					"order": 3
+				},
+				{
+					"text": "CSS补充",
+					"link": "/pages/css/base/css-add",
+					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "CSS进阶",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "SCSS",
+					"link": "/pages/css/other/scss",
+					"order": 2
+				},
+				{
+					"text": "styled-components",
+					"link": "/pages/css/other/styled-components",
+					"order": 3
+				},
+				{
+					"text": "postcss",
+					"link": "/pages/css/other/postcss",
+					"order": 4
+				},
+				{
+					"text": "CSS实战",
+					"link": "/pages/css/other/practice",
+					"order": 4
+				}
+			]
+		}
+	],
+	"/pages/custom": [
+		{
+			"text": "基础配置",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "快捷键",
+					"link": "/pages/custom/config/keyboard",
+					"order": 1
+				},
+				{
+					"text": "windows",
+					"link": "/pages/custom/config/windows",
+					"order": 2
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "编程工具",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "vscode",
+					"link": "/pages/custom/program/vscode",
+					"order": 1
+				},
+				{
+					"text": "chrome devtool",
+					"link": "/pages/custom/program/chrome",
+					"order": 2
+				}
+			],
+			"order": 2
+		}
+	],
+	"/pages/devlog": [],
+	"/pages/devops": [
+		{
+			"text": "包管理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "npm",
+					"link": "/pages/devops/cli/npm",
+					"order": 2
+				},
+				{
+					"text": "yarn",
+					"link": "/pages/devops/cli/yarn",
+					"order": 3
+				},
+				{
+					"text": "pnpm",
+					"link": "/pages/devops/cli/pnpm",
+					"order": 4
+				},
+				{
+					"text": "版本发布",
+					"link": "/pages/devops/cli/publish",
+					"order": 5
+				},
+				{
+					"text": "应用",
+					"link": "/pages/devops/cli/apply",
+					"order": 6
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "版本控制",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Git",
+					"link": "/pages/devops/version-control/git",
+					"order": 1
+				},
+				{
+					"text": "Github",
+					"link": "/pages/devops/version-control/github",
+					"order": 2
+				},
+				{
+					"text": "配置与实战",
+					"link": "/pages/devops/version-control/config",
+					"order": 3
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "部署",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础部署",
+					"link": "/pages/devops/deploy/deploy",
+					"order": 2
+				},
+				{
+					"text": "nginx",
+					"link": "/pages/devops/deploy/nginx",
+					"order": 2
+				},
+				{
+					"text": "部署实战",
+					"link": "/pages/devops/deploy/example",
+					"order": 3
+				}
+			],
+			"order": 3
+		}
+	],
+	"/pages/electron": [
+		{
+			"text": "electron 指南",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "入门",
+					"link": "/pages/electron/base/guide",
+					"order": 1
+				},
+				{
+					"text": "流程模型",
+					"link": "/pages/electron/base/model",
+					"order": 2
+				},
+				{
+					"text": "进程间通信",
+					"link": "/pages/electron/base/message",
+					"order": 3
+				}
+			],
+			"order": 1
+		}
+	],
+	"/pages/error": [
+		{
+			"text": "错误处理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "兼容性处理",
+					"link": "/pages/error/base/polyfill",
+					"order": 1
+				},
+				{
+					"text": "三方库兼容性",
+					"link": "/pages/error/base/polyfill-three-party",
+					"order": 2
+				},
+				{
+					"text": "样式相关",
+					"link": "/pages/error/base/style",
+					"order": 3
+				},
+				{
+					"text": "其他错误",
+					"link": "/pages/error/base/other",
+					"order": 4
+				}
+			]
+		}
+	],
+	"/pages/expand": [
+		{
+			"text": "常见",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "nginx",
+					"link": "/pages/expand/common/nginx",
+					"order": 1
+				},
+				{
+					"text": "linux",
+					"link": "/pages/expand/common/linux",
+					"order": 2
+				},
+				{
+					"text": "markdown",
+					"link": "/pages/expand/common/markdown",
+					"order": 3
+				}
+			]
+		},
+		{
+			"text": "规范化",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "CSS 规范",
+					"link": "/pages/expand/rule/css-rule",
+					"order": 2
+				}
+			]
+		},
+		{
+			"text": "奇淫技巧",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Window",
+					"link": "/pages/expand/skill/window",
+					"order": 2
+				},
+				{
+					"text": "IOS",
+					"link": "/pages/expand/skill/ios",
+					"order": 3
+				},
+				{
+					"text": "chrome",
+					"link": "/pages/expand/skill/chrome",
+					"order": 4
+				},
+				{
+					"text": "Fiddler - 转载",
+					"link": "/pages/expand/skill/fiddler",
+					"order": 5
+				},
+				{
+					"text": "程序员英语",
+					"link": "/pages/expand/skill/pronunce",
+					"order": 6
+				}
+			]
+		}
+	],
+	"/pages/html": [
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/html/practice/base",
+					"order": 1
+				}
+			],
+			"order": 1
+		}
+	],
+	"/pages/js": [
+		{
+			"text": "ES6 基础",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "babel",
+					"link": "/pages/js/es6/1.babel",
+					"order": 1
+				},
+				{
+					"text": "let const",
+					"link": "/pages/js/es6/2.let-const",
+					"order": 2
+				},
+				{
+					"text": "变量结构赋值",
+					"link": "/pages/js/es6/3.destructuring",
+					"order": 3
+				},
+				{
+					"text": "字符串扩展和新增方法",
+					"link": "/pages/js/es6/4.string",
+					"order": 4
+				},
+				{
+					"text": "正则扩展",
+					"link": "/pages/js/es6/5.regex",
+					"order": 5
+				},
+				{
+					"text": "数值扩展",
+					"link": "/pages/js/es6/6.number",
+					"order": 6
+				},
+				{
+					"text": "函数扩展",
+					"link": "/pages/js/es6/7.function",
+					"order": 7
+				},
+				{
+					"text": "数组扩展",
+					"link": "/pages/js/es6/8.array",
+					"order": 8
+				},
+				{
+					"text": "对象扩展",
+					"link": "/pages/js/es6/9.object",
+					"order": 9
+				},
+				{
+					"text": "运算符扩展",
+					"link": "/pages/js/es6/10.operator",
+					"order": 10
+				},
+				{
+					"text": "Symbol",
+					"link": "/pages/js/es6/11.symbol",
+					"order": 11
+				},
+				{
+					"text": "Set和Map",
+					"link": "/pages/js/es6/12.set-map",
+					"order": 12
+				},
+				{
+					"text": "Proxy",
+					"link": "/pages/js/es6/13.proxy",
+					"order": 13
+				},
+				{
+					"text": "Reflect",
+					"link": "/pages/js/es6/14.reflect",
+					"order": 14
+				},
+				{
+					"text": "Promise",
+					"link": "/pages/js/es6/15.promise",
+					"order": 15
+				},
+				{
+					"text": "Iterator 和 for...of 循环",
+					"link": "/pages/js/es6/16.iterator-forof",
+					"order": 16
+				},
+				{
+					"text": "Generator 函数",
+					"link": "/pages/js/es6/17.generator",
+					"order": 17
+				},
+				{
+					"text": "Generator 异步应用",
+					"link": "/pages/js/es6/18.generator-async",
+					"order": 18
+				},
+				{
+					"text": "async 函数",
+					"link": "/pages/js/es6/19.async",
+					"order": 19
+				},
+				{
+					"text": "Class 基本语法",
+					"link": "/pages/js/es6/20.class-base",
+					"order": 20
+				},
+				{
+					"text": "Class 继承",
+					"link": "/pages/js/es6/21.class-extends",
+					"order": 21
+				},
+				{
+					"text": "Module 语法",
+					"link": "/pages/js/es6/22.module",
+					"order": 22
+				},
+				{
+					"text": "Module 的加载实现",
+					"link": "/pages/js/es6/23.module-loader",
+					"order": 23
+				},
+				{
+					"text": "编程风格",
+					"link": "/pages/js/es6/24.style",
+					"order": 24
+				},
+				{
+					"text": "异步遍历器",
+					"link": "/pages/js/es6/25.async-iterator",
+					"order": 25
+				},
+				{
+					"text": "ArrayBuffer",
+					"link": "/pages/js/es6/26.arraybuffer",
+					"order": 26
+				},
+				{
+					"text": "装饰器",
+					"link": "/pages/js/es6/27.decorator",
+					"order": 27
+				},
+				{
+					"text": "最新提案",
+					"link": "/pages/js/es6/28.proposals",
+					"order": 28
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "JavaScript",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础知识",
+					"link": "/pages/js/js/base",
+					"order": 1
+				},
+				{
+					"text": "浏览器 API",
+					"link": "/pages/js/js/browser",
+					"order": 2
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "NodeJs",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "系统模块",
+					"link": "/pages/js/nodejs/system-module",
+					"order": 1
+				},
+				{
+					"text": "三方模块",
+					"link": "/pages/js/nodejs/thrid-party-module",
+					"order": 2
+				},
+				{
+					"text": "模块化",
+					"link": "/pages/js/nodejs/module",
+					"order": 3
+				}
+			]
+		},
+		{
+			"text": "Other",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "正则表达式",
+					"link": "/pages/js/other/regexp",
+					"order": 1
+				},
+				{
+					"text": "Ajax",
+					"link": "/pages/js/other/ajax",
+					"order": 3
+				}
+			]
+		},
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/js/practice/base",
+					"order": 2
+				},
+				{
+					"text": "手写",
+					"link": "/pages/js/practice/handwrite",
+					"order": 3
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/js/practice/three-party",
+					"order": 4
+				}
+			]
+		}
+	],
+	"/pages/nextjs": [
+		{
+			"text": "基础",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/nextjs/base/base",
+					"order": 2
+				},
+				{
+					"text": "预渲染和数据获取",
+					"link": "/pages/nextjs/base/pre-render",
+					"order": 2
+				},
+				{
+					"text": "动态路由",
+					"link": "/pages/nextjs/base/dynamic-routes",
+					"order": 3
+				},
+				{
+					"text": "路由API",
+					"link": "/pages/nextjs/base/routes-api",
+					"order": 4
+				},
+				{
+					"text": "其他选项",
+					"link": "/pages/nextjs/base/other-options",
+					"order": 5
+				}
+			]
+		}
+	],
+	"/pages/react": [
+		{
+			"text": "React",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "React 核心",
+					"link": "/pages/react/base/react-core",
+					"order": 2
+				},
+				{
+					"text": "React Hook",
+					"link": "/pages/react/base/react-hook",
+					"order": 2
+				},
+				{
+					"text": "React 进阶",
+					"link": "/pages/react/base/react-advance",
+					"order": 3
+				},
+				{
+					"text": "React Router",
+					"link": "/pages/react/base/react-router",
+					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/react/parctice/base",
+					"order": 1
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/react/parctice/three-party",
+					"order": 3
+				}
+			],
+			"order": 1
+		}
+	],
+	"/pages/tk": [
+		{
+			"text": "tk-utils",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/tk/utils/base",
+					"order": 1
+				}
+			]
+		}
+	],
+	"/pages/ts": [
+		{
+			"text": "TypeScript 基础",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "介绍",
+					"link": "/pages/ts/base/1.intro",
+					"order": 1
+				},
+				{
+					"text": "类型",
+					"link": "/pages/ts/base/2.type",
+					"order": 2
+				},
+				{
+					"text": "函数",
+					"link": "/pages/ts/base/3.function",
+					"order": 3
+				},
+				{
+					"text": "元组",
+					"link": "/pages/ts/base/4.tuple",
+					"order": 4
+				},
+				{
+					"text": "字面量类型",
+					"link": "/pages/ts/base/5.const",
+					"order": 5
+				},
+				{
+					"text": "类型断言",
+					"link": "/pages/ts/base/6.type_assert",
+					"order": 6
+				},
+				{
+					"text": "类型推断",
+					"link": "/pages/ts/base/7.type_inference",
+					"order": 7
+				},
+				{
+					"text": "类型拓宽",
+					"link": "/pages/ts/base/8.type_widen",
+					"order": 8
+				},
+				{
+					"text": "类型缩小",
+					"link": "/pages/ts/base/9.type_narrow",
+					"order": 9
+				},
+				{
+					"text": "自定义类型",
+					"link": "/pages/ts/base/10.custom_type",
+					"order": 10
+				},
+				{
+					"text": "接口",
+					"link": "/pages/ts/base/11.interface",
+					"order": 11
+				},
+				{
+					"text": "泛型",
+					"link": "/pages/ts/base/12.generics",
+					"order": 12
+				},
+				{
+					"text": "索引类型",
+					"link": "/pages/ts/base/13.index_type",
+					"order": 13
+				},
+				{
+					"text": "映射类型",
+					"link": "/pages/ts/base/14.map_type",
+					"order": 14
+				},
+				{
+					"text": "内置工具类型",
+					"link": "/pages/ts/base/15.build-in_tools_type",
+					"order": 15
+				},
+				{
+					"text": "风格指南",
+					"link": "/pages/ts/base/16.style_guide",
+					"order": 16
+				},
+				{
+					"text": "相关链接",
+					"link": "/pages/ts/base/17.reference",
+					"order": 17
+				}
+			]
+		},
+		{
+			"text": "TypeScript 应用",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "TS 基础应用",
+					"link": "/pages/ts/expand/base",
+					"order": 1
+				},
+				{
+					"text": "TS 在 Vue2 中应用",
+					"link": "/pages/ts/expand/vue2",
+					"order": 2
+				},
+				{
+					"text": "TS 在 Vue3 中应用",
+					"link": "/pages/ts/expand/vue3",
+					"order": 3
+				},
+				{
+					"text": "TS 在 React 中应用",
+					"link": "/pages/ts/expand/react",
+					"order": 4
+				},
+				{
+					"text": "TS 其他应用",
+					"link": "/pages/ts/expand/other",
+					"order": 5
+				},
+				{
+					"text": "TS 杂谈",
+					"link": "/pages/ts/expand/essay",
+					"order": 6
+				}
+			]
+		}
+	],
+	"/pages/uniapp": [
+		{
+			"text": "Uniapp",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "入门",
+					"link": "/pages/uniapp/base/base",
+					"order": 1
+				},
+				{
+					"text": "组件",
+					"link": "/pages/uniapp/base/component",
+					"order": 2
+				},
+				{
+					"text": "配置",
+					"link": "/pages/uniapp/base/config",
+					"order": 2
+				},
+				{
+					"text": "通用Api",
+					"link": "/pages/uniapp/base/api",
+					"order": 3
+				},
+				{
+					"text": "框架Api",
+					"link": "/pages/uniapp/base/framework_api",
+					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "配置",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "page.json",
+					"link": "/pages/uniapp/config/page",
+					"order": 1
+				},
+				{
+					"text": "manifest.json",
+					"link": "/pages/uniapp/config/manifest",
+					"order": 2
+				},
+				{
+					"text": "其他配置",
+					"link": "/pages/uniapp/config/other",
+					"order": 3
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "配置相关",
+					"link": "/pages/uniapp/other/config",
+					"order": 1
+				},
+				{
+					"text": "实践总结",
+					"link": "/pages/uniapp/other/practice",
+					"order": 2
+				},
+				{
+					"text": "三方库使用",
+					"link": "/pages/uniapp/other/third-party",
+					"order": 3
+				},
+				{
+					"text": "微信小程序兼容性",
+					"link": "/pages/uniapp/other/wx-compitable",
+					"order": 4
+				},
+				{
+					"text": "IOS 打包",
+					"link": "/pages/uniapp/other/ios",
+					"order": 5
+				}
+			],
+			"order": 4
+		}
+	],
+	"/pages/vue2": [
+		{
+			"text": "指南",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Vue 基础",
+					"link": "/pages/vue2/guide/instance",
+					"order": 1
+				},
+				{
+					"text": "深入了解组件",
+					"link": "/pages/vue2/guide/components",
+					"order": 2
+				},
+				{
+					"text": "过渡 & 动画",
+					"link": "/pages/vue2/guide/transition-animation",
+					"order": 3
+				},
+				{
+					"text": "相关链接",
+					"link": "/pages/vue2/guide/reference",
+					"order": 4
+				},
+				{
+					"text": "可复用性 & 组合",
+					"link": "/pages/vue2/guide/reusability-composition",
+					"order": 4
+				}
+			],
+			"order": 1
+		},
+		{
+			"text": "路由",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/vue2/router/base",
+					"order": 1
+				},
+				{
+					"text": "进阶",
+					"link": "/pages/vue2/router/advance",
+					"order": 2
+				}
+			],
+			"order": 2
+		},
+		{
+			"text": "数据处理",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "Vuex",
+					"link": "/pages/vue2/data/vuex",
+					"order": 1
+				}
+			]
+		},
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础",
+					"link": "/pages/vue2/practice/base",
+					"order": 1
+				},
+				{
+					"text": "三方库",
+					"link": "/pages/vue2/practice/three-party",
+					"order": 3
+				}
+			]
+		}
+	],
+	"/pages/vue3": [
+		{
+			"text": "实战",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "三方库",
+					"link": "/pages/vue3/practice/three-party",
+					"order": 2
+				}
+			]
+		}
+	]
 }
