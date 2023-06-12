@@ -11,8 +11,8 @@ order: 1
 
 ```javascript
 function anchor(el) {
-  const element = document.getElementById(el.id)
-  element.scrollIntoView({ behavior: 'smooth' })
+  const element = document.getElementById(el.id);
+  element.scrollIntoView({ behavior: "smooth" });
 }
 ```
 
@@ -26,18 +26,18 @@ function anchor(el) {
 
 ```javascript
 function copy(text) {
-  const ipt = document.createElement('input')
-  document.body.appendChild(ipt)
-  ipt.setAttribute('value', text)
-  ipt.select()
-  console.log(ipt)
+  const ipt = document.createElement("input");
+  document.body.appendChild(ipt);
+  ipt.setAttribute("value", text);
+  ipt.select();
+  console.log(ipt);
   try {
     // 'document.execCommand' is deprecated
-    document.execCommand('copy')
+    document.execCommand("copy");
   } catch (error) {
-    console.log(error)
+    console.log(error);
   } finally {
-    document.body.removeChild(ipt)
+    document.body.removeChild(ipt);
   }
 }
 ```
@@ -78,11 +78,31 @@ window.addEventListener('scroll', handleScroll)
 ```javascript
 const handleKeyPress = (e) => {
   if (!isDigit && !/^\d/.test(String.fromCharCode(e.charCode))) {
-    e.preventDefault()
+    e.preventDefault();
   }
-}
+};
 ```
 
 ```html
 <input onKeyPress="{handleKeyPress}" />
+```
+
+## 判断焦点元素
+
+document.focus: 判断文档或任意元素是否获取焦点
+
+```js
+const el = document.getElementById("demo");
+if (document.hasFocus()) {
+  el.innerHTML = "文档已获取焦点";
+} else {
+  el.innerHTML = "文档失去焦点";
+}
+```
+
+document.activeElement： 获取焦点元素
+
+```js
+const el = document.getElementById("demo");
+const hasFocus = el === document.activeElement;
 ```
