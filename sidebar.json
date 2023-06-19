@@ -669,13 +669,18 @@
 			"items": [
 				{
 					"text": "WebSocket ｜概念、原理、用法及实践",
-					"link": "/pages/reproduce/todo/websokect-20230422",
+					"link": "/pages/reproduce/todo/20230422-websokect",
 					"order": 1
 				},
 				{
 					"text": "我终于把微前端(qiankun)落地生产项目了",
-					"link": "/pages/reproduce/todo/qiankun-20230505",
+					"link": "/pages/reproduce/todo/20230505-qiankun",
 					"order": 2
+				},
+				{
+					"text": "搞懂这12个Hooks，保证让你玩转React",
+					"link": "/pages/reproduce/todo/20230620-react",
+					"order": 3
 				}
 			],
 			"order": 1
