@@ -679,8 +679,18 @@
 				},
 				{
 					"text": "搞懂这12个Hooks，保证让你玩转React",
-					"link": "/pages/reproduce/todo/20230620-react",
+					"link": "/pages/reproduce/todo/20230620_1-react",
 					"order": 3
+				},
+				{
+					"text": "React 深入」一文吃透React v18全部Api（1.3w+）",
+					"link": "/pages/reproduce/todo/20230620_2-react",
+					"order": 4
+				},
+				{
+					"text": "「React 进阶」 React 全部 Hooks 使用大全 （包含 React v18 版本 ）",
+					"link": "/pages/reproduce/todo/20230620_3-react",
+					"order": 5
 				}
 			],
 			"order": 1
