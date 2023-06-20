@@ -12,7 +12,7 @@ order: 1
 
 :::
 
-# WebSocket ｜概念、原理、用法及实践
+# WebSocket ｜概念、原理、用法及实践 ✨✨
 
 ## 一、WHY：为什么需要 WebSocket？
 
