@@ -694,6 +694,17 @@
 				}
 			],
 			"order": 1
+		},
+		{
+			"text": "代码实践",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "基础篇",
+					"link": "/pages/reproduce/practice/base",
+					"order": 2
+				}
+			]
 		}
 	],
 	"/pages/tk": [
