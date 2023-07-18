@@ -276,6 +276,11 @@
 					"text": "其他错误",
 					"link": "/pages/error/base/other",
 					"order": 4
+				},
+				{
+					"text": "操作系统兼容性",
+					"link": "/pages/error/base/polyfill-system",
+					"order": 5
 				}
 			]
 		}
