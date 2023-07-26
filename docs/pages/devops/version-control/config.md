@@ -59,6 +59,12 @@ alias reset1="git reset HEAD~1"
 alias reset1!="git reset --hard HEAD~1"
 alias clone="git clone"
 
+alias rdiff1="git status | grep modified | awk '{print \$2}' > _diff-temp-list.txt"
+alias rdiff2="mkdir ./_diff-temp"
+alias rdiff3="xargs -a ./_diff-temp-list.txt cp --parents -t ./_diff-temp"
+# alias rdiff="rdiff1 && rdiff2 && rdiff3"
+alias rdiff="git archive --format=zip -o diff-temp.zip HEAD \$(git diff --name-only HEAD^)"
+
 # project simple
 alias cls="clear"
 alias ..="cd .."
