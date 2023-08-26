@@ -44,17 +44,34 @@ npm install -g kill-port
 npm i -g npm-check-updates kill-port
 ```
 
-on my zsh：终端
 
-```bash
 
+### brew
+
+软件包管理器
+
+官网：https://brew.sh/index_zh-cn
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+```shell
+==> Next steps:
+- Run these two commands in your terminal to add Homebrew to your PATH:
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/shouyong/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# 查看brew版本
+➜  ~ brew -v              
+Homebrew 4.1.6
+```
 
 ### on my zsh
 
 终端工具
+
+官网：https://ohmyz.sh/
 
 #### 基础
 
@@ -94,7 +111,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 2. 配置插件，在 `~/.zshrc` 文件下添加如下内容
 
 ```bash
-plugins=(git zsh-autosuggestions)
+plugins=(... zsh-autosuggestions)
 ```
 
 补充：实际是执行相关脚本实现内容补全
@@ -102,6 +119,30 @@ plugins=(git zsh-autosuggestions)
 ```bash
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh  
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+```
+
+
+
+路径跳转 - autojump
+
+```
+brew install autojump
+```
+
+```sh
+plugins=(... autojump)
+```
+
+
+
+高亮 - zsh-syntax-highlighting
+
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+```sh
+plugins=(... zsh-syntax-highlighting)
 ```
 
 
@@ -150,7 +191,9 @@ npx kill-port 9002
 
 问题4：zsh: command not found: code
 
-解决：vscode 面板（shift + command + p）中 Shell Command: Install 'code' command in PATH
+临时解决：vscode 面板（shift + command + p）中 Shell Command: Install 'code' command in PATH
+
+长期：https://juejin.cn/post/6951968350754832420
 
 
 
@@ -203,6 +246,13 @@ Mac： shift + option + z
 window： window + L
 
 Mac：^ + command + q
+
+
+
+
+文件搜索
+
+shift + command + g
 
 
 

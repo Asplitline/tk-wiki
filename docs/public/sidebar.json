@@ -146,6 +146,17 @@
 				}
 			],
 			"order": 2
+		},
+		{
+			"text": "配置指南",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "macbook 装机",
+					"link": "/pages/custom/guide/macbook",
+					"order": 2
+				}
+			]
 		}
 	],
 	"/pages/demo": [],

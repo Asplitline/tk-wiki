@@ -120,7 +120,7 @@ h1 {
 
 h2 {
   font-size: 24px;
-  color: var(--vp-c-text-1);
+  // color: var(--vp-c-text-1);
   margin: 24px 0;
   transition: color 0.5s;
   padding-top: 36px;
@@ -129,7 +129,7 @@ h2 {
 
 h3 {
   letter-spacing: -0.01em;
-  color: var(--vp-c-green);
+  color: var(--vp-c-brand);
   font-size: 18px;
   margin-bottom: 1em;
   transition: color 0.5s;
@@ -144,8 +144,10 @@ h3 {
 .base-section {
   display: flex;
   flex-direction: column;
+
   .base-groups {
     flex-direction: column;
+
     .base-group {
       display: flex;
       align-items: center;
@@ -160,11 +162,13 @@ h3 {
     }
   }
 }
+
 .base-groups {
   padding: 20px 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
   .base-group {
     list-style: none;
     break-inside: avoid;
@@ -174,51 +178,63 @@ h3 {
     background-color: var(--vp-c-bg-soft);
     width: 22%;
     margin-left: 4%;
+
     &:nth-child(n + 5) {
       margin-top: 20px;
     }
+
     &:nth-child(4n + 1) {
       margin-left: 0;
     }
   }
+
   a {
     font-size: 15px;
     font-weight: 500;
     line-height: 2;
-    color: var(--vp-c-text-code);
+    // color: var(--vp-c-text-code);
     transition: color 0.5s;
+
     &:hover {
-      color: var(--vp-c-green);
+      color: var(--vp-c-brand);
       transition: none;
     }
   }
 }
+
 @media (max-width: 768px) {
   h1 {
     font-size: 32px;
     margin-bottom: 24px;
   }
+
   h2 {
     font-size: 22px;
     margin: 16px 0;
     padding-top: 32px;
   }
+
   .base-groups {
     flex-direction: column;
+
     .base-group {
       width: 100%;
       margin: 0;
+
       &:nth-child(n + 2) {
         margin-top: 30px;
       }
+
       li {
         width: 100%;
       }
     }
+
     a {
       font-size: 14px;
     }
   }
+
   .base-section {
     .base-groups {
       .base-group {
@@ -228,6 +244,7 @@ h3 {
           width: 100%;
         }
       }
+
       a {
         font-size: 14px;
       }
