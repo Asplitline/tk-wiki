@@ -19,6 +19,8 @@ beterandbetter：https://www.better365.cn/bab2.html
 
 snipatse：https://www.snipaste.com/
 
+item2：https://iterm2.com/
+
 
 
 ## 开发环境
@@ -67,6 +69,16 @@ npm i -g npm-check-updates kill-port
 Homebrew 4.1.6
 ```
 
+~/.zshrc 添加
+
+```
+export PATH=/opt/homebrew/bin:$PATH
+```
+
+http://spring4all.com/forum-post/2278.html
+
+
+
 ### on my zsh
 
 终端工具
@@ -98,7 +110,95 @@ vim ～/.zshrc
 
 
 
+#### 主题
+
+```
+p10k configure
+```
+
+https://juejin.cn/post/6894432073491152910
+
+https://juejin.cn/post/7006526195420364836
+
+https://juejin.cn/post/7239715628172410917
+
+
+
+#### 别名配置
+
+在家目录新建 `~/.bashrc` 文件，做以下配置
+
+```sh
+# base config
+alias see="ps -ef|grep"
+alias rl="source ~/.zshrc"
+alias bashconf="code ~/.zshrc"
+alias gitconf="code ~/.gitconfig"
+alias npmconf="code ~/.npmrc"
+alias yarnconf="code ~/.yarnrc"
+alias as="cat ~/.zshrc"
+alias asg="cat ~/.zshrc | grep"
+
+# git config
+alias gs="git status"
+alias glo="git log --oneline"
+alias gb="git branch"
+alias gtn="git tag -n"
+alias grtv="git remote -v"
+alias ga="git add ."
+alias gac="git add . && git commit -m"
+alias gaca="git add . && git commit --amend"
+alias gacan="git add . && git commit --amend --no-edit"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gcan="git commit --amend --no-edit"
+alias gct="git checkout"
+alias gcp="git cherry-pick"
+alias gpl="git pull"
+alias gp="git push"
+alias gbranch="git fetch -p"
+alias gtag="git fetch -P"
+alias gtng="git tag -n | grep"
+alias gnow="git commit --amend --date=\"$(date -R)\""
+
+alias conf="git config --list"
+alias confl="git config --local --list"
+alias confg="git config --global --list"
+alias reset="git reset HEAD"
+alias reset!="git reset --hard HEAD"
+alias reset1="git reset HEAD~1"
+alias reset1!="git reset --hard HEAD~1"
+alias clone="git clone"
+
+alias rdiff="git archive --format=zip -o diff-temp.zip HEAD \$(git diff --name-only HEAD^)"
+
+# project simple
+alias cls="clear"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# npm
+alias docs="npm docs"
+alias repo="npm repo"
+
+# proxy
+alias unproxy="git config --global --unset http.proxy && git config --global --unset https.proxy"
+alias proxy="git config --global http.proxy http://127.0.0.1:1081 && git config --global https.proxy https://127.0.0.1:1081"
+alias shproxy="export http_proxy=http://127.0.0.1:1081;export https_proxy=http://127.0.0.1:1081;export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unshproxy="unset http_proxy https_proxy ALL_PROXY"
+
+#tk
+alias my="git config user.name * && git config user.email *@qq.com"
+alias cmy="git config user.name * && git config user.email *.com"
+alias clsmy="git config --unset user.name && git config --unset user.email"
+```
+
+配置成功，在 .zshrc 中添加 `source ~/.bashrc `
+
 #### 插件
+
+https://www.zhihu.com/question/49284484
 
 内容补全 - zsh-autosuggestions
 
@@ -197,6 +297,16 @@ npx kill-port 9002
 
 
 
+访达 -> 应用程序 -> vscode -> 右键查看包位置 -> 找到 bin/code 路径
+
+```sh
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+```
+
+
+
+
+
 ## 目录参考
 
 code -> 自己的代码
@@ -217,22 +327,6 @@ startup -> 开机脚本
 
 
 
-块注释：
-
-window： alt + shift + /
-
-Mac：shift + option + a
-
-
-
-打开vscode终端
-
-window：crtrl + `
-
-Mac: ^ + `
-
-
-
 撤销
 
 window：ctrl + y
@@ -245,18 +339,36 @@ Mac： shift + option + z
 
 window： window + L
 
-Mac：^ + command + q
+Mac：control + command + q
 
 
 
 
 文件搜索
 
-shift + command + g
+shift + command + o
 
 
 
 https://juejin.cn/post/6844903849572974605
+
+### typora
+
+|              | window   | macOS               | 补充              |
+| ------------ | -------- | ------------------- | ----------------- |
+| 最近文件列表 | Ctrl + p | shift + command + o | window -> command |
+|              |          |                     |                   |
+|              |          |                     |                   |
+
+
+
+### vscode
+
+|                | window          | macOS                            | 补充            |
+| -------------- | --------------- | -------------------------------- | --------------- |
+| 打开vscode终端 | ctrl + `        | control + ` （推荐 command + j） | ctrl -> control |
+| 块注释         | alt + shift + / | shift + option + a               | alt -> option   |
+| 搜索符号       |                 | shift + option + o               |                 |
 
 
 
