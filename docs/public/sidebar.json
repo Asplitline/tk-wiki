@@ -57,6 +57,7 @@
 			"order": 3
 		}
 	],
+	"/pages/collect": [],
 	"/pages/css": [
 		{
 			"text": "CSS",
@@ -148,9 +149,25 @@
 			"order": 2
 		},
 		{
+			"text": "个人配置",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "-/-",
+					"link": "/pages/custom/.DS_Store",
+					"order": 0
+				}
+			]
+		},
+		{
 			"text": "配置指南",
 			"collapsible": true,
 			"items": [
+				{
+					"text": "-/-",
+					"link": "/pages/custom/guide/.DS_Store",
+					"order": 0
+				},
 				{
 					"text": "macbook 装机",
 					"link": "/pages/custom/guide/macbook",

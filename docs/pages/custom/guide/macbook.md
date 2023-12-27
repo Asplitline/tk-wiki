@@ -5,8 +5,6 @@ order: 2
 
 # Mac 从零配置
 
-
-
 ## 常用软件
 
 chrome：https://www.google.com/chrome/
@@ -21,32 +19,34 @@ snipatse：https://www.snipaste.com/
 
 item2：https://iterm2.com/
 
+破解版
 
+Paste：https://www.imacso.com/paste.html
 
 ## 开发环境
 
 ### 常用
 
-nvm，node版本
+nvm，node 版本
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 ```
 
-npm常用工具
+npm 常用工具
 
 ```bash
 # 依赖更新
 npm install -g npm-check-updates
 # 关闭端口
 npm install -g kill-port
+# 本地服务
+npm install -g http-server
 ```
 
 ```bash
 npm i -g npm-check-updates kill-port
 ```
-
-
 
 ### brew
 
@@ -65,7 +65,7 @@ npm i -g npm-check-updates kill-port
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # 查看brew版本
-➜  ~ brew -v              
+➜  ~ brew -v
 Homebrew 4.1.6
 ```
 
@@ -76,8 +76,6 @@ export PATH=/opt/homebrew/bin:$PATH
 ```
 
 http://spring4all.com/forum-post/2278.html
-
-
 
 ### on my zsh
 
@@ -108,8 +106,6 @@ ZSH_THEME="ys.zsh-theme"
 vim ～/.zshrc
 ```
 
-
-
 #### 主题
 
 ```
@@ -121,8 +117,6 @@ https://juejin.cn/post/6894432073491152910
 https://juejin.cn/post/7006526195420364836
 
 https://juejin.cn/post/7239715628172410917
-
-
 
 #### 别名配置
 
@@ -202,7 +196,7 @@ https://www.zhihu.com/question/49284484
 
 内容补全 - zsh-autosuggestions
 
-1. 下载  zsh-autosuggestions
+1. 下载 zsh-autosuggestions
 
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -217,11 +211,9 @@ plugins=(... zsh-autosuggestions)
 补充：实际是执行相关脚本实现内容补全
 
 ```bash
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh  
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
-
-
 
 路径跳转 - autojump
 
@@ -233,8 +225,6 @@ brew install autojump
 plugins=(... autojump)
 ```
 
-
-
 高亮 - zsh-syntax-highlighting
 
 ```sh
@@ -245,11 +235,22 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 plugins=(... zsh-syntax-highlighting)
 ```
 
+### vim
 
+vim 高亮配置
+
+`vim ~/.vimrc`
+
+```
+:syntax on
+:set hlsearch
+:set tabstop=4
+:set autoindent
+```
 
 ## 问题记录
 
-问题1：Failed to connect to raw.github.com port 443: Connection refused
+问题 1：Failed to connect to raw.github.com port 443: Connection refused
 
 解决：
 
@@ -257,17 +258,13 @@ plugins=(... zsh-syntax-highlighting)
 export http_proxy=http://127.0.0.1:1081;export https_proxy=http://127.0.0.1:1081;export ALL_PROXY=socks5://127.0.0.1:1080
 ```
 
-
-
-问题2： You may be on a Mac, and need to install the Xcode Command Line Developer Tools.
+问题 2： You may be on a Mac, and need to install the Xcode Command Line Developer Tools.
 
 If so, run `xcode-select --install` and try again. If not, please report this!
 
 解决：app store 搜索 Xcode 安装
 
-
-
-问题3：zsh: command not found: nvm
+问题 3：zsh: command not found: nvm
 
 解决：
 
@@ -275,9 +272,7 @@ If so, run `xcode-select --install` and try again. If not, please report this!
 source ~/.nvm/nvm.sh
 ```
 
-
-
-问题3：端口占用
+问题 3：端口占用
 
 mac EADDRINUSE: address already in use 0.0.0.0:9002
 
@@ -287,25 +282,17 @@ mac EADDRINUSE: address already in use 0.0.0.0:9002
 npx kill-port 9002
 ```
 
-
-
-问题4：zsh: command not found: code
+问题 4：zsh: command not found: code
 
 临时解决：vscode 面板（shift + command + p）中 Shell Command: Install 'code' command in PATH
 
 长期：https://juejin.cn/post/6951968350754832420
-
-
 
 访达 -> 应用程序 -> vscode -> 右键查看包位置 -> 找到 bin/code 路径
 
 ```sh
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 ```
-
-
-
-
 
 ## 目录参考
 
@@ -319,59 +306,60 @@ github -> github 拉下来的仓库
 
 startup -> 开机脚本
 
+## 常见命令
 
+```sh
+ifconfig en0
+```
 
 ## 快捷键记录
 
-剪切文件：command + c 后 command + option + v
-
-
-
-撤销
-
-window：ctrl + y
-
-Mac： shift + option + z
-
-
-
-锁屏
-
-window： window + L
-
-Mac：control + command + q
-
-
-
-
-文件搜索
-
-shift + command + o
-
-
+|          | window               | macOS              |
+| -------- | -------------------- | ------------------ |
+| 剪切文件 | ctrl + x 后 ctrl + v | ⌘ + c 后 ⌘ + ⌥ + v |
+| 撤销     | ctrl + y             | ⌘ + z              |
+| 锁屏     | window + L           | ⌃ + ⌘ + q          |
+| 文件搜索 |                      | ⇧ + ⌘ + o          |
 
 https://juejin.cn/post/6844903849572974605
 
 ### typora
 
-|              | window   | macOS               | 补充              |
-| ------------ | -------- | ------------------- | ----------------- |
-| 最近文件列表 | Ctrl + p | shift + command + o | window -> command |
-|              |          |                     |                   |
-|              |          |                     |                   |
-
-
+|              | window   | macOS     |
+| ------------ | -------- | --------- |
+| 最近文件列表 | ctrl + p | ⇧ + ⌘ + o |
+|              |          |           |
+|              |          |           |
 
 ### vscode
 
-|                | window          | macOS                            | 补充            |
-| -------------- | --------------- | -------------------------------- | --------------- |
-| 打开vscode终端 | ctrl + `        | control + ` （推荐 command + j） | ctrl -> control |
-| 块注释         | alt + shift + / | shift + option + a               | alt -> option   |
-| 搜索符号       |                 | shift + option + o               |                 |
+|                  | window               | macOS           |
+| ---------------- | -------------------- | --------------- |
+| 打开 vscode 终端 | ctrl + \`            | ⌘ + J 或 ⌃ + \` |
+| 块注释           | alt + shift + /      | ⇧ + ⌥ + a       |
+| 搜索符号         |                      | ⇧ + ⌥ + o       |
+| 添加光标         | ctrl + shift + ↓ / ↑ | ⌘ + ⌥ + ↓ / ↑   |
 
-
+> window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+>
+> macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
 
 ## 其他
 
 鼠标滚轮反向 - 「鼠标」-> 关闭「自然滚动」
+
+单击点击 - 「触摸板」-> 开启「单击点击」
+
+## Mac 符号
+
+⇧
+
+⌘
+
+⌥
+
+⌃
+
+↓ 
+
+↑

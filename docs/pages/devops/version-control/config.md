@@ -656,10 +656,16 @@ git commit --amend --reset-author
 
 补充：上面方法可以用来改 commit message
 
-第三步输入如下命令
+第三步：输入如下命令
 
 ```bash
 git commit --amend -m <new_message>
+```
+
+修改 commit 时间
+
+```bash
+git commit --amend --date="$(date -R)"
 ```
 
 ### 撤销操作

@@ -88,7 +88,7 @@
 		"text": "其他",
 		"items": [
 			{
-				"text": "错误收集",
+				"text": "错误整理",
 				"link": "/pages/error/index",
 				"activeMath": "/error/"
 			},
