@@ -27,15 +27,31 @@ Paste：https://www.imacso.com/paste.html
 
 ### 常用
 
-nvm，node 版本
+安装 nvm - node版本管理工具
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 ```
 
-npm 常用工具
+安装node - 以v18为例
 
 ```bash
+nvm install 18
+```
+
+> [zsh-command-not-found-nvm](/pages/custom/guide/macbook.html##问题-3-zsh-command-not-found-nvm)
+
+常用 npm 库
+
+```bash
+# yarn
+npm install -g yarn
+# pnpm
+npm install -g pnpm 
+
+
+# rimraf - node_modules 
+npm install -g rimraf
 # 依赖更新
 npm install -g npm-check-updates
 # 关闭端口
@@ -45,7 +61,11 @@ npm install -g http-server
 ```
 
 ```bash
-npm i -g npm-check-updates kill-port
+npm i -g yarn pnpm
+```
+
+```bash
+npm i -g rimraf npm-check-updates kill-port http-server
 ```
 
 ### brew
@@ -75,6 +95,8 @@ Homebrew 4.1.6
 export PATH=/opt/homebrew/bin:$PATH
 ```
 
+执行 `source ./zshrc` 启用配置
+
 http://spring4all.com/forum-post/2278.html
 
 ### on my zsh
@@ -91,15 +113,6 @@ http://spring4all.com/forum-post/2278.html
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-```bash
-# 更换主题
-open ~/.zshrc
-# 查看默认主题
-cd ~/.oh-my-zsh/themes && ls
-# 替换主题 - ～/.zshrc
-ZSH_THEME="ys.zsh-theme"
-```
-
 配置别名 - 直接添加末尾相关别名
 
 ```bash
@@ -108,15 +121,27 @@ vim ～/.zshrc
 
 #### 主题
 
+安装主题
+
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+```
+
+设置主题
+
+```
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
+
 ```
 p10k configure
 ```
 
-https://juejin.cn/post/6894432073491152910
-
-https://juejin.cn/post/7006526195420364836
-
 https://juejin.cn/post/7239715628172410917
+
+> 注意：下载字体建议使用全局代理
 
 #### 别名配置
 
@@ -194,7 +219,7 @@ alias clsmy="git config --unset user.name && git config --unset user.email"
 
 https://www.zhihu.com/question/49284484
 
-内容补全 - zsh-autosuggestions
+##### 内容补全 - zsh-autosuggestions
 
 1. 下载 zsh-autosuggestions
 
@@ -202,20 +227,20 @@ https://www.zhihu.com/question/49284484
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
 
-2. 配置插件，在 `~/.zshrc` 文件下添加如下内容
+2. 配置插件，在 `~/.zshrc` 文件下添加如下内容。
 
 ```bash
-plugins=(... zsh-autosuggestions)
+plugins=(... zsh-autosuggestions) # 「...」表示以前的插件
 ```
 
-补充：实际是执行相关脚本实现内容补全
+> 实际是执行相关脚本实现内容补全
+>
+> ```bash
+> source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+> source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+> ```
 
-```bash
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-```
-
-路径跳转 - autojump
+##### 路径跳转 - autojump
 
 ```
 brew install autojump
@@ -225,7 +250,7 @@ brew install autojump
 plugins=(... autojump)
 ```
 
-高亮 - zsh-syntax-highlighting
+##### 高亮 - zsh-syntax-highlighting
 
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -250,7 +275,7 @@ vim 高亮配置
 
 ## 问题记录
 
-问题 1：Failed to connect to raw.github.com port 443: Connection refused
+### 问题 1：Failed to connect to raw.github.com port 443: Connection refused
 
 解决：
 
@@ -258,21 +283,21 @@ vim 高亮配置
 export http_proxy=http://127.0.0.1:1081;export https_proxy=http://127.0.0.1:1081;export ALL_PROXY=socks5://127.0.0.1:1080
 ```
 
-问题 2： You may be on a Mac, and need to install the Xcode Command Line Developer Tools.
+### 问题 2： You may be on a Mac, and need to install the Xcode Command Line Developer Tools.
 
 If so, run `xcode-select --install` and try again. If not, please report this!
 
 解决：app store 搜索 Xcode 安装
 
-问题 3：zsh: command not found: nvm
+### 问题 3：zsh: command not found: nvm
 
-解决：
+在 ~/.zshrc 中追加下面文案，然后执行 `source ~/.zshrc`
 
 ```bash
 source ~/.nvm/nvm.sh
 ```
 
-问题 3：端口占用
+### 问题 3：端口占用
 
 mac EADDRINUSE: address already in use 0.0.0.0:9002
 
@@ -282,7 +307,7 @@ mac EADDRINUSE: address already in use 0.0.0.0:9002
 npx kill-port 9002
 ```
 
-问题 4：zsh: command not found: code
+### 问题 4：zsh: command not found: code
 
 临时解决：vscode 面板（shift + command + p）中 Shell Command: Install 'code' command in PATH
 
@@ -344,7 +369,7 @@ https://juejin.cn/post/6844903849572974605
 >
 > macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
 
-## 其他
+## Mac 相关设置
 
 鼠标滚轮反向 - 「鼠标」-> 关闭「自然滚动」
 
