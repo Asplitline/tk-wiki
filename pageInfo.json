@@ -5,6 +5,9 @@
 		"layout": "page",
 		"sidebar": false
 	},
+	"/pages/collect": {
+		"link": "/pages/collect/index"
+	},
 	"/pages/css": {
 		"text": "CSS",
 		"link": "/pages/css/index",
