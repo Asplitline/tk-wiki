@@ -149,25 +149,9 @@
 			"order": 2
 		},
 		{
-			"text": "个人配置",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "-/-",
-					"link": "/pages/custom/.DS_Store",
-					"order": 0
-				}
-			]
-		},
-		{
 			"text": "配置指南",
 			"collapsible": true,
 			"items": [
-				{
-					"text": "-/-",
-					"link": "/pages/custom/guide/.DS_Store",
-					"order": 0
-				},
 				{
 					"text": "macbook 装机",
 					"link": "/pages/custom/guide/macbook",
@@ -254,6 +238,19 @@
 				}
 			],
 			"order": 3
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "java",
+					"link": "/pages/devops/other/java",
+					"order": 1,
+					"parentOrder": 4
+				}
+			],
+			"order": 4
 		}
 	],
 	"/pages/electron": [

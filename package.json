@@ -27,7 +27,7 @@
     "medium-zoom": "^1.0.8",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
-    "vitepress": "^1.0.0-rc.4",
+    "vitepress": "^1.0.0-rc.39",
     "vue": "^3.3.4"
   }
 }

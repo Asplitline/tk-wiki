@@ -7,21 +7,24 @@ order: 2
 
 ## 常用软件
 
-chrome：https://www.google.com/chrome/
-
-vscode：https://code.visualstudio.com/
-
-vrayU：[www.v2ray.com/awesome/tools.html](http://www.v2ray.com/awesome/tools.html)
-
-beterandbetter：https://www.better365.cn/bab2.html
-
-snipatse：https://www.snipaste.com/
-
-item2：https://iterm2.com/
+| 软件名称           | 下载地址                                                | 说明 |
+| ------------------ | ------------------------------------------------------- | ---- |
+| Chrome             | https://www.google.com/chrome/                          |      |
+| VsCode             | https://code.visualstudio.com/                          |      |
+| VrayU              | www.v2ray.com/awesome/tools.html                        |      |
+| BeterAndBetter     | https://www.better365.cn/bab2.html                      |      |
+| Snipatse           | https://www.snipaste.com/                               |      |
+| AltTab             | https://github.com/lwouis/alt-tab-macos                 |      |
+| hidenBar           | https://github.com/dwarvesf/hidden                      |      |
+| MissionControlPlus | https://github.com/ronyfadel/MissionControlPlusReleases |      |
+| LocalSend          | https://github.com/localsend/localsend                  |      |
+| HeyNote            | https://github.com/heyman/heynote                       |      |
 
 破解版
 
-Paste：https://www.imacso.com/paste.html
+| 软件名称 | 下载地址                          | 说明 |
+| -------- | --------------------------------- | ---- |
+| Paste    | https://www.imacso.com/paste.html |      |
 
 ## 开发环境
 
@@ -273,6 +276,85 @@ vim 高亮配置
 :set autoindent
 ```
 
+### java
+
+jdk 安装
+
+1. 下载 jdk
+
+下载地址：[jdk1.8.0_40](http://www.[oracle](https://so.csdn.net/so/search?q=oracle&spm=1001.2101.3001.7020).com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+2. 安装jdk
+
+```bash
+# 默认安装地址
+/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+```
+
+3. 配置jdk
+
+在  `~/.bashrc` 下添加如下配置
+
+```bash
+export JAVA_HOME=‘/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home‘
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+
+>如果安装 zsh ，也可将配置添加到 ./zshrc
+
+添加完成后，通过`source ~/.bashrc` 使配置生效
+
+4. 验证
+
+```bash
+$ java -version     
+java version "1.8.0_391"
+Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+```
+
+
+
+## 快捷键记录
+
+|                    | window               | macOS              |
+| ------------------ | -------------------- | ------------------ |
+| 剪切文件           | ctrl + x 后 ctrl + v | ⌘ + c 后 ⌘ + ⌥ + v |
+| 撤销               | ctrl + y             | ⌘ + z              |
+| 锁屏               | window + L           | ⌃ + ⌘ + q          |
+| 文件搜索           |                      | ⇧ + ⌘ + o          |
+| 显示/隐藏 隐藏文件 |                      | ⌘ + ⇧ + .          |
+
+https://juejin.cn/post/6844903849572974605
+
+### typora
+
+|              | window   | macOS     |
+| ------------ | -------- | --------- |
+| 最近文件列表 | ctrl + p | ⇧ + ⌘ + o |
+|              |          |           |
+|              |          |           |
+
+### vscode
+
+|                  | window               | macOS           |
+| ---------------- | -------------------- | --------------- |
+| 打开 vscode 终端 | ctrl + \`            | ⌘ + J 或 ⌃ + \` |
+| 块注释           | alt + shift + /      | ⇧ + ⌥ + a       |
+| 搜索符号         |                      | ⇧ + ⌥ + o       |
+| 添加光标         | ctrl + shift + ↓ / ↑ | ⌘ + ⌥ + ↓ / ↑   |
+
+> window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+>
+> macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+
+
+
+
+
 ## 问题记录
 
 ### 问题 1：Failed to connect to raw.github.com port 443: Connection refused
@@ -319,7 +401,15 @@ npx kill-port 9002
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 ```
 
-## 目录参考
+## 其他
+
+### Mac 相关设置
+
+鼠标滚轮反向 - 「鼠标」-> 关闭「自然滚动」
+
+单击点击 - 「触摸板」-> 开启「单击点击」
+
+### 目录参考
 
 code -> 自己的代码
 
@@ -331,51 +421,15 @@ github -> github 拉下来的仓库
 
 startup -> 开机脚本
 
-## 常见命令
+### 常见命令
 
 ```sh
 ifconfig en0
 ```
 
-## 快捷键记录
 
-|          | window               | macOS              |
-| -------- | -------------------- | ------------------ |
-| 剪切文件 | ctrl + x 后 ctrl + v | ⌘ + c 后 ⌘ + ⌥ + v |
-| 撤销     | ctrl + y             | ⌘ + z              |
-| 锁屏     | window + L           | ⌃ + ⌘ + q          |
-| 文件搜索 |                      | ⇧ + ⌘ + o          |
 
-https://juejin.cn/post/6844903849572974605
-
-### typora
-
-|              | window   | macOS     |
-| ------------ | -------- | --------- |
-| 最近文件列表 | ctrl + p | ⇧ + ⌘ + o |
-|              |          |           |
-|              |          |           |
-
-### vscode
-
-|                  | window               | macOS           |
-| ---------------- | -------------------- | --------------- |
-| 打开 vscode 终端 | ctrl + \`            | ⌘ + J 或 ⌃ + \` |
-| 块注释           | alt + shift + /      | ⇧ + ⌥ + a       |
-| 搜索符号         |                      | ⇧ + ⌥ + o       |
-| 添加光标         | ctrl + shift + ↓ / ↑ | ⌘ + ⌥ + ↓ / ↑   |
-
-> window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
->
-> macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
-
-## Mac 相关设置
-
-鼠标滚轮反向 - 「鼠标」-> 关闭「自然滚动」
-
-单击点击 - 「触摸板」-> 开启「单击点击」
-
-## Mac 符号
+### Mac 符号
 
 ⇧
 
@@ -388,3 +442,6 @@ https://juejin.cn/post/6844903849572974605
 ↓ 
 
 ↑
+
+
+
