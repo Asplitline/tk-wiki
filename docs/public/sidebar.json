@@ -244,10 +244,9 @@
 			"collapsible": true,
 			"items": [
 				{
-					"text": "java",
+					"text": "-/-",
 					"link": "/pages/devops/other/java",
-					"order": 1,
-					"parentOrder": 4
+					"order": 0
 				}
 			],
 			"order": 4

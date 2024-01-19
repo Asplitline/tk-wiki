@@ -218,6 +218,8 @@ git stash show stash@{0}
 git stash show --patch # 简写 -p，更详细信息
 ```
 
+1
+
 ```shell
 # 恢复临时存储区（删除记录）
 git stash pop
@@ -252,6 +254,13 @@ git stash create
 git stash store 09eb9a97ad632d0825be1ece361936d1d0bdb5c7
 git stash list
 # stash@{0}: Created via "git stash store".
+```
+
+stash 单个文件
+
+```bash
+git stash push index.js
+git stash push -m "test" index.js
 ```
 
 ## config - 配置

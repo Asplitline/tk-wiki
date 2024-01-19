@@ -58,6 +58,7 @@ alias reset!="git reset --hard HEAD"
 alias reset1="git reset HEAD~1"
 alias reset1!="git reset --hard HEAD~1"
 alias clone="git clone"
+alias restore="git restore ."
 
 alias rdiff1="git status | grep modified | awk '{print \$2}' > _diff-temp-list.txt"
 alias rdiff2="mkdir ./_diff-temp"

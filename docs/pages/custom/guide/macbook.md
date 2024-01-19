@@ -7,24 +7,33 @@ order: 2
 
 ## 常用软件
 
-| 软件名称           | 下载地址                                                | 说明 |
-| ------------------ | ------------------------------------------------------- | ---- |
-| Chrome             | https://www.google.com/chrome/                          |      |
-| VsCode             | https://code.visualstudio.com/                          |      |
-| VrayU              | www.v2ray.com/awesome/tools.html                        |      |
-| BeterAndBetter     | https://www.better365.cn/bab2.html                      |      |
-| Snipatse           | https://www.snipaste.com/                               |      |
-| AltTab             | https://github.com/lwouis/alt-tab-macos                 |      |
-| hidenBar           | https://github.com/dwarvesf/hidden                      |      |
-| MissionControlPlus | https://github.com/ronyfadel/MissionControlPlusReleases |      |
-| LocalSend          | https://github.com/localsend/localsend                  |      |
-| HeyNote            | https://github.com/heyman/heynote                       |      |
+| 软件名称                                                     | 说明 |
+| ------------------------------------------------------------ | ---- |
+| [Chrome](https://www.google.com/chrome/)                     |      |
+| [VsCode](https://code.visualstudio.com/)                     |      |
+| [VrayU](www.v2ray.com/awesome/tools.html)                    |      |
+| [BeterAndBetter](https://www.better365.cn/bab2.html)         |      |
+| [Snipatse](https://www.snipaste.com/)                        |      |
+| [AltTab](https://github.com/lwouis/alt-tab-macos)            |      |
+| [hidenBar](https://github.com/dwarvesf/hidden)               |      |
+| [MissionControlPlus](https://github.com/ronyfadel/MissionControlPlusReleases) |      |
+| [LocalSend](https://github.com/localsend/localsend)          |      |
+| [HeyNote](https://github.com/heyman/heynote)                 |      |
+| [Iterm2](https://iterm2.com/)                                |      |
+
+> iterm2 配色推荐 ayu - https://iterm2colorschemes.com/ 
 
 破解版
 
-| 软件名称 | 下载地址                          | 说明 |
-| -------- | --------------------------------- | ---- |
-| Paste    | https://www.imacso.com/paste.html |      |
+| 软件名称                                   | 说明 |
+| ------------------------------------------ | ---- |
+| [Paste](https://www.imacso.com/paste.html) |      |
+
+破解网站推荐
+
+https://www.macv.com/
+
+
 
 ## 开发环境
 
@@ -346,6 +355,7 @@ https://juejin.cn/post/6844903849572974605
 | 块注释           | alt + shift + /      | ⇧ + ⌥ + a       |
 | 搜索符号         |                      | ⇧ + ⌥ + o       |
 | 添加光标         | ctrl + shift + ↓ / ↑ | ⌘ + ⌥ + ↓ / ↑   |
+| 回跳至上一次光标 | alt + -              | ⌃ + -           |
 
 > window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 >
