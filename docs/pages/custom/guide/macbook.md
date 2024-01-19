@@ -7,21 +7,21 @@ order: 2
 
 ## 常用软件
 
-| 软件名称                                                     | 说明 |
-| ------------------------------------------------------------ | ---- |
-| [Chrome](https://www.google.com/chrome/)                     |      |
-| [VsCode](https://code.visualstudio.com/)                     |      |
-| [VrayU](www.v2ray.com/awesome/tools.html)                    |      |
-| [BeterAndBetter](https://www.better365.cn/bab2.html)         |      |
-| [Snipatse](https://www.snipaste.com/)                        |      |
-| [AltTab](https://github.com/lwouis/alt-tab-macos)            |      |
-| [hidenBar](https://github.com/dwarvesf/hidden)               |      |
+| 软件名称                                                                      | 说明 |
+| ----------------------------------------------------------------------------- | ---- |
+| [Chrome](https://www.google.com/chrome/)                                      |      |
+| [VsCode](https://code.visualstudio.com/)                                      |      |
+| [VrayU](https://www.v2ray.com/awesome/tools.html)                             |      |
+| [BeterAndBetter](https://www.better365.cn/bab2.html)                          |      |
+| [Snipatse](https://www.snipaste.com/)                                         |      |
+| [AltTab](https://github.com/lwouis/alt-tab-macos)                             |      |
+| [hidenBar](https://github.com/dwarvesf/hidden)                                |      |
 | [MissionControlPlus](https://github.com/ronyfadel/MissionControlPlusReleases) |      |
-| [LocalSend](https://github.com/localsend/localsend)          |      |
-| [HeyNote](https://github.com/heyman/heynote)                 |      |
-| [Iterm2](https://iterm2.com/)                                |      |
+| [LocalSend](https://github.com/localsend/localsend)                           |      |
+| [HeyNote](https://github.com/heyman/heynote)                                  |      |
+| [Iterm2](https://iterm2.com/)                                                 |      |
 
-> iterm2 配色推荐 ayu - https://iterm2colorschemes.com/ 
+> iterm2 配色推荐 ayu - https://iterm2colorschemes.com/
 
 破解版
 
@@ -33,19 +33,17 @@ order: 2
 
 https://www.macv.com/
 
-
-
 ## 开发环境
 
 ### 常用
 
-安装 nvm - node版本管理工具
+安装 nvm - node 版本管理工具
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 ```
 
-安装node - 以v18为例
+安装 node - 以 v18 为例
 
 ```bash
 nvm install 18
@@ -59,10 +57,10 @@ nvm install 18
 # yarn
 npm install -g yarn
 # pnpm
-npm install -g pnpm 
+npm install -g pnpm
 
 
-# rimraf - node_modules 
+# rimraf - node_modules
 npm install -g rimraf
 # 依赖更新
 npm install -g npm-check-updates
@@ -291,18 +289,18 @@ jdk 安装
 
 1. 下载 jdk
 
-下载地址：[jdk1.8.0_40](http://www.[oracle](https://so.csdn.net/so/search?q=oracle&spm=1001.2101.3001.7020).com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+下载地址：[jdk1.8.0_40](<http://www.[oracle](https://so.csdn.net/so/search?q=oracle&spm=1001.2101.3001.7020).com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>)
 
-2. 安装jdk
+2. 安装 jdk
 
 ```bash
 # 默认安装地址
 /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
 ```
 
-3. 配置jdk
+3. 配置 jdk
 
-在  `~/.bashrc` 下添加如下配置
+在 `~/.bashrc` 下添加如下配置
 
 ```bash
 export JAVA_HOME=‘/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home‘
@@ -312,20 +310,18 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ```
 
->如果安装 zsh ，也可将配置添加到 ./zshrc
+> 如果安装 zsh ，也可将配置添加到 ./zshrc
 
 添加完成后，通过`source ~/.bashrc` 使配置生效
 
 4. 验证
 
 ```bash
-$ java -version     
+$ java -version
 java version "1.8.0_391"
 Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
 ```
-
-
 
 ## 快捷键记录
 
@@ -360,10 +356,6 @@ https://juejin.cn/post/6844903849572974605
 > window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 >
 > macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
-
-
-
-
 
 ## 问题记录
 
@@ -437,8 +429,6 @@ startup -> 开机脚本
 ifconfig en0
 ```
 
-
-
 ### Mac 符号
 
 ⇧
@@ -449,9 +439,6 @@ ifconfig en0
 
 ⌃
 
-↓ 
+↓
 
 ↑
-
-
-
