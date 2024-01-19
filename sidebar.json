@@ -238,6 +238,18 @@
 				}
 			],
 			"order": 3
+		},
+		{
+			"text": "其他",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "-/-",
+					"link": "/pages/devops/other/java",
+					"order": 0
+				}
+			],
+			"order": 4
 		}
 	],
 	"/pages/electron": [
