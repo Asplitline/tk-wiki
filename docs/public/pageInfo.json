@@ -6,7 +6,11 @@
 		"sidebar": false
 	},
 	"/pages/collect": {
-		"link": "/pages/collect/index"
+		"text": "文章收集",
+		"link": "/pages/collect/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
 	},
 	"/pages/css": {
 		"text": "CSS",

@@ -57,7 +57,18 @@
 			"order": 3
 		}
 	],
-	"/pages/collect": [],
+	"/pages/collect": [
+		{
+			"text": 2024.03,
+			"collapsible": true,
+			"items": [
+				{
+					"text": "开源的心理建设",
+					"link": "/pages/collect/202403/mental-health-oss-zh"
+				}
+			]
+		}
+	],
 	"/pages/css": [
 		{
 			"text": "CSS",
@@ -245,8 +256,7 @@
 			"items": [
 				{
 					"text": "-/-",
-					"link": "/pages/devops/other/java",
-					"order": 0
+					"link": "/pages/devops/other/java"
 				}
 			],
 			"order": 4

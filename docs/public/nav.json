@@ -108,5 +108,15 @@
 				"activeMath": "/tk/"
 			}
 		]
+	},
+	{
+		"text": "2024",
+		"items": [
+			{
+				"text": "202403",
+				"link": "/pages/collect/202403/index",
+				"activeMath": "/collect/"
+			}
+		]
 	}
 ]
