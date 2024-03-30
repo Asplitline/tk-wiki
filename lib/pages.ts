@@ -81,11 +81,11 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
   const fileName = file.replace(/\.md$/i, "");
   const path = joinLink([dir, fileName]);
   const isReadme = path.toLowerCase() === "index";
-  //
   if (!isAll) {
     const { order = data.ctime, parentOrder, title = "-/-" } = data;
+
     return Object.assign(
-      { text: title, link: isReadme ? "" : path, order },
+      { text: title, link: isReadme ? "" : path, order, group: data.group },
       typeof parentOrder === "number" ? { parentOrder } : {}
     );
   } else {
@@ -107,25 +107,29 @@ function getMarkdownInfo(dir: string, file: string, isAll = false) {
 export function handlePages(dir: string, filePrefix: string = pageRoot) {
   const pathList = getFileList(joinPath([dir], ".."));
 
-  let groupName = "unTitle";
+  let groupTitle = "unTitle";
   let indexInfo = {};
   const result = pathList.map((path) => {
     const info = getMarkdownInfo(dir, path);
     if (path.includes("index.md")) {
       indexInfo = info;
-      groupName = info.text;
+      groupTitle = info.text;
       return null;
     } else {
       return info;
     }
   });
   const sortResult = sortPages(result.filter((i) => i));
-  return {
-    text: groupName,
-    collapsible: true,
-    items: sortResult,
-    order: indexInfo?.parentOrder,
-  };
+
+  return Object.assign(
+    {
+      text: groupTitle,
+      collapsible: true,
+      items: sortResult,
+      order: indexInfo?.parentOrder,
+    },
+    indexInfo?.group ? { group: indexInfo?.group } : {}
+  );
 }
 
 /**

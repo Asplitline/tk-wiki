@@ -1,31 +1,23 @@
 import { pageRoot } from "./constants";
 const nav = [
   {
-    text: "三件套",
-    items: [
-      { text: "HTML", link: "/html/index", activeMath: "/html/" },
-      { text: "CSS", link: "/css/index", activeMath: "/css/" },
-      { text: "JavaScript", link: "/js/index", activeMath: "/js/" },
-      { text: "TypeScript", link: "/ts/index", activeMatch: "/ts/" },
-    ],
+    text: "前端基础",
+    link: "/base/index",
+    activeMath: "/pages//base/",
   },
   {
-    text: "Vue",
-    items: [
-      { text: "Vue2", link: "/vue2/index", activeMath: "/vue2/" },
-      { text: "Vue3", link: "/vue3/index", activeMatch: "/vue3/" },
-      { text: "uniapp", link: "/uniapp/index", activeMath: "/uniapp/" },
-      { text: "nextjs", link: "/nextjs/index", activeMath: "/nextjs/" },
-    ],
+    text: "前端进阶",
+    link: "/advance/index",
+    activeMath: "/pages/advance/",
   },
   {
-    text: "React",
-    items: [{ text: "React", link: "/react/index", activeMatch: "/react/" }],
+    text: "前端通识",
+    link: "/common/index",
+    activeMath: "/common/",
   },
   {
     text: "配置",
     items: [
-      { text: "DevOps", link: "/devops/index", activeMath: "/devops/" },
       { text: "脚手架", link: "/cli/index", activeMath: "/cli/" },
       { text: "个人配置", link: "/custom/index", activeMath: "/custom/" },
       { text: "知识扩展", link: "/expand/index", activeMath: "/expand/" },
@@ -34,9 +26,8 @@ const nav = [
   {
     text: "其他",
     items: [
-      { text: "错误整理", link: "/error/index", activeMath: "/error/" },
+      { text: "开发日志", link: "/devlog/index", activeMath: "/devlog/" },
       { text: "转载文章", link: "/reproduce/index", activeMath: "/reproduce/" },
-      { text: "electron", link: "/electron/index", activeMath: "/electron/" },
       { text: "tk库", link: "/tk/index", activeMath: "/tk/" },
     ],
   },

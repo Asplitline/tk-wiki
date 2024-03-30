@@ -1,4 +1,18 @@
 {
+	"/pages/advance": {
+		"text": "前端进阶",
+		"link": "/pages/advance/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
+	"/pages/base": {
+		"text": "前端基础",
+		"link": "/pages/base/index",
+		"sidebar": false,
+		"aside": false,
+		"layout": "page"
+	},
 	"/pages/cli": {
 		"text": "脚手架",
 		"link": "/pages/cli/index",
@@ -12,11 +26,11 @@
 		"aside": false,
 		"layout": "page"
 	},
-	"/pages/css": {
-		"text": "CSS",
-		"link": "/pages/css/index",
+	"/pages/common": {
+		"text": "前端通识",
+		"link": "/pages/common/index",
 		"sidebar": false,
-		"aside": false,
+		"order": 4,
 		"layout": "page"
 	},
 	"/pages/custom": {
@@ -29,22 +43,8 @@
 		"link": "/pages/demo/index"
 	},
 	"/pages/devlog": {
-		"text": "框架实战",
+		"text": "开发日志",
 		"link": "/pages/devlog/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
-	"/pages/devops": {
-		"text": "DevOps",
-		"link": "/pages/devops/index",
-		"sidebar": false,
-		"order": 4,
-		"layout": "page"
-	},
-	"/pages/electron": {
-		"text": "electron",
-		"link": "/pages/electron/index",
 		"sidebar": false,
 		"aside": false,
 		"layout": "page"
@@ -63,35 +63,6 @@
 		"aside": false,
 		"layout": "page"
 	},
-	"/pages/html": {
-		"text": "HTML",
-		"link": "/pages/html/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
-	"/pages/js": {
-		"text": "JavaScript",
-		"link": "/pages/js/index",
-		"order": 1,
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
-	"/pages/nextjs": {
-		"text": "NextJs",
-		"link": "/pages/nextjs/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
-	"/pages/react": {
-		"text": "React",
-		"link": "/pages/react/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
 	"/pages/reproduce": {
 		"text": "转载文章",
 		"link": "/pages/reproduce/index",
@@ -103,34 +74,6 @@
 		"text": "tk",
 		"link": "/pages/tk/index",
 		"sidebar": false,
-		"layout": "page"
-	},
-	"/pages/ts": {
-		"text": "TypeScript",
-		"link": "/pages/ts/index",
-		"order": 2,
-		"sidebar": false,
-		"layout": "page"
-	},
-	"/pages/uniapp": {
-		"text": "Uniapp",
-		"link": "/pages/uniapp/index",
-		"sidebar": false,
-		"aside": false,
-		"layout": "page"
-	},
-	"/pages/vue2": {
-		"text": "Vue2",
-		"link": "/pages/vue2/index",
-		"sidebar": false,
-		"order": 3,
-		"layout": "page"
-	},
-	"/pages/vue3": {
-		"text": "Vue3",
-		"link": "/pages/vue3/index",
-		"sidebar": false,
-		"aside": false,
 		"layout": "page"
 	}
 }
