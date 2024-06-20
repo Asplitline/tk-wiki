@@ -1,7 +1,5 @@
----
 title: chrome devtool
 order: 2
----
 
 # Chrome devtool
 
@@ -13,51 +11,346 @@ order: 2
 
 > `esc`：显示 第二面板
 
-## element
 
-### DOM 树
-
-使用 Chrome DevTools 的 Elements 面板检查和实时编辑页面的 HTML 与 CSS
-
-- **`h`键**：快速隐藏/显示元素当前元素及其后代元素(原理`visibility:hidden`)
-- **按 `alt` 键** 点击 dom 元素前箭头，折叠/展开 后代元素
-
-### styles
-
-![](chrome-devtool.assets/640.webp)
-
-按住 shift 点击色块，快速切换颜色格式 rgb/hsl/hex
-
-color pickers
-
-![](chrome-devtool.assets/640-16739704028353.webp)
-
-- page colors：color picker 中会列出页面所有的颜色
-- material colors：color picker 中会列出 google 设计推荐色系
 
 ## Console
 
-Console 面板是浏览器的控制台
+快捷键：⌘ + ⌥ + J  或 ⇧ + ⌘ + C
 
-message
+面板命令：show console drawer
 
-**设置->Show Console drawer**或者**Esc 快捷键**让 Console 在每个面板都能显示
+### console API
 
-- ctrl+shift+p 输入 time 命令或者设置中找到**timestamps**命令，给消息加上时间戳
-- `LogXMLHttpRequest`：输出 XMLHttp 请求(可以监控页面所有 ajax 请求 定位其代码调用栈)
+![image-20240620211747904](./chrome.assets/image-20240620211747904.png)
 
-![](chrome-devtool.assets/640-16739704048436.webp)
+#### console.dir
 
-`$`符号
+```
+console.dir(document.head);
+```
 
-- `$0`：获取在 Elements 面板**所选中的元素节点**
-- `$` ：替代 `document.querySlector` 方法使用
-- `$$`：`document.querySelectorAll`替代，**并能直接返回数组**(Array)。
+> 可以简写为 dir
 
-> `document.querySelectorAll` 返回的是 nodeList(NodeList)
+#### console.count
 
-- `$_`：引用上一次执行的结果
-- `$i`：使用 npm 的包，可以安装 Console Importer 插件
+```js
+console.count();
+console.count('coffee');
+console.count();
+console.count();
+```
+
+#### console.countReset
+
+```js
+console.countReset();
+console.countReset('coffee');
+```
+
+#### console.group / console.grounEnd
+
+```js
+const label = 'Adolescent Irradiated Espionage Tortoises';
+console.group(label);
+console.info('Leo');
+console.info('Mike');
+console.info('Don');
+console.info('Raph');
+console.groupEnd(label);
+```
+
+> console.groupCollapsed
+
+#### console.table 
+
+```js
+var people = [
+  {
+    first: 'René',
+    last: 'Magritte',
+  },
+  {
+    first: 'Chaim',
+    last: 'Soutine',
+    birthday: '18930113',
+  },
+  {
+    first: 'Henri',
+    last: 'Matisse',
+  }
+];
+console.table(people);
+```
+
+```js
+// 自定义列
+console.table(people, ['last', 'birthday']);
+```
+
+> 可以简写为 table
+
+#### console.time / console.timeEnd
+
+```js
+console.time();
+for (var i = 0; i < 100000; i++) {
+  let square = i ** 2;
+}
+console.timeEnd();
+```
+
+#### console.trace
+
+```
+const first = () => { second(); };
+const second = () => { third(); };
+const third = () => { fourth(); };
+const fourth = () => { console.trace(); };
+first();
+```
+
+> https://developer.mozilla.org/en-US/docs/Web/API/console
+
+
+
+### 工具 API
+
+#### $_
+
+最近一次表达式的值
+
+![$_ is the most recently evaluated expression.](./chrome.assets/is-most-recently-eval-91da2e37b12ba.png)
+
+#### $0 - $4
+
+历史选择的元素
+
+#### $(selector [, startNode])
+
+document.querySelector 简写
+
+#### $$(selector [, startNode])
+
+document.querySelectorAll 简写
+
+```js
+let images = $$('img');
+// let images = $$('img', document.querySelector('.devsite-header-background'));
+for (let each of images) {
+  console.log(each.src);
+}
+```
+
+#### copy(object)
+
+复制值到粘贴板
+
+// TODO
+
+#### debug(function)
+
+调试指定函数
+
+// TODO
+
+> undebug：取消调试
+
+#### inspect(object/function)
+
+定位到某个元素
+
+#### getEventListeners(object)
+
+获取所有事件
+
+```js
+getEventListeners(document);
+```
+
+#### keys / values 
+
+与 Object.keys 、 Object.values 类似  
+
+#### monitor(function)
+
+监听函数
+
+```js
+function sum(x, y) {
+  return x + y;
+}
+monitor(sum);
+```
+
+> umonitor：取消监听
+
+#### monitorEvents(object [, events])
+
+监听事件
+
+```js
+monitorEvents(window, "resize");
+```
+
+```js
+monitorEvents(window, ["resize", "scroll"])
+```
+
+```js
+monitorEvents($0, "key");
+```
+
+![image-20240620221556514](./chrome.assets/image-20240620221556514.png)
+
+> unmonitorEvents：取消监听
+
+#### queryObjects(Constructor)
+
+返回使用该构造函数的清单
+
+```js
+queryObjects(Promise)
+queryObjects(Object)
+queryObjects(Map)
+```
+
+### 监听表达式变化
+
+![image-20240620211354903](./chrome.assets/image-20240620211354903.png)
+
+监听 dom宽度变化 或 值变化
+
+```js
+document.body.clientWidth
+```
+
+```js
+let count = 1; 
+setInterval(()=>{
+    count++
+},1000)
+```
+
+
+
+### console 设置 
+
+![Console Settings.](./chrome.assets/console-settings-8f1c503823667.png)
+
+Log XMLHttpRequests：接口调用
+
+Preserve log : 保存日志记录
+
+Eager evaluation：预览表达式值
+
+## Element
+
+### Dom
+
+#### 元素操作
+
+按  ⌥  并点击箭头：展开或折叠所有后代
+
+h 键：快速隐藏/显示元素（visibility:hidden）
+
+⌘ + F：搜索元素
+
+Delete 键： 删除元素
+
+双击：修改元素内容
+
+编辑html：批量修改元素
+
+⇧ + ⌥ + ↓ / ↑：重复元素
+
+鼠标拖拽：调整元素顺序
+
+
+
+#### 其他操作
+
+![A node screenshot being captured.](./chrome.assets/a-node-screenshot-being-c-da2097c402652.png)
+
+
+
+Force state：设置元素状态
+
+Capture node screenshot：截图当前节点
+
+Scroll into view：定位到当前元素
+
+Badge settings：辅助标签
+
+> 面板中开启 show rules and hoverhttps://developer.chrome.com/docs/devtools/elements/badges
+
+
+
+
+
+### Styles
+
+#### css 面板
+
+匹配元素为常规颜色，未匹配的元素为灰色
+
+![Matched selector in regular text and unmatched selectors in pale text.](./chrome.assets/matched-selector-regular-8c47f921f111e.png)
+
+无效值、无效属性提示
+
+![Invalid property name and invalid property value.](./chrome.assets/invalid-property-name-in-0f4bf1c05953d-20240620231512426.png)
+
+未生效的属性
+
+![Inactive CSS declaration with a hint.](./chrome.assets/inactive-css-declaration-c8c5f4206892a.png)
+
+继承属性为常规颜色，未继承属性为灰色
+
+![The 'Inherited from body' section listing inherited and non-inherited CSS.](./chrome.assets/the-inherited-body-sec-b5b477dedcb8e.png)
+
+不可更改样式（斜体）
+
+1. user agent stylesheet - 浏览器默认样式
+
+![The CSS from user agent stylesheet.](./chrome.assets/the-css-user-agent-style-dffd870a01792.png)
+
+2. 通过属性控制的样式
+
+![image-20240620232004001](./chrome.assets/image-20240620232004001.png)
+
+
+
+计算得出的值为灰色
+
+![Property values calculated at runtime.](./chrome.assets/property-values-calculate-9cb4b49640b23.png)
+
+#### 属性详情（mdn）
+
+![image-20240620232615227](./chrome.assets/image-20240620232615227.png)
+
+#### 权重查看
+
+![image-20240620232538722](./chrome.assets/image-20240620232538722.png)
+
+
+
+#### 查看 hover 样式
+
+1. 面板中开启 show rules and hover 
+2. styles中 :hover
+
+#### 按住 shift 点击色块，快速切换颜色格式 rgb/hsl/hex
+
+![](./chrome.assets/640.webp)
+
+#### 查看网站所有颜色变量
+
+![image-20240620231019979](./chrome.assets/image-20240620231019979.png)
+
+#### 调试 flex 
+
+![image-20240620231154971](./chrome.assets/image-20240620231154971.png)
+
+
 
 ## Sources
 
@@ -157,7 +450,7 @@ source map 映射信息存在 json 对象中，保存在 .map 文件中
 
 snippets 中，选中代码并`ctrl enter`，或点击右下角的执行按钮，即可执行代码片段
 
-## network
+## Network
 
 ![](chrome-devtool.assets/640-167397042357333.png)
 
@@ -235,11 +528,15 @@ performance 面板可以用于**分析运行时性能**。与页面加载性能�
 
 [参考](https://mp.weixin.qq.com/s?__biz=MzA5NjM5MjM1Nw==&mid=2650284189&idx=1&sn=6bf640e28cf02097b73e5885d750cde8&chksm=88bc4557bfcbcc41e792cf7b11b7c19b610cd3eb5f35808066489889286319161f6466776a68&cur_album_id=1349545506497855489&scene=189#wechat_redirect)
 
-## Memory 内存
+## Memory
 
 [参考](https://mp.weixin.qq.com/s?__biz=MzA5NjM5MjM1Nw==&mid=2650284228&idx=1&sn=d0ca8b3476ad8ba891dba9c5468ee1fb&chksm=88bc450ebfcbcc18339aa4272997ec85dca736553c40c6af67e47a2faa5e954047b13f8558cb&cur_album_id=1349545506497855489&scene=189#wechat_redirect)
 
-## 快速查看页面结构
+
+
+## 黑魔法
+
+### 快速查看页面结构
 
 ```js
 $$('*').forEach((i) => {
@@ -247,6 +544,28 @@ $$('*').forEach((i) => {
 })
 ```
 
+### 调试 hover 元素
+
+```js
+setTimeout(()=>{debugger}, 1000)
+```
+
+### 实时编辑文本
+
+```js
+document.body.contentEditable = true
+```
+
+### 快速执行代码块
+
+⌘ + P   ===> !snippest_name 
+
+
+
+
+
 ## 相关链接
 
 [Devtools 老师傅养成系列](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5NjM5MjM1Nw==&action=getalbum&album_id=1349545506497855489&scene=173&from_msgid=2650283949&from_itemidx=1&count=3&nolastread=1#wechat_redirect)
+
+https://developer.chrome.com/docs/devtools
