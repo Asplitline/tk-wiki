@@ -5,7 +5,11 @@ order: 1
 
 # vscode
 
-## live server 配置 https
+
+
+## 配置
+
+### live server 配置 https
 
 git bash 自带 openssl
 
@@ -46,7 +50,7 @@ certificate.pem
  }
 ```
 
-## \#region folding for VS Code
+### region folding for VS Code
 
 插件说明：用 #region 包裹代码，[下载地址](https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder)
 
@@ -64,10 +68,22 @@ certificate.pem
   }
 ```
 
-## vscode 代码提示未默认选中第一行
+### vscode 代码提示未默认选中第一行
 
 问题：vscode 代码提示，为默认选中第一个
 
 解决：user.json -> 输入 `prevent` -> 取消勾选 Editor › `Suggest: Snippets Prevent Quick Suggestions`
 
 ![image-20230302231121525](vscode.assets/image-20230302231121525.png)
+
+### 代码建议预览
+
+`Editor › Suggest: Preview`
+
+![image-20240331095738046](./vscode.assets/image-20240331095738046.png)
+
+### 固定tab独立显示
+
+`Workbench › Editor: Pinned Tabs On Separate Row`
+
+![image-20240331100453976](./vscode.assets/image-20240331100453976.png)

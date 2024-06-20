@@ -942,39 +942,6 @@
 			]
 		}
 	],
-	"/pages/error": [
-		{
-			"text": "错误处理",
-			"collapsible": true,
-			"items": [
-				{
-					"text": "兼容性处理",
-					"link": "/pages/error/base/polyfill",
-					"order": 1
-				},
-				{
-					"text": "三方库兼容性",
-					"link": "/pages/error/base/polyfill-three-party",
-					"order": 2
-				},
-				{
-					"text": "样式相关",
-					"link": "/pages/error/base/style",
-					"order": 3
-				},
-				{
-					"text": "其他错误",
-					"link": "/pages/error/base/other",
-					"order": 4
-				},
-				{
-					"text": "不同操作系统开发差异",
-					"link": "/pages/error/base/polyfill-system",
-					"order": 5
-				}
-			]
-		}
-	],
 	"/pages/expand": [
 		{
 			"text": "常见",

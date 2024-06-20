@@ -179,6 +179,7 @@ h1 {
   font-size: 38px;
 }
 
+
 h2 {
   font-size: 24px;
   // color: var(--vp-c-text-1);
