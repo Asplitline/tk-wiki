@@ -1,5 +1,7 @@
+---
 title: chrome devtool
 order: 2
+---
 
 # Chrome devtool
 
@@ -11,11 +13,9 @@ order: 2
 
 > `esc`：显示 第二面板
 
-
-
 ## Console
 
-快捷键：⌘ + ⌥ + J  或 ⇧ + ⌘ + C
+快捷键：⌘ + ⌥ + J 或 ⇧ + ⌘ + C
 
 面板命令：show console drawer
 
@@ -35,7 +35,7 @@ console.dir(document.head);
 
 ```js
 console.count();
-console.count('coffee');
+console.count("coffee");
 console.count();
 console.count();
 ```
@@ -44,47 +44,47 @@ console.count();
 
 ```js
 console.countReset();
-console.countReset('coffee');
+console.countReset("coffee");
 ```
 
 #### console.group / console.grounEnd
 
 ```js
-const label = 'Adolescent Irradiated Espionage Tortoises';
+const label = "Adolescent Irradiated Espionage Tortoises";
 console.group(label);
-console.info('Leo');
-console.info('Mike');
-console.info('Don');
-console.info('Raph');
+console.info("Leo");
+console.info("Mike");
+console.info("Don");
+console.info("Raph");
 console.groupEnd(label);
 ```
 
 > console.groupCollapsed
 
-#### console.table 
+#### console.table
 
 ```js
 var people = [
   {
-    first: 'René',
-    last: 'Magritte',
+    first: "René",
+    last: "Magritte",
   },
   {
-    first: 'Chaim',
-    last: 'Soutine',
-    birthday: '18930113',
+    first: "Chaim",
+    last: "Soutine",
+    birthday: "18930113",
   },
   {
-    first: 'Henri',
-    last: 'Matisse',
-  }
+    first: "Henri",
+    last: "Matisse",
+  },
 ];
 console.table(people);
 ```
 
 ```js
 // 自定义列
-console.table(people, ['last', 'birthday']);
+console.table(people, ["last", "birthday"]);
 ```
 
 > 可以简写为 table
@@ -111,11 +111,9 @@ first();
 
 > https://developer.mozilla.org/en-US/docs/Web/API/console
 
-
-
 ### 工具 API
 
-#### $_
+#### $\_
 
 最近一次表达式的值
 
@@ -134,24 +132,35 @@ document.querySelector 简写
 document.querySelectorAll 简写
 
 ```js
-let images = $$('img');
+let images = $$("img");
 // let images = $$('img', document.querySelector('.devsite-header-background'));
 for (let each of images) {
   console.log(each.src);
 }
 ```
 
+### $i
+
+在 `devtools` 里面来使用 `npm` 插件
+
+[Console Importer](https://link.juejin.cn/?target=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fconsole-importer%2Fhgajpakhafplebkdljleajgbpdmplhie%2Frelated)
+
+```js
+const v1 = _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 });
+console.log(v1)
+// → { 'a': 1, 'b': 2 }
+const v2 = _.partition([1, 2, 3, 4], n => n % 2);
+// → [[1, 3], [2, 4]]
+console.log(v2)
+```
+
 #### copy(object)
 
 复制值到粘贴板
 
-// TODO
-
 #### debug(function)
 
 调试指定函数
-
-// TODO
 
 > undebug：取消调试
 
@@ -167,9 +176,9 @@ for (let each of images) {
 getEventListeners(document);
 ```
 
-#### keys / values 
+#### keys / values
 
-与 Object.keys 、 Object.values 类似  
+与 Object.keys 、 Object.values 类似
 
 #### monitor(function)
 
@@ -193,7 +202,7 @@ monitorEvents(window, "resize");
 ```
 
 ```js
-monitorEvents(window, ["resize", "scroll"])
+monitorEvents(window, ["resize", "scroll"]);
 ```
 
 ```js
@@ -209,31 +218,29 @@ monitorEvents($0, "key");
 返回使用该构造函数的清单
 
 ```js
-queryObjects(Promise)
-queryObjects(Object)
-queryObjects(Map)
+queryObjects(Promise);
+queryObjects(Object);
+queryObjects(Map);
 ```
 
 ### 监听表达式变化
 
 ![image-20240620211354903](./chrome.assets/image-20240620211354903.png)
 
-监听 dom宽度变化 或 值变化
+监听 dom 宽度变化 或 值变化
 
 ```js
-document.body.clientWidth
+document.body.clientWidth;
 ```
 
 ```js
-let count = 1; 
-setInterval(()=>{
-    count++
-},1000)
+let count = 1;
+setInterval(() => {
+  count++;
+}, 1000);
 ```
 
-
-
-### console 设置 
+### console 设置
 
 ![Console Settings.](./chrome.assets/console-settings-8f1c503823667.png)
 
@@ -249,7 +256,7 @@ Eager evaluation：预览表达式值
 
 #### 元素操作
 
-按  ⌥  并点击箭头：展开或折叠所有后代
+按 ⌥ 并点击箭头：展开或折叠所有后代
 
 h 键：快速隐藏/显示元素（visibility:hidden）
 
@@ -259,19 +266,15 @@ Delete 键： 删除元素
 
 双击：修改元素内容
 
-编辑html：批量修改元素
+编辑 html：批量修改元素
 
 ⇧ + ⌥ + ↓ / ↑：重复元素
 
 鼠标拖拽：调整元素顺序
 
-
-
 #### 其他操作
 
 ![A node screenshot being captured.](./chrome.assets/a-node-screenshot-being-c-da2097c402652.png)
-
-
 
 Force state：设置元素状态
 
@@ -282,10 +285,6 @@ Scroll into view：定位到当前元素
 Badge settings：辅助标签
 
 > 面板中开启 show rules and hoverhttps://developer.chrome.com/docs/devtools/elements/badges
-
-
-
-
 
 ### Styles
 
@@ -317,8 +316,6 @@ Badge settings：辅助标签
 
 ![image-20240620232004001](./chrome.assets/image-20240620232004001.png)
 
-
-
 计算得出的值为灰色
 
 ![Property values calculated at runtime.](./chrome.assets/property-values-calculate-9cb4b49640b23.png)
@@ -331,12 +328,10 @@ Badge settings：辅助标签
 
 ![image-20240620232538722](./chrome.assets/image-20240620232538722.png)
 
-
-
 #### 查看 hover 样式
 
-1. 面板中开启 show rules and hover 
-2. styles中 :hover
+1. 面板中开启 show rules and hover
+2. styles 中 :hover
 
 #### 按住 shift 点击色块，快速切换颜色格式 rgb/hsl/hex
 
@@ -346,9 +341,15 @@ Badge settings：辅助标签
 
 ![image-20240620231019979](./chrome.assets/image-20240620231019979.png)
 
-#### 调试 flex 
+#### 调试 flex
 
 ![image-20240620231154971](./chrome.assets/image-20240620231154971.png)
+
+
+
+
+
+
 
 
 
@@ -532,35 +533,52 @@ performance 面板可以用于**分析运行时性能**。与页面加载性能�
 
 [参考](https://mp.weixin.qq.com/s?__biz=MzA5NjM5MjM1Nw==&mid=2650284228&idx=1&sn=d0ca8b3476ad8ba891dba9c5468ee1fb&chksm=88bc450ebfcbcc18339aa4272997ec85dca736553c40c6af67e47a2faa5e954047b13f8558cb&cur_album_id=1349545506497855489&scene=189#wechat_redirect)
 
-
-
 ## 黑魔法
 
 ### 快速查看页面结构
 
 ```js
-$$('*').forEach((i) => {
-  i.style.outline = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16)
-})
+$$("*").forEach((i) => {
+  i.style.outline =
+    "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);
+});
 ```
 
 ### 调试 hover 元素
 
 ```js
-setTimeout(()=>{debugger}, 1000)
+setTimeout(() => {
+  debugger;
+}, 1000);
 ```
 
 ### 实时编辑文本
 
 ```js
-document.body.contentEditable = true
+document.body.contentEditable = true;
 ```
 
 ### 快速执行代码块
 
-⌘ + P   ===> !snippest_name 
+⌘ + P ===> !snippest_name
 
+### 引用类型打印问题
 
+```js
+let person = {a:0, b:0, c:0, d:0, e:0, name: 'Tomek'}
+console.log(person);
+person.a = 1;
+person.name = 'Not Tomek';
+console.log(person);
+```
+
+```js
+let person = {a:0, b:0, c:0, d:0, e:0, name: 'Tomek'}
+console.log(JSON.stringify(person));
+person.a = 1;
+person.name = 'Not Tomek';
+console.log(JSON.stringify(person));
+```
 
 
 
