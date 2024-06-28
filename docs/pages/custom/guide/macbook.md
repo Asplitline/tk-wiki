@@ -332,6 +332,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
 | 锁屏               | window + L           | ⌃ + ⌘ + q          |
 | 文件搜索           |                      | ⇧ + ⌘ + o          |
 | 显示/隐藏 隐藏文件 |                      | ⌘ + ⇧ + .          |
+| 当前应用的偏好设置 |                      | ⌘ + ,              |
+| 应用全屏           |                      | ⌘ + ⌃ + F          |
 
 https://juejin.cn/post/6844903849572974605
 
@@ -352,10 +354,16 @@ https://juejin.cn/post/6844903849572974605
 | 搜索符号         |                      | ⇧ + ⌥ + o       |
 | 添加光标         | ctrl + shift + ↓ / ↑ | ⌘ + ⌥ + ↓ / ↑   |
 | 回跳至上一次光标 | alt + -              | ⌃ + -           |
+| 代码块           |                      | ⇧ + ⌘ +  r      |
+| 选中括号内文本   |                      | ⇧ + ⌥ + →       |
 
 > window：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 >
 > macOS：https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+
+
+
+
 
 ## 问题记录
 
@@ -403,6 +411,18 @@ npx kill-port 9002
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 ```
 
+### 问题5：Mac双屏时程序坞（任务栏）跑到副屏上怎么办
+
+步骤
+
+1. 按下option+command+D，开启程序坞“自动隐藏”，副屏程序坞消失
+2. 鼠标回到主屏，放在主屏正下方中间的边缘不要动，主屏能看到扩展坞出现了
+3. 按下option+command+D，锁定其到主屏。
+
+### 问题6：调度中心，一段时间后应用混乱
+
+![image-20240625224218349](./macbook.assets/image-20240625224218349.png)
+
 ## 其他
 
 ### Mac 相关设置
@@ -410,6 +430,8 @@ alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 鼠标滚轮反向 - 「鼠标」-> 关闭「自然滚动」
 
 单击点击 - 「触摸板」-> 开启「单击点击」
+
+
 
 ### 目录参考
 
@@ -442,3 +464,7 @@ ifconfig en0
 ↓
 
 ↑
+
+←
+
+→

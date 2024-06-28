@@ -822,5 +822,34 @@ git fetch upstream
 upstream/master  # 同步后上游仓库分支
 ```
 
+### github 部分域名无法访问
 
+报错信息：`curl: (7) Failed to connect to raw.githubusercontent.com port 443 after 5 ms: Couldn't connect to server`
+
+因为github 有些域名访问不到，可以通过配置hosts里面的ip域名对应关系解决。
+
+进入 [www.ipaddress.com](https://link.juejin.cn/?target=https%3A%2F%2Fsites.ipaddress.com%2Fraw.githubusercontent.com%2F) 网站，在打开的网站中将 `raw.githubusercontent.com` 复制到查询栏中进行搜索，可以看到域名对应的IP地址信息：
+
+![image-20240625225302257](./config.assets/image-20240625225302257.png)
+
+在终端中输入以下命令来打开hosts文件以进行编辑：
+
+```yaml
+sudo vim /etc/hosts
+```
+
+在文件中追加以下对应关系：
+
+```yaml
+185.199.108.133 raw.githubusercontent.com
+185.199.108.133 user-images.githubusercontent.com
+185.199.108.133 avatars2.githubusercontent.com
+185.199.108.133 avatars1.githubusercontent.com
+```
+
+### 批量删除已合并的本地分支
+
+```bash
+git branch --merged | grep -v 'master' | xargs git branch -d
+```
 

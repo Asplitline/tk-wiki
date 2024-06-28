@@ -61,3 +61,16 @@ title: string; }; }'.(7053)
 const index: keyof typeof data = 101
 console.log(data[index])
 ```
+
+
+
+## ts - 2322
+
+Type 'Timeout' is not assignable to type 'number'" when running unit tests
+
+```ts
+let timeoutId: null | ReturnType<typeof setTimeout> = null
+...
+timeoutId = setTimeout(...)
+```
+

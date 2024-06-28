@@ -884,8 +884,9 @@
 					"order": 1
 				},
 				{
-					"text": "-/-",
-					"link": "/pages/custom/program/chrome"
+					"text": "chrome devtool",
+					"link": "/pages/custom/program/chrome",
+					"order": 2
 				}
 			],
 			"order": 2
