@@ -3,11 +3,13 @@ import DefaultTheme from "vitepress/theme";
 import { onMounted, watch, nextTick } from "vue";
 import BaseIndex from "../components/BaseIndex/index.vue";
 import WordList from "../components/WordList.vue";
+import Layout from "./Layout.vue";
 import "./styles/index.css";
 import { useRoute } from "vitepress";
 
 export default {
   ...DefaultTheme,
+  Layout,
   enhanceApp({ app, router, siteData }) {
     app.component("base-index", BaseIndex);
     app.component("word-list", WordList);

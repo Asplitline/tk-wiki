@@ -9,77 +9,7 @@
         </p>
       </section>
 
-      <section class="search-shell">
-        <label class="search-shell__field">
-          <span class="search-shell__label">导航搜索</span>
-          <input
-            v-model.trim="searchQuery"
-            type="search"
-            placeholder="搜索分类、分组或文章标题"
-          />
-        </label>
-        <button
-          v-if="searchQuery"
-          class="search-shell__clear"
-          type="button"
-          @click="searchQuery = ''"
-        >
-          清空
-        </button>
-      </section>
-
-      <section class="search-panel">
-        <div class="search-panel__header">
-          <div>
-            <p class="search-panel__eyebrow">独立搜索面板</p>
-            <h2>看看现在有哪些导航</h2>
-          </div>
-          <p class="search-panel__meta">
-            {{ searchQuery ? `找到 ${filteredNavItems.length} 个结果` : `共 ${rootList.length} 个一级导航` }}
-          </p>
-        </div>
-
-        <template v-if="searchQuery">
-          <div v-if="groupedSearchResults.length" class="search-result-groups">
-            <article
-              v-for="group in groupedSearchResults"
-              :key="group.key"
-              class="search-result-group"
-            >
-              <div class="search-result-group__header">
-                <strong>{{ group.label }}</strong>
-                <span>{{ group.items.length }} 条</span>
-              </div>
-              <ul class="search-result-list">
-                <li v-for="item in group.items" :key="item.link">
-                  <a :href="resolveLink(item.link)" @click.prevent="skipLink(item.link)">
-                    <span>{{ item.text }}</span>
-                    <small>{{ item.section }}</small>
-                  </a>
-                </li>
-              </ul>
-            </article>
-          </div>
-          <p v-else class="search-panel__empty">没有匹配的导航，换个关键词试试。</p>
-        </template>
-
-        <div v-else class="nav-overview">
-          <a
-            v-for="item in rootList"
-            :key="item.key"
-            class="nav-overview__card"
-            :href="resolveLink(item.link || `${item.key}/index`)"
-            @click.prevent="skipLink(item.link || `${item.key}/index`)"
-          >
-            <span class="nav-overview__eyebrow">{{ getSectionMeta(item.key).eyebrow }}</span>
-            <strong>{{ item.text }}</strong>
-            <p>{{ getSectionMeta(item.key).description }}</p>
-            <span class="nav-overview__meta">{{ getSectionCount(item.key) }} 个子导航</span>
-          </a>
-        </div>
-      </section>
-
-      <div v-if="!searchQuery" class="index-grid">
+      <div class="index-grid">
         <a
           v-for="(lst, key) in rootList"
           :key="key"
@@ -103,77 +33,7 @@
         </p>
       </section>
 
-      <section class="search-shell">
-        <label class="search-shell__field">
-          <span class="search-shell__label">导航搜索</span>
-          <input
-            v-model.trim="searchQuery"
-            type="search"
-            placeholder="搜索当前页或全站导航"
-          />
-        </label>
-        <button
-          v-if="searchQuery"
-          class="search-shell__clear"
-          type="button"
-          @click="searchQuery = ''"
-        >
-          清空
-        </button>
-      </section>
-
-      <section class="search-panel">
-        <div class="search-panel__header">
-          <div>
-            <p class="search-panel__eyebrow">独立搜索面板</p>
-            <h2>快速定位导航</h2>
-          </div>
-          <p class="search-panel__meta">
-            {{ searchQuery ? `找到 ${filteredNavItems.length} 个结果` : `当前收录 ${allNavItems.length} 个导航项` }}
-          </p>
-        </div>
-
-        <template v-if="searchQuery">
-          <div v-if="groupedSearchResults.length" class="search-result-groups">
-            <article
-              v-for="group in groupedSearchResults"
-              :key="group.key"
-              class="search-result-group"
-            >
-              <div class="search-result-group__header">
-                <strong>{{ group.label }}</strong>
-                <span>{{ group.items.length }} 条</span>
-              </div>
-              <ul class="search-result-list">
-                <li v-for="item in group.items" :key="item.link">
-                  <a :href="resolveLink(item.link)" @click.prevent="skipLink(item.link)">
-                    <span>{{ item.text }}</span>
-                    <small>{{ item.section }}</small>
-                  </a>
-                </li>
-              </ul>
-            </article>
-          </div>
-          <p v-else class="search-panel__empty">没有匹配的导航，换个关键词试试。</p>
-        </template>
-
-        <div v-else class="nav-overview nav-overview--compact">
-          <a
-            v-for="item in rootList"
-            :key="item.key"
-            class="nav-overview__card"
-            :href="resolveLink(item.link || `${item.key}/index`)"
-            @click.prevent="skipLink(item.link || `${item.key}/index`)"
-          >
-            <span class="nav-overview__eyebrow">{{ getSectionMeta(item.key).eyebrow }}</span>
-            <strong>{{ item.text }}</strong>
-            <p>{{ getSectionMeta(item.key).description }}</p>
-            <span class="nav-overview__meta">{{ getSectionCount(item.key) }} 个子导航</span>
-          </a>
-        </div>
-      </section>
-
-      <template v-if="!searchQuery && hasGroup">
+      <template v-if="hasGroup">
         <section v-for="group of groupList" :key="group.key || 'default'" class="group-section">
           <div class="group-section__header">
             <span v-if="group.title" class="group-tag">{{ group.title }}</span>
@@ -212,7 +72,7 @@
           </div>
         </section>
       </template>
-      <template v-else-if="!searchQuery">
+      <template v-else>
         <div class="group-grid">
           <article v-for="(item, idx) of endList" :key="idx" class="group-item">
             <div class="group-item__header">
@@ -259,7 +119,6 @@ const route = useRoute()
 const router = useRouter()
 const list = ref<Record<string, any[]>>({})
 const pageInfo = ref<Record<string, any>>({})
-const searchQuery = ref('')
 const expandedItems = ref<Record<string, boolean>>({})
 defineProps(['title'])
 const DEFAULT_VISIBLE_COUNT = 10
@@ -347,53 +206,6 @@ const currentDescription = computed(() => {
 
 const hasGroup = computed(() => {
   return endList.value.some(item => orderArr.includes(item.group))
-})
-
-const allNavItems = computed(() => {
-  return Object.entries(list.value).flatMap(([key, groups]) => {
-    const rootLabel = pageInfo.value[key]?.text || key
-
-    return groups.flatMap((group: any) => {
-      const sectionLabel = group.text || group.group || rootLabel
-
-      return (group.items || []).map((entry: any) => ({
-        key: `${key}-${entry.link}`,
-        rootKey: key,
-        rootLabel,
-        section: sectionLabel,
-        text: entry.text,
-        link: entry.link,
-        keyword: [rootLabel, sectionLabel, entry.text].join(' ').toLowerCase(),
-      }))
-    })
-  })
-})
-
-const filteredNavItems = computed(() => {
-  if (!searchQuery.value) {
-    return allNavItems.value
-  }
-
-  const keyword = searchQuery.value.toLowerCase()
-  return allNavItems.value.filter(item => item.keyword.includes(keyword))
-})
-
-const groupedSearchResults = computed(() => {
-  const groupMap = new Map<string, { key: string; label: string; items: typeof filteredNavItems.value }>()
-
-  filteredNavItems.value.forEach((item) => {
-    if (!groupMap.has(item.rootKey)) {
-      groupMap.set(item.rootKey, {
-        key: item.rootKey,
-        label: item.rootLabel,
-        items: [],
-      })
-    }
-
-    groupMap.get(item.rootKey)!.items.push(item)
-  })
-
-  return Array.from(groupMap.values())
 })
 
 const groupList = computed(() => {
@@ -564,13 +376,6 @@ h3 {
   gap: 12px;
 }
 
-.search-shell__field {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .search-shell__label,
 .search-panel__eyebrow {
   font-size: 0.82rem;
@@ -580,17 +385,44 @@ h3 {
   color: var(--vp-c-text-3);
 }
 
-.search-shell input {
+.search-shell__trigger {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 64px;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 14%, var(--vp-c-divider));
+  border-radius: 16px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+}
+
+.search-shell__trigger strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.search-panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.search-panel__field input {
   width: 100%;
   min-height: 48px;
   padding: 0 14px;
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 14%, var(--vp-c-divider));
   border-radius: 14px;
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
 }
 
-.search-shell input:focus {
+.search-panel__field input:focus {
   outline: 2px solid color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
   outline-offset: 2px;
 }
@@ -613,6 +445,25 @@ h3 {
   background: linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 92%, var(--vp-c-brand-soft) 8%), var(--vp-c-bg));
 }
 
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 72px 20px 20px;
+  background: color-mix(in srgb, var(--vp-c-bg) 72%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.search-panel--overlay {
+  width: min(960px, 100%);
+  max-height: calc(100vh - 92px);
+  overflow: auto;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+}
+
 .search-panel__header {
   display: flex;
   align-items: end;
@@ -628,9 +479,25 @@ h3 {
   font-size: 1.3rem;
 }
 
+.search-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .search-panel__meta,
 .search-panel__empty {
   color: var(--vp-c-text-3);
+}
+
+.search-panel__close {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
 }
 
 .nav-overview,
@@ -861,10 +728,15 @@ h3 {
 
   .search-shell,
   .search-panel__header,
+  .search-panel__actions,
   .group-section__header,
   .group-item__header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .search-modal {
+    padding: 56px 12px 12px;
   }
 
   .group-section {
