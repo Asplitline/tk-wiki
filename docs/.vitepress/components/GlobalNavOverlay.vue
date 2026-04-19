@@ -13,6 +13,7 @@ const { isOpen, close } = useGlobalNav()
 const list = ref<Record<string, any[]>>({})
 const pageInfo = ref<Record<string, any>>({})
 const expandedItems = ref<Record<string, boolean>>({})
+const searchQuery = ref('')
 const DEFAULT_VISIBLE_COUNT = 10
 
 const sectionMetaMap: Record<string, { eyebrow: string; description: string }> = {
@@ -126,6 +127,53 @@ const currentDescription = computed(() => {
   return getSectionMeta(currentItem.value.key).description
 })
 
+const allNavItems = computed(() => {
+  return Object.entries(list.value).flatMap(([key, groups]) => {
+    const rootLabel = pageInfo.value[key]?.text || key
+
+    return groups.flatMap((group: any) => {
+      const sectionLabel = group.text || group.group || rootLabel
+
+      return (group.items || []).map((entry: any) => ({
+        key: `${key}-${entry.link}`,
+        rootKey: key,
+        rootLabel,
+        section: sectionLabel,
+        text: entry.text,
+        link: entry.link,
+        keyword: [rootLabel, sectionLabel, entry.text].join(' ').toLowerCase(),
+      }))
+    })
+  })
+})
+
+const filteredNavItems = computed(() => {
+  if (!searchQuery.value) {
+    return allNavItems.value
+  }
+
+  const keyword = searchQuery.value.toLowerCase()
+  return allNavItems.value.filter(item => item.keyword.includes(keyword))
+})
+
+const groupedSearchResults = computed(() => {
+  const groupMap = new Map<string, { key: string; label: string; items: typeof filteredNavItems.value }>()
+
+  filteredNavItems.value.forEach((item) => {
+    if (!groupMap.has(item.rootKey)) {
+      groupMap.set(item.rootKey, {
+        key: item.rootKey,
+        label: item.rootLabel,
+        items: [],
+      })
+    }
+
+    groupMap.get(item.rootKey)!.items.push(item)
+  })
+
+  return Array.from(groupMap.values())
+})
+
 const fetchSideBar = async () => {
   const res = await fetch(`${baseURL}/sidebar.json`).then((response) => response.json())
   const result: Record<string, any[]> = {}
@@ -185,6 +233,7 @@ const skipLink = (link: string) => {
 }
 
 watch(() => route.path, () => {
+  searchQuery.value = ''
   close()
 })
 
@@ -206,32 +255,99 @@ onMounted(async () => {
           <button class="global-nav-overlay__close" type="button" @click="close()">关闭</button>
         </div>
 
-        <div class="global-nav-overview">
-          <a
-            v-for="item in rootList"
-            :key="item.key"
-            class="global-nav-overview__card"
-            :href="resolveLink(item.link || `${item.key}/index`)"
-            @click.prevent="skipLink(item.link || `${item.key}/index`)"
-          >
-            <span class="global-nav-overview__eyebrow">{{ getSectionMeta(item.key).eyebrow }}</span>
-            <strong>{{ item.text }}</strong>
-            <p>{{ getSectionMeta(item.key).description }}</p>
-            <span class="global-nav-overview__meta">{{ getSectionCount(item.key) }} 个专题入口</span>
-          </a>
+        <div class="global-nav-overlay__toolbar">
+          <label class="global-nav-overlay__search">
+            <span>搜索导航</span>
+            <input
+              v-model.trim="searchQuery"
+              type="search"
+              placeholder="搜索分类、分组或文章标题"
+            >
+          </label>
+          <p class="global-nav-overlay__search-meta">
+            {{ searchQuery ? `找到 ${filteredNavItems.length} 个结果` : `共 ${allNavItems.length} 个导航项` }}
+          </p>
         </div>
 
-        <div v-if="endList.length" class="global-nav-overlay__divider"></div>
+        <div class="global-nav-overlay__body">
+          <div v-if="searchQuery" class="global-nav-search-results">
+            <article
+              v-for="group in groupedSearchResults"
+              :key="group.key"
+              class="global-nav-search-group"
+            >
+              <div class="global-nav-search-group__header">
+                <strong>{{ group.label }}</strong>
+                <span>{{ group.items.length }} 条</span>
+              </div>
+              <ul class="global-nav-search-list">
+                <li v-for="item in group.items" :key="item.link">
+                  <a :href="resolveLink(item.link)" @click.prevent="skipLink(item.link)">
+                    <span>{{ item.text }}</span>
+                    <small>{{ item.section }}</small>
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <p v-if="!groupedSearchResults.length" class="global-nav-search-empty">没有匹配的导航。</p>
+          </div>
 
-        <template v-if="hasGroup">
-          <section v-for="group in groupList" :key="group.key || 'default'" class="global-nav-section">
-            <div class="global-nav-section__header">
-              <span v-if="group.title" class="global-nav-section__tag">{{ group.title }}</span>
-              <p class="global-nav-section__meta">{{ group.children.length }} 个子类</p>
+          <template v-else>
+            <div class="global-nav-overview">
+              <a
+                v-for="item in rootList"
+                :key="item.key"
+                class="global-nav-overview__card"
+                :href="resolveLink(item.link || `${item.key}/index`)"
+                @click.prevent="skipLink(item.link || `${item.key}/index`)"
+              >
+                <span class="global-nav-overview__eyebrow">{{ getSectionMeta(item.key).eyebrow }}</span>
+                <strong>{{ item.text }}</strong>
+                <p>{{ getSectionMeta(item.key).description }}</p>
+                <span class="global-nav-overview__meta">{{ getSectionCount(item.key) }} 个专题入口</span>
+              </a>
             </div>
 
-            <div class="global-nav-section__grid">
-              <article v-for="(item, idx) in group.children" :key="idx" class="global-nav-item">
+            <div v-if="endList.length" class="global-nav-overlay__divider"></div>
+
+            <template v-if="hasGroup">
+              <section v-for="group in groupList" :key="group.key || 'default'" class="global-nav-section">
+                <div class="global-nav-section__header">
+                  <span v-if="group.title" class="global-nav-section__tag">{{ group.title }}</span>
+                  <p class="global-nav-section__meta">{{ group.children.length }} 个子类</p>
+                </div>
+
+                <div class="global-nav-section__grid">
+                  <article v-for="(item, idx) in group.children" :key="idx" class="global-nav-item">
+                    <div class="global-nav-item__header">
+                      <h3>{{ item.text }}</h3>
+                      <span>{{ item.items.length }} 篇</span>
+                    </div>
+
+                    <ul class="global-nav-links">
+                      <li v-for="it in getVisibleItems(item)" :key="it.link">
+                        <a :href="resolveLink(it.link)" @click.prevent="skipLink(it.link)">
+                          <span>{{ it.text }}</span>
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      </li>
+                    </ul>
+
+                    <button
+                      v-if="item.items.length > DEFAULT_VISIBLE_COUNT"
+                      class="global-nav-item__toggle"
+                      type="button"
+                      @click="toggleItem(item)"
+                    >
+                      {{ isExpanded(item) ? "收起" : `展开剩余 ${item.items.length - DEFAULT_VISIBLE_COUNT} 项` }}
+                    </button>
+                  </article>
+                </div>
+              </section>
+            </template>
+
+            <div v-else-if="endList.length" class="global-nav-section__grid">
+              <article v-for="(item, idx) in endList" :key="idx" class="global-nav-item">
                 <div class="global-nav-item__header">
                   <h3>{{ item.text }}</h3>
                   <span>{{ item.items.length }} 篇</span>
@@ -256,34 +372,7 @@ onMounted(async () => {
                 </button>
               </article>
             </div>
-          </section>
-        </template>
-
-        <div v-else-if="endList.length" class="global-nav-section__grid">
-          <article v-for="(item, idx) in endList" :key="idx" class="global-nav-item">
-            <div class="global-nav-item__header">
-              <h3>{{ item.text }}</h3>
-              <span>{{ item.items.length }} 篇</span>
-            </div>
-
-            <ul class="global-nav-links">
-              <li v-for="it in getVisibleItems(item)" :key="it.link">
-                <a :href="resolveLink(it.link)" @click.prevent="skipLink(it.link)">
-                  <span>{{ it.text }}</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </li>
-            </ul>
-
-            <button
-              v-if="item.items.length > DEFAULT_VISIBLE_COUNT"
-              class="global-nav-item__toggle"
-              type="button"
-              @click="toggleItem(item)"
-            >
-              {{ isExpanded(item) ? "收起" : `展开剩余 ${item.items.length - DEFAULT_VISIBLE_COUNT} 项` }}
-            </button>
-          </article>
+          </template>
         </div>
       </div>
     </section>
@@ -298,7 +387,7 @@ onMounted(async () => {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 72px 20px 20px;
+  padding: 52px 20px 20px;
   background: color-mix(in srgb, var(--vp-c-bg) 74%, transparent);
   backdrop-filter: blur(8px);
 }
@@ -306,8 +395,9 @@ onMounted(async () => {
 .global-nav-overlay__panel {
   width: min(1120px, 100%);
   max-height: calc(100vh - 92px);
-  overflow: auto;
-  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 10%, var(--vp-c-divider));
   border-radius: 28px;
   background: var(--vp-c-bg);
@@ -319,7 +409,8 @@ onMounted(async () => {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
+  padding: 24px 24px 0;
+  margin-bottom: 16px;
 }
 
 .global-nav-overlay__eyebrow {
@@ -352,6 +443,105 @@ onMounted(async () => {
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
   cursor: pointer;
+}
+
+.global-nav-overlay__toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 14px 24px 18px;
+  background: color-mix(in srgb, var(--vp-c-bg) 94%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--vp-c-divider-light);
+}
+
+.global-nav-overlay__search {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.global-nav-overlay__search span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+
+.global-nav-overlay__search input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 14%, var(--vp-c-divider));
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+}
+
+.global-nav-overlay__search-meta {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  color: var(--vp-c-text-3);
+  white-space: nowrap;
+}
+
+.global-nav-overlay__body {
+  overflow: auto;
+  padding: 0 24px 24px;
+}
+
+.global-nav-search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.global-nav-search-group {
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 10%, var(--vp-c-divider));
+  border-radius: 20px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 90%, var(--vp-c-brand-soft) 10%), var(--vp-c-bg));
+}
+
+.global-nav-search-group__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.global-nav-search-group__header span,
+.global-nav-search-list small,
+.global-nav-search-empty {
+  color: var(--vp-c-text-3);
+}
+
+.global-nav-search-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.global-nav-search-list li + li {
+  margin-top: 8px;
+}
+
+.global-nav-search-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .global-nav-overview,
@@ -477,19 +667,33 @@ onMounted(async () => {
 
 @media (max-width: 959px) {
   .global-nav-overlay {
-    padding: 56px 12px 12px;
+    padding: 40px 12px 12px;
   }
 
   .global-nav-overlay__panel {
-    padding: 16px;
     border-radius: 20px;
   }
 
   .global-nav-overlay__header,
+  .global-nav-overlay__toolbar,
   .global-nav-section__header,
   .global-nav-item__header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .global-nav-overlay__header {
+    padding: 16px 16px 0;
+  }
+
+  .global-nav-overlay__toolbar {
+    top: 0;
+    margin: 0;
+    padding: 12px 16px 16px;
+  }
+
+  .global-nav-overlay__body {
+    padding: 0 16px 16px;
   }
 }
 </style>

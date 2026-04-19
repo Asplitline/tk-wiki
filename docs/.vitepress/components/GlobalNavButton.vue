@@ -9,7 +9,12 @@ const { open } = useGlobalNav()
 </script>
 
 <template>
-  <button class="global-nav-button" :class="{ mobile }" type="button" @click="open()">
+  <button
+    class="global-nav-button"
+    :class="{ mobile }"
+    type="button"
+    @click.prevent.stop="open()"
+  >
     <span class="global-nav-button__eyebrow">导航</span>
     <span class="global-nav-button__text">{{ mobile ? '打开导航面板' : '总导航' }}</span>
   </button>
