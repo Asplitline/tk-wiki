@@ -23,28 +23,28 @@ features:
       class: feature-icon
     title: JavaScript
     details: 前端三件套之 JavaScript。
-    link: /pages/js/
+    link: /pages/base/js/index
     linkText: 前往
   - icon:
       src: /icon/ts.svg
       class: feature-icon
     title: TypeScript
     details: JavaScript超集。
-    link: /pages/ts/
+    link: /pages/advance/ts-base/index
     linkText: 前往
   - icon:
       src: /icon/vue.svg
       class: feature-icon
     title: Vue
     details: Vue从基础到实战。
-    link: /pages/vue2/
+    link: /pages/advance/vue3-guide/index
     linkText: 前往
   - icon:
       src: /icon/devops.svg
       class: feature-icon
     title: Devops
     details: Development、Operations。
-    link: /pages/devops/
+    link: /pages/common/deploy/index
     linkText: 前往
   
 ---
