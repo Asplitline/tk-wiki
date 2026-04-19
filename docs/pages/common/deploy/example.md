@@ -73,7 +73,7 @@ pm2 官网：[https://pm2.keymetrics.io/](https://pm2.keymetrics.io/)
 ### 配置 Repository secrets
 
 port 端口默认 22
-<img src="./example.assets/1653816442941-1e0c3957-0f1c-4d17-821f-6880e7b8ea40.png" alt="image.png" style="zoom: 80%;" />
+<img src="https://fl.aiyuanzi.cn/blog/1653816442941-1e0c3957-0f1c-4d17-821f-6880e7b8ea40.png" alt="image.png" style="zoom: 80%;" />
 
 ### 配置 workflows
 
@@ -154,7 +154,7 @@ jobs:
 
 步骤：`setting -> Developer settings -> Tokens (classic) -> Generate new token -> Generate new token (classic)`。
 
-![image-20230413235112008](example.assets/image-20230413235112008.png)
+![image-20230413235112008](https://fl.aiyuanzi.cn/blog/image-20230413235112008.png)
 
 按顺序操作后，会进入生成 token 页面。
 
@@ -162,7 +162,7 @@ expiration：到期时间。怕麻烦直接选无期限（不建议）。
 
 Select scopes：token 所具有权限。至少选择 `repo` 和 `workflow`，其他看情况。
 
-<img src="./example.assets/image-20230413235432195.png" alt="image-20230413235432195" style="zoom: 80%;" />
+<img src="https://fl.aiyuanzi.cn/blog/image-20230413235432195.png" alt="image-20230413235432195" style="zoom: 80%;" />
 
 ### 第二步：使用 token
 
@@ -170,13 +170,13 @@ Select scopes：token 所具有权限。至少选择 `repo` 和 `workflow`，其
 
 步骤：`Settings -> Actions -> New repository secret`
 
-![image-20230414000210957](example.assets/image-20230414000210957.png)
+![image-20230414000210957](https://fl.aiyuanzi.cn/blog/image-20230414000210957.png)
 
 新建 `WIKI_TOKEN` ，并将第一步生成的 token 复制到此处。
 
 > WIKI_TOKEN，名称随意，但要和后面 deploy.yml 中对应。
 
-<img src="./example.assets/image-20230414000304293.png" alt="image-20230414000304293" style="zoom: 67%;" />
+<img src="https://fl.aiyuanzi.cn/blog/image-20230414000304293.png" alt="image-20230414000304293" style="zoom: 67%;" />
 
 ### 第三步：在项目中新建部署配置
 
@@ -215,7 +215,7 @@ jobs:
 
 配置完成后 推送 `master` 分支代码到仓库。出现 gh-pages 分支，说明没问题。
 
-![image-20230414001428137](example.assets/image-20230414001428137.png)
+![image-20230414001428137](https://fl.aiyuanzi.cn/blog/image-20230414001428137.png)
 
 ### 第四步：开启 git pages
 
@@ -223,7 +223,7 @@ jobs:
 
 步骤：`Settings -> Pages -> Branch 切换为 gh-pages`
 
-![image-20230414001544545](example.assets/image-20230414001544545.png)
+![image-20230414001544545](https://fl.aiyuanzi.cn/blog/image-20230414001544545.png)
 
 成功后通过 https://asplitline.github.io/wiki-template/ 进行访问。
 
@@ -237,9 +237,9 @@ jobs:
 
 `域名注册 -> 我的域名 -> 找到对应域名（tk-292.xyz）进行解析操作`
 
-![image-20230414003739497](example.assets/image-20230414003739497.png)
+![image-20230414003739497](https://fl.aiyuanzi.cn/blog/image-20230414003739497.png)
 
-![image-20230414002237284](example.assets/image-20230414002237284.png)
+![image-20230414002237284](https://fl.aiyuanzi.cn/blog/image-20230414002237284.png)
 
 #### 添加 `CNAME` 记录值
 
@@ -255,9 +255,9 @@ jobs:
 
 `Settings -> Pages -> Add a domain`
 
-![image-20230414002720730](example.assets/image-20230414002720730.png)
+![image-20230414002720730](https://fl.aiyuanzi.cn/blog/image-20230414002720730.png)
 
-<img src="./example.assets/image-20230414003156164.png" alt="image-20230414003156164" style="zoom: 80%;" /><img src="./example.assets/image-20230414003038880.png" alt="image-20230414003038880" style="zoom: 80%;" />
+<img src="https://fl.aiyuanzi.cn/blog/image-20230414003156164.png" alt="image-20230414003156164" style="zoom: 80%;" /><img src="https://fl.aiyuanzi.cn/blog/image-20230414003038880.png" alt="image-20230414003038880" style="zoom: 80%;" />
 
 按上图进行操作后，将获得所需 主机记录 和 记录值
 
@@ -269,15 +269,15 @@ jobs:
 
 验证通过后如下图
 
-![image-20230414003257179](example.assets/image-20230414003257179.png)
+![image-20230414003257179](https://fl.aiyuanzi.cn/blog/image-20230414003257179.png)
 
 #### 添加域名解析
 
 回到项目下，将域名填入 `Custom domain`
 
-![image-20230414003502085](example.assets/image-20230414003502085.png)
+![image-20230414003502085](https://fl.aiyuanzi.cn/blog/image-20230414003502085.png)
 
-解析无错后，可以通过 https://wiki.tk-292.xyz/ 进行访问。
+解析无错后，可以通过 https://wiki.aiyuanzi.cn/ 进行访问。
 
 > 建议勾选 Enfore HTTPS 选项
 
@@ -290,7 +290,7 @@ jobs:
 方法一：添加 CNAME 文件：在 `public` 目录下(`docs/public/CNAME`)下添加 `CNAME` 文件，内容如下
 
 ```
-wiki.tk-292.xyz
+wiki.aiyuanzi.cn
 ```
 
 方法二：`在 deploy.yml` 新增 `cname` 字段 
@@ -300,7 +300,7 @@ wiki.tk-292.xyz
         with:
           github_token: ${{ secrets.WIKI_TOKEN }}
           publish_dir: docs/.vitepress/dist
-          cname: wiki.tk-292.xyz # if wanna deploy to custom domain
+          cname: wiki.aiyuanzi.cn # if wanna deploy to custom domain
 ```
 
 

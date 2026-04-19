@@ -840,6 +840,10 @@
 					"text": "部署实战",
 					"link": "/pages/common/deploy/example",
 					"order": 3
+				},
+				{
+					"text": "-/-",
+					"link": "/pages/common/deploy/.DS_Store"
 				}
 			],
 			"order": 3
@@ -854,6 +858,16 @@
 				}
 			],
 			"order": 4
+		},
+		{
+			"text": "前端通识",
+			"collapsible": true,
+			"items": [
+				{
+					"text": "-/-",
+					"link": "/pages/common/.DS_Store"
+				}
+			]
 		}
 	],
 	"/pages/custom": [

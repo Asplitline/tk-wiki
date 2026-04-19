@@ -154,7 +154,7 @@ ssh-keygen -t rsa -b 4096 -C "<comment-info>"
 
 2. 将公钥添加至仓库 ssh key 中
 
-![image-20230508223941110](config.assets/image-20230508223941110.png)
+![image-20230508223941110](https://fl.aiyuanzi.cn/blog/image-20230508223941110.png)
 
 3. 在 `.ssh/config` 文件下添加如下信息。如果没有config文件，新建一个。
 
@@ -225,7 +225,7 @@ git config --global core.excludesfile ~/.gitignore
 
 修改 `计算机\HKEY_CURRENT_USER\Console\D:_git_Git_usr_bin_bash.exe`中 codePage 为 十进制 65001
 
-![image-20221031113553307](config.assets/image-20221031113553307.png)
+![image-20221031113553307](https://fl.aiyuanzi.cn/blog/image-20221031113553307.png)
 
 
 
@@ -830,7 +830,7 @@ upstream/master  # 同步后上游仓库分支
 
 进入 [www.ipaddress.com](https://link.juejin.cn/?target=https%3A%2F%2Fsites.ipaddress.com%2Fraw.githubusercontent.com%2F) 网站，在打开的网站中将 `raw.githubusercontent.com` 复制到查询栏中进行搜索，可以看到域名对应的IP地址信息：
 
-![image-20240625225302257](./config.assets/image-20240625225302257.png)
+![image-20240625225302257](https://fl.aiyuanzi.cn/blog/image-20240625225302257.png)
 
 在终端中输入以下命令来打开hosts文件以进行编辑：
 

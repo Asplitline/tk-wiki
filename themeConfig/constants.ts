@@ -4,7 +4,7 @@ export const pageRoot = "/pages";
 
 /* meta */
 export const github = "https://github.com/Asplitline/tk-wiki";
-export const site = "https://wiki.tk-292.xyz";
+export const site = "https://wiki.aiyuanzi.cn";
 export const name = "tk-wiki";
 export const keywords =
   "tk-wiki、wiki、编程学习、vue、react、npm、github、html、css、javascript、";

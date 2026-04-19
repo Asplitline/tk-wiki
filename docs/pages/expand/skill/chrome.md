@@ -11,12 +11,30 @@ order: 4
 document.body.contentEditable = true
 ```
 
+```js
+javascript:(function(){ document.body.contentEditable = document.body.contentEditable === 'false' ? true : false})()
+```
+
+```js
+document.designMode = 'on';
+```
+
+```
+javascript:(function(){ document.designMode = document.designMode === "on" ? "off" : "on"})()
+```
+
+> 推荐使用 designMode ，有时contentEditable切换时会导致布局错位
+
 ## 调试
 
 ```js
 setTimeout(() => {
   debugger
 }, 2000)
+```
+
+```js
+javascript:(function(){setTimeout(() => {  debugger}, 2000)})()
 ```
 
 ## 获取节点信息
@@ -75,3 +93,18 @@ console.log('DOM信息', obj)
     "最大子元素个数": 80
 }
 ```
+
+
+
+## 显示页面轮廓
+
+```js
+  document.querySelectorAll("*").forEach(item => {
+    item.style.outline = hasOutline ? "none" : "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);
+  });
+```
+
+```js
+javascript: (function () {    if (typeof hasOutline == "undefined") hasOutline = false;  document.querySelectorAll("*").forEach(item => {    item.style.outline = hasOutline ? "none" : "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);  });  hasOutline = !hasOutline;})();
+```
+

@@ -1,6 +1,6 @@
 {
   "index_name": "wiki",
-  "start_urls": ["https://wiki.tk-292.xyz/pages/"],
+  "start_urls": ["https://wiki.aiyuanzi.cn/pages/"],
   "rateLimit": 8,
   "maxDepth": 10,
   "selectors": {
